@@ -1,0 +1,4 @@
+D:\工作目录\yny_003\文档\bin\Release\文档.dll
+D:\工作目录\yny_003\文档\bin\Release\文档.pdb
+D:\工作目录\yny_003\文档\obj\Release\文档.dll
+D:\工作目录\yny_003\文档\obj\Release\文档.pdb

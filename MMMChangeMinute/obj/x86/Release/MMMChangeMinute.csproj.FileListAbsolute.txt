@@ -1,0 +1,5 @@
+D:\工作目录\yny_003\MMMChangeMinute\bin\Release\MMMChangeMinute.exe.config
+D:\工作目录\yny_003\MMMChangeMinute\bin\Release\MMMChangeMinute.exe
+D:\工作目录\yny_003\MMMChangeMinute\bin\Release\MMMChangeMinute.pdb
+D:\工作目录\yny_003\MMMChangeMinute\obj\x86\Release\MMMChangeMinute.exe
+D:\工作目录\yny_003\MMMChangeMinute\obj\x86\Release\MMMChangeMinute.pdb

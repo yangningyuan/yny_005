@@ -1,0 +1,6 @@
+D:\工作目录\yny_003\MMMChangeDay\bin\Release\MMMChangeDay.exe.config
+D:\工作目录\yny_003\MMMChangeDay\bin\Release\MMMChangeDay.exe
+D:\工作目录\yny_003\MMMChangeDay\bin\Release\MMMChangeDay.pdb
+D:\工作目录\yny_003\MMMChangeDay\obj\x86\Release\MMMChangeDay.csprojResolveAssemblyReference.cache
+D:\工作目录\yny_003\MMMChangeDay\obj\x86\Release\MMMChangeDay.exe
+D:\工作目录\yny_003\MMMChangeDay\obj\x86\Release\MMMChangeDay.pdb
