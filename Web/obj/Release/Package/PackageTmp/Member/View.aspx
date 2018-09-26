@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="View.aspx.cs" Inherits="yny_003.Web.Member.View" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="View.aspx.cs" Inherits="yny_005.Web.Member.View" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -141,7 +141,7 @@
                     { %>
                 <tr>
                     <td align="right">
-                        <%=yny_003.BLL.Reward.List["MHB"].RewardName %>:
+                        <%=yny_005.BLL.Reward.List["MHB"].RewardName %>:
                     </td>
                     <td>
                         <%=TModel.MConfig.MJJ.ToFixedString()%>
@@ -149,7 +149,7 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        <%=yny_003.BLL.Reward.List["MJB"].RewardName %>:
+                        <%=yny_005.BLL.Reward.List["MJB"].RewardName %>:
                     </td>
                     <td>
                         <%=TModel.MConfig.MJB.ToFixedString()%>
@@ -157,7 +157,7 @@
                 </tr>
                 <%--<tr>
                     <td align="right">
-                        <%=yny_003.BLL.Reward.List["MGP"].RewardName %>:
+                        <%=yny_005.BLL.Reward.List["MGP"].RewardName %>:
                     </td>
                     <td>
                         <%=TModel.MConfig.MGP.ToFixedString()%>
@@ -165,7 +165,7 @@
                 </tr>--%>
                 <%--<tr>
                     <td align="right">
-                        <%=yny_003.BLL.Reward.List["MCW"].RewardName %>:
+                        <%=yny_005.BLL.Reward.List["MCW"].RewardName %>:
                     </td>
                     <td>
                         <%=TModel.MConfig.MCW.ToFixedString()%>

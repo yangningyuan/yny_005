@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModifyPwd.aspx.cs" Inherits="yny_003.Web.SecurityCenter.ModifyPwd"
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModifyPwd.aspx.cs" Inherits="yny_005.Web.SecurityCenter.ModifyPwd"
     EnableEventValidation="false" %>
 
 <html>

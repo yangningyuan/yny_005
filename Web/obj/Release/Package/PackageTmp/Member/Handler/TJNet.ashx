@@ -1,1 +1,1 @@
-﻿<%@ WebHandler Language="C#" CodeBehind="TJNet.ashx.cs" Class="yny_003.Web.Handler.TJNet" %>
+﻿<%@ WebHandler Language="C#" CodeBehind="TJNet.ashx.cs" Class="yny_005.Web.Handler.TJNet" %>

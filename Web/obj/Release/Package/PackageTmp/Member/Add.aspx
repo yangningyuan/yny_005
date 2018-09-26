@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Add.aspx.cs" Inherits="yny_003.Web.Member.Add"
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Add.aspx.cs" Inherits="yny_005.Web.Member.Add"
     EnableEventValidation="false" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -72,7 +72,7 @@
                 <table cellpadding="0" cellspacing="0">
                    
                      <tr>
-                        <td width="30%" align="right">员工账号:
+                        <td width="30%" align="right">用户名:
                         </td>
                         <td>
                             <input id="txtMID" name="txtMID" runat="server" class="normal_input" type="text" maxlength="20" /><span
@@ -80,60 +80,65 @@
                         </td>
                     </tr>
                          <tr>
-                        <td align="right">员工姓名:
+                        <td align="right">实验室单位名称:
                         </td>
                         <td>
                             <input id="txtMName" name="txtMName" class="normal_input" type="text" maxlength="30" />
                         </td>
                     </tr>
-                    <tr>
-                        <td align="right">手机号码:
-                        </td>
-                        <td>
-                            <input id="txtTel" name="txtTel" class="normal_input" type="text" maxlength="11" />
-                            <input type="text" id="txtTelCode" name="txtTelCode" placeholder="请输入验证码" value="" style="width: 80px; display:none;" />
-                            <input type="button" value="获取验证码" onclick="sendTelCode()" class="btn btn-success"  style="display:none;"/>
-                        </td>
-                    </tr>
+                   
                    <tr>
-                        <td align="right">身份证号码:
+                        <td align="right">检验检测机构登记证件及号码:
                         </td>
                         <td>
-                            <input id="txtNumID" name="txtNumID" class="normal_input" type="text" maxlength="18" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right">性别:
-                        </td>
-                        <td>
-                            <input type="radio" name="radioSex" checked="checked" value="1">男<input type="radio" name="radioSex" value="0">女
-                        </td>
-                    </tr>
-                      <tr>
-                        <td align="right">职务:
-                        </td>
-                        <td>
-                          <select id="txtRole" name="txtRole"  onchange="gradeChange()">
-                                <option value="">职务类型</option>
-                                <%=RoleListStr %>
+                            <input id="txtNumID" name="txtNumID" class="normal_input" type="text" maxlength="18" /> 
+                            <select id="" name=""  onchange="">
+                                <option value="">检测机构登记证书</option>
+                              <option value="">个人身份证</option>
+                                <option value="">其他</option>
                             </select>
                         </td>
                     </tr>
-                      
-                    <tr style="display:none;" id="strzwtype">
-                        <td align="right">职务类型:
-                        </td>
-                        <td>
-                            <input type="radio" name="ZWType" value="1">主司机<input type="radio" name="ZWType" value="2">副司机<input type="radio" name="ZWType" value="3">押运员
-                        </td>
-                    </tr>
-                      <tr style="display:none;" id="strzwadd">
-                        <td align="right">从业资格证书:
+                     <tr>
+                        <td align="right">地址邮编:
                         </td>
                         <td>
                             <input id="txtAddress" name="txtAddress" class="normal_input" type="text" maxlength="18" />
                         </td>
                     </tr>
+                        <tr>
+                        <td align="right">联系人:
+                        </td>
+                        <td>
+                            <input id="txtTelName" name="txtTelName" class="normal_input" type="text" maxlength="11" />
+                            
+                        </td>
+                    </tr>
+                     <tr>
+                        <td align="right">电话:
+                        </td>
+                        <td>
+                            <input id="txtTel" name="txtTel" class="normal_input" type="text" maxlength="11" />
+                            
+                        </td>
+                    </tr>
+                  <tr>
+                        <td align="right">传真:
+                        </td>
+                        <td>
+                            <input id="txtCHUANZHEN" name="txtCHUANZHEN" class="normal_input" type="text" maxlength="11" />
+                            
+                        </td>
+                    </tr>
+                  <tr>
+                        <td align="right">电子邮件:
+                        </td>
+                        <td>
+                            <input id="txtEmail" name="txtEmail" class="normal_input" type="text" maxlength="11" />
+                            
+                        </td>
+                    </tr>
+                 
                     <tr>
                         <td align="right">登录密码:
                         </td>

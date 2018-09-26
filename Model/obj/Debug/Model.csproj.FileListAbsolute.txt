@@ -142,3 +142,15 @@ D:\工作目录\yny_005\Model\bin\Debug\DBUtility.pdb
 D:\工作目录\yny_005\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 D:\工作目录\yny_005\Model\obj\Debug\yny_005.Model.dll
 D:\工作目录\yny_005\Model\obj\Debug\yny_005.Model.pdb
+D:\工作目录\yny_005\yny_005\Model\bin\Debug\yny_005.Model.dll
+D:\工作目录\yny_005\yny_005\Model\bin\Debug\yny_005.Model.pdb
+D:\工作目录\yny_005\yny_005\Model\bin\Debug\CommonModel.dll
+D:\工作目录\yny_005\yny_005\Model\bin\Debug\DBUtility.dll
+D:\工作目录\yny_005\yny_005\Model\bin\Debug\IBatisNet.DataMapper.dll
+D:\工作目录\yny_005\yny_005\Model\bin\Debug\IBatisNet.Common.dll
+D:\工作目录\yny_005\yny_005\Model\bin\Debug\MySql.Data.dll
+D:\工作目录\yny_005\yny_005\Model\bin\Debug\CommonModel.pdb
+D:\工作目录\yny_005\yny_005\Model\bin\Debug\DBUtility.pdb
+D:\工作目录\yny_005\yny_005\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\工作目录\yny_005\yny_005\Model\obj\Debug\yny_005.Model.dll
+D:\工作目录\yny_005\yny_005\Model\obj\Debug\yny_005.Model.pdb

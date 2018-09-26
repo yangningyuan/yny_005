@@ -1,1 +1,1 @@
-﻿<%@ WebHandler Language="C#" CodeBehind="CategoryList.ashx.cs" Class="yny_003.Web.Shop.Handler.CategoryList" %>
+﻿<%@ WebHandler Language="C#" CodeBehind="CategoryList.ashx.cs" Class="yny_005.Web.Shop.Handler.CategoryList" %>

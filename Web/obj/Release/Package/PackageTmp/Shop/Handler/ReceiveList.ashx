@@ -1,1 +1,1 @@
-﻿<%@ WebHandler Language="C#" CodeBehind="ReceiveList.ashx.cs" Class="yny_003.Web.Shop.Handler.ReceiveList" %>
+﻿<%@ WebHandler Language="C#" CodeBehind="ReceiveList.ashx.cs" Class="yny_005.Web.Shop.Handler.ReceiveList" %>

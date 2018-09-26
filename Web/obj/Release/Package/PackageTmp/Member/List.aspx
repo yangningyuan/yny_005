@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="yny_003.Web.Member.List" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="yny_005.Web.Member.List" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -71,7 +71,7 @@
             </div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
-                <input type="button" value="从业人员信息管理报表" class="btn btn-success" onclick="exportExcel()" />
+                <%--<input type="button" value="从业人员信息管理报表" class="btn btn-success" onclick="exportExcel()" />--%>
                 <input name="txtKey" data-name="txtKey" id="mKey" placeholder="账号" value="账号"
                     onfocus="if (value =='账号'){value =''}" onblur="if (value ==''){value='账号'}"
                     type="text" class="sinput" style="width: 120px;" />
@@ -92,13 +92,13 @@
                     </th>
                     <th>账号
                     </th>
-                    <th>姓名
+                    <th>实验室单位名称
                     </th>
                     <th>人员类型
                     </th>
                  <th>联系电话
                     </th>
-                    <th>从业证书
+                    <th>检验检测机构登记证件及号码
                     </th>
                     <th>锁定状态
                     </th>

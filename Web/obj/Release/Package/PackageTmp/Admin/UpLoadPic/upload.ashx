@@ -1,1 +1,1 @@
-﻿<%@ WebHandler Language="C#" CodeBehind="upload.ashx.cs" Class="yny_003.Web.Admin.upload" %>
+﻿<%@ WebHandler Language="C#" CodeBehind="upload.ashx.cs" Class="yny_005.Web.Admin.upload" %>

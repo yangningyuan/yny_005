@@ -1,1 +1,1 @@
-﻿<%@ WebHandler Language="C#" CodeBehind="Regedit.ashx.cs" Class="yny_003.Web.AjaxM.Regedit" %>
+﻿<%@ WebHandler Language="C#" CodeBehind="Regedit.ashx.cs" Class="yny_005.Web.AjaxM.Regedit" %>

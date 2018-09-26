@@ -1,1 +1,1 @@
-﻿<%@ WebHandler Language="C#" CodeBehind="TJTree.ashx.cs" Class="yny_003.Web.Handler.TJTree" %>
+﻿<%@ WebHandler Language="C#" CodeBehind="TJTree.ashx.cs" Class="yny_005.Web.Handler.TJTree" %>

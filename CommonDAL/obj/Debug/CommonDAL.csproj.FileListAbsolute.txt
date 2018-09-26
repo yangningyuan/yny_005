@@ -142,3 +142,14 @@ D:\工作目录\yny_005\CommonDAL\bin\Debug\DBUtility.pdb
 D:\工作目录\yny_005\CommonDAL\obj\Debug\CommonDAL.csprojResolveAssemblyReference.cache
 D:\工作目录\yny_005\CommonDAL\obj\Debug\CommonDAL.dll
 D:\工作目录\yny_005\CommonDAL\obj\Debug\CommonDAL.pdb
+D:\工作目录\yny_005\yny_005\CommonDAL\bin\Debug\CommonDAL.dll
+D:\工作目录\yny_005\yny_005\CommonDAL\bin\Debug\CommonDAL.pdb
+D:\工作目录\yny_005\yny_005\CommonDAL\bin\Debug\CommonModel.dll
+D:\工作目录\yny_005\yny_005\CommonDAL\bin\Debug\DBUtility.dll
+D:\工作目录\yny_005\yny_005\CommonDAL\bin\Debug\IBatisNet.DataMapper.dll
+D:\工作目录\yny_005\yny_005\CommonDAL\bin\Debug\IBatisNet.Common.dll
+D:\工作目录\yny_005\yny_005\CommonDAL\bin\Debug\MySql.Data.dll
+D:\工作目录\yny_005\yny_005\CommonDAL\bin\Debug\CommonModel.pdb
+D:\工作目录\yny_005\yny_005\CommonDAL\bin\Debug\DBUtility.pdb
+D:\工作目录\yny_005\yny_005\CommonDAL\obj\Debug\CommonDAL.dll
+D:\工作目录\yny_005\yny_005\CommonDAL\obj\Debug\CommonDAL.pdb

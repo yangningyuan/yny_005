@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NoticeList.aspx.cs" Inherits="yny_003.Web.Message.NoticeList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NoticeList.aspx.cs" Inherits="yny_005.Web.Message.NoticeList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -20,9 +20,9 @@
                             已作废</a>
             </div>
             <div class="pay" onclick="UpDateByID('Message/NoticeModify.aspx?','修改公告',900,470);">
-                修改安全教育</div>
+                修改公告</div>
             <div class="pay" onclick="v5.show('Message/NoticeAdd.aspx','发布公告','url',900,470)">
-                发布安全教育</div>
+                发布公告</div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" /><input
                     id="nTitle" name="txtKey" data-name="txtKey" value="请输入标题" onfocus="if (value =='请输入标题'){value =''}"

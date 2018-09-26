@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Configuration.aspx.cs"
-    Inherits="yny_003.Web.SysManage.Configuration" EnableEventValidation="false" EnableViewState="false" %>
+    Inherits="yny_005.Web.SysManage.Configuration" EnableEventValidation="false" EnableViewState="false" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

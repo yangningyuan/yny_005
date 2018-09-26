@@ -39,3 +39,10 @@ D:\工作目录\yny_003\DBUtility\bin\Release\MySql.Data.dll
 D:\工作目录\yny_003\DBUtility\bin\Release\ThoughtWorks.QRCode.dll
 D:\工作目录\yny_003\DBUtility\obj\Release\DBUtility.dll
 D:\工作目录\yny_003\DBUtility\obj\Release\DBUtility.csprojResolveAssemblyReference.cache
+D:\工作目录\yny_005\yny_005\DBUtility\bin\Release\DBUtility.dll
+D:\工作目录\yny_005\yny_005\DBUtility\bin\Release\IBatisNet.Common.dll
+D:\工作目录\yny_005\yny_005\DBUtility\bin\Release\IBatisNet.DataMapper.dll
+D:\工作目录\yny_005\yny_005\DBUtility\bin\Release\MySql.Data.dll
+D:\工作目录\yny_005\yny_005\DBUtility\bin\Release\ThoughtWorks.QRCode.dll
+D:\工作目录\yny_005\yny_005\DBUtility\obj\Release\DBUtility.csprojResolveAssemblyReference.cache
+D:\工作目录\yny_005\yny_005\DBUtility\obj\Release\DBUtility.dll

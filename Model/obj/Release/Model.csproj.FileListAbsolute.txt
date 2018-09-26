@@ -64,3 +64,14 @@ D:\工作目录\yny_003\Model\bin\Release\CommonModel.pdb
 D:\工作目录\yny_003\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
 D:\工作目录\yny_003\Model\obj\Release\yny_003.Model.dll
 D:\工作目录\yny_003\Model\obj\Release\yny_003.Model.pdb
+D:\工作目录\yny_005\yny_005\Model\bin\Release\yny_005.Model.dll
+D:\工作目录\yny_005\yny_005\Model\bin\Release\yny_005.Model.pdb
+D:\工作目录\yny_005\yny_005\Model\bin\Release\CommonModel.dll
+D:\工作目录\yny_005\yny_005\Model\bin\Release\DBUtility.dll
+D:\工作目录\yny_005\yny_005\Model\bin\Release\IBatisNet.DataMapper.dll
+D:\工作目录\yny_005\yny_005\Model\bin\Release\IBatisNet.Common.dll
+D:\工作目录\yny_005\yny_005\Model\bin\Release\MySql.Data.dll
+D:\工作目录\yny_005\yny_005\Model\bin\Release\CommonModel.pdb
+D:\工作目录\yny_005\yny_005\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
+D:\工作目录\yny_005\yny_005\Model\obj\Release\yny_005.Model.dll
+D:\工作目录\yny_005\yny_005\Model\obj\Release\yny_005.Model.pdb

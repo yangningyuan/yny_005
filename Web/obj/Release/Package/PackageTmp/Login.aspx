@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="yny_003.Web.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="yny_005.Web.Login" %>
 
 <!DOCTYPE html>
 <html>
@@ -9,8 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Page title -->
     <title><%=WebModel.WebTitle %></title>
-    <link rel="stylesheet" href="/Admin/login/css/bootstrap.css">
-    <link rel="stylesheet" href="/Admin/login/css/style1.css">
+    <link rel="stylesheet" href="/login/css/style.css">
+    <link rel="stylesheet" href="/login/css/body.css">
+
+
     <script type="text/javascript" src="/Admin/login/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="login/js/bootstrap.min.js"></script>
     <link href="plugin/layer/skin/layer.css" rel="stylesheet" type="text/css" />
@@ -22,33 +24,20 @@
     <script type="text/javascript" src="Admin/pop/js/ajax.js"></script>
     <script type="text/javascript" src="Admin/pop/js/javascript_pop.js"></script>
     <script type="text/javascript" src="Admin/pop/js/V5-UI.js"></script>
-    <script type="text/javascript" src="Admin/pop/js/uaredirect.js"></script>
-    <script type="text/javascript">        uaredirect("/mobile/html/Login.aspx");</script>
-    <script>
-        $(function () {
-            window.location.href = "/mobile/html/login.aspx";
-        });
-    </script>
-    <!--<script type="text/javascript">
-        var defaultKye = "";
-        var GB2312Str = "<%=zhNames %>";
-        var BIG5Str = "<%=enNames %>";
-        var GBStr = GB2312Str.split('*');
-        var BIGStr = BIG5Str.split('*');
-    </script>
-    <script src="Admin/pop/js/LanguageConvert.js" type="text/javascript"></script>-->
+    <%--<script type="text/javascript" src="Admin/pop/js/uaredirect.js"></script>--%>
+   
     <script type="text/javascript">
         function Login() {
-            if ($("#txtname").val() == "") {
+            if ($("#username").val() == "") {
                 v5.error('用户名不能为空', '1', 'true');
-            } else if (pwd = $("#txtpwd").val() == "") {
+            } else if (pwd = $("#password").val() == "") {
                 v5.error('密码不能为空', '1', 'true');
             } else {
                 $.ajax({
                     type: "post",
                     url: "Login.aspx?type=login",
                     data: {
-                        txtname: $("#txtname").val(), txtpwd: $("#txtpwd").val(), checkCode: $("#checkCode").val(), href: window.location.href
+                        txtname: $("#username").val(), txtpwd: $("#password").val(), checkCode: $("#checkCode").val(), href: window.location.href
                     },
                     async: true,
                     success: function (data) {
@@ -59,10 +48,10 @@
                             case "2":
                                 v5.error('密码不正确', '1', 'true');
                                 break;
-                            case "3":
-                                v5.error('验证码错误', '1', 'true');
-                                $("#imgcode").click();
-                                break;
+                            //case "3":
+                            //    v5.error('验证码错误', '1', 'true');
+                            //    $("#imgcode").click();
+                            //    break;
                             case "-1":
                                 v5.error('限制登录', '1', 'true');
                                 break;
@@ -84,8 +73,8 @@
                 Login();
         }
         function reset() {
-            $("#txtname").val("");
-            $("#txtpwd").val("");
+            $("#username").val("");
+            $("#password").val("");
         }
         $(function () {
             if (!placeholderSupport()) {   // 判断浏览器是否支持 placeholder
@@ -109,62 +98,40 @@
         }
     </script>
 
-    <style>
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            /*background: url(/Admin/login/images/background.jpg) no-repeat;*/
-            background-size: cover;
-        }
-    </style>
+ 
 </head>
 <body onkeydown="keyLogin();">
+    <div class="container">
+	<section id="content">
+		<form  method="post" name="login" id="form1">
+			<h1>会员登录</h1>
+			<div>
+				<input type="text" placeholder="账号" required="" id="username" />
+			</div>
+			<div>
+				<input type="password" placeholder="密码" required="" id="password" />
+			</div>
+			 <div class="">
+				<span class="help-block u-errormessage" id="js-server-helpinfo">&nbsp;</span>			</div> 
+			<div>
+				<!-- <input type="submit" value="Log in" /> -->
+				<input type="button"  onclick="Login()" value="登录" class="btn btn-primary" id="js-btn-login"/>
+				<a href="#">忘记密码?</a>
+				<!-- <a href="#">Register</a> -->
+			</div>
+		</form><!-- form -->
+		 <div class="button">
+			<span class="help-block u-errormessage" id="js-server-helpinfo">&nbsp;</span>
+			<%--<a href="#">下载网盘</a>--%>	
+		</div> <!-- button -->
+	</section><!-- content -->
+</div>
+<!-- container -->
 
-<a  key ="5983ea8f2548be1170d3695c"  logo_size="124x47"  logo_type="business"  href="http://www.anquan.org 
 
- 
-
-" ><script src="//static.anquan.org/static/outer/js/aq_auth.js 
-
- 
-
-"></script></a>
-    <div class="login-container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="text-center m-b-md">
-                </div>
-                <div class="hpanel" style="opacity: 0.96;">
-                    <span class="welcome"><img src="Admin/login/images/logo.png"> </span><br>
-                    <div class="panel-body">
-                        <form method="post" name="login" id="form1">
-                            <div class="form-group">
-                                <label class="control-label" for="username">用户名</label>
-                                <input type="text" placeholder="请输入用户名"  id="txtname" name="username"  class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label" for="password">密码</label>
-                                <input type="password" placeholder="请输入密码"  id="txtpwd" name="password"  class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label" for="password">验证码</label>
-                                <div style="overflow:hidden;">
-                                    <input type="text" placeholder="请输入验证码"  id="checkCode" name="checkCode" class="form-control" style=" width:50%; float left;">
-                                    <img src="CheckCode.aspx" onclick="this.src='CheckCode.aspx?'+Math.random()" style=" float:left; margin-left:5%; width:86; height:34px;">
-                                </div>
-                            </div>
-                            <button class="btn btn-success btn-block loginbg" type="button"  onclick="Login()">登录</button>
-                            <a href="SecurityCenter/FindPwd.aspx" style=" display:block; float:left;margin-left:20px; margin-top:18px;">忘记密码？</a>
-                            <!--	<a style=" display:block; float:left; margin-top:18px; margin-left:20px;" href="#">没有帐号？立即注册</a>-->
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 text-center" style="color:#EDEDED;"> <strong><%=WebModel.WebTitle %></strong> All Right Reserved </div>
-        </div>
-    </div>
+<br><br><br><br>
+<div style="text-align:center;">
+<p>来源:More Templates <a href="javascript:void(0)" target="_blank" title=""><%=WebModel.WebTitle %></a> - </p>
+</div>
 </body>
 </html>

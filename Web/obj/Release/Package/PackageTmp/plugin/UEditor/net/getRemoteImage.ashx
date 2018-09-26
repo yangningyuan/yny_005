@@ -1,1 +1,1 @@
-﻿<%@ WebHandler Language="C#" CodeBehind="getRemoteImage.ashx.cs" Class="yny_003.Web.Ueditor.getRemoteImage" %>
+﻿<%@ WebHandler Language="C#" CodeBehind="getRemoteImage.ashx.cs" Class="yny_005.Web.Ueditor.getRemoteImage" %>
