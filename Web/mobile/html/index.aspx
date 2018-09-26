@@ -236,7 +236,7 @@
             if(isnotice2=="1")
             {
                 var isnotice= <%=isnotice%>;
-                layer.confirm('是否要进入安全教育栏目学习？', {
+                layer.confirm('是否要进入公告栏目学习？', {
                     btn : [ '是', '否' ]//按钮
                 }, function(index) {
                     layer.close(index);

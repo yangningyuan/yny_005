@@ -99,28 +99,28 @@ layui.use(['layer', 'element', 'util'], function () {
     };
 
     // 监听顶部左侧导航
-    element.on('nav(side-top-left)', function (elem) {
-        // 添加tab方法
-        window.addTab(elem);
-    });
+    //element.on('nav(side-top-left)', function (elem) {
+    //    // 添加tab方法
+    //    window.addTab(elem);
+    //});
 
     // 监听顶部右侧导航
-    element.on('nav(side-top-right)', function (elem) {
-        // 修改skin
-        if ($(this).attr('data-skin')) {
-            localStorage.skin = $(this).attr('data-skin');
-            skin();
-        } else {
-            // 添加tab方法
-            window.addTab(elem);
-        }
-    });
+    //element.on('nav(side-top-right)', function (elem) {
+    //    // 修改skin
+    //    if ($(this).attr('data-skin')) {
+    //        localStorage.skin = $(this).attr('data-skin');
+    //        skin();
+    //    } else {
+    //        // 添加tab方法
+    //        window.addTab(elem);
+    //    }
+    //});
 
     // 监听导航(side-main)点击切换页面
-    element.on('nav(side-main)', function (elem) {
-        // 添加tab方法
-        window.addTab(elem);
-    });
+    //element.on('nav(side-main)', function (elem) {
+    //    // 添加tab方法
+    //    window.addTab(elem);
+    //});
 
     // 删除选项卡
     window.delTab = function (layId) {

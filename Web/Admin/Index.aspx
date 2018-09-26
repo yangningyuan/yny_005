@@ -10,7 +10,11 @@
     <title><%=WebModel.WebTitle %></title>
      <link href="/Admin/pop/css/bootstrap.min.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="/admin/frame/layui/css/layui.css">
+    <%--<link rel="stylesheet" href="/admin/frame/layui/css/layui.css">--%>
+
+    <link href="/plugin/layui/css/layui.css" rel="stylesheet" />
+
+
     <link rel="stylesheet" href="/admin/frame/static/css/style.css">
     <link rel="icon" href="/admin/frame/static/image/code.png">
     
@@ -25,7 +29,7 @@
         <div class="layui-header my-header">
             <a href="index.html">
                 <!--<img class="my-header-logo" src="" alt="logo">-->
-                <div class="my-header-logo">后台模板 HTML</div>
+                <div class="my-header-logo"><%=WebModel.WebTitle %> HTML</div>
             </a>
             <div class="my-header-btn">
                 <button class="layui-btn layui-btn-small btn-nav"><i class="layui-icon">&#xe65f;</i></button>
@@ -59,7 +63,7 @@
                         <img src="/admin/frame/static/image/code.png" alt="logo">
                         <%=WebModel.WebTitle %> </a>
                     <dl class="layui-nav-child">
-                        <dd><a href="/"><i class="layui-icon">&#x1006;</i>退出</a></dd>
+                        <dd><a href="/SysManage/out.aspx"><i class="layui-icon">&#x1006;</i>退出</a></dd>
                     </dl>
                 </li>
             </ul>
@@ -188,30 +192,37 @@
                             </div>
 
                             <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
-                                <div class="layui-collapse">
+                                 <div class="layui-collapse">
                                     <div class="layui-colla-item">
-                                        <h2 class="layui-colla-title">进度条</h2>
+                                        <h2 class="layui-colla-title">表格</h2>
                                         <div class="layui-colla-content layui-show">
 
-                                            <div class="layui-progress">
-                                                <div class="layui-progress-bar" lay-percent="10%"></div>
-                                            </div>
-                                            <br />
-                                            <div class="layui-progress" lay-showpercent="yes">
-                                                <div class="layui-progress-bar layui-bg-red" lay-percent="30%"></div>
-                                            </div>
-                                            <br />
-                                            <div class="layui-progress layui-progress-big">
-                                                <div class="layui-progress-bar" lay-percent="20%"></div>
-                                            </div>
-                                            <br />
-                                            <div class="layui-progress layui-progress-big">
-                                                <div class="layui-progress-bar layui-bg-orange" lay-percent="50%"></div>
-                                            </div>
-                                            <br />
-                                            <div class="layui-progress layui-progress-big" lay-showpercent="true">
-                                                <div class="layui-progress-bar layui-bg-blue" lay-percent="80%"></div>
-                                            </div>
+                                            <table class="layui-table">
+                                                <colgroup>
+                                                    <col width="150">
+                                                    <col width="200">
+                                                    <col>
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th>昵称</th>
+                                                        <th>加入时间</th>
+                                                        <th>签名</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>贤心</td>
+                                                        <td>2016-11-29</td>
+                                                        <td>人生就像是一场修行</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>许闲心</td>
+                                                        <td>2016-11-28</td>
+                                                        <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
 
                                         </div>
                                     </div>
@@ -440,80 +451,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4">
-                                <div class="layui-collapse">
-                                    <div class="layui-colla-item">
-                                        <h2 class="layui-colla-title">表单</h2>
-                                        <div class="layui-colla-content layui-show">
-
-                                            <form class="layui-form max-auto" action="">
-                                                <div class="layui-form-item">
-                                                    <label class="layui-form-label">输入框</label>
-                                                    <div class="layui-input-block">
-                                                        <input type="text" name="title" required lay-verify="required" placeholder="请输入标题"
-                                                            autocomplete="off" class="layui-input">
-                                                    </div>
-                                                </div>
-                                                <div class="layui-form-item">
-                                                    <label class="layui-form-label">密码框</label>
-                                                    <div class="layui-input-inline">
-                                                        <input type="password" name="password" required lay-verify="required"
-                                                            placeholder="请输入密码" autocomplete="off" class="layui-input">
-                                                    </div>
-                                                    <div class="layui-form-mid layui-word-aux">辅助文字</div>
-                                                </div>
-                                                <div class="layui-form-item">
-                                                    <label class="layui-form-label">选择框</label>
-                                                    <div class="layui-input-block">
-                                                        <select name="city" lay-verify="required">
-                                                            <option value=""></option>
-                                                            <option value="0">北京</option>
-                                                            <option value="1">上海</option>
-                                                            <option value="2">广州</option>
-                                                            <option value="3">深圳</option>
-                                                            <option value="4">杭州</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="layui-form-item">
-                                                    <label class="layui-form-label">复选框</label>
-                                                    <div class="layui-input-block">
-                                                        <input type="checkbox" name="like[write]" title="写作">
-                                                        <input type="checkbox" name="like[read]" title="阅读" checked>
-                                                        <input type="checkbox" name="like[dai]" title="发呆">
-                                                    </div>
-                                                </div>
-                                                <div class="layui-form-item">
-                                                    <label class="layui-form-label">开关</label>
-                                                    <div class="layui-input-block">
-                                                        <input type="checkbox" name="switch" lay-skin="switch">
-                                                    </div>
-                                                </div>
-                                                <div class="layui-form-item">
-                                                    <label class="layui-form-label">单选框</label>
-                                                    <div class="layui-input-block">
-                                                        <input type="radio" name="sex" value="男" title="男">
-                                                        <input type="radio" name="sex" value="女" title="女" checked>
-                                                    </div>
-                                                </div>
-                                                <div class="layui-form-item layui-form-text">
-                                                    <label class="layui-form-label">文本域</label>
-                                                    <div class="layui-input-block">
-                                                        <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="layui-form-item">
-                                                    <div class="layui-input-block">
-                                                        <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
-                                                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -552,15 +490,14 @@
     <link rel="stylesheet" type="text/css" href="Admin/pop/css/pop.css" />
     <link rel="stylesheet" type="text/css" href="Admin/pop/css/V5-UI.css" />
     <link rel="stylesheet" type="text/css" href="Admin/pop/css/next_page_search.css" />
-    <%--<link rel="stylesheet" type="text/css" href="plugin/layer/skin/layer.css" />--%>
+    <link rel="stylesheet" type="text/css" href="plugin/layer/skin/layer.css" />
     <link rel="stylesheet" type="text/css" href="plugin/kindeditor/themes/default/default.css" />
     <%--<script type="text/javascript" src="plugin/layer/layer.js"></script>--%>
     <script type="text/javascript" src="Admin/pop/js/MyValide.js"></script>
     <script type="text/javascript" src="Admin/pop/js/TableToExcel.js"></script>
     <script type="text/javascript" src="Admin/pop/js/linkage.js"></script>
 
-    <%--<link href="/plugin/layui/css/layui.css" rel="stylesheet" />
-    <script src="/plugin/layui/layui.js"></script>--%>
+    <script src="/plugin/layui/layui.js"></script>
 
     <script type="text/javascript" src="Admin/pop/js/javascript_main.js"></script>
     <script type="text/javascript" src="Admin/pop/js/ajax.js"></script>
@@ -585,9 +522,9 @@
         }
     </script>
     <%--<iframe id='frameFile' name='frameFile' style='display: none;'></iframe>--%>
-    <script type="text/javascript" src="/admin/frame/layui/layui.js"></script>
+    <%--<script type="text/javascript" src="/admin/frame/layui/layui.js"></script>--%>
     <script type="text/javascript" src="/admin/frame/static/js/vip_comm.js"></script>
-    <script type="text/javascript">
+   <%-- <script type="text/javascript">
         layui.use(['layer', 'vip_nav'], function () {
 
             // 操作对象
@@ -604,7 +541,7 @@
 
 
         });
-    </script>
+    </script>--%>
 
 </body>
 </html>

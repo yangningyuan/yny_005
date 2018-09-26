@@ -1030,6 +1030,17 @@
     <Content Include="plugin\qrcode\index.html" />
     <Content Include="plugin\qrcode\jquery.min.js" />
     <Content Include="plugin\qrcode\jquery.qrcode.min.js" />
+    <Content Include="ProjectManage\AddProject.aspx" />
+    <Content Include="ProjectManage\ManageSHSignProjectList.aspx" />
+    <Content Include="ProjectManage\ManageSumSignProjectList.aspx" />
+    <Content Include="ProjectManage\ProjectList.aspx" />
+    <Content Include="ProjectManage\SampleCom.aspx" />
+    <Content Include="ProjectManage\SampleList.aspx" />
+    <Content Include="ProjectManage\SendSample.aspx" />
+    <Content Include="ProjectManage\SignProject.aspx" />
+    <Content Include="ProjectManage\SignProjectList.aspx" />
+    <Content Include="ProjectManage\ValidationResult.aspx" />
+    <Content Include="ProjectManage\ViewCertificate.aspx" />
     <Content Include="Regedit\css\bootstrap.css" />
     <Content Include="Regedit\css\style.css" />
     <Content Include="Regedit\images\bg.jpg" />
@@ -1969,6 +1980,83 @@
     </Compile>
     <Compile Include="plugin\kindeditor\asp.net\upload_json.ashx.cs">
       <DependentUpon>upload_json.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\AddProject.aspx.cs">
+      <DependentUpon>AddProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\AddProject.aspx.designer.cs">
+      <DependentUpon>AddProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\ManageSHSignProjectList.aspx.cs">
+      <DependentUpon>ManageSHSignProjectList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\ManageSHSignProjectList.aspx.designer.cs">
+      <DependentUpon>ManageSHSignProjectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\ManageSumSignProjectList.aspx.cs">
+      <DependentUpon>ManageSumSignProjectList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\ManageSumSignProjectList.aspx.designer.cs">
+      <DependentUpon>ManageSumSignProjectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\ProjectList.aspx.cs">
+      <DependentUpon>ProjectList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\ProjectList.aspx.designer.cs">
+      <DependentUpon>ProjectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\SampleCom.aspx.cs">
+      <DependentUpon>SampleCom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\SampleCom.aspx.designer.cs">
+      <DependentUpon>SampleCom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\SampleList.aspx.cs">
+      <DependentUpon>SampleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\SampleList.aspx.designer.cs">
+      <DependentUpon>SampleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\SendSample.aspx.cs">
+      <DependentUpon>SendSample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\SendSample.aspx.designer.cs">
+      <DependentUpon>SendSample.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\SignProject.aspx.cs">
+      <DependentUpon>SignProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\SignProject.aspx.designer.cs">
+      <DependentUpon>SignProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\SignProjectList.aspx.cs">
+      <DependentUpon>SignProjectList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\SignProjectList.aspx.designer.cs">
+      <DependentUpon>SignProjectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\ValidationResult.aspx.cs">
+      <DependentUpon>ValidationResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\ValidationResult.aspx.designer.cs">
+      <DependentUpon>ValidationResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\ViewCertificate.aspx.cs">
+      <DependentUpon>ViewCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\ViewCertificate.aspx.designer.cs">
+      <DependentUpon>ViewCertificate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Regedit\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
