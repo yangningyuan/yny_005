@@ -814,6 +814,14 @@
     <Content Include="plugin\qrcode\index.html" />
     <Content Include="plugin\qrcode\jquery.min.js" />
     <Content Include="plugin\qrcode\jquery.qrcode.min.js" />
+    <Content Include="plugin\uploadify\jquery.uploadify.js" />
+    <Content Include="plugin\uploadify\jquery.uploadify.min.js" />
+    <Content Include="plugin\uploadify\uploadify-cancel.png" />
+    <Content Include="plugin\uploadify\uploadify.css" />
+    <Content Include="plugin\uploadify\uploadify.swf" />
+    <Content Include="plugin\uploadify\www.jq22.com.txt" />
+    <Content Include="plugin\uploadify\__MACOSX\._Change Log.txt" />
+    <Content Include="plugin\uploadify\__MACOSX\._uploadify.swf" />
     <Content Include="ProjectManage\AddProject.aspx" />
     <Content Include="ProjectManage\ManageSHSignProjectList.aspx" />
     <Content Include="ProjectManage\ManageSumSignProjectList.aspx" />
@@ -1880,6 +1888,10 @@
     <Content Include="plugin\layui\font\iconfont.ttf" />
     <Content Include="plugin\layui\font\iconfont.woff" />
     <Content Include="Admin\UpLoadPic\FileUpload.ashx" />
+    <Content Include="plugin\uploadify\check-exists.php" />
+    <Content Include="plugin\uploadify\index.php" />
+    <Content Include="plugin\uploadify\jquery插件库.url" />
+    <Content Include="plugin\uploadify\uploadify.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />

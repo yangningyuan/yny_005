@@ -5,7 +5,7 @@
 <head id="Head1" runat="server">
     <title>项目新增</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-   <%-- <script>
+    <%-- <script>
         layui.use("upload", function () {
             layui.upload({
                 url: '/Admin/UpLoadPic/UploadImage.ashx',
@@ -22,6 +22,11 @@
         });
 
     </script>--%>
+
+    <!--引入uploadify-->
+    <script type="text/Javascript" src="/plugin/uploadify/jquery.uploadify.js"></script>
+    <link type="text/css" href="/plugin/uploadify/uploadify.css" rel="stylesheet" />
+
 </head>
 <body>
     <div id="mempay">
@@ -141,23 +146,36 @@
                                 添加文档
                             </div>--%>
 
-                            <div class="layui-upload">
-                                <button type="button" class="layui-btn layui-btn-normal" id="testList">选择多文件</button>
-                                <div class="layui-upload-list">
-                                    <table class="layui-table">
-                                        <thead>
-                                            <tr>
-                                                <th>文件名</th>
-                                                <th>大小</th>
-                                                <th>状态</th>
-                                                <th>操作</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="demoList"></tbody>
-                                    </table>
-                                </div>
-                                <button type="button" class="layui-btn" id="testListAction">开始上传</button>
-                            </div>
+                            <table class="table table-bordered table-striped">
+                                <tbody>
+
+                                    <tr class="odd gradeC">
+                                        <td>上传图片列表：</td>
+                                        <td style="text-align: left">
+                                            <div id="fileQueue" class="fileQueue" style="width: 670px; height: 100px;"></div>
+
+                                        </td>
+                                        <td>
+                                            <input type="file" name="file_upload" id="file_upload" /></td>
+                                    </tr>
+
+                                    <tr class="even gradeX">
+
+                                        <td colspan="3">
+
+                                            <p>
+                                                <input type="button" class="btn btn-info" id="btnUpload" onclick="doUpload()" value="上传" />
+
+                                                <input type="button" class="btn btn-info" id="btnCancelUpload" onclick="$('#file_upload').uploadify('cancel')" value="取消" />
+                                            </p>
+                                            <div id="div_show_files"></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+
                         </td>
                     </tr>
 
@@ -174,77 +192,72 @@
     </div>
 
 
-    <script>
-        layui.use('upload', function () {
-            var $ = layui.jquery
-            , upload = layui.upload;
-            //多文件列表示例
-            var demoListView = $('#demoList')
-            , uploadListIns = upload.render({
-                elem: '#testList'
-              , url: '/Admin/UpLoadPic/FileUpload.ashx'
-              , accept: 'file'
-              , multiple: true
-              , auto: false
-              , bindAction: '#testListAction'
-              , choose: function (obj) {
-                  var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
-                  //读取本地文件
-                  obj.preview(function (index, file, result) {
-                      var tr = $(['<tr id="upload-' + index + '">'
-                        , '<td>' + file.name + '</td>'
-                        , '<td>' + (file.size / 1014).toFixed(1) + 'kb</td>'
-                        , '<td>等待上传</td>'
-                        , '<td>'
-                          , '<button class="layui-btn layui-btn-xs demo-reload layui-hide">重传</button>'
-                          , '<button class="layui-btn layui-btn-xs layui-btn-danger demo-delete">删除</button>'
-                        , '</td>'
-                      , '</tr>'].join(''));
+    <script type="text/javascript">
+        $(function () {
+            var guid = '<%=Request["guid"] %>';
+            var type = '<%=Request["type"] %>';
+            if (guid == null || guid == "") {
+                guid = newGuid();
+            }
+            if (type != null) {
+                type = type + '/';
+            }
+            var returnImgUrl = "";
+            $('#file_upload').uploadify({
+                'swf': 'plugin/uploadify/uploadify.swf',              //FLash文件路径
+                'buttonText': '浏  览',                        //按钮文本
+                'uploader': '/Admin/UpLoadPic/FileUpload.ashx?guid=' + guid, //处理ASHX页面
+                'formData': { 'folder': 'picture', 'isCover': 1 },         //传参数
+                'queueID': 'fileQueue',                        //队列的ID
+                'queueSizeLimit': 999,                          //队列最多可上传文件数量，默认为999
+                'auto': false,                                 //选择文件后是否自动上传，默认为true
+                'multi': true,                                 //是否为多选，默认为true
+                'removeCompleted': true,                       //是否完成后移除序列，默认为true
+                'fileSizeLimit': '0',                          //单个文件大小，0为无限制，可接受KB,MB,GB等单位的字符串值
+                'fileTypeDesc': 'All Files',                   //文件描述
+                'fileTypeExts': '*.jpg;*.png;*.gif;*.bmp',                         //上传的文件后缀过滤器
+                'onQueueComplete': function (queueData) {      //所有队列完成后事件
+                    if (queueData.filesQueued > 0) {
+                        alert("上传完毕！");
+                        alert(returnImgUrl);
+                    }
+                },
+                'onError': function (event, queueId, fileObj, errorObj) {
+                    alert(errorObj.type + "：" + errorObj.info);
+                },
+                'onUploadStart': function (file) {
+                },
+                'onUploadSuccess': function (file, data, response) {   //一个文件上传成功后的响应事件处理
+                    // var data = $.parseJSON(data);//如果data是json格式
+                    //var errMsg = "";
+                    //	alert(file);
+                    returnImgUrl += data;
+                    // 	alert(returnImgUrl);
+                    if ($.parseJSON(data) == 2) {
+                        alert("目录UpLoadImg/Test不存在或名称不对！"); return false;
+                    }
+                }
 
-                      //单个重传
-                      tr.find('.demo-reload').on('click', function () {
-                          obj.upload(index, file);
-                      });
-
-                      //删除
-                      tr.find('.demo-delete').on('click', function () {
-                          delete files[index]; //删除对应的文件
-                          tr.remove();
-                          uploadListIns.config.elem.next()[0].value = ''; //清空 input file 值，以免删除后出现同名文件不可选
-                      });
-
-                      demoListView.append(tr);
-                  });
-              }
-              , done: function (res, index, upload) {
-                  if (res.code == 0) { //上传成功
-                      var tr = demoListView.find('tr#upload-' + index)
-                      , tds = tr.children();
-                      tds.eq(2).html('<span style="color: #5FB878;">上传成功</span>');
-                      tds.eq(3).html(''); //清空操作
-                      return delete this.files[index]; //删除文件队列已经上传成功的文件
-                  }
-                  this.error(index, upload);
-              }
-              , error: function (index, upload) {
-                  var tr = demoListView.find('tr#upload-' + index)
-                  , tds = tr.children();
-                  tds.eq(2).html('<span style="color: #FF5722;">上传失败</span>');
-                  tds.eq(3).find('.demo-reload').removeClass('layui-hide'); //显示重传
-              }
             });
-
-            //绑定原始文件域
-            upload.render({
-                elem: '#test20'
-              , url: '/upload/'
-              , done: function (res) {
-                  console.log(res)
-              }
-            });
-
         });
+
+        function newGuid() {
+            var guid = "";
+            for (var i = 1; i <= 32; i++) {
+                var n = Math.floor(Math.random() * 16.0).toString(16);
+                guid += n;
+                if ((i == 8) || (i == 12) || (i == 16) || (i == 20))
+                    guid += "-";
+            }
+            return guid;
+        }
+
+        //执行上传
+        function doUpload() {
+            $('#file_upload').uploadify('upload', '*');
+        }
     </script>
+
 
 </body>
 </html>
