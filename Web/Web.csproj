@@ -709,26 +709,15 @@
     <Content Include="plugin\kindeditor\themes\qq\qq.css" />
     <Content Include="plugin\kindeditor\themes\simple\simple.css" />
     <Content Include="plugin\layui\css\layui.css" />
+    <Content Include="plugin\layui\css\layui.mobile.css" />
     <Content Include="plugin\layui\css\modules\code.css" />
-    <Content Include="plugin\layui\css\modules\laydate\icon.png" />
-    <Content Include="plugin\layui\css\modules\laydate\laydate.css" />
+    <Content Include="plugin\layui\css\modules\laydate\default\laydate.css" />
     <Content Include="plugin\layui\css\modules\layer\default\icon-ext.png" />
     <Content Include="plugin\layui\css\modules\layer\default\icon.png" />
     <Content Include="plugin\layui\css\modules\layer\default\layer.css" />
     <Content Include="plugin\layui\css\modules\layer\default\loading-0.gif" />
     <Content Include="plugin\layui\css\modules\layer\default\loading-1.gif" />
     <Content Include="plugin\layui\css\modules\layer\default\loading-2.gif" />
-    <Content Include="plugin\layui\font\iconfont.svg" />
-    <Content Include="plugin\layui\images\09ae5a349b49c222.png" />
-    <Content Include="plugin\layui\images\0e573fcb8a5b7f84.png" />
-    <Content Include="plugin\layui\images\34a609da9a0a3496.png" />
-    <Content Include="plugin\layui\images\498a428e0c3a4ac4.jpg" />
-    <Content Include="plugin\layui\images\51e9e5e534d7112c.jpg" />
-    <Content Include="plugin\layui\images\6f2367c15fcc7afe.jpg" />
-    <Content Include="plugin\layui\images\c23a93b1edde12b4.jpg" />
-    <Content Include="plugin\layui\images\c721931373f9f405.jpg" />
-    <Content Include="plugin\layui\images\ca7200dbb2f1ca34.png" />
-    <Content Include="plugin\layui\images\ddb5f97a764b276e.png" />
     <Content Include="plugin\layui\images\face\0.gif" />
     <Content Include="plugin\layui\images\face\1.gif" />
     <Content Include="plugin\layui\images\face\10.gif" />
@@ -801,24 +790,38 @@
     <Content Include="plugin\layui\images\face\71.gif" />
     <Content Include="plugin\layui\images\face\8.gif" />
     <Content Include="plugin\layui\images\face\9.gif" />
+    <Content Include="plugin\layui\layui.all.js" />
     <Content Include="plugin\layui\layui.js" />
-    <Content Include="plugin\layui\lay\dest\layui.all.js" />
-    <Content Include="plugin\layui\lay\lib\jquery.js" />
+    <Content Include="plugin\layui\lay\modules\carousel.js" />
     <Content Include="plugin\layui\lay\modules\code.js" />
+    <Content Include="plugin\layui\lay\modules\colorpicker.js" />
     <Content Include="plugin\layui\lay\modules\element.js" />
     <Content Include="plugin\layui\lay\modules\flow.js" />
     <Content Include="plugin\layui\lay\modules\form.js" />
+    <Content Include="plugin\layui\lay\modules\jquery.js" />
     <Content Include="plugin\layui\lay\modules\laydate.js" />
     <Content Include="plugin\layui\lay\modules\layedit.js" />
     <Content Include="plugin\layui\lay\modules\layer.js" />
     <Content Include="plugin\layui\lay\modules\laypage.js" />
     <Content Include="plugin\layui\lay\modules\laytpl.js" />
+    <Content Include="plugin\layui\lay\modules\mobile.js" />
+    <Content Include="plugin\layui\lay\modules\rate.js" />
+    <Content Include="plugin\layui\lay\modules\slider.js" />
+    <Content Include="plugin\layui\lay\modules\table.js" />
     <Content Include="plugin\layui\lay\modules\tree.js" />
     <Content Include="plugin\layui\lay\modules\upload.js" />
     <Content Include="plugin\layui\lay\modules\util.js" />
     <Content Include="plugin\qrcode\index.html" />
     <Content Include="plugin\qrcode\jquery.min.js" />
     <Content Include="plugin\qrcode\jquery.qrcode.min.js" />
+    <Content Include="plugin\uploadify\jquery.uploadify.js" />
+    <Content Include="plugin\uploadify\jquery.uploadify.min.js" />
+    <Content Include="plugin\uploadify\uploadify-cancel.png" />
+    <Content Include="plugin\uploadify\uploadify.css" />
+    <Content Include="plugin\uploadify\uploadify.swf" />
+    <Content Include="plugin\uploadify\www.jq22.com.txt" />
+    <Content Include="plugin\uploadify\__MACOSX\._Change Log.txt" />
+    <Content Include="plugin\uploadify\__MACOSX\._uploadify.swf" />
     <Content Include="ProjectManage\AddProject.aspx" />
     <Content Include="ProjectManage\ManageSHSignProjectList.aspx" />
     <Content Include="ProjectManage\ManageSumSignProjectList.aspx" />
@@ -1223,6 +1226,9 @@
     </Compile>
     <Compile Include="Admin\pop\Handler\Language.ashx.cs">
       <DependentUpon>Language.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpLoadPic\FileUpload.ashx.cs">
+      <DependentUpon>FileUpload.ashx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UpLoadPic\IbeaconHandler.ashx.cs">
       <DependentUpon>IbeaconHandler.ashx</DependentUpon>
@@ -1870,9 +1876,6 @@
     <Content Include="Message\Handler\TaskList.ashx" />
     <Content Include="Member\Handler\TJTree.ashx" />
     <Content Include="Admin\UpLoadPic\UploadImage.ashx" />
-    <Content Include="plugin\layui\font\iconfont.eot" />
-    <Content Include="plugin\layui\font\iconfont.ttf" />
-    <Content Include="plugin\layui\font\iconfont.woff" />
     <Content Include="Admin\UpLoadPic\upload.ashx" />
     <Content Include="Admin\frame\layui\font\iconfont.eot" />
     <Content Include="Admin\frame\layui\font\iconfont.ttf" />
@@ -1880,6 +1883,15 @@
     <Content Include="Admin\json\data_table.json" />
     <Content Include="Admin\json\nav_main.json" />
     <Content Include="Admin\json\nav_top_left.json" />
+    <Content Include="plugin\layui\font\iconfont.eot" />
+    <Content Include="plugin\layui\font\iconfont.svg" />
+    <Content Include="plugin\layui\font\iconfont.ttf" />
+    <Content Include="plugin\layui\font\iconfont.woff" />
+    <Content Include="Admin\UpLoadPic\FileUpload.ashx" />
+    <Content Include="plugin\uploadify\check-exists.php" />
+    <Content Include="plugin\uploadify\index.php" />
+    <Content Include="plugin\uploadify\jquery插件库.url" />
+    <Content Include="plugin\uploadify\uploadify.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />
