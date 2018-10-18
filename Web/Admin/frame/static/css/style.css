@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @name:   vip-admin 后台模板css
  * @author: 随丶
  */
@@ -179,6 +179,7 @@
     height: 20px;
     line-height: 20px;
     font-size: 12px;
+	margin-top:10px;
 }
 
 /* login */

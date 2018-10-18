@@ -25,6 +25,5 @@ D:\工作目录\yny_005\MMMChangeMinute\obj\x86\Debug\MMMChangeMinute.pdb
 D:\工作目录\yny_005\yny_005\MMMChangeMinute\bin\Debug\MMMChangeMinute.exe.config
 D:\工作目录\yny_005\yny_005\MMMChangeMinute\bin\Debug\MMMChangeMinute.exe
 D:\工作目录\yny_005\yny_005\MMMChangeMinute\bin\Debug\MMMChangeMinute.pdb
-D:\工作目录\yny_005\yny_005\MMMChangeMinute\obj\x86\Debug\MMMChangeMinute.csprojResolveAssemblyReference.cache
 D:\工作目录\yny_005\yny_005\MMMChangeMinute\obj\x86\Debug\MMMChangeMinute.exe
 D:\工作目录\yny_005\yny_005\MMMChangeMinute\obj\x86\Debug\MMMChangeMinute.pdb

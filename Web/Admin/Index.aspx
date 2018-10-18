@@ -130,8 +130,7 @@
                                         <button class="layui-btn layui-btn-big layui-btn-danger layui-icon">&#xe756;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text">40</p>
-                                        <p class="my-nav-text layui-elip">按钮</p>
+                                        <p class="my-nav-text layui-elip">修改实验室基本信息</p>
                                     </div>
                                 </div>
                             </div>
@@ -141,8 +140,7 @@
                                         <button class="layui-btn layui-btn-big layui-btn-warm layui-icon">&#xe735;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text">40</p>
-                                        <p class="my-nav-text layui-elip">表单</p>
+                                        <p class="my-nav-text layui-elip">正在进行的能力验证</p>
                                     </div>
                                 </div>
                             </div>
@@ -152,8 +150,7 @@
                                         <button class="layui-btn layui-btn-big layui-icon">&#xe715;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text">40</p>
-                                        <p class="my-nav-text layui-elip">表格</p>
+                                        <p class="my-nav-text layui-elip">能力验证报名</p>
                                     </div>
                                 </div>
                             </div>
@@ -163,8 +160,7 @@
                                         <button class="layui-btn layui-btn-big layui-btn-normal layui-icon">&#xe705;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text">40</p>
-                                        <p class="my-nav-text layui-elip">选项卡</p>
+                                        <p class="my-nav-text layui-elip">已完成的能力验证</p>
                                     </div>
                                 </div>
                             </div>
@@ -174,8 +170,7 @@
                                         <button class="layui-btn layui-btn-big layui-bg-cyan layui-icon">&#xe6b2;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text">40</p>
-                                        <p class="my-nav-text layui-elip">进度条</p>
+                                        <p class="my-nav-text layui-elip">新闻公告</p>
                                     </div>
                                 </div>
                             </div>
@@ -185,8 +180,7 @@
                                         <button class="layui-btn layui-btn-big layui-bg-black layui-icon">&#xe698;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text">40</p>
-                                        <p class="my-nav-text layui-elip">折叠面板</p>
+                                        <p class="my-nav-text layui-elip">邮寄地址</p>
                                     </div>
                                 </div>
                             </div>
@@ -194,34 +188,39 @@
                             <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
                                  <div class="layui-collapse">
                                     <div class="layui-colla-item">
-                                        <h2 class="layui-colla-title">表格</h2>
+                                        <h2 class="layui-colla-title">基本统计</h2>
                                         <div class="layui-colla-content layui-show">
-
-                                            <table class="layui-table">
+                                            <style>
+                                            #showjiben span{
+                                            color:#009688;
+                                            font-size:14px;
+                                            font-weight:bold;
+                                            }
+                                            </style>
+                                            <table class="layui-table" id="showjiben">
                                                 <colgroup>
-                                                    <col width="150">
                                                     <col width="200">
-                                                    <col>
+                                                    <col width="200">
                                                 </colgroup>
                                                 <thead>
                                                     <tr>
-                                                        <th>昵称</th>
-                                                        <th>加入时间</th>
-                                                        <th>签名</th>
+                                                        <th>已完成验证：<span>40</span>个</th>
+                                                        <th> 正在进行中：<span style="color:#000000;">40</span>个</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>我的状态：<span>已审核</span></th>
+                                                        <th>验证通过：<span>40</span>个</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>样品已寄出：<span>40</span>个</th>
+                                                        <th>报名资格审核通过：<span>40</span>个</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>报名资格未通过：<span style="color:red;">40</span>个</th>
+                                                        <th>通知未读：<span style="color:red;">40</span>个</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>贤心</td>
-                                                        <td>2016-11-29</td>
-                                                        <td>人生就像是一场修行</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>许闲心</td>
-                                                        <td>2016-11-28</td>
-                                                        <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-                                                    </tr>
-                                                </tbody>
+                                               
                                             </table>
 
                                         </div>
@@ -231,7 +230,7 @@
                             <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
                                 <div class="layui-collapse">
                                     <div class="layui-colla-item">
-                                        <h2 class="layui-colla-title">表格</h2>
+                                        <h2 class="layui-colla-title">项目概览</h2>
                                         <div class="layui-colla-content layui-show">
 
                                             <table class="layui-table">
@@ -242,21 +241,21 @@
                                                 </colgroup>
                                                 <thead>
                                                     <tr>
-                                                        <th>昵称</th>
-                                                        <th>加入时间</th>
-                                                        <th>签名</th>
+                                                        <th>部门</th>
+                                                        <th>项目名称</th>
+                                                        <th>报名截止日期</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>贤心</td>
+                                                        <td>一部门</td>
+                                                        <td>测试验证项目1</td>
                                                         <td>2016-11-29</td>
-                                                        <td>人生就像是一场修行</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>许闲心</td>
+                                                        <td>二部门</td>
+                                                        <td>测试验证项目1测试验证项目1测试验证项目1测试验证项目1…</td>
                                                         <td>2016-11-28</td>
-                                                        <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -266,7 +265,7 @@
                                 </div>
                             </div>
 
-                            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4">
+                            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4" style="display:none;">
                                 <div class="layui-collapse">
                                     <div class="layui-colla-item">
                                         <h2 class="layui-colla-title">版本</h2>
@@ -439,7 +438,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4">
+                            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4"  style="display:none;">
                                 <div class="layui-collapse">
                                     <div class="layui-colla-item">
                                         <h2 class="layui-colla-title">图表</h2>

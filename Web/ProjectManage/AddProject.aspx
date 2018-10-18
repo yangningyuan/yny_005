@@ -166,7 +166,7 @@
                                             <p>
                                                 <input type="button" class="btn btn-info" id="btnUpload" onclick="doUpload()" value="上传" />
 
-                                                <input type="button" class="btn btn-info" id="btnCancelUpload" onclick="$('#file_upload').uploadify('cancel')" value="取消" />
+                                                <%--<input type="button" class="btn btn-info" id="btnCancelUpload" onclick="$('#file_upload').uploadify('cancel')" value="取消" />--%>
                                             </p>
                                             <div id="div_show_files"></div>
                                         </td>
@@ -204,7 +204,7 @@
             }
             var returnImgUrl = "";
             $('#file_upload').uploadify({
-                'swf': 'plugin/uploadify/uploadify.swf',              //FLash文件路径
+                'swf': '/plugin/uploadify/uploadify.swf',              //FLash文件路径
                 'buttonText': '浏  览',                        //按钮文本
                 'uploader': '/Admin/UpLoadPic/FileUpload.ashx?guid=' + guid, //处理ASHX页面
                 'formData': { 'folder': 'picture', 'isCover': 1 },         //传参数
@@ -212,14 +212,14 @@
                 'queueSizeLimit': 999,                          //队列最多可上传文件数量，默认为999
                 'auto': false,                                 //选择文件后是否自动上传，默认为true
                 'multi': true,                                 //是否为多选，默认为true
-                'removeCompleted': true,                       //是否完成后移除序列，默认为true
+                'removeCompleted': false,                       //是否完成后移除序列，默认为true
                 'fileSizeLimit': '0',                          //单个文件大小，0为无限制，可接受KB,MB,GB等单位的字符串值
                 'fileTypeDesc': 'All Files',                   //文件描述
-                'fileTypeExts': '*.jpg;*.png;*.gif;*.bmp',                         //上传的文件后缀过滤器
+                'fileTypeExts': '*.jpg;*.png;*.gif;*.bmp;*.txt',                         //上传的文件后缀过滤器
                 'onQueueComplete': function (queueData) {      //所有队列完成后事件
                     if (queueData.filesQueued > 0) {
                         alert("上传完毕！");
-                        alert(returnImgUrl);
+                        //alert(returnImgUrl);
                     }
                 },
                 'onError': function (event, queueId, fileObj, errorObj) {

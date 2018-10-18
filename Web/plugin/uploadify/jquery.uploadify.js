@@ -120,7 +120,7 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 					progressData    : 'percentage',       // ('percentage' or 'speed') Data to show in the queue item during a file upload
 					queueID         : false,              // The ID of the DOM object to use as a file queue (without the #)
 					queueSizeLimit  : 999,                // The maximum number of files that can be in the queue at one time
-					removeCompleted : true,               // Remove queue items from the queue when they are done uploading
+					removeCompleted : false,               // Remove queue items from the queue when they are done uploading
 					removeTimeout   : 3,                  // The delay in seconds before removing a queue item if removeCompleted is set to true
 					requeueErrors   : false,              // Keep errored files in the queue and keep trying to upload them
 					successTimeout  : 30,                 // The number of seconds to wait for Flash to detect the server's response after the file has finished uploading
