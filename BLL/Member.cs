@@ -443,12 +443,9 @@ namespace yny_005.BLL
             Model.Member inserModel = null;
             if (model.AgencyCode == "002")
             {
-                model.MState = true;
                 
                 model.NAgencyCode = "002";
                 model.MCreateDate = DateTime.Now;
-                model.MDate = DateTime.Now;
-                model.FHState = true;
                 model.MConfig = new Model.MemberConfig
                 {
                     MID = model.MID,
@@ -1001,10 +998,10 @@ namespace yny_005.BLL
             //{
             //    return "一个银行卡号只能注册1单";
             //}
-            if (DAL.Member.GetNumIDCount(shmodel.Tel, "Tel") >=BLL.Configuration.Model.E_BbinMaxCount)
-            {
-                return "一个手机号只能注册1单";
-            }
+            //if (DAL.Member.GetNumIDCount(shmodel.Tel, "Tel") >=BLL.Configuration.Model.E_BbinMaxCount)
+            //{
+            //    return "一个手机号只能注册1单";
+            //}
             //if (DAL.Member.GetNumIDCount(shmodel.MName, "MName") >= 1)
             //{
             //    return "一个员工姓名只能注册1单";

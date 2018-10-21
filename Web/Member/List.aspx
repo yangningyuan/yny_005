@@ -102,15 +102,15 @@
                     </th>
                     <th>锁定状态
                     </th>
-                   <%-- <th>冻结状态
-                    </th>--%>
-                    <%--<th>身份证图片
-                    </th>--%>
+                    
                    
                     <th>注册日期
                     </th>
-                  <%--  <th>操作
-                    </th>--%>
+                    <th>审核时间
+                    </th>
+                    <th>状态
+                    </th>
+                  
                 </tr>
             </table>
             <div class="ui_table_control">

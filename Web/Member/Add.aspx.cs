@@ -19,14 +19,14 @@ namespace yny_005.Web.Member
                 //txtMTJ.Attributes.Add("readonly", "readonly");
             }
 
-            var topmid= BLL.CommonBase.GetSingle(" select top 1 MID from Member where MID<>'admin' order by MCreateDate desc; ");
-            if (topmid != null)
-            {
-                txtMID.Value = (Convert.ToInt32(topmid.ToString()) + 1).ToString();
-            }
-            else {
-                txtMID.Value = "1001";
-            }
+            //var topmid= BLL.CommonBase.GetSingle(" select top 1 MID from Member where MID<>'admin' order by MCreateDate desc; ");
+            //if (topmid != null)
+            //{
+            //    txtMID.Value = (Convert.ToInt32(topmid.ToString()) + 1).ToString();
+            //}
+            //else {
+            //    txtMID.Value = "1001";
+            //}
 
             //if (!string.IsNullOrEmpty(Request.QueryString["mid"]))
             //{

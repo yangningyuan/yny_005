@@ -75,21 +75,17 @@
                                     <tr>
                                         <th>检测子项名称</th>
                                         <th>说明</th>
-
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="SubDemo">
                                     <tr>
-                                        <td>氮含量</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>氮含量</td>
-                                        <td></td>
+                                        <td><input id="SubTitle1" class="normal_input" value="" runat="server" style="width: 40%;" /></td>
+                                        <td><input id="SubDetails1" class="normal_input" value="" runat="server" style="width: 40%;" /></td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <div id="Div1" class="pay btn btn-success" onclick="callhtml('/Member/Add.aspx','添加子项');onclickMenu()">
+                            <input type="hidden" id="SubAddIndex" value="1" />
+                            <div id="Div1" class="pay btn btn-success" onclick="SubAddHTML()">
                                 添加子项
                             </div>
                         </td>
@@ -150,7 +146,6 @@
                                 <tbody>
 
                                     <tr class="odd gradeC">
-                                        <td>上传图片列表：</td>
                                         <td style="text-align: left">
                                             <div id="fileQueue" class="fileQueue" style="width: 670px; height: 100px;"></div>
 
@@ -193,6 +188,20 @@
 
 
     <script type="text/javascript">
+        function SubAddHTML()
+        {
+            var index = $("#SubAddIndex").val();
+            var useindex = parseInt(index) + 1;
+            var str = "";
+            str += "<tr>";
+            str += "<td><input id='SubTitle" + useindex + "' style='height: 34px;padding: 6px;font-size: 14px;line-height: 1.42857143;color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;width: 40%;' value=''  /></td>";
+            str += "<td><input id='SubDetails" + useindex + "'  style='height: 34px;padding: 6px;font-size: 14px;line-height: 1.42857143;color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;width: 40%;' value=''  /></td>";
+            str += "</tr>";
+            $("#SubDemo").append(str);
+            $("#SubAddIndex").val(useindex);
+        }
+
+
         $(function () {
             var guid = '<%=Request["guid"] %>';
             var type = '<%=Request["type"] %>';
@@ -215,10 +224,10 @@
                 'removeCompleted': false,                       //是否完成后移除序列，默认为true
                 'fileSizeLimit': '0',                          //单个文件大小，0为无限制，可接受KB,MB,GB等单位的字符串值
                 'fileTypeDesc': 'All Files',                   //文件描述
-                'fileTypeExts': '*.jpg;*.png;*.gif;*.bmp;*.txt',                         //上传的文件后缀过滤器
+                'fileTypeExts': '*.jpg;*.png;*.gif;*.bmp;*.txt;*.docx;*.xlsx',                         //上传的文件后缀过滤器
                 'onQueueComplete': function (queueData) {      //所有队列完成后事件
                     if (queueData.filesQueued > 0) {
-                        alert("上传完毕！");
+                        //alert("上传完毕！");
                         //alert(returnImgUrl);
                     }
                 },

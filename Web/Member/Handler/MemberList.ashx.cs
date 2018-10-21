@@ -117,24 +117,25 @@ namespace yny_005.Web.Handler
                 }
                 string rostr = "";
                 if(!string.IsNullOrEmpty(ListMember[i].FMID))
-                    rostr = ListMember[i].FMID.ToString().Replace("1", "主司机").Replace("2", "副司机").Replace("3", "押运员");
+                    rostr = ListMember[i].FMID.ToString().Replace("0", "检测机构登记证书").Replace("1", "个人身份证").Replace("1", "其他");
                 sb.Append(ListMember[i].MName + "~");
-                sb.Append((ListMember[i].Role.RName+(ListMember[i].RoleCode== "SiJi"?"["+ rostr + "]":"")) + "~");
+                sb.Append((ListMember[i].Role.RName+"~"));
 				sb.Append(ListMember[i].Tel+ "~");
-                sb.Append(ListMember[i].Address + "~");
+                sb.Append(ListMember[i].NumID + "["+rostr+"]"+"~");
                 sb.Append((ListMember[i].IsClose ? "已锁定" : "未锁定") + "~");
                 //sb.Append((ListMember[i].IsClock ? "已冻结" : "未冻结") + "~");
                 
                 
-                sb.Append(ListMember[i].MCreateDate.ToString("yyyy-MM-dd HH:mm") + "");
-                //if (!ListMember[i].IsClose)
-                //{
-                //    //sb.Append("<a href='?LoggedInMID=" + ListMember[i].MID + "' target=\"_blank\">进入系统</a>");
-                //}
-                //else
-                //{
-                //    sb.Append("限制登录");
-                //}
+                sb.Append(ListMember[i].MCreateDate.ToString("yyyy-MM-dd HH:mm") + "~");
+                sb.Append(ListMember[i].MDate.ToString("yyyy-MM-dd HH:mm") + "~");
+                if (!ListMember[i].MState)
+                {
+                    sb.Append("<a class='btn' href='javascript:SHAuto('" + ListMember[i].MID+"')'>审核通过</a>");
+                }
+                else
+                {
+                    sb.Append("<span style='color:green;'>正常</span>");
+                }
                 sb.Append("≌");
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };
