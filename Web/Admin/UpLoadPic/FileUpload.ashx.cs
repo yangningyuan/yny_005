@@ -37,11 +37,16 @@ namespace yny_005.Web.Admin.UpLoadPic
                     {
                         //返回图片路径
                         var returnImgUrl = string.Empty;
+
+                        Random rd = new Random();
+                        int num = rd.Next(10000,99999);
+
                         //如果上传路径存在
                         HttpPostedFile file = context.Request.Files["Filedata"];
-                        string imgname = file.FileName;
+                        string imgname = file.FileName.Replace(" ","");
                         string imgType = imgname.Substring(imgname.LastIndexOf(".") + 1);
-                        string quanname = Guid.NewGuid() + "." + imgType;
+                        string name = imgname.Substring(0,imgname.LastIndexOf(".") );
+                        string quanname = num+"_"+ name + "." + imgType;
                         string filePath = Path.Combine(goodspath, quanname);
                         returnImgUrl = "Upload/Contract/" + quanname + ";";
                         file.SaveAs(filePath);

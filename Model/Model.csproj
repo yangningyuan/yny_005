@@ -82,9 +82,6 @@
     <Compile Include="JoggleLogin.cs" />
     <Compile Include="LotteryDraw.cs" />
     <Compile Include="Member_OperationRecord.cs" />
-    <Compile Include="Obj.cs" />
-    <Compile Include="ObjSub.cs" />
-    <Compile Include="ObjSubType.cs" />
     <Compile Include="QueryOperationRecord.cs" />
     <Compile Include="QuitRecord.cs" />
     <Compile Include="Shop\GoodCategory.cs" />

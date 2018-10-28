@@ -113,15 +113,15 @@ namespace yny_005.Web.AjaxM
                 case "Del_Notice":
                     Del_Notice();
                     break;
-                case "Del_ObjSubType":
-                    Del_ObjSubType();
-                    break;
-                case "Del_Obj":
-                    Del_Obj();
-                    break;
-                case "Del_ObjSub":
-                    Del_ObjSub();
-                    break;
+                //case "Del_ObjSubType":
+                //    Del_ObjSubType();
+                //    break;
+                //case "Del_Obj":
+                //    Del_Obj();
+                //    break;
+                //case "Del_ObjSub":
+                //    Del_ObjSub();
+                //    break;
 
               
                 case "Del_DepartType":
@@ -1027,60 +1027,60 @@ namespace yny_005.Web.AjaxM
             return;
         }
 
-        private void Del_ObjSubType()
-        {
-            if (!string.IsNullOrEmpty(Request["pram"]))
-            {
-                try
-                {
-                    Response.Write(BLL.ObjSubType.DeleteObjSubType(Request["pram"]));
-                    return;
-                }
-                catch
-                {
-                    Response.Write("");
-                    return;
-                }
-            }
-            Response.Write("");
-            return;
-        }
-        private void Del_Obj()
-        {
-            if (!string.IsNullOrEmpty(Request["pram"]))
-            {
-                try
-                {
-                    Response.Write(BLL.Obj.DeleteObj(Request["pram"]));
-                    return;
-                }
-                catch
-                {
-                    Response.Write("");
-                    return;
-                }
-            }
-            Response.Write("");
-            return;
-        }
-        private void Del_ObjSub()
-        {
-            if (!string.IsNullOrEmpty(Request["pram"]))
-            {
-                try
-                {
-                    Response.Write(BLL.ObjSub.DeleteObjSub(Request["pram"]));
-                    return;
-                }
-                catch
-                {
-                    Response.Write("");
-                    return;
-                }
-            }
-            Response.Write("");
-            return;
-        }
+        //private void Del_ObjSubType()
+        //{
+        //    if (!string.IsNullOrEmpty(Request["pram"]))
+        //    {
+        //        try
+        //        {
+        //            Response.Write(BLL.ObjSubType.DeleteObjSubType(Request["pram"]));
+        //            return;
+        //        }
+        //        catch
+        //        {
+        //            Response.Write("");
+        //            return;
+        //        }
+        //    }
+        //    Response.Write("");
+        //    return;
+        //}
+        //private void Del_Obj()
+        //{
+        //    if (!string.IsNullOrEmpty(Request["pram"]))
+        //    {
+        //        try
+        //        {
+        //            Response.Write(BLL.Obj.DeleteObj(Request["pram"]));
+        //            return;
+        //        }
+        //        catch
+        //        {
+        //            Response.Write("");
+        //            return;
+        //        }
+        //    }
+        //    Response.Write("");
+        //    return;
+        //}
+        //private void Del_ObjSub()
+        //{
+        //    if (!string.IsNullOrEmpty(Request["pram"]))
+        //    {
+        //        try
+        //        {
+        //            Response.Write(BLL.ObjSub.DeleteObjSub(Request["pram"]));
+        //            return;
+        //        }
+        //        catch
+        //        {
+        //            Response.Write("");
+        //            return;
+        //        }
+        //    }
+        //    Response.Write("");
+        //    return;
+        //}
         private void Del_FundType()
         {
             if (!string.IsNullOrEmpty(Request["pram"]))
