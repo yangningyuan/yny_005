@@ -24,7 +24,7 @@ namespace yny_005.DAL
 	/// <summary>
 	/// 数据访问类:Object
 	/// </summary>
-	public partial class Object
+	public partial class OObject
 	{
 		
 		#region  BasicMethod
@@ -34,7 +34,7 @@ namespace yny_005.DAL
 		/// </summary>
 		public static int GetMaxId()
 		{
-		return DbHelperSQL.GetMaxID("ID", "Object"); 
+		return DbHelperSQL.GetMaxID("ID", "OObject"); 
 		}
 
 		/// <summary>
@@ -43,7 +43,7 @@ namespace yny_005.DAL
 		public static bool Exists(int ID)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) from Object");
+			strSql.Append("select count(1) from OObject");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
@@ -57,10 +57,10 @@ namespace yny_005.DAL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public static int Add(yny_005.Model.Object model)
+		public static int Add(yny_005.Model.OObject model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("insert into Object(");
+			strSql.Append("insert into OObject(");
 			strSql.Append("ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark)");
 			strSql.Append(" values (");
 			strSql.Append("@ObjOID,@ObjName,@ReObjMID,@ReObjNiName,@ObjChild,@ObjExcel,@BMDate,@JGDate,@Remark)");
@@ -98,10 +98,10 @@ namespace yny_005.DAL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public static bool Update(yny_005.Model.Object model)
+		public static bool Update(yny_005.Model.OObject model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("update Object set ");
+			strSql.Append("update OObject set ");
 			strSql.Append("ObjOID=@ObjOID,");
 			strSql.Append("ObjName=@ObjName,");
 			strSql.Append("ReObjMID=@ReObjMID,");
@@ -152,7 +152,7 @@ namespace yny_005.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from Object ");
+			strSql.Append("delete from OObject ");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
@@ -175,7 +175,7 @@ namespace yny_005.DAL
 		public static bool DeleteList(string IDlist )
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from Object ");
+			strSql.Append("delete from OObject ");
 			strSql.Append(" where ID in ("+IDlist + ")  ");
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
 			if (rows > 0)
@@ -192,18 +192,18 @@ namespace yny_005.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public static yny_005.Model.Object GetModel(int ID)
+		public static yny_005.Model.OObject GetModel(int ID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark from Object ");
+			strSql.Append("select  top 1 ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark from OObject ");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
 			};
 			parameters[0].Value = ID;
 
-			yny_005.Model.Object model=new yny_005.Model.Object();
+			yny_005.Model.OObject model=new yny_005.Model.OObject();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
 			{
@@ -219,9 +219,9 @@ namespace yny_005.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public static yny_005.Model.Object DataRowToModel(DataRow row)
+		public static yny_005.Model.OObject DataRowToModel(DataRow row)
 		{
-			yny_005.Model.Object model=new yny_005.Model.Object();
+			yny_005.Model.OObject model=new yny_005.Model.OObject();
 			if (row != null)
 			{
 				if(row["ID"]!=null && row["ID"].ToString()!="")
@@ -275,7 +275,7 @@ namespace yny_005.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark ");
-			strSql.Append(" FROM Object ");
+			strSql.Append(" FROM OObject ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -295,7 +295,7 @@ namespace yny_005.DAL
 				strSql.Append(" top "+Top.ToString());
 			}
 			strSql.Append(" ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark ");
-			strSql.Append(" FROM Object ");
+			strSql.Append(" FROM OObject ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -310,7 +310,7 @@ namespace yny_005.DAL
 		public static int GetRecordCount(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) FROM Object ");
+			strSql.Append("select count(1) FROM OObject ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);

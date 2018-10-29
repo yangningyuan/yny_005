@@ -76,7 +76,7 @@
     <Compile Include="JoggleLogin.cs" />
     <Compile Include="LotteryDraw.cs" />
     <Compile Include="ObjChild.cs" />
-    <Compile Include="Object.cs" />
+    <Compile Include="OObject.cs" />
     <Compile Include="ObjExcel.cs" />
     <Compile Include="ObjSample.cs" />
     <Compile Include="ObjSubUser.cs" />

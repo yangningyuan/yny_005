@@ -23,7 +23,7 @@ namespace yny_005.BLL
 	/// <summary>
 	/// Object
 	/// </summary>
-	public partial class Object
+	public partial class OObject
 	{
 		
 		#region  BasicMethod
@@ -33,7 +33,7 @@ namespace yny_005.BLL
 		/// </summary>
 		public int GetMaxId()
 		{
-			return DAL.Object.GetMaxId();
+			return DAL.OObject.GetMaxId();
 		}
 
 		/// <summary>
@@ -41,23 +41,23 @@ namespace yny_005.BLL
 		/// </summary>
 		public bool Exists(int ID)
 		{
-			return DAL.Object.Exists(ID);
+			return DAL.OObject.Exists(ID);
 		}
 
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int  Add(yny_005.Model.Object model)
+		public int  Add(yny_005.Model.OObject model)
 		{
-			return DAL.Object.Add(model);
+			return DAL.OObject.Add(model);
 		}
 
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(yny_005.Model.Object model)
+		public bool Update(yny_005.Model.OObject model)
 		{
-			return DAL.Object.Update(model);
+			return DAL.OObject.Update(model);
 		}
 
 		/// <summary>
@@ -66,23 +66,23 @@ namespace yny_005.BLL
 		public bool Delete(int ID)
 		{
 			
-			return DAL.Object.Delete(ID);
+			return DAL.OObject.Delete(ID);
 		}
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
 		public bool DeleteList(string IDlist )
 		{
-			return DAL.Object.DeleteList(IDlist );
+			return DAL.OObject.DeleteList(IDlist );
 		}
 
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public yny_005.Model.Object GetModel(int ID)
+		public yny_005.Model.OObject GetModel(int ID)
 		{
 			
-			return DAL.Object.GetModel(ID);
+			return DAL.OObject.GetModel(ID);
 		}
 
 		
@@ -91,36 +91,36 @@ namespace yny_005.BLL
 		/// </summary>
 		public DataSet GetList(string strWhere)
 		{
-			return DAL.Object.GetList(strWhere);
+			return DAL.OObject.GetList(strWhere);
 		}
 		/// <summary>
 		/// 获得前几行数据
 		/// </summary>
 		public DataSet GetList(int Top,string strWhere,string filedOrder)
 		{
-			return DAL.Object.GetList(Top,strWhere,filedOrder);
+			return DAL.OObject.GetList(Top,strWhere,filedOrder);
 		}
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<yny_005.Model.Object> GetModelList(string strWhere)
+		public List<yny_005.Model.OObject> GetModelList(string strWhere)
 		{
-			DataSet ds = DAL.Object.GetList(strWhere);
+			DataSet ds = DAL.OObject.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
 		}
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<yny_005.Model.Object> DataTableToList(DataTable dt)
+		public List<yny_005.Model.OObject> DataTableToList(DataTable dt)
 		{
-			List<yny_005.Model.Object> modelList = new List<yny_005.Model.Object>();
+			List<yny_005.Model.OObject> modelList = new List<yny_005.Model.OObject>();
 			int rowsCount = dt.Rows.Count;
 			if (rowsCount > 0)
 			{
-				yny_005.Model.Object model;
+				yny_005.Model.OObject model;
 				for (int n = 0; n < rowsCount; n++)
 				{
-					model = DAL.Object.DataRowToModel(dt.Rows[n]);
+					model = DAL.OObject.DataRowToModel(dt.Rows[n]);
 					if (model != null)
 					{
 						modelList.Add(model);
@@ -143,14 +143,14 @@ namespace yny_005.BLL
 		/// </summary>
 		public int GetRecordCount(string strWhere)
 		{
-			return DAL.Object.GetRecordCount(strWhere);
+			return DAL.OObject.GetRecordCount(strWhere);
 		}
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
 		public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
 		{
-			return DAL.Object.GetListByPage( strWhere,  orderby,  startIndex,  endIndex);
+			return DAL.OObject.GetListByPage( strWhere,  orderby,  startIndex,  endIndex);
 		}
 		/// <summary>
 		/// 分页获取数据列表

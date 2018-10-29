@@ -21,9 +21,9 @@ namespace yny_005.Model
 	/// Object:实体类(属性说明自动提取数据库字段的描述信息)
 	/// </summary>
 	[Serializable]
-	public partial class Object
+	public partial class OObject
 	{
-		public Object()
+		public OObject()
 		{}
 		#region Model
 		private int _id;
