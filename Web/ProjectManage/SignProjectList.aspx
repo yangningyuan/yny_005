@@ -5,7 +5,7 @@
 <head id="Head1" runat="server">
     <title></title>
     <script type="text/javascript">
-        //tUrl = "Member/Handler/MemberList.ashx";
+        tUrl = "ProjectManage/Handler/SignProjectList.ashx";
         tState = "";
         SearchByCondition();
         //        setup();
@@ -59,26 +59,6 @@
                     </th>
                     
 
-                </tr>
-                <tr onclick="trClick(this)">
-                    <td><em>
-                        <input type="checkbox" id="chk_000" checked="checked" name="chkGroup" onclick="SelectChk(this);"></em></td>
-                    <td>1&nbsp;</td>
-                    <td>部门1</td>
-                    <td>测试验证项目1</td>
-                    <td>2017-08-09</td>
-                    <td>未报名</td>
-                    <td><a href="javascript:void(0)" class="btn" onclick="callhtml('ProjectManage/SignProject.aspx?Id=000','报名')">报名</a></td>
-                </tr>
-              <tr onclick="trClick(this)">
-                    <td><em>
-                        <input type="checkbox" id="chk_000" checked="checked" name="chkGroup" onclick="SelectChk(this);"></em></td>
-                    <td>1&nbsp;</td>
-                    <td>部门1</td>
-                    <td>测试验证项目1</td>
-                    <td>2017-08-09</td>
-                    <td>已报名</td>
-                    <td></td>
                 </tr>
             </table>
             <div class="ui_table_control">

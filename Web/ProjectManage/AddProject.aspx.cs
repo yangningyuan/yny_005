@@ -20,25 +20,34 @@ namespace yny_005.Web.ProjectManage
 
         protected override string btnAdd_Click()
         {
+
+            
+
             Hashtable HS = new Hashtable();
             Model.OObject obj = new Model.OObject();
             obj.ObjName = Request.Form["ObjName"];
             obj.ObjOID = Request.Form["ObjCode"];
             obj.ReObjMID = TModel.MID;
+            obj.ObjChild = "";
+            obj.ObjExcel = "";
+            obj.CreateDate = DateTime.Now;
+            obj.ReObjNiName = TModel.MName;
             obj.Remark = Request.Form["Remark"];
             obj.BMDate =Convert.ToDateTime(Request.Form["BMstateDate"]);
             obj.JGDate =Convert.ToDateTime(Request.Form["ComDate"]);
-            
+            BLL.OObject.Add(obj,HS);
             int subcount = Convert.ToInt32(Request.Form["SubAddIndex"]);
             int count = 0;
             for (int i = 1; i <= subcount; i++)
             {
+                int ix = i;
                 if (string.IsNullOrEmpty(Request.Form["SubTitle" + i]))
                     continue;
                 else {
                     count += 1;
                     Model.ObjChild sub = new Model.ObjChild();
                     sub.OID = Guid.NewGuid().ToString("N");
+                    sub.ObjOID = obj.ObjOID;
                     sub.ChildName = Request.Form["SubTitle"+i];
                     sub.ChildValue = Request.Form["SubDetails" + i];
                     BLL.ObjChild.Add(sub,HS);
@@ -50,7 +59,7 @@ namespace yny_005.Web.ProjectManage
 
             if (string.IsNullOrEmpty(Request.Form["excelValue"]))
                 return "请上传文档";
-            string[] xx = Request.Form["excelValue"].Split(',');
+            string[] xx = Request.Form["excelValue"].Split(';');
             foreach (var item in xx)
             {
                 if (string.IsNullOrEmpty(item))
@@ -58,7 +67,7 @@ namespace yny_005.Web.ProjectManage
                 Model.ObjExcel excel = new Model.ObjExcel();
                 excel.OID = Guid.NewGuid().ToString("N");
                 excel.ObjOID = obj.ObjOID;
-                excel.ExcelName = item.Substring(16, item.Length);
+                excel.ExcelName = item.Substring(16, item.Length-16);
                 excel.ExcelUrl = item;
                 BLL.ObjExcel.Add(excel,HS);
             }

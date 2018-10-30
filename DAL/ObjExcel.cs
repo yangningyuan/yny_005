@@ -63,14 +63,14 @@ namespace yny_005.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into ObjExcel(");
-			strSql.Append("ObjID,ExcelName,ExcelUrl,OID,OjbOID)");
+			strSql.Append("ObjID,ExcelName,ExcelUrl,OID,ObjOID)");
 			strSql.Append(" values (");
-			strSql.Append("@ObjID,@ExcelName,@ExcelUrl,@OID,@OjbOID)");
+			strSql.Append("@ObjID,@ExcelName,@ExcelUrl,@OID,@ObjOID)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ObjID", SqlDbType.Int,4),
 					new SqlParameter("@ExcelName", SqlDbType.VarChar,150),
-					new SqlParameter("@ExcelUrl", SqlDbType.VarChar,250),new SqlParameter("@OID", SqlDbType.VarChar,50),new SqlParameter("@OjbOID", SqlDbType.VarChar,50)};
+					new SqlParameter("@ExcelUrl", SqlDbType.VarChar,250),new SqlParameter("@OID", SqlDbType.VarChar,50),new SqlParameter("@ObjOID", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.ObjID;
 			parameters[1].Value = model.ExcelName;
 			parameters[2].Value = model.ExcelUrl;

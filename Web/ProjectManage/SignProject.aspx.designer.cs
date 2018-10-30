@@ -22,13 +22,13 @@ namespace yny_005.Web.ProjectManage {
         protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
-        /// fid 控件。
+        /// pid 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden fid;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden pid;
         
         /// <summary>
         /// oid 控件。
@@ -40,42 +40,6 @@ namespace yny_005.Web.ProjectManage {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden oid;
         
         /// <summary>
-        /// Text6 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text6;
-        
-        /// <summary>
-        /// Text1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
-        
-        /// <summary>
-        /// Text3 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text3;
-        
-        /// <summary>
-        /// Text4 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text4;
-        
-        /// <summary>
         /// uploadurl 控件。
         /// </summary>
         /// <remarks>
@@ -85,12 +49,12 @@ namespace yny_005.Web.ProjectManage {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden uploadurl;
         
         /// <summary>
-        /// Hidden1 控件。
+        /// roam 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden Hidden1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText roam;
     }
 }

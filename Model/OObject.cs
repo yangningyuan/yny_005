@@ -36,6 +36,7 @@ namespace yny_005.Model
 		private DateTime _bmdate;
 		private DateTime _jgdate;
 		private string _remark;
+        public DateTime CreateDate { get; set; }
 		/// <summary>
 		/// 
 		/// </summary>
@@ -116,6 +117,8 @@ namespace yny_005.Model
 			set{ _remark=value;}
 			get{return _remark;}
 		}
+
+        
 		#endregion Model
 
 	}

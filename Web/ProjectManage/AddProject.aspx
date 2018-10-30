@@ -79,8 +79,8 @@
                                 </thead>
                                 <tbody id="SubDemo">
                                     <tr>
-                                        <td><input id="SubTitle1" class="normal_input" value="" runat="server" style="width: 40%;" /></td>
-                                        <td><input id="SubDetails1" class="normal_input" value="" runat="server" style="width: 40%;" /></td>
+                                        <td><input id="SubTitle1" name="SubTitle1" class="normal_input" value="" runat="server" style="width: 40%;" /></td>
+                                        <td><input id="SubDetails1" name="SubDetails1" class="normal_input" value="" runat="server" style="width: 40%;" /></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -101,16 +101,15 @@
                         <td width="15%" align="right">报名截止日期
                         </td>
                         <td width="75%" style="height: 40px;">
-                             <input type="text" runat="server" name="BMstateDate"  style="width: 20%;" id="BMstateDate" placeholder=""
-                                class="daycash_input" onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'BXDate\')}' })" />
+                            
+                            <input type="text" class="layui-input" id="BMstateDate" name="BMstateDate"  style="width: 20%;"  placeholder="yyyy-MM-dd HH:mm:ss">
                         </td>
                     </tr>
                     <tr>
                         <td width="15%" align="right">项目结束日期
                         </td>
                         <td width="75%" style="height: 40px;">
-                             <input type="text" runat="server" name="ComDate"  style="width: 20%;" id="ComDate" placeholder=""
-                                class="daycash_input" onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'BXDate\')}' })" />
+                            <input type="text" class="layui-input" id="ComDate"  name="ComDate" style="width: 20%;"  placeholder="yyyy-MM-dd HH:mm:ss">
                         </td>
                     </tr>
                     <tr>
@@ -146,24 +145,18 @@
 
                             <table class="table table-bordered table-striped">
                                 <tbody>
-
                                     <tr class="odd gradeC">
                                         <td style="text-align: left">
                                             <div id="fileQueue" class="fileQueue" style="width: 670px; height: 100px;"></div>
-
                                         </td>
                                         <td>
                                             <input type="hidden" id="excelValue" name="excelValue"  value="" />
                                             <input type="file" name="file_upload" id="file_upload" /></td>
                                     </tr>
-
                                     <tr class="even gradeX">
-
                                         <td colspan="3">
-
                                             <p>
                                                 <input type="button" class="btn btn-info" id="btnUpload" onclick="doUpload()" value="上传" />
-
                                                 <%--<input type="button" class="btn btn-info" id="btnCancelUpload" onclick="$('#file_upload').uploadify('cancel')" value="取消" />--%>
                                             </p>
                                             <div id="div_show_files"></div>
@@ -188,13 +181,27 @@
 
 
     <script type="text/javascript">
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+            //日期时间选择器
+            laydate.render({
+                elem: '#BMstateDate'
+              , type: 'datetime'
+            });
+            laydate.render({
+                elem: '#ComDate'
+             , type: 'datetime'
+            });
+        });
+       
+
         function checkChange() {
             if ($('#ObjName').val() == "") {
                 v5.error('项目名称不能为空', '1', 'ture');
             } else if ($('#ObjCode').val() =="") {
                 v5.error('项目编号不能为空', '1', 'ture');
             } else {
-                ActionModel("ProjectManage/AddProject.aspx?Action=Add", $('#form1').serialize(), "ProjectManage/ProjectList.aspx");
+                ActionModel("ProjectManage/AddProject.aspx?Action=Add", $('#form1').serialize());
             }
         }
 
@@ -205,8 +212,8 @@
             var useindex = parseInt(index) + 1;
             var str = "";
             str += "<tr>";
-            str += "<td><input id='SubTitle" + useindex + "' style='height: 34px;padding: 6px;font-size: 14px;line-height: 1.42857143;color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;width: 40%;' value=''  /></td>";
-            str += "<td><input id='SubDetails" + useindex + "'  style='height: 34px;padding: 6px;font-size: 14px;line-height: 1.42857143;color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;width: 40%;' value=''  /></td>";
+            str += "<td><input id='SubTitle" + useindex + "' name='SubTitle"+useindex+"' style='height: 34px;padding: 6px;font-size: 14px;line-height: 1.42857143;color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;width: 40%;' value=''  /></td>";
+            str += "<td><input id='SubDetails" + useindex + "' name='SubDetails"+useindex+"'  style='height: 34px;padding: 6px;font-size: 14px;line-height: 1.42857143;color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;width: 40%;' value=''  /></td>";
             str += "</tr>";
             $("#SubDemo").append(str);
             $("#SubAddIndex").val(useindex);
@@ -239,7 +246,7 @@
                 'onQueueComplete': function (queueData) {      //所有队列完成后事件
                     if (queueData.filesQueued > 0) {
                         //alert("上传完毕！");
-                        $("#excelValue").val($("#excelValue").val()+returnImgUrl);
+                        $("#excelValue").val(returnImgUrl);
                         //alert(returnImgUrl);
                     }
                 },

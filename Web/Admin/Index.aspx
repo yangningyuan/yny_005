@@ -492,11 +492,16 @@
     <link rel="stylesheet" type="text/css" href="plugin/layer/skin/layer.css" />
     <link rel="stylesheet" type="text/css" href="plugin/kindeditor/themes/default/default.css" />
     <%--<script type="text/javascript" src="plugin/layer/layer.js"></script>--%>
+
+
     <script type="text/javascript" src="Admin/pop/js/MyValide.js"></script>
     <script type="text/javascript" src="Admin/pop/js/TableToExcel.js"></script>
     <script type="text/javascript" src="Admin/pop/js/linkage.js"></script>
 
     <script src="/plugin/layui/layui.js"></script>
+    
+    <script type="text/javascript" src="/admin/frame/static/js/vip_comm.js"></script>
+
 
     <script type="text/javascript" src="Admin/pop/js/javascript_main.js"></script>
     <script type="text/javascript" src="Admin/pop/js/ajax.js"></script>
@@ -522,7 +527,6 @@
     </script>
     <%--<iframe id='frameFile' name='frameFile' style='display: none;'></iframe>--%>
     <%--<script type="text/javascript" src="/admin/frame/layui/layui.js"></script>--%>
-    <script type="text/javascript" src="/admin/frame/static/js/vip_comm.js"></script>
    <%-- <script type="text/javascript">
         layui.use(['layer', 'vip_nav'], function () {
 

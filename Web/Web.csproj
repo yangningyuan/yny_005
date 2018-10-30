@@ -278,6 +278,7 @@
     <Content Include="Admin\index.html" />
     <Content Include="Admin\IndexMain.aspx" />
     <Content Include="Admin\js\index.js" />
+    <Content Include="Admin\js\jquery-1.11.1.min.js" />
     <Content Include="Admin\js\readme.txt" />
     <Content Include="Admin\pop\css\bootstrap.min.css" />
     <Content Include="Admin\pop\css\next_page_search.css" />
@@ -823,6 +824,7 @@
     <Content Include="plugin\uploadify\__MACOSX\._Change Log.txt" />
     <Content Include="plugin\uploadify\__MACOSX\._uploadify.swf" />
     <Content Include="ProjectManage\AddProject.aspx" />
+    <Content Include="ProjectManage\ManageProjectList.aspx" />
     <Content Include="ProjectManage\ManageSHSignProjectList.aspx" />
     <Content Include="ProjectManage\ManageSumSignProjectList.aspx" />
     <Content Include="ProjectManage\ProjectList.aspx" />
@@ -1313,6 +1315,21 @@
     </Compile>
     <Compile Include="ProjectManage\AddProject.aspx.designer.cs">
       <DependentUpon>AddProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\Handler\ManageProjectList.ashx.cs">
+      <DependentUpon>ManageProjectList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\Handler\SignProjectList.ashx.cs">
+      <DependentUpon>SignProjectList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\ManageProjectList.aspx.cs">
+      <DependentUpon>ManageProjectList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\ManageProjectList.aspx.designer.cs">
+      <DependentUpon>ManageProjectList.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProjectManage\ManageSHSignProjectList.aspx.cs">
       <DependentUpon>ManageSHSignProjectList.aspx</DependentUpon>
@@ -1829,6 +1846,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Admin\frame\static\js\lay\" />
     <Folder Include="plugin\kindeditor\asp.net\bin\" />
     <Folder Include="plugin\kindeditor\attached\image\" />
     <Folder Include="plugin\UEditor\net\upload1\" />
@@ -1897,6 +1915,8 @@
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodesForBigData.php" />
     <Content Include="SysManage\Language\Handler\LanguageTypeList.ashx" />
+    <Content Include="ProjectManage\Handler\ManageProjectList.ashx" />
+    <Content Include="ProjectManage\Handler\SignProjectList.ashx" />
     <None Include="Properties\PublishProfiles\zx326.pubxml" />
     <Content Include="Shop\Handler\Ajax.ashx" />
     <Content Include="Shop\Handler\CarList.ashx" />
@@ -1920,7 +1940,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57779</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50005/</IISUrl>
+          <IISUrl>http://localhost:50105/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -20,6 +20,7 @@ using System.Text;
 using System.Data.SqlClient;
 using DBUtility;//Please add references
 using System.Collections;
+using System.Collections.Generic;
 
 namespace yny_005.DAL
 {
@@ -63,9 +64,9 @@ namespace yny_005.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into OObject(");
-			strSql.Append("ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark)");
+			strSql.Append("ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,CreateDate)");
 			strSql.Append(" values (");
-			strSql.Append("@ObjOID,@ObjName,@ReObjMID,@ReObjNiName,@ObjChild,@ObjExcel,@BMDate,@JGDate,@Remark)");
+			strSql.Append("@ObjOID,@ObjName,@ReObjMID,@ReObjNiName,@ObjChild,@ObjExcel,@BMDate,@JGDate,@Remark,@CreateDate)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ObjOID", SqlDbType.VarChar,50),
@@ -76,7 +77,7 @@ namespace yny_005.DAL
 					new SqlParameter("@ObjExcel", SqlDbType.VarChar,500),
 					new SqlParameter("@BMDate", SqlDbType.DateTime),
 					new SqlParameter("@JGDate", SqlDbType.DateTime),
-					new SqlParameter("@Remark", SqlDbType.VarChar,50)};
+					new SqlParameter("@Remark", SqlDbType.VarChar,50),new SqlParameter("@CreateDate", SqlDbType.DateTime)};
 			parameters[0].Value = model.ObjOID;
 			parameters[1].Value = model.ObjName;
 			parameters[2].Value = model.ReObjMID;
@@ -86,8 +87,9 @@ namespace yny_005.DAL
 			parameters[6].Value = model.BMDate;
 			parameters[7].Value = model.JGDate;
 			parameters[8].Value = model.Remark;
+            parameters[9].Value = model.CreateDate;
 
-			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
+            object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
 			{
 				return 0;
@@ -105,9 +107,9 @@ namespace yny_005.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into OObject(");
-            strSql.Append("ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark)");
+            strSql.Append("ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,CreateDate)");
             strSql.Append(" values (");
-            strSql.Append("@ObjOID,@ObjName,@ReObjMID,@ReObjNiName,@ObjChild,@ObjExcel,@BMDate,@JGDate,@Remark)");
+            strSql.Append("@ObjOID,@ObjName,@ReObjMID,@ReObjNiName,@ObjChild,@ObjExcel,@BMDate,@JGDate,@Remark,@CreateDate)");
             SqlParameter[] parameters = {
                     new SqlParameter("@ObjOID", SqlDbType.VarChar,50),
                     new SqlParameter("@ObjName", SqlDbType.VarChar,150),
@@ -117,7 +119,7 @@ namespace yny_005.DAL
                     new SqlParameter("@ObjExcel", SqlDbType.VarChar,500),
                     new SqlParameter("@BMDate", SqlDbType.DateTime),
                     new SqlParameter("@JGDate", SqlDbType.DateTime),
-                    new SqlParameter("@Remark", SqlDbType.VarChar,50)};
+                    new SqlParameter("@Remark", SqlDbType.VarChar,50),new SqlParameter("@CreateDate", SqlDbType.DateTime)};
             parameters[0].Value = model.ObjOID;
             parameters[1].Value = model.ObjName;
             parameters[2].Value = model.ReObjMID;
@@ -127,6 +129,7 @@ namespace yny_005.DAL
             parameters[6].Value = model.BMDate;
             parameters[7].Value = model.JGDate;
             parameters[8].Value = model.Remark;
+            parameters[9].Value = model.CreateDate;
 
             string guid = Guid.NewGuid().ToString();
             strSql.AppendFormat("; select '{0}'", guid);
@@ -151,8 +154,9 @@ namespace yny_005.DAL
 			strSql.Append("ObjExcel=@ObjExcel,");
 			strSql.Append("BMDate=@BMDate,");
 			strSql.Append("JGDate=@JGDate,");
-			strSql.Append("Remark=@Remark");
-			strSql.Append(" where ID=@ID");
+			strSql.Append("Remark=@Remark,");
+            strSql.Append("CreateDate=@CreateDate");
+            strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ObjOID", SqlDbType.VarChar,50),
 					new SqlParameter("@ObjName", SqlDbType.VarChar,150),
@@ -163,7 +167,8 @@ namespace yny_005.DAL
 					new SqlParameter("@BMDate", SqlDbType.DateTime),
 					new SqlParameter("@JGDate", SqlDbType.DateTime),
 					new SqlParameter("@Remark", SqlDbType.VarChar,50),
-					new SqlParameter("@ID", SqlDbType.Int,4)};
+                    new SqlParameter("@CreateDate", SqlDbType.DateTime),
+                    new SqlParameter("@ID", SqlDbType.Int,4)};
 			parameters[0].Value = model.ObjOID;
 			parameters[1].Value = model.ObjName;
 			parameters[2].Value = model.ReObjMID;
@@ -173,7 +178,8 @@ namespace yny_005.DAL
 			parameters[6].Value = model.BMDate;
 			parameters[7].Value = model.JGDate;
 			parameters[8].Value = model.Remark;
-			parameters[9].Value = model.ID;
+            parameters[9].Value = model.CreateDate;
+            parameters[10].Value = model.ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -237,7 +243,7 @@ namespace yny_005.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,OID from OObject ");
+			strSql.Append("select  top 1 ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,CreateDate from OObject ");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
@@ -255,12 +261,30 @@ namespace yny_005.DAL
 				return null;
 			}
 		}
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public static DataTable GetTable(string strWhere, int pageIndex, int pageSize, out int count)
+        {
+            return DAL.CommonBase.GetTable("OObject", "ID", "ID desc", strWhere, pageIndex, pageSize, out count);
+        }
+        public static List<Model.OObject> GetList(string strWhere, int pageIndex, int pageSize, out int count)
+        {
+            List<Model.OObject> list = new List<Model.OObject>();
 
+            DataTable table = GetTable(strWhere, pageIndex, pageSize, out count);
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                list.Add(DataRowToModel(table.Rows[i]));
+            }
 
-		/// <summary>
-		/// 得到一个对象实体
-		/// </summary>
-		public static yny_005.Model.OObject DataRowToModel(DataRow row)
+            return list;
+        }
+
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public static yny_005.Model.OObject DataRowToModel(DataRow row)
 		{
 			yny_005.Model.OObject model=new yny_005.Model.OObject();
 			if (row != null)
@@ -301,7 +325,11 @@ namespace yny_005.DAL
 				{
 					model.JGDate=DateTime.Parse(row["JGDate"].ToString());
 				}
-				if(row["Remark"]!=null)
+                if (row["CreateDate"] != null && row["CreateDate"].ToString() != "")
+                {
+                    model.CreateDate = DateTime.Parse(row["CreateDate"].ToString());
+                }
+                if (row["Remark"]!=null)
 				{
 					model.Remark=row["Remark"].ToString();
 				}
@@ -315,7 +343,7 @@ namespace yny_005.DAL
 		public static DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark ");
+			strSql.Append("select ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,CreateDate ");
 			strSql.Append(" FROM OObject ");
 			if(strWhere.Trim()!="")
 			{
@@ -335,7 +363,7 @@ namespace yny_005.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark ");
+			strSql.Append(" ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,CreateDate ");
 			strSql.Append(" FROM OObject ");
 			if(strWhere.Trim()!="")
 			{

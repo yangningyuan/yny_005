@@ -26,3 +26,4 @@ D:\工作目录\yny_005\yny_005\MMMChangeDay\bin\Debug\MMMChangeDay.exe
 D:\工作目录\yny_005\yny_005\MMMChangeDay\bin\Debug\MMMChangeDay.pdb
 D:\工作目录\yny_005\yny_005\MMMChangeDay\obj\x86\Debug\MMMChangeDay.exe
 D:\工作目录\yny_005\yny_005\MMMChangeDay\obj\x86\Debug\MMMChangeDay.pdb
+D:\工作目录\yny_005\yny_005\MMMChangeDay\obj\x86\Debug\MMMChangeDay.csprojResolveAssemblyReference.cache

@@ -122,110 +122,110 @@ layui.use(['layer', 'element', 'util'], function () {
     //    window.addTab(elem);
     //});
 
-    // 删除选项卡
-    window.delTab = function (layId) {
-        // 删除
-        element.tabDelete('card', layId);
-    };
+    //// 删除选项卡
+    //window.delTab = function (layId) {
+    //    // 删除
+    //    element.tabDelete('card', layId);
+    //};
 
-    // 删除所有选项卡
-    window.delAllTab = function () {
-        // 选项卡对象
-        layui.each($('.my-body .layui-tab-title > li'), function (k, v) {
-            var layId = $(v).attr('lay-id');
-            if (layId > 1) {
-                // 删除
-                element.tabDelete('card', layId);
-            }
-        });
-    };
+    //// 删除所有选项卡
+    //window.delAllTab = function () {
+    //    // 选项卡对象
+    //    layui.each($('.my-body .layui-tab-title > li'), function (k, v) {
+    //        var layId = $(v).attr('lay-id');
+    //        if (layId > 1) {
+    //            // 删除
+    //            element.tabDelete('card', layId);
+    //        }
+    //    });
+    //};
 
-    // 获取当前选中选项卡lay-id
-    window.getThisTabID = function () {
-        // 当前选中的选项卡id
-        return $(document).find('body .my-body .layui-tab-card > .layui-tab-title .layui-this').attr('lay-id');
-    };
+    //// 获取当前选中选项卡lay-id
+    //window.getThisTabID = function () {
+    //    // 当前选中的选项卡id
+    //    return $(document).find('body .my-body .layui-tab-card > .layui-tab-title .layui-this').attr('lay-id');
+    //};
 
-    // 双击关闭相应选项卡
-    $(document).on('dblclick', '.my-body .layui-tab-card > .layui-tab-title li', function () {
-        // 欢迎页面以外，删除选项卡
-        if ($(this).index() > 0) {
-            element.tabDelete('card', $(this).attr('lay-id'));
-        } else {
-            layer.msg('欢迎页面不能关闭')
-        }
-    });
+    //// 双击关闭相应选项卡
+    //$(document).on('dblclick', '.my-body .layui-tab-card > .layui-tab-title li', function () {
+    //    // 欢迎页面以外，删除选项卡
+    //    if ($(this).index() > 0) {
+    //        element.tabDelete('card', $(this).attr('lay-id'));
+    //    } else {
+    //        layer.msg('欢迎页面不能关闭')
+    //    }
+    //});
 
-    // 选项卡右键事件阻止
-    $(document).on("contextmenu", '.my-body .layui-tab-card > .layui-tab-title li', function () {
-        return false;
-    });
+    //// 选项卡右键事件阻止
+    //$(document).on("contextmenu", '.my-body .layui-tab-card > .layui-tab-title li', function () {
+    //    return false;
+    //});
 
-    // 选项卡右键事件
-    $(document).on("mousedown", '.my-body .layui-tab-card > .layui-tab-title li', function (e) {
-        // 判断是右键点击事件并且不是欢迎页面选项卡
-        if (3 == e.which && $(this).index() > 0) {
-            // 赋值
-            cardIdx = $(this).index();
-            cardLayId = $(this).attr('lay-id');
-            console.log('lay-id:' + cardLayId);
-            // 选择框
-            layer.tips($('.my-dblclick-box').html(), $(this), {
-                skin: 'dblclick-tips-box',
-                tips: 3,
-                time: false
-            });
-        }
-    });
+    //// 选项卡右键事件
+    //$(document).on("mousedown", '.my-body .layui-tab-card > .layui-tab-title li', function (e) {
+    //    // 判断是右键点击事件并且不是欢迎页面选项卡
+    //    if (3 == e.which && $(this).index() > 0) {
+    //        // 赋值
+    //        cardIdx = $(this).index();
+    //        cardLayId = $(this).attr('lay-id');
+    //        console.log('lay-id:' + cardLayId);
+    //        // 选择框
+    //        layer.tips($('.my-dblclick-box').html(), $(this), {
+    //            skin: 'dblclick-tips-box',
+    //            tips: 3,
+    //            time: false
+    //        });
+    //    }
+    //});
 
-    // 点击body关闭tips
-    $(document).on('click', 'html', function () {
-        layer.closeAll('tips');
-    });
+    //// 点击body关闭tips
+    //$(document).on('click', 'html', function () {
+    //    layer.closeAll('tips');
+    //});
 
-    // 右键提示框菜单操作-刷新页面
-    $(document).on('click', '.card-refresh', function () {
-        // 窗体对象
-        var ifr = $(document).find('.my-body .layui-tab-content .layui-tab-item iframe').eq(cardIdx);
-        // 刷新当前页
-        ifr.attr('src', ifr.attr('src'));
-        // 切换到当前选项卡
-        element.tabChange('card', cardLayId);
-    });
+    //// 右键提示框菜单操作-刷新页面
+    //$(document).on('click', '.card-refresh', function () {
+    //    // 窗体对象
+    //    var ifr = $(document).find('.my-body .layui-tab-content .layui-tab-item iframe').eq(cardIdx);
+    //    // 刷新当前页
+    //    ifr.attr('src', ifr.attr('src'));
+    //    // 切换到当前选项卡
+    //    element.tabChange('card', cardLayId);
+    //});
 
-    // 右键提示框菜单操作-关闭页面
-    $(document).on('click', '.card-close', function () {
-        // 删除
-        window.delTab(cardLayId);
-    });
+    //// 右键提示框菜单操作-关闭页面
+    //$(document).on('click', '.card-close', function () {
+    //    // 删除
+    //    window.delTab(cardLayId);
+    //});
 
-    // 右键提示框菜单操作-关闭所有页面
-    $(document).on('click', '.card-close-all', function () {
-        // 删除
-        window.delAllTab();
-    });
+    //// 右键提示框菜单操作-关闭所有页面
+    //$(document).on('click', '.card-close-all', function () {
+    //    // 删除
+    //    window.delAllTab();
+    //});
 
-    // 打赏
-    $('.pay').on('click', function () {
-        layer.open({
-            type: 1,
-            title: false,               // 标题不显示
-            closeBtn: false,            // 关闭按钮不显示
-            shadeClose: true,           // 点击遮罩关闭
-            area: ['auto', 'auto'],      // 宽高
-            content: $('.my-pay-box')   // 弹出内容
-        });
-    });
+    //// 打赏
+    //$('.pay').on('click', function () {
+    //    layer.open({
+    //        type: 1,
+    //        title: false,               // 标题不显示
+    //        closeBtn: false,            // 关闭按钮不显示
+    //        shadeClose: true,           // 点击遮罩关闭
+    //        area: ['auto', 'auto'],      // 宽高
+    //        content: $('.my-pay-box')   // 弹出内容
+    //    });
+    //});
 
-    // 皮肤
-    function skin() {
-        var skin = localStorage.skin ? localStorage.skin : 0;
-        var body = $('body');
-        body.removeClass('skin-0');
-        body.removeClass('skin-1');
-        body.removeClass('skin-2');
-        body.addClass('skin-' + skin);
-    }
+    //// 皮肤
+    //function skin() {
+    //    var skin = localStorage.skin ? localStorage.skin : 0;
+    //    var body = $('body');
+    //    body.removeClass('skin-0');
+    //    body.removeClass('skin-1');
+    //    body.removeClass('skin-2');
+    //    body.addClass('skin-' + skin);
+    //}
 
     // 工具
     function _util() {
