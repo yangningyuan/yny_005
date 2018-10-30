@@ -30,6 +30,9 @@ namespace yny_005.Model
 		private int _objid;
 		private string _excelname;
 		private string _excelurl;
+        public string OID { get; set; }
+
+        public string ObjOID { get; set; }
 		/// <summary>
 		/// 
 		/// </summary>

@@ -28,6 +28,12 @@ namespace yny_005.Model
 		#region Model
 		private int _id;
 		private int _objid;
+
+        public string OID { get; set; }
+        /// <summary>
+        /// 项目OID
+        /// </summary>
+        public string OjbOID { get; set; }
 		private string _mid;
 		private string _yangpincode;
 		private string _yangpinimgurl;

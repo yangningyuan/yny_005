@@ -44,7 +44,7 @@
                     <tr>
                         <td width="15%" align="right">部门
                         </td>
-                        <td width="75%" style="height: 40px;">部门1
+                        <td width="75%" style="height: 40px;"><%=TModel.MID %>
                         </td>
                     </tr>
 
@@ -52,14 +52,14 @@
                         <td width="15%" align="right">项目名称
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <input id="Text2" class="normal_input" value="" runat="server" style="width: 20%;" />
+                            <input id="ObjName" class="normal_input" value="" runat="server" style="width: 20%;" />
                         </td>
                     </tr>
                     <tr>
                         <td width="15%" align="right">项目编号
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <input id="Text1" class="normal_input" value="" runat="server" style="width: 20%;" />
+                            <input id="ObjCode" class="normal_input" value="" runat="server" style="width: 20%;" />
                         </td>
                     </tr>
                     <tr>
@@ -84,7 +84,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <input type="hidden" id="SubAddIndex" value="1" />
+                            <input type="hidden" id="SubAddIndex" name="SubAddIndex" value="1" />
                             <div id="Div1" class="pay btn btn-success" onclick="SubAddHTML()">
                                 添加子项
                             </div>
@@ -94,21 +94,23 @@
                         <td width="15%" align="right">说明
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <input id="Text3" class="normal_input" value="" runat="server" style="width: 20%;" />
+                            <input id="Remark" class="normal_input" value="" runat="server" style="width: 20%;" />
                         </td>
                     </tr>
                     <tr>
                         <td width="15%" align="right">报名截止日期
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <input id="Text4" class="normal_input" value="" runat="server" style="width: 20%;" />
+                             <input type="text" runat="server" name="BMstateDate"  style="width: 20%;" id="BMstateDate" placeholder=""
+                                class="daycash_input" onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'BXDate\')}' })" />
                         </td>
                     </tr>
                     <tr>
                         <td width="15%" align="right">项目结束日期
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <input id="Text5" class="normal_input" value="" runat="server" style="width: 20%;" />
+                             <input type="text" runat="server" name="ComDate"  style="width: 20%;" id="ComDate" placeholder=""
+                                class="daycash_input" onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'BXDate\')}' })" />
                         </td>
                     </tr>
                     <tr>
@@ -151,6 +153,7 @@
 
                                         </td>
                                         <td>
+                                            <input type="hidden" id="excelValue" name="excelValue"  value="" />
                                             <input type="file" name="file_upload" id="file_upload" /></td>
                                     </tr>
 
@@ -168,9 +171,6 @@
                                     </tr>
                                 </tbody>
                             </table>
-
-
-
                         </td>
                     </tr>
 
@@ -188,6 +188,17 @@
 
 
     <script type="text/javascript">
+        function checkChange() {
+            if ($('#ObjName').val() == "") {
+                v5.error('项目名称不能为空', '1', 'ture');
+            } else if ($('#ObjCode').val() =="") {
+                v5.error('项目编号不能为空', '1', 'ture');
+            } else {
+                ActionModel("ProjectManage/AddProject.aspx?Action=Add", $('#form1').serialize(), "ProjectManage/ProjectList.aspx");
+            }
+        }
+
+
         function SubAddHTML()
         {
             var index = $("#SubAddIndex").val();
@@ -228,7 +239,8 @@
                 'onQueueComplete': function (queueData) {      //所有队列完成后事件
                     if (queueData.filesQueued > 0) {
                         //alert("上传完毕！");
-                        alert(returnImgUrl);
+                        $("#excelValue").val($("#excelValue").val()+returnImgUrl);
+                        //alert(returnImgUrl);
                     }
                 },
                 'onError': function (event, queueId, fileObj, errorObj) {

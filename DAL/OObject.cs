@@ -19,6 +19,8 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using DBUtility;//Please add references
+using System.Collections;
+
 namespace yny_005.DAL
 {
 	/// <summary>
@@ -70,8 +72,8 @@ namespace yny_005.DAL
 					new SqlParameter("@ObjName", SqlDbType.VarChar,150),
 					new SqlParameter("@ReObjMID", SqlDbType.VarChar,50),
 					new SqlParameter("@ReObjNiName", SqlDbType.VarChar,50),
-					new SqlParameter("@ObjChild", SqlDbType.Int,4),
-					new SqlParameter("@ObjExcel", SqlDbType.Int,4),
+					new SqlParameter("@ObjChild", SqlDbType.VarChar,500),
+					new SqlParameter("@ObjExcel", SqlDbType.VarChar,500),
 					new SqlParameter("@BMDate", SqlDbType.DateTime),
 					new SqlParameter("@JGDate", SqlDbType.DateTime),
 					new SqlParameter("@Remark", SqlDbType.VarChar,50)};
@@ -95,10 +97,49 @@ namespace yny_005.DAL
 				return Convert.ToInt32(obj);
 			}
 		}
-		/// <summary>
-		/// 更新一条数据
+
+        /// <summary>
+		/// 增加一条数据
 		/// </summary>
-		public static bool Update(yny_005.Model.OObject model)
+		public static Hashtable Add(yny_005.Model.OObject model, Hashtable MyHs)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("insert into OObject(");
+            strSql.Append("ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark)");
+            strSql.Append(" values (");
+            strSql.Append("@ObjOID,@ObjName,@ReObjMID,@ReObjNiName,@ObjChild,@ObjExcel,@BMDate,@JGDate,@Remark)");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@ObjOID", SqlDbType.VarChar,50),
+                    new SqlParameter("@ObjName", SqlDbType.VarChar,150),
+                    new SqlParameter("@ReObjMID", SqlDbType.VarChar,50),
+                    new SqlParameter("@ReObjNiName", SqlDbType.VarChar,50),
+                    new SqlParameter("@ObjChild", SqlDbType.VarChar,500),
+                    new SqlParameter("@ObjExcel", SqlDbType.VarChar,500),
+                    new SqlParameter("@BMDate", SqlDbType.DateTime),
+                    new SqlParameter("@JGDate", SqlDbType.DateTime),
+                    new SqlParameter("@Remark", SqlDbType.VarChar,50)};
+            parameters[0].Value = model.ObjOID;
+            parameters[1].Value = model.ObjName;
+            parameters[2].Value = model.ReObjMID;
+            parameters[3].Value = model.ReObjNiName;
+            parameters[4].Value = model.ObjChild;
+            parameters[5].Value = model.ObjExcel;
+            parameters[6].Value = model.BMDate;
+            parameters[7].Value = model.JGDate;
+            parameters[8].Value = model.Remark;
+
+            string guid = Guid.NewGuid().ToString();
+            strSql.AppendFormat("; select '{0}'", guid);
+
+            MyHs.Add(strSql.ToString(), parameters);
+
+            return MyHs;
+        }
+
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public static bool Update(yny_005.Model.OObject model)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update OObject set ");
@@ -117,8 +158,8 @@ namespace yny_005.DAL
 					new SqlParameter("@ObjName", SqlDbType.VarChar,150),
 					new SqlParameter("@ReObjMID", SqlDbType.VarChar,50),
 					new SqlParameter("@ReObjNiName", SqlDbType.VarChar,50),
-					new SqlParameter("@ObjChild", SqlDbType.Int,4),
-					new SqlParameter("@ObjExcel", SqlDbType.Int,4),
+					new SqlParameter("@ObjChild", SqlDbType.VarChar,500),
+					new SqlParameter("@ObjExcel", SqlDbType.VarChar,500),
 					new SqlParameter("@BMDate", SqlDbType.DateTime),
 					new SqlParameter("@JGDate", SqlDbType.DateTime),
 					new SqlParameter("@Remark", SqlDbType.VarChar,50),
@@ -196,7 +237,7 @@ namespace yny_005.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark from OObject ");
+			strSql.Append("select  top 1 ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,OID from OObject ");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
@@ -246,11 +287,11 @@ namespace yny_005.DAL
 				}
 				if(row["ObjChild"]!=null && row["ObjChild"].ToString()!="")
 				{
-					model.ObjChild=int.Parse(row["ObjChild"].ToString());
+					model.ObjChild=row["ObjChild"].ToString();
 				}
 				if(row["ObjExcel"]!=null && row["ObjExcel"].ToString()!="")
 				{
-					model.ObjExcel=int.Parse(row["ObjExcel"].ToString());
+					model.ObjExcel=row["ObjExcel"].ToString();
 				}
 				if(row["BMDate"]!=null && row["BMDate"].ToString()!="")
 				{

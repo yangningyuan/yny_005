@@ -31,8 +31,8 @@ namespace yny_005.Model
 		private string _objname;
 		private string _reobjmid;
 		private string _reobjniname;
-		private int _objchild;
-		private int _objexcel;
+		private string _objchild;
+		private string _objexcel;
 		private DateTime _bmdate;
 		private DateTime _jgdate;
 		private string _remark;
@@ -79,7 +79,7 @@ namespace yny_005.Model
 		/// <summary>
 		/// 项目子项
 		/// </summary>
-		public int ObjChild
+		public string ObjChild
 		{
 			set{ _objchild=value;}
 			get{return _objchild;}
@@ -87,7 +87,7 @@ namespace yny_005.Model
 		/// <summary>
 		/// 项目文档
 		/// </summary>
-		public int ObjExcel
+		public string ObjExcel
 		{
 			set{ _objexcel=value;}
 			get{return _objexcel;}

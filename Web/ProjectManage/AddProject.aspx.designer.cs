@@ -40,22 +40,22 @@ namespace yny_005.Web.ProjectManage {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden oid;
         
         /// <summary>
-        /// Text2 控件。
+        /// ObjName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ObjName;
         
         /// <summary>
-        /// Text1 控件。
+        /// ObjCode 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ObjCode;
         
         /// <summary>
         /// SubTitle1 控件。
@@ -76,30 +76,30 @@ namespace yny_005.Web.ProjectManage {
         protected global::System.Web.UI.HtmlControls.HtmlInputText SubDetails1;
         
         /// <summary>
-        /// Text3 控件。
+        /// Remark 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text3;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Remark;
         
         /// <summary>
-        /// Text4 控件。
+        /// BMstateDate 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text4;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText BMstateDate;
         
         /// <summary>
-        /// Text5 控件。
+        /// ComDate 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text5;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ComDate;
     }
 }

@@ -18,6 +18,8 @@ using System;
 using System.Data;
 using System.Collections.Generic;
 using yny_005.Model;
+using System.Collections;
+
 namespace yny_005.BLL
 {
 	/// <summary>
@@ -51,11 +53,18 @@ namespace yny_005.BLL
 		{
 			return DAL.ObjUserApply.Add(model);
 		}
+        /// <summary>
+        /// 增加一条数据
+        /// </summary>
+        public static Hashtable Add(yny_005.Model.ObjUserApply model, Hashtable MyHs)
+        {
+            return DAL.ObjUserApply.Add(model, MyHs);
+        }
 
-		/// <summary>
-		/// 更新一条数据
-		/// </summary>
-		public bool Update(yny_005.Model.ObjUserApply model)
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public bool Update(yny_005.Model.ObjUserApply model)
 		{
 			return DAL.ObjUserApply.Update(model);
 		}

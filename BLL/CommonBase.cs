@@ -20,6 +20,18 @@ namespace yny_005.BLL
         {
             return DAL.CommonBase.RunHashtable(hashtable);
         }
+        /// <summary>
+        /// 随机字符串 时间+6位随机串
+        /// </summary>
+        /// <returns></returns>
+        public static string RamNumber()
+        {
+            Random rd = new Random();
+            int dd = rd.Next(100000, 999999);
+            return DateTime.Now.ToString("yyyyMMddHHmmssfff") + dd.ToString();
+        }
+
+        
 
         public static object GetSingle(string strSql)
         {

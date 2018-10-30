@@ -19,6 +19,8 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using DBUtility;//Please add references
+using System.Collections;
+
 namespace yny_005.DAL
 {
 	/// <summary>
@@ -105,10 +107,59 @@ namespace yny_005.DAL
 				return Convert.ToInt32(obj);
 			}
 		}
-		/// <summary>
-		/// 更新一条数据
+
+        /// <summary>
+		/// 增加一条数据
 		/// </summary>
-		public static bool Update(yny_005.Model.ObjSubUser model)
+		public static Hashtable Add(yny_005.Model.ObjSubUser model, Hashtable MyHs)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("insert into ObjSubUser(");
+            strSql.Append("SubID,MID,ResultOne,ResultTwo,ResultAvg,RFangFa,RSheBei,RYiChang,RPerson,RYangPinID,ResultImgUrl,SState,Spare,SpInt)");
+            strSql.Append(" values (");
+            strSql.Append("@SubID,@MID,@ResultOne,@ResultTwo,@ResultAvg,@RFangFa,@RSheBei,@RYiChang,@RPerson,@RYangPinID,@ResultImgUrl,@SState,@Spare,@SpInt)");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@SubID", SqlDbType.Int,4),
+                    new SqlParameter("@MID", SqlDbType.VarChar,50),
+                    new SqlParameter("@ResultOne", SqlDbType.VarChar,50),
+                    new SqlParameter("@ResultTwo", SqlDbType.VarChar,50),
+                    new SqlParameter("@ResultAvg", SqlDbType.VarChar,50),
+                    new SqlParameter("@RFangFa", SqlDbType.VarChar,500),
+                    new SqlParameter("@RSheBei", SqlDbType.VarChar,500),
+                    new SqlParameter("@RYiChang", SqlDbType.VarChar,500),
+                    new SqlParameter("@RPerson", SqlDbType.VarChar,50),
+                    new SqlParameter("@RYangPinID", SqlDbType.Int,4),
+                    new SqlParameter("@ResultImgUrl", SqlDbType.VarChar,250),
+                    new SqlParameter("@SState", SqlDbType.Int,4),
+                    new SqlParameter("@Spare", SqlDbType.VarChar,250),
+                    new SqlParameter("@SpInt", SqlDbType.Int,4)};
+            parameters[0].Value = model.SubID;
+            parameters[1].Value = model.MID;
+            parameters[2].Value = model.ResultOne;
+            parameters[3].Value = model.ResultTwo;
+            parameters[4].Value = model.ResultAvg;
+            parameters[5].Value = model.RFangFa;
+            parameters[6].Value = model.RSheBei;
+            parameters[7].Value = model.RYiChang;
+            parameters[8].Value = model.RPerson;
+            parameters[9].Value = model.RYangPinID;
+            parameters[10].Value = model.ResultImgUrl;
+            parameters[11].Value = model.SState;
+            parameters[12].Value = model.Spare;
+            parameters[13].Value = model.SpInt;
+
+            string guid = Guid.NewGuid().ToString();
+            strSql.AppendFormat("; select '{0}'", guid);
+
+            MyHs.Add(strSql.ToString(), parameters);
+
+            return MyHs;
+        }
+
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public static bool Update(yny_005.Model.ObjSubUser model)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update ObjSubUser set ");

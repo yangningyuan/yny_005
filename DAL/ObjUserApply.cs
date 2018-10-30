@@ -19,6 +19,8 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using DBUtility;//Please add references
+using System.Collections;
+
 namespace yny_005.DAL
 {
 	/// <summary>
@@ -52,19 +54,64 @@ namespace yny_005.DAL
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
-
-
-		/// <summary>
+        /// <summary>
 		/// 增加一条数据
 		/// </summary>
 		public static int Add(yny_005.Model.ObjUserApply model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("insert into ObjUserApply(");
+            strSql.Append("ObjID,MID,BaoMingCode,DanWeiName,ZiGeZhengShu,ZhengShuCode,CreateDate,ComDate,SubID,BaoMingImgUrl,FeiYongImgUrl,SState)");
+            strSql.Append(" values (");
+            strSql.Append("@ObjID,@MID,@BaoMingCode,@DanWeiName,@ZiGeZhengShu,@ZhengShuCode,@CreateDate,@ComDate,@SubID,@BaoMingImgUrl,@FeiYongImgUrl,@SState)");
+            strSql.Append(";select @@IDENTITY");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@ObjID", SqlDbType.Int,4),
+                    new SqlParameter("@MID", SqlDbType.VarChar,50),
+                    new SqlParameter("@BaoMingCode", SqlDbType.VarChar,50),
+                    new SqlParameter("@DanWeiName", SqlDbType.VarChar,50),
+                    new SqlParameter("@ZiGeZhengShu", SqlDbType.VarChar,250),
+                    new SqlParameter("@ZhengShuCode", SqlDbType.VarChar,250),
+                    new SqlParameter("@CreateDate", SqlDbType.DateTime),
+                    new SqlParameter("@ComDate", SqlDbType.DateTime),
+                    new SqlParameter("@SubID", SqlDbType.VarChar,50),
+                    new SqlParameter("@BaoMingImgUrl", SqlDbType.VarChar,250),
+                    new SqlParameter("@FeiYongImgUrl", SqlDbType.VarChar,250),
+                    new SqlParameter("@SState", SqlDbType.Int,4)};
+            parameters[0].Value = model.ObjID;
+            parameters[1].Value = model.MID;
+            parameters[2].Value = model.BaoMingCode;
+            parameters[3].Value = model.DanWeiName;
+            parameters[4].Value = model.ZiGeZhengShu;
+            parameters[5].Value = model.ZhengShuCode;
+            parameters[6].Value = model.CreateDate;
+            parameters[7].Value = model.ComDate;
+            parameters[8].Value = model.SubID;
+            parameters[9].Value = model.BaoMingImgUrl;
+            parameters[10].Value = model.FeiYongImgUrl;
+            parameters[11].Value = model.SState;
+
+            object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
+        }
+
+        /// <summary>
+        /// 增加一条数据
+        /// </summary>
+        public static Hashtable Add(yny_005.Model.ObjUserApply model, Hashtable MyHs)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into ObjUserApply(");
 			strSql.Append("ObjID,MID,BaoMingCode,DanWeiName,ZiGeZhengShu,ZhengShuCode,CreateDate,ComDate,SubID,BaoMingImgUrl,FeiYongImgUrl,SState)");
 			strSql.Append(" values (");
 			strSql.Append("@ObjID,@MID,@BaoMingCode,@DanWeiName,@ZiGeZhengShu,@ZhengShuCode,@CreateDate,@ComDate,@SubID,@BaoMingImgUrl,@FeiYongImgUrl,@SState)");
-			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ObjID", SqlDbType.Int,4),
 					new SqlParameter("@MID", SqlDbType.VarChar,50),
@@ -91,16 +138,13 @@ namespace yny_005.DAL
 			parameters[10].Value = model.FeiYongImgUrl;
 			parameters[11].Value = model.SState;
 
-			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
-			if (obj == null)
-			{
-				return 0;
-			}
-			else
-			{
-				return Convert.ToInt32(obj);
-			}
-		}
+            string guid = Guid.NewGuid().ToString();
+            strSql.AppendFormat("; select '{0}'", guid);
+
+            MyHs.Add(strSql.ToString(), parameters);
+
+            return MyHs;
+        }
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>

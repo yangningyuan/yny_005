@@ -18,12 +18,14 @@ using System;
 using System.Data;
 using System.Collections.Generic;
 using yny_005.Model;
+using System.Collections;
+
 namespace yny_005.BLL
 {
 	/// <summary>
 	/// ObjChild
 	/// </summary>
-	public partial class ObjChild
+	public static partial class ObjChild
 	{
 		
 		#region  BasicMethod
@@ -33,7 +35,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
-		public bool Exists(int ID)
+		public static bool Exists(int ID)
 		{
 			return DAL.ObjChild.Exists(ID);
 		}
@@ -41,15 +43,23 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int  Add(yny_005.Model.ObjChild model)
+		public static int  Add(yny_005.Model.ObjChild model)
 		{
 			return DAL.ObjChild.Add(model);
 		}
 
-		/// <summary>
-		/// 更新一条数据
+        /// <summary>
+		/// 增加一条数据
 		/// </summary>
-		public bool Update(yny_005.Model.ObjChild model)
+		public static Hashtable Add(yny_005.Model.ObjChild model,Hashtable MyHs)
+        {
+            return DAL.ObjChild.Add(model,MyHs);
+        }
+
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public static bool Update(yny_005.Model.ObjChild model)
 		{
 			return DAL.ObjChild.Update(model);
 		}
@@ -57,7 +67,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int ID)
+		public static bool Delete(int ID)
 		{
 			
 			return DAL.ObjChild.Delete(ID);
@@ -65,7 +75,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool DeleteList(string IDlist )
+		public static bool DeleteList(string IDlist )
 		{
 			return DAL.ObjChild.DeleteList(IDlist );
 		}
@@ -73,7 +83,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public yny_005.Model.ObjChild GetModel(int ID)
+		public static yny_005.Model.ObjChild GetModel(int ID)
 		{
 			
 			return DAL.ObjChild.GetModel(ID);
@@ -83,21 +93,21 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public DataSet GetList(string strWhere)
+		public static DataSet GetList(string strWhere)
 		{
 			return DAL.ObjChild.GetList(strWhere);
 		}
 		/// <summary>
 		/// 获得前几行数据
 		/// </summary>
-		public DataSet GetList(int Top,string strWhere,string filedOrder)
+		public static DataSet GetList(int Top,string strWhere,string filedOrder)
 		{
 			return DAL.ObjChild.GetList(Top,strWhere,filedOrder);
 		}
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<yny_005.Model.ObjChild> GetModelList(string strWhere)
+		public static List<yny_005.Model.ObjChild> GetModelList(string strWhere)
 		{
 			DataSet ds = DAL.ObjChild.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
@@ -105,7 +115,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<yny_005.Model.ObjChild> DataTableToList(DataTable dt)
+		public static List<yny_005.Model.ObjChild> DataTableToList(DataTable dt)
 		{
 			List<yny_005.Model.ObjChild> modelList = new List<yny_005.Model.ObjChild>();
 			int rowsCount = dt.Rows.Count;
@@ -127,7 +137,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public DataSet GetAllList()
+		public static DataSet GetAllList()
 		{
 			return GetList("");
 		}
@@ -135,21 +145,21 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		public int GetRecordCount(string strWhere)
+		public static int GetRecordCount(string strWhere)
 		{
 			return DAL.ObjChild.GetRecordCount(strWhere);
 		}
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
+		public static DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
 		{
 			return DAL.ObjChild.GetListByPage( strWhere,  orderby,  startIndex,  endIndex);
 		}
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		//public DataSet GetList(int PageSize,int PageIndex,string strWhere)
+		//public static DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		//{
 			//return DAL.ObjChild.GetList(PageSize,PageIndex,strWhere);
 		//}

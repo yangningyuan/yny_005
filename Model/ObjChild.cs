@@ -30,6 +30,9 @@ namespace yny_005.Model
 		private int _objid;
 		private string _childname;
 		private string _childvalue;
+        public string OID { get; set; }
+
+        public string ObjOID { get; set; }
 		/// <summary>
 		/// 
 		/// </summary>

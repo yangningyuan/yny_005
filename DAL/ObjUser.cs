@@ -19,6 +19,8 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using DBUtility;//Please add references
+using System.Collections;
+
 namespace yny_005.DAL
 {
 	/// <summary>
@@ -115,10 +117,68 @@ namespace yny_005.DAL
 				return Convert.ToInt32(obj);
 			}
 		}
-		/// <summary>
-		/// 更新一条数据
+
+        /// <summary>
+		/// 增加一条数据
 		/// </summary>
-		public static bool Update(yny_005.Model.ObjUser model)
+		public static Hashtable Add(yny_005.Model.ObjUser model, Hashtable MyHs)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("insert into ObjUser(");
+            strSql.Append("ObjID,ObjName,MID,ZhengShuCode,YangPinID,BaoMingID,USState,CreateDate,DanWeiName,ShiYanCode,RState,BState,YState,RUpLoadDate,RImgUrl,Spare,Spare2,SPInt,SPInt2)");
+            strSql.Append(" values (");
+            strSql.Append("@ObjID,@ObjName,@MID,@ZhengShuCode,@YangPinID,@BaoMingID,@USState,@CreateDate,@DanWeiName,@ShiYanCode,@RState,@BState,@YState,@RUpLoadDate,@RImgUrl,@Spare,@Spare2,@SPInt,@SPInt2)");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@ObjID", SqlDbType.Int,4),
+                    new SqlParameter("@ObjName", SqlDbType.VarChar,150),
+                    new SqlParameter("@MID", SqlDbType.VarChar,50),
+                    new SqlParameter("@ZhengShuCode", SqlDbType.VarChar,50),
+                    new SqlParameter("@YangPinID", SqlDbType.Int,4),
+                    new SqlParameter("@BaoMingID", SqlDbType.Int,4),
+                    new SqlParameter("@USState", SqlDbType.Int,4),
+                    new SqlParameter("@CreateDate", SqlDbType.DateTime),
+                    new SqlParameter("@DanWeiName", SqlDbType.VarChar,50),
+                    new SqlParameter("@ShiYanCode", SqlDbType.VarChar,50),
+                    new SqlParameter("@RState", SqlDbType.Int,4),
+                    new SqlParameter("@BState", SqlDbType.Int,4),
+                    new SqlParameter("@YState", SqlDbType.Int,4),
+                    new SqlParameter("@RUpLoadDate", SqlDbType.DateTime),
+                    new SqlParameter("@RImgUrl", SqlDbType.VarChar,250),
+                    new SqlParameter("@Spare", SqlDbType.VarChar,250),
+                    new SqlParameter("@Spare2", SqlDbType.VarChar,250),
+                    new SqlParameter("@SPInt", SqlDbType.Int,4),
+                    new SqlParameter("@SPInt2", SqlDbType.Int,4)};
+            parameters[0].Value = model.ObjID;
+            parameters[1].Value = model.ObjName;
+            parameters[2].Value = model.MID;
+            parameters[3].Value = model.ZhengShuCode;
+            parameters[4].Value = model.YangPinID;
+            parameters[5].Value = model.BaoMingID;
+            parameters[6].Value = model.USState;
+            parameters[7].Value = model.CreateDate;
+            parameters[8].Value = model.DanWeiName;
+            parameters[9].Value = model.ShiYanCode;
+            parameters[10].Value = model.RState;
+            parameters[11].Value = model.BState;
+            parameters[12].Value = model.YState;
+            parameters[13].Value = model.RUpLoadDate;
+            parameters[14].Value = model.RImgUrl;
+            parameters[15].Value = model.Spare;
+            parameters[16].Value = model.Spare2;
+            parameters[17].Value = model.SPInt;
+            parameters[18].Value = model.SPInt2;
+
+            string guid = Guid.NewGuid().ToString();
+            strSql.AppendFormat("; select '{0}'", guid);
+
+            MyHs.Add(strSql.ToString(), parameters);
+
+            return MyHs;
+        }
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public static bool Update(yny_005.Model.ObjUser model)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update ObjUser set ");

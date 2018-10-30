@@ -19,6 +19,8 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using DBUtility;//Please add references
+using System.Collections;
+
 namespace yny_005.DAL
 {
 	/// <summary>
@@ -61,9 +63,9 @@ namespace yny_005.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into ObjSample(");
-			strSql.Append("ObjID,MID,YangPinCode,YangPinImgUrl,CreateDate,SState,Spare,SpInt)");
+			strSql.Append("ObjID,MID,YangPinCode,YangPinImgUrl,CreateDate,SState,Spare,SpInt,OID,ObjOID)");
 			strSql.Append(" values (");
-			strSql.Append("@ObjID,@MID,@YangPinCode,@YangPinImgUrl,@CreateDate,@SState,@Spare,@SpInt)");
+			strSql.Append("@ObjID,@MID,@YangPinCode,@YangPinImgUrl,@CreateDate,@SState,@Spare,@SpInt,@OID,@OjbOID)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ObjID", SqlDbType.Int,4),
@@ -73,7 +75,10 @@ namespace yny_005.DAL
 					new SqlParameter("@CreateDate", SqlDbType.DateTime),
 					new SqlParameter("@SState", SqlDbType.Int,4),
 					new SqlParameter("@Spare", SqlDbType.VarChar,250),
-					new SqlParameter("@SpInt", SqlDbType.Int,4)};
+					new SqlParameter("@SpInt", SqlDbType.Int,4),
+                    new SqlParameter("@OID", SqlDbType.VarChar,50),
+                    new SqlParameter("@OjbOID", SqlDbType.VarChar,50)
+            };
 			parameters[0].Value = model.ObjID;
 			parameters[1].Value = model.MID;
 			parameters[2].Value = model.YangPinCode;
@@ -82,8 +87,10 @@ namespace yny_005.DAL
 			parameters[5].Value = model.SState;
 			parameters[6].Value = model.Spare;
 			parameters[7].Value = model.SpInt;
+            parameters[8].Value = model.OID;
+            parameters[9].Value = model.OjbOID;
 
-			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
+            object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
 			{
 				return 0;
@@ -93,10 +100,50 @@ namespace yny_005.DAL
 				return Convert.ToInt32(obj);
 			}
 		}
-		/// <summary>
-		/// 更新一条数据
+
+        /// <summary>
+		/// 增加一条数据
 		/// </summary>
-		public static bool Update(yny_005.Model.ObjSample model)
+		public static Hashtable Add(yny_005.Model.ObjSample model, Hashtable MyHs)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("insert into ObjSample(");
+            strSql.Append("ObjID,MID,YangPinCode,YangPinImgUrl,CreateDate,SState,Spare,SpInt,OID,ObjOID)");
+            strSql.Append(" values (");
+            strSql.Append("@ObjID,@MID,@YangPinCode,@YangPinImgUrl,@CreateDate,@SState,@Spare,@SpInt,@OID,@OjbOID)");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@ObjID", SqlDbType.Int,4),
+                    new SqlParameter("@MID", SqlDbType.VarChar,50),
+                    new SqlParameter("@YangPinCode", SqlDbType.VarChar,50),
+                    new SqlParameter("@YangPinImgUrl", SqlDbType.VarChar,250),
+                    new SqlParameter("@CreateDate", SqlDbType.DateTime),
+                    new SqlParameter("@SState", SqlDbType.Int,4),
+                    new SqlParameter("@Spare", SqlDbType.VarChar,250),
+                    new SqlParameter("@SpInt", SqlDbType.Int,4),
+                    new SqlParameter("@OID", SqlDbType.VarChar,50),
+                    new SqlParameter("@OjbOID", SqlDbType.VarChar,50)
+            };
+            parameters[0].Value = model.ObjID;
+            parameters[1].Value = model.MID;
+            parameters[2].Value = model.YangPinCode;
+            parameters[3].Value = model.YangPinImgUrl;
+            parameters[4].Value = model.CreateDate;
+            parameters[5].Value = model.SState;
+            parameters[6].Value = model.Spare;
+            parameters[7].Value = model.SpInt;
+            parameters[8].Value = model.OID;
+            parameters[9].Value = model.OjbOID;
+            string guid = Guid.NewGuid().ToString();
+            strSql.AppendFormat("; select '{0}'", guid);
+
+            MyHs.Add(strSql.ToString(), parameters);
+
+            return MyHs;
+        }
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public static bool Update(yny_005.Model.ObjSample model)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update ObjSample set ");
@@ -107,8 +154,10 @@ namespace yny_005.DAL
 			strSql.Append("CreateDate=@CreateDate,");
 			strSql.Append("SState=@SState,");
 			strSql.Append("Spare=@Spare,");
-			strSql.Append("SpInt=@SpInt");
-			strSql.Append(" where ID=@ID");
+			strSql.Append("SpInt=@SpInt,");
+            strSql.Append("OID=@OID,");
+            strSql.Append("OjbOID=@OjbOID");
+            strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ObjID", SqlDbType.Int,4),
 					new SqlParameter("@MID", SqlDbType.VarChar,50),
@@ -118,7 +167,9 @@ namespace yny_005.DAL
 					new SqlParameter("@SState", SqlDbType.Int,4),
 					new SqlParameter("@Spare", SqlDbType.VarChar,250),
 					new SqlParameter("@SpInt", SqlDbType.Int,4),
-					new SqlParameter("@ID", SqlDbType.Int,4)};
+                    new SqlParameter("@OID", SqlDbType.VarChar,50),
+                    new SqlParameter("@OjbOID", SqlDbType.VarChar,50),
+                    new SqlParameter("@ID", SqlDbType.Int,4)};
 			parameters[0].Value = model.ObjID;
 			parameters[1].Value = model.MID;
 			parameters[2].Value = model.YangPinCode;
@@ -127,7 +178,9 @@ namespace yny_005.DAL
 			parameters[5].Value = model.SState;
 			parameters[6].Value = model.Spare;
 			parameters[7].Value = model.SpInt;
-			parameters[8].Value = model.ID;
+            parameters[8].Value = model.OID;
+            parameters[9].Value = model.OjbOID;
+            parameters[10].Value = model.ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -191,7 +244,7 @@ namespace yny_005.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,ObjID,MID,YangPinCode,YangPinImgUrl,CreateDate,SState,Spare,SpInt from ObjSample ");
+			strSql.Append("select  top 1 ID,ObjID,MID,YangPinCode,YangPinImgUrl,CreateDate,SState,Spare,SpInt,OID,OjbOID from ObjSample ");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
@@ -231,7 +284,17 @@ namespace yny_005.DAL
 				{
 					model.MID=row["MID"].ToString();
 				}
-				if(row["YangPinCode"]!=null)
+
+                if (row["OID"] != null)
+                {
+                    model.OID = row["OID"].ToString();
+                }
+                if (row["OjbOID"] != null)
+                {
+                    model.OjbOID = row["OjbOID"].ToString();
+                }
+
+                if (row["YangPinCode"]!=null)
 				{
 					model.YangPinCode=row["YangPinCode"].ToString();
 				}
@@ -265,7 +328,7 @@ namespace yny_005.DAL
 		public static DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,ObjID,MID,YangPinCode,YangPinImgUrl,CreateDate,SState,Spare,SpInt ");
+			strSql.Append("select ID,ObjID,MID,YangPinCode,YangPinImgUrl,CreateDate,SState,Spare,SpInt,OID,OjbOID ");
 			strSql.Append(" FROM ObjSample ");
 			if(strWhere.Trim()!="")
 			{
@@ -285,7 +348,7 @@ namespace yny_005.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ID,ObjID,MID,YangPinCode,YangPinImgUrl,CreateDate,SState,Spare,SpInt ");
+			strSql.Append(" ID,ObjID,MID,YangPinCode,YangPinImgUrl,CreateDate,SState,Spare,SpInt,OID,OjbOID ");
 			strSql.Append(" FROM ObjSample ");
 			if(strWhere.Trim()!="")
 			{
