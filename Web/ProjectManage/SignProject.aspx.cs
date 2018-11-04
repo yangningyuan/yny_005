@@ -28,6 +28,46 @@ namespace yny_005.Web.ProjectManage
             rdstr = cc.ToString();
         }
 
-        
+        protected override string btnAdd_Click()
+        {
+           
+            Model.OObject obj = BLL.OObject.GetModel(Convert.ToInt32( Request.Form["oid"]));
+
+            Hashtable MyHs = new Hashtable();
+            Model.ObjUserApply oua = new Model.ObjUserApply();
+            oua.ObjID = obj.ID;
+            oua.MID = TModel.MID;
+            oua.BaoMingCode = Guid.NewGuid().ToString("N");
+            oua.DanWeiName = TModel.MName;
+            oua.ZiGeZhengShu = TModel.FMID.Replace("0", "检测机构证书").Replace("1", "个人身份证").Replace("2", "其他");
+            oua.ZhengShuCode = TModel.NumID;
+            oua.CreateDate = DateTime.Now;
+            oua.ComDate = DateTime.MaxValue;
+            oua.SubID = Request.Form["ChildValue"];
+            oua.BaoMingImgUrl = Request.Form["uploadurl"];
+            oua.FeiYongImgUrl = Request.Form["uploadurl2"];
+            oua.SState = 0;
+            BLL.ObjUserApply.Add(oua,MyHs);
+
+
+            Model.ObjUser user = new Model.ObjUser();
+            user.OID = Guid.NewGuid().ToString("N");
+            user.BaoMingOID = oua.BaoMingCode;
+            user.ObjID = obj.ID;
+            user.ObjName = obj.ObjName;
+            user.USState = 0;
+            user.CreateDate = DateTime.Now;
+            user.DanWeiName = TModel.MName;
+            user.RState = 0;
+            user.BState = 0;
+            user.YState = 0;
+            user.YangPinOID = "";
+            user.MID = TModel.MID;
+            BLL.ObjUser.Add(user,MyHs);
+            if (BLL.CommonBase.RunHashtable(MyHs))
+                return "报名成功";
+            else
+                return "报名失败";
+        }
     }
 }
