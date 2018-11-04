@@ -100,7 +100,7 @@ namespace yny_005.BLL
 			
 			return DAL.ObjUserApply.GetModel(ID);
 		}
-
+      
         /// <summary>
 		/// 得到一个对象实体
 		/// </summary>

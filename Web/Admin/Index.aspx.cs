@@ -11,12 +11,58 @@ namespace yny_005.Web.Admin
     public partial class Index : BasePage
     {
         private List<Model.RolePowers> listPowers;
-        
+        public List<Model.OObject> listObj = null;
+
+        public int 已完成验证 = 0;
+
+        public int 正在进行中 = 0;
+
+        public int 报名资格未通过 = 0;
+        public int 报名资格审核通过 = 0;
+        public int 样品已寄出 = 0;
+
         protected override void SetPowerZone()
         {
-            
             listPowers = TModel.Role.PowersList.Where(emp => emp.Content.VState).ToList();
-           
+            listObj= BLL.OObject.GetModelList("  BMDate>'"+DateTime.Now+"' ");
+            if (TModel.RoleCode == "Manage")
+            {
+                已完成验证 = Convert.ToInt32(BLL.CommonBase.GetSingle(" select COUNT(*) from ObjUser where  USState=3; "));
+            }
+            else {
+                已完成验证 = Convert.ToInt32(BLL.CommonBase.GetSingle(" select COUNT(*) from ObjUser where MID='" + TModel.MID + "' and USState=3; "));
+            }
+
+            if (TModel.RoleCode == "Manage")
+            {
+                正在进行中 = Convert.ToInt32(BLL.CommonBase.GetSingle(" select COUNT(*) from ObjUser where  USState!=3; "));
+            }
+            else {
+                正在进行中 = Convert.ToInt32(BLL.CommonBase.GetSingle(" select COUNT(*) from ObjUser where MID='" + TModel.MID + "' and USState!=3; "));
+            }
+
+            if (TModel.RoleCode == "Manage")
+            {
+                报名资格未通过 = Convert.ToInt32(BLL.CommonBase.GetSingle(" select COUNT(*) from ObjUserApply where  SState!=3; "));
+            }
+            else {
+                报名资格未通过 = Convert.ToInt32(BLL.CommonBase.GetSingle(" select COUNT(*) from ObjUserApply where MID='" + TModel.MID + "' and SState!=3; "));
+            }
+            if (TModel.RoleCode == "Manage")
+            {
+                报名资格审核通过 = Convert.ToInt32(BLL.CommonBase.GetSingle(" select COUNT(*) from ObjUserApply where  SState=3; "));
+            }
+            else {
+                报名资格审核通过 = Convert.ToInt32(BLL.CommonBase.GetSingle(" select COUNT(*) from ObjUserApply where MID='" + TModel.MID + "' and SState=3; "));
+            }
+            if (TModel.RoleCode == "Manage")
+            {
+                样品已寄出 = Convert.ToInt32(BLL.CommonBase.GetSingle(" select COUNT(*) from ObjSample where  SState>0; "));
+            }
+            else {
+                样品已寄出 = Convert.ToInt32(BLL.CommonBase.GetSingle(" select COUNT(*) from ObjSample where MID='" + TModel.MID + "' and SState>0; "));
+            }
+
         }
 
         protected List<Model.RolePowers> GetPowers(string cfid)

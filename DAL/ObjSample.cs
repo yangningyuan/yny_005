@@ -310,6 +310,32 @@ namespace yny_005.DAL
 				return null;
 			}
 		}
+
+        /// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public static yny_005.Model.ObjSample GetModelOID(string OID)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 ID,ObjID,MID,YangPinCode,YangPinImgUrl,CreateDate,SState,Spare,SpInt,OID,OjbOID from ObjSample ");
+            strSql.Append(" where OID=@OID");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@OID", SqlDbType.VarChar,50)
+            };
+            parameters[0].Value = OID;
+
+            yny_005.Model.ObjSample model = new yny_005.Model.ObjSample();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
         /// <summary>
         /// 获得数据列表
         /// </summary>

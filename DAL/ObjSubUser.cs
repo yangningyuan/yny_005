@@ -370,11 +370,32 @@ namespace yny_005.DAL
 			}
 		}
 
+        public static yny_005.Model.ObjSubUser GetModeluser(int SpInt)
+        {
 
-		/// <summary>
-		/// 得到一个对象实体
-		/// </summary>
-		public static yny_005.Model.ObjSubUser DataRowToModel(DataRow row)
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 ID,SubID,MID,ResultOne,ResultTwo,ResultAvg,RFangFa,RSheBei,RYiChang,RPerson,RYangPinID,ResultImgUrl,SState,Spare,SpInt from ObjSubUser ");
+            strSql.Append(" where SpInt=@SpInt");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@SpInt", SqlDbType.Int,4)
+            };
+            parameters[0].Value = SpInt;
+
+            yny_005.Model.ObjSubUser model = new yny_005.Model.ObjSubUser();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public static yny_005.Model.ObjSubUser DataRowToModel(DataRow row)
 		{
 			yny_005.Model.ObjSubUser model=new yny_005.Model.ObjSubUser();
 			if (row != null)

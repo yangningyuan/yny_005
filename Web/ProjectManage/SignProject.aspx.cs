@@ -33,6 +33,9 @@ namespace yny_005.Web.ProjectManage
            
             Model.OObject obj = BLL.OObject.GetModel(Convert.ToInt32( Request.Form["oid"]));
 
+            if (obj.BMDate < DateTime.Now)
+                return "已超出报名时间，不能报名";
+
             Hashtable MyHs = new Hashtable();
             Model.ObjUserApply oua = new Model.ObjUserApply();
             oua.ObjID = obj.ID;

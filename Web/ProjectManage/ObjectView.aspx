@@ -5,20 +5,18 @@
 <head id="Head1" runat="server">
     <title>报名</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <script type="text/Javascript" src="/plugin/uploadify/jquery.uploadify.js"></script>
-    <link type="text/css" href="/plugin/uploadify/uploadify.css" rel="stylesheet" />
+
 </head>
 <body>
     <div id="mempay">
         <div id="finance">
             <form id="form1">
-                <input type="hidden" id="pid" runat="server" />
+                <input type="hidden" id="uid" runat="server" />
                 <input type="hidden" id="oid" runat="server" />
                 <table cellpadding="0" cellspacing="0">
-
                     <tr>
                         <td colspan="2">
-                            <b style="margin-left: 5%;">项目信息</b>
+                            <b style="margin-left: 5%;">报名信息</b><span>(<%=oapply.SState.ToString().Replace("0","未审核").Replace("1","审核不通过").Replace("3","<span style='color:green;'>审核通过</span>") %>)</span>
                         </td>
                     </tr>
                     <%--   <tr>
@@ -42,7 +40,7 @@
                     </tr>
 
                     <tr>
-                        <td width="15%" align="right">选择参加检测子项<input type="hidden" id="ChildValue" runat="server" />
+                        <td width="15%" align="right">参加检测子项<input type="hidden" id="ChildValue" runat="server" />
                         </td>
                         <td width="75%" style="height: 40px;">
                             <table class="layui-table">
@@ -66,7 +64,7 @@
                                     %>
                                     <tr>
                                         <td>
-                                            <input type="checkbox" name="ChildID" value="<%=item.ID %>" /><%=item.ChildName %></td>
+                                            <%=item.ChildName %></td>
                                         <td><%=item.ChildValue %></td>
                                     </tr>
                                     <%
@@ -82,13 +80,13 @@
                     <tr>
                         <td width="15%" align="right">证件
                         </td>
-                        <td width="75%" style="height: 40px;"><%=!string.IsNullOrEmpty(TModel.FMID)? TModel.FMID.Replace("0","检测机构登记证书").Replace("1","个人身份证").Replace("2","其他"):"" %>
+                        <td width="75%" style="height: 40px;"><%=!string.IsNullOrEmpty(tmember.FMID)? tmember.FMID.Replace("0","检测机构登记证书").Replace("1","个人身份证").Replace("2","其他"):"" %>
                         </td>
                     </tr>
                     <tr>
                         <td width="15%" align="right">证件编号
                         </td>
-                        <td width="75%" style="height: 40px;"><%=TModel.NumID %>
+                        <td width="75%" style="height: 40px;"><%=tmember.NumID %>
                         </td>
                     </tr>
 
@@ -97,7 +95,7 @@
                         <td width="15%" align="right">联系人
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <%=TModel.BankCardName %>
+                            <%=tmember.BankCardName %>
                         </td>
                     </tr>
 
@@ -105,49 +103,40 @@
                         <td width="15%" align="right">联系电话
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <%=TModel.Tel %>
+                            <%=tmember.Tel %>
                         </td>
                     </tr>
                     <tr>
                         <td width="15%" align="right">电子邮件
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <%=TModel.Email %>
+                            <%=tmember.Email %>
                         </td>
                     </tr>
                     <tr>
-                        <td align="right">上传报名表图片:
+                        <td align="right">报名表图片:
                         </td>
                         <td>
-                            <input id="fileOne<%=rdstr %>" type="file" capture="camera" class="">
-                            <input id="btnOne" value="上传到服务器" type="button" style="display: none;" />
-                            <canvas id="canvasOne" width="1200" height="1200" style="display: none;"></canvas>
-                            <input id="DataUrl" type="text" style="display: none;" />
-                            <img id="DataImg" src="/MQL/images/_20180922122730.png" style="width: 100px; height: 100px;" />
-                            <input type="hidden" id="uploadurl" name="uploadurl" runat="server" />
-                            <input runat="server" id="roam" style="display: none;" />
+                            <a href="<%=oapply.BaoMingImgUrl %>" target="_blank">
+                                <img id="DataImg" src="<%=oapply.BaoMingImgUrl %>" style="width: 100px; height: 100px;" />
+                            </a>
+
+
                         </td>
                     </tr>
                     <tr>
-                        <td align="right">上传报名表图片:
+                        <td align="right">报名表图片:
                         </td>
                         <td>
-                            <input id="fileOne2<%=rdstr %>" type="file" capture="camera" class="">
-                            <input id="btnOne2" value="上传到服务器" type="button" style="display: none;" />
-                            <canvas id="canvasOne2" width="1200" height="1200" style="display: none;"></canvas>
-                            <input id="DataUrl2" type="text" style="display: none;" />
-                            <img id="DataImg2" src="/MQL/images/_20180922122730.png" style="width: 100px; height: 100px;" />
-                            <input type="hidden" id="uploadurl2" name="uploadurl2" runat="server" />
-                            <input runat="server" id="roam2" style="display: none;" />
+                            <a href="<%=oapply.FeiYongImgUrl %>" target="_blank">
+                                <img id="DataImg2" src="<%=oapply.FeiYongImgUrl %>" style="width: 100px; height: 100px;" />
+                            </a>
                         </td>
                     </tr>
 
                     <tr>
                         <td width="15%" align="right"></td>
-                        <td width="75%" align="left">
-
-                            <input type="button" class="normal_btnok" value="提交报名表" onclick="checkChange();" />
-                        </td>
+                        <td width="75%" align="left"></td>
                     </tr>
 
                     <tr>
@@ -186,6 +175,149 @@
                             </table>
                         </td>
                     </tr>
+
+                    <%--样品--%>
+                    <%
+                        if (objsample != null)
+                        {
+                    %>
+                    <tr>
+                        <td colspan="2">
+                            <b style="margin-left: 5%;">样品信息</b><span>(<%=objsample.SState.ToString().Replace("0","未寄送").Replace("1","已寄送").Replace("2","损坏").Replace("3","<span style='color:green;'>确认样品</span>") %>)</span>
+                        </td>
+                    </tr>
+                    <%--   <tr>
+                        <td width="15%" align="right">报名编号
+                        </td>
+                        <td width="75%" style="height: 40px;">
+                            <input id="Text6" class="normal_input" readonly="readonly" value="2018855677777777777" runat="server" style="width: 20%;" /><span style="color:red;"> *证书编号生成规则：项目编号+报名成功顺序号</span>
+                        </td>
+                    </tr>--%>
+                    <tr>
+                        <td width="15%" align="right">样品编号
+                        </td>
+                        <td width="75%" style="height: 40px;"><%=objsample.YangPinCode %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="15%" align="right">邮寄地址
+                        </td>
+                        <td width="75%" style="height: 40px;"><%=objsample.Spare%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="15%" align="right">样品确认图片
+                        </td>
+                        <td width="75%" style="height: 40px;"><a href="<%=objsample.YangPinImgUrl %>" target="_blank">
+                            <img id="DataImg3" src="<%=objsample.YangPinImgUrl %>" style="width: 100px; height: 100px;" />
+                        </a>
+                        </td>
+                    </tr>
+
+                    <%
+                        }
+                    %>
+
+                    <%--结果信息--%>
+                    <%
+                        if (objsubuser != null)
+                        {
+                    %>
+                             <tr>
+                        <td colspan="2">
+                            <b style="margin-left: 5%;">结果信息</b><span>(<%=objsubuser.SState.ToString().Replace("0","未审核").Replace("1","审核不通过").Replace("3","<span style='color:green;'>审核已通过</span>") %>)</span>
+                        </td>
+                    </tr>
+                    <%--   <tr>
+                        <td width="15%" align="right">报名编号
+                        </td>
+                        <td width="75%" style="height: 40px;">
+                            <input id="Text6" class="normal_input" readonly="readonly" value="2018855677777777777" runat="server" style="width: 20%;" /><span style="color:red;"> *证书编号生成规则：项目编号+报名成功顺序号</span>
+                        </td>
+                    </tr>--%>
+                    <tr>
+                        <td width="15%" align="right">使用方法标准
+                        </td>
+                        <td width="75%" style="height: 40px;"><span> <%=objsubuser.RFangFa %></span>
+                        </td>
+                    </tr>
+                      <tr>
+                        <td width="15%" align="right">仪器设备
+                        </td>
+                        <td width="75%" style="height: 40px;"><span> <%=objsubuser.RSheBei %></span>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td width="15%" align="right">异常现象
+                        </td>
+                        <td width="75%" style="height: 40px;"><span> <%=objsubuser.RYiChang %></span>
+                        </td>
+                    </tr>
+                  
+                    <tr>
+                        <td width="15%" align="right">结果凭证
+                        </td>
+                        <td width="75%" style="height: 40px;"><a href="<%=objsubuser.ResultImgUrl %>" target="_blank">
+                            <img id="DataImg5" src="<%=objsubuser.ResultImgUrl %>" style="width: 100px; height: 100px;" />
+                        </a>
+                        </td>
+                    </tr>
+
+                    <%
+                        if (objsublist != null)
+                        {
+                            %>
+                         <tr>
+                        <td width="15%" align="right">参加检测子项
+                        </td>
+                        <td width="75%" style="height: 40px;">
+                            <table class="layui-table">
+
+                                <thead>
+                                    <tr>
+                                        <th>检测子项名称</th>
+                                        <th>结果1</th>
+                                        <th>结果2</th>
+                                        <th>平均结果</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%
+                                        if (objsublist != null)
+                                        {
+                                            foreach (var item in objsublist)
+                                            {
+                                    %>
+                                    <tr>
+                                        <td>
+                                            <%=item.Spare %></td>
+                                        <td>
+                                            <%=item.ResultOne %>
+                                        </td>
+                                        <td>
+                                            <%=item.ResultTwo %>
+                                        </td>
+                                        <td>
+                                            <%=item.ResultAvg %>
+                                        </td>
+                                    </tr>
+                                    <%
+                                            }
+                                        }
+                                    %>
+                                </tbody>
+                            </table>
+
+                        </td>
+                    </tr>
+                    <%
+                        }
+                         %>
+                    
+
+                    <%
+                        }
+                    %>
                 </table>
             </form>
         </div>

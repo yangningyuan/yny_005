@@ -16,7 +16,7 @@ namespace yny_005.Web.ProjectManage.Handler
         public override void ProcessRequest(HttpContext context)
         {
             base.ProcessRequest(context);
-            string strWhere = "'1'='1' and mid='"+TModel.MID+"'";
+            string strWhere = "'1'='1' and mid='"+TModel.MID+"' ";
 
              if (!string.IsNullOrEmpty(context.Request["IsState"]))
             {

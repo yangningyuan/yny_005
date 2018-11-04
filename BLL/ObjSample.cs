@@ -104,11 +104,18 @@ namespace yny_005.BLL
 			return DAL.ObjSample.GetModel(ID);
 		}
 
-		
-		/// <summary>
-		/// 获得数据列表
-		/// </summary>
-		public static DataSet GetList(string strWhere)
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public static yny_005.Model.ObjSample GetModelOID(string OID)
+        {
+
+            return DAL.ObjSample.GetModelOID(OID);
+        }
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public static DataSet GetList(string strWhere)
 		{
 			return DAL.ObjSample.GetList(strWhere);
 		}

@@ -108,11 +108,18 @@ namespace yny_005.BLL
 			return DAL.ObjSubUser.GetModel(ID);
 		}
 
-
-		/// <summary>
-		/// 获得数据列表
+        /// <summary>
+		/// 用户项目ID
 		/// </summary>
-		public static DataSet GetList(string strWhere)
+		public static yny_005.Model.ObjSubUser GetModeluser(int userID)
+        {
+
+            return DAL.ObjSubUser.GetModeluser(userID);
+        }
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public static DataSet GetList(string strWhere)
 		{
 			return DAL.ObjSubUser.GetList(strWhere);
 		}

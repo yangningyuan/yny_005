@@ -54,8 +54,8 @@
                     <a class="name" href="javascript:;"><i class="layui-icon">&#xe629;</i>主题</a>
                     <dl class="layui-nav-child">
                         <dd data-skin="0"><a href="javascript:;">默认</a></dd>
-                        <dd data-skin="1"><a href="javascript:;">纯白</a></dd>
-                        <dd data-skin="2"><a href="javascript:;">蓝白</a></dd>
+                       <%-- <dd data-skin="1"><a href="javascript:;">纯白</a></dd>
+                        <dd data-skin="2"><a href="javascript:;">蓝白</a></dd>--%>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
@@ -130,17 +130,22 @@
                                         <button class="layui-btn layui-btn-big layui-btn-danger layui-icon">&#xe756;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text layui-elip">修改实验室基本信息</p>
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/Member/Modify.aspx','基本信息');onclickMenu()">修改实验室基本信息</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
+
+                            <%
+                                if (TModel.RoleCode == "Manage")
+                                {
+                                    %>
+                                   <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
                                 <div class="my-nav-btn layui-clear" data-href="./demo/form.html">
                                     <div class="layui-col-md5">
                                         <button class="layui-btn layui-btn-big layui-btn-warm layui-icon">&#xe735;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text layui-elip">正在进行的能力验证</p>
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/ProjectManage/MProjectList.aspx','M项目列表');onclickMenu()">正在进行的能力验证</p>
                                     </div>
                                 </div>
                             </div>
@@ -150,7 +155,7 @@
                                         <button class="layui-btn layui-btn-big layui-icon">&#xe715;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text layui-elip">能力验证报名</p>
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/ProjectManage/ManageSHSignProjectList.aspx','M项目报名列表');onclickMenu()">能力验证报名</p>
                                     </div>
                                 </div>
                             </div>
@@ -160,17 +165,60 @@
                                         <button class="layui-btn layui-btn-big layui-btn-normal layui-icon">&#xe705;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text layui-elip">已完成的能力验证</p>
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/ProjectManage/MProjectList.aspx','项目列表');onclickMenu()">已完成的能力验证</p>
                                     </div>
                                 </div>
                             </div>
+                            <%
+                                }
+                                else {
+                                    %>
+                             <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
+                                <div class="my-nav-btn layui-clear" data-href="./demo/form.html">
+                                    <div class="layui-col-md5">
+                                        <button class="layui-btn layui-btn-big layui-btn-warm layui-icon">&#xe735;</button>
+                                    </div>
+                                    <div class="layui-col-md7 tc">
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/ProjectManage/ProjectList.aspx','项目列表');onclickMenu()">正在进行的能力验证</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
+                                <div class="my-nav-btn layui-clear" data-href="./demo/table.html">
+                                    <div class="layui-col-md5">
+                                        <button class="layui-btn layui-btn-big layui-icon">&#xe715;</button>
+                                    </div>
+                                    <div class="layui-col-md7 tc">
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/ProjectManage/SignProjectList.aspx','报名列表');onclickMenu()">能力验证报名</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
+                                <div class="my-nav-btn layui-clear" data-href="./demo/tab-card.html">
+                                    <div class="layui-col-md5">
+                                        <button class="layui-btn layui-btn-big layui-btn-normal layui-icon">&#xe705;</button>
+                                    </div>
+                                    <div class="layui-col-md7 tc">
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/ProjectManage/ProjectList.aspx','项目列表');onclickMenu()">已完成的能力验证</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                              
+                            <%
+                                }
+                                 %>
+
+                         
                             <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
                                 <div class="my-nav-btn layui-clear" data-href="./demo/progress-bar.html">
                                     <div class="layui-col-md5">
                                         <button class="layui-btn layui-btn-big layui-bg-cyan layui-icon">&#xe6b2;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text layui-elip">新闻公告</p>
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/Message/NoticeViewList.aspx','公告列表');onclickMenu()">新闻公告</p>
                                     </div>
                                 </div>
                             </div>
@@ -180,7 +228,7 @@
                                         <button class="layui-btn layui-btn-big layui-bg-black layui-icon">&#xe698;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text layui-elip">邮寄地址</p>
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/SecurityCenter/ModifyPwd.aspx','登录密码修改');onclickMenu()">修改密码</p>
                                     </div>
                                 </div>
                             </div>
@@ -204,21 +252,18 @@
                                                 </colgroup>
                                                 <thead>
                                                     <tr>
-                                                        <th>已完成验证：<span>40</span>个</th>
-                                                        <th> 正在进行中：<span style="color:#000000;">40</span>个</th>
+                                                        <th>已完成验证：<span><%=已完成验证 %></span>个</th>
+                                                        <th> 正在进行中：<span style="color:#000000;"><%=正在进行中 %></span>个</th>
                                                     </tr>
                                                     <tr>
-                                                        <th>我的状态：<span>已审核</span></th>
-                                                        <th>验证通过：<span>40</span>个</th>
+                                                        <th>我的状态：<span><%=TModel.MState?"已审核":"未审核" %></span></th>
+                                                        <th>样品已寄出：<span><%=样品已寄出 %></span>个</th>
                                                     </tr>
                                                     <tr>
-                                                        <th>样品已寄出：<span>40</span>个</th>
-                                                        <th>报名资格审核通过：<span>40</span>个</th>
+                                                        <th>报名资格未通过：<span style="color:red;"><%=报名资格未通过 %></span>个</th>   
+                                                        <th>报名资格审核通过：<span><%=报名资格审核通过 %></span>个</th>
                                                     </tr>
-                                                    <tr>
-                                                        <th>报名资格未通过：<span style="color:red;">40</span>个</th>
-                                                        <th>通知未读：<span style="color:red;">40</span>个</th>
-                                                    </tr>
+                                                  
                                                 </thead>
                                                
                                             </table>
@@ -247,16 +292,28 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+
+                                                    <%
+                                                        if (listObj != null)
+                                                        {
+                                                            foreach (var item in listObj)
+                                                            {
+                                                                %>
+                                                    
                                                     <tr>
-                                                        <td>一部门</td>
-                                                        <td>测试验证项目1</td>
-                                                        <td>2016-11-29</td>
+                                                        <td><%=item.ObjName %></td>
+                                                        <td><%=item.ReObjNiName %></td>
+                                                        <td><%=item.BMDate %></td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>二部门</td>
-                                                        <td>测试验证项目1测试验证项目1测试验证项目1测试验证项目1…</td>
-                                                        <td>2016-11-28</td>
-                                                    </tr>
+                                                    <%
+                                                            }
+                                                            %>
+                                                        
+                                                    <%
+                                                        }
+                                                         %>
+                                                    
+                                                 
                                                 </tbody>
                                             </table>
 
