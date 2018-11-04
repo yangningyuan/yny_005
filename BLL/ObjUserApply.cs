@@ -69,10 +69,17 @@ namespace yny_005.BLL
 			return DAL.ObjUserApply.Update(model);
 		}
 
-		/// <summary>
-		/// 删除一条数据
-		/// </summary>
-		public static bool Delete(int ID)
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public static Hashtable Update(yny_005.Model.ObjUserApply model, Hashtable MyHs)
+        {
+            return DAL.ObjUserApply.Update(model, MyHs);
+        }
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public static bool Delete(int ID)
 		{
 			
 			return DAL.ObjUserApply.Delete(ID);
@@ -94,11 +101,20 @@ namespace yny_005.BLL
 			return DAL.ObjUserApply.GetModel(ID);
 		}
 
-		
-		/// <summary>
-		/// 获得数据列表
+        /// <summary>
+		/// 得到一个对象实体
 		/// </summary>
-		public static DataSet GetList(string strWhere)
+		public static yny_005.Model.ObjUserApply GetModelOID(String OID)
+        {
+
+            return DAL.ObjUserApply.GetModelOID(OID);
+        }
+
+
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public static DataSet GetList(string strWhere)
 		{
 			return DAL.ObjUserApply.GetList(strWhere);
 		}
@@ -117,10 +133,16 @@ namespace yny_005.BLL
 			DataSet ds = DAL.ObjUserApply.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
 		}
-		/// <summary>
-		/// 获得数据列表
-		/// </summary>
-		public static List<yny_005.Model.ObjUserApply> DataTableToList(DataTable dt)
+
+        public static List<Model.ObjUserApply> GetList(string strWhere, int pageIndex, int pageSize, out int count)
+        {
+            return DAL.ObjUserApply.GetList(strWhere, pageIndex, pageSize, out count);
+        }
+
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public static List<yny_005.Model.ObjUserApply> DataTableToList(DataTable dt)
 		{
 			List<yny_005.Model.ObjUserApply> modelList = new List<yny_005.Model.ObjUserApply>();
 			int rowsCount = dt.Rows.Count;

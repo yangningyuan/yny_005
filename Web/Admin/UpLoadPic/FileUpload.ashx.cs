@@ -48,7 +48,7 @@ namespace yny_005.Web.Admin.UpLoadPic
                         string name = imgname.Substring(0,imgname.LastIndexOf(".") );
                         string quanname = num+"_"+ name + "." + imgType;
                         string filePath = Path.Combine(goodspath, quanname);
-                        returnImgUrl = "Upload/Contract/" + quanname + ";";
+                        returnImgUrl = "/Admin/UpLoadPic/Upload/Contract/" + quanname + ";";
                         file.SaveAs(filePath);
                         context.Response.Write(returnImgUrl);
                     }

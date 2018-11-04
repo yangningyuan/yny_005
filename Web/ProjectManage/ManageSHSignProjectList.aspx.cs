@@ -7,11 +7,8 @@ using System.Web.UI.WebControls;
 
 namespace yny_005.Web.ProjectManage
 {
-    public partial class ManageSHSignProjectList : System.Web.UI.Page
+    public partial class ManageSHSignProjectList : BasePage
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

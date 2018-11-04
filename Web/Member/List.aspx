@@ -14,6 +14,19 @@
         function exportExcel() {
             ExportExcel("Car/Handler/ExportExcel.ashx", "DPLBExcel");
         }
+
+        function SHAuto(mid)
+        {
+            $.ajax({
+                type: 'post',
+                url: 'Member/List.aspx?Action=Add',
+                data: {MID:mid},
+                success: function (info) {
+                    v5.error(info, '1', 'ture');
+                    callhtml('/Member/List.aspx', '人员列表'); onclickMenu()
+                }
+            });
+        }
         //setup();
     </script>
 </head>

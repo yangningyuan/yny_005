@@ -20,6 +20,7 @@ using System.Text;
 using System.Data.SqlClient;
 using DBUtility;//Please add references
 using System.Collections;
+using System.Collections.Generic;
 
 namespace yny_005.DAL
 {
@@ -204,10 +205,64 @@ namespace yny_005.DAL
 			}
 		}
 
-		/// <summary>
-		/// 删除一条数据
+        /// <summary>
+		/// 更新一条数据
 		/// </summary>
-		public static bool Delete(int ID)
+		public static Hashtable Update(yny_005.Model.ObjUserApply model, Hashtable MyHs)
+        {
+            string guid = Guid.NewGuid().ToString();
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update ObjUserApply set ");
+            strSql.Append("ObjID=@ObjID,");
+            strSql.Append("MID=@MID,");
+            strSql.Append("BaoMingCode=@BaoMingCode,");
+            strSql.Append("DanWeiName=@DanWeiName,");
+            strSql.Append("ZiGeZhengShu=@ZiGeZhengShu,");
+            strSql.Append("ZhengShuCode=@ZhengShuCode,");
+            strSql.Append("CreateDate=@CreateDate,");
+            strSql.Append("ComDate=@ComDate,");
+            strSql.Append("SubID=@SubID,");
+            strSql.Append("BaoMingImgUrl=@BaoMingImgUrl,");
+            strSql.Append("FeiYongImgUrl=@FeiYongImgUrl,");
+            strSql.Append("SState=@SState");
+            strSql.Append(" where ID=@ID");
+            strSql.AppendFormat(" ;select '{0}'", guid);
+            SqlParameter[] parameters = {
+                    new SqlParameter("@ObjID", SqlDbType.Int,4),
+                    new SqlParameter("@MID", SqlDbType.VarChar,50),
+                    new SqlParameter("@BaoMingCode", SqlDbType.VarChar,50),
+                    new SqlParameter("@DanWeiName", SqlDbType.VarChar,50),
+                    new SqlParameter("@ZiGeZhengShu", SqlDbType.VarChar,250),
+                    new SqlParameter("@ZhengShuCode", SqlDbType.VarChar,250),
+                    new SqlParameter("@CreateDate", SqlDbType.DateTime),
+                    new SqlParameter("@ComDate", SqlDbType.DateTime),
+                    new SqlParameter("@SubID", SqlDbType.VarChar,50),
+                    new SqlParameter("@BaoMingImgUrl", SqlDbType.VarChar,250),
+                    new SqlParameter("@FeiYongImgUrl", SqlDbType.VarChar,250),
+                    new SqlParameter("@SState", SqlDbType.Int,4),
+                    new SqlParameter("@ID", SqlDbType.Int,4)};
+            parameters[0].Value = model.ObjID;
+            parameters[1].Value = model.MID;
+            parameters[2].Value = model.BaoMingCode;
+            parameters[3].Value = model.DanWeiName;
+            parameters[4].Value = model.ZiGeZhengShu;
+            parameters[5].Value = model.ZhengShuCode;
+            parameters[6].Value = model.CreateDate;
+            parameters[7].Value = model.ComDate;
+            parameters[8].Value = model.SubID;
+            parameters[9].Value = model.BaoMingImgUrl;
+            parameters[10].Value = model.FeiYongImgUrl;
+            parameters[11].Value = model.SState;
+            parameters[12].Value = model.ID;
+
+            MyHs.Add(strSql.ToString(), parameters);
+            return MyHs;
+        }
+
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public static bool Delete(int ID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
@@ -274,11 +329,55 @@ namespace yny_005.DAL
 			}
 		}
 
-
-		/// <summary>
+        /// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public static yny_005.Model.ObjUserApply DataRowToModel(DataRow row)
+		public static yny_005.Model.ObjUserApply GetModelOID(string OID)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 ID,ObjID,MID,BaoMingCode,DanWeiName,ZiGeZhengShu,ZhengShuCode,CreateDate,ComDate,SubID,BaoMingImgUrl,FeiYongImgUrl,SState from ObjUserApply ");
+            strSql.Append(" where BaoMingCode=@BaoMingCode");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@BaoMingCode", SqlDbType.VarChar,50)
+            };
+            parameters[0].Value = OID;
+
+            yny_005.Model.ObjUserApply model = new yny_005.Model.ObjUserApply();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public static DataTable GetTable(string strWhere, int pageIndex, int pageSize, out int count)
+        {
+            return DAL.CommonBase.GetTable("ObjUserApply", "ID", "ID desc", strWhere, pageIndex, pageSize, out count);
+        }
+        public static List<Model.ObjUserApply> GetList(string strWhere, int pageIndex, int pageSize, out int count)
+        {
+            List<Model.ObjUserApply> list = new List<Model.ObjUserApply>();
+
+            DataTable table = GetTable(strWhere, pageIndex, pageSize, out count);
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                list.Add(DataRowToModel(table.Rows[i]));
+            }
+
+            return list;
+        }
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public static yny_005.Model.ObjUserApply DataRowToModel(DataRow row)
 		{
 			yny_005.Model.ObjUserApply model=new yny_005.Model.ObjUserApply();
 			if (row != null)

@@ -220,11 +220,71 @@ namespace yny_005.DAL
 				return false;
 			}
 		}
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public static Hashtable Update(yny_005.Model.ObjSubUser model, Hashtable MyHs)
+        {
+            string guid = Guid.NewGuid().ToString();
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update ObjSubUser set ");
+            strSql.Append("SubID=@SubID,");
+            strSql.Append("MID=@MID,");
+            strSql.Append("ResultOne=@ResultOne,");
+            strSql.Append("ResultTwo=@ResultTwo,");
+            strSql.Append("ResultAvg=@ResultAvg,");
+            strSql.Append("RFangFa=@RFangFa,");
+            strSql.Append("RSheBei=@RSheBei,");
+            strSql.Append("RYiChang=@RYiChang,");
+            strSql.Append("RPerson=@RPerson,");
+            strSql.Append("RYangPinID=@RYangPinID,");
+            strSql.Append("ResultImgUrl=@ResultImgUrl,");
+            strSql.Append("SState=@SState,");
+            strSql.Append("Spare=@Spare,");
+            strSql.Append("SpInt=@SpInt");
+            strSql.Append(" where ID=@ID");
+            strSql.AppendFormat(" ;select '{0}'", guid);
+            SqlParameter[] parameters = {
+                    new SqlParameter("@SubID", SqlDbType.Int,4),
+                    new SqlParameter("@MID", SqlDbType.VarChar,50),
+                    new SqlParameter("@ResultOne", SqlDbType.VarChar,50),
+                    new SqlParameter("@ResultTwo", SqlDbType.VarChar,50),
+                    new SqlParameter("@ResultAvg", SqlDbType.VarChar,50),
+                    new SqlParameter("@RFangFa", SqlDbType.VarChar,500),
+                    new SqlParameter("@RSheBei", SqlDbType.VarChar,500),
+                    new SqlParameter("@RYiChang", SqlDbType.VarChar,500),
+                    new SqlParameter("@RPerson", SqlDbType.VarChar,50),
+                    new SqlParameter("@RYangPinID", SqlDbType.Int,4),
+                    new SqlParameter("@ResultImgUrl", SqlDbType.VarChar,250),
+                    new SqlParameter("@SState", SqlDbType.Int,4),
+                    new SqlParameter("@Spare", SqlDbType.VarChar,250),
+                    new SqlParameter("@SpInt", SqlDbType.Int,4),
+                    new SqlParameter("@ID", SqlDbType.Int,4)};
+            parameters[0].Value = model.SubID;
+            parameters[1].Value = model.MID;
+            parameters[2].Value = model.ResultOne;
+            parameters[3].Value = model.ResultTwo;
+            parameters[4].Value = model.ResultAvg;
+            parameters[5].Value = model.RFangFa;
+            parameters[6].Value = model.RSheBei;
+            parameters[7].Value = model.RYiChang;
+            parameters[8].Value = model.RPerson;
+            parameters[9].Value = model.RYangPinID;
+            parameters[10].Value = model.ResultImgUrl;
+            parameters[11].Value = model.SState;
+            parameters[12].Value = model.Spare;
+            parameters[13].Value = model.SpInt;
+            parameters[14].Value = model.ID;
 
-		/// <summary>
-		/// 删除一条数据
-		/// </summary>
-		public static bool Delete(int ID)
+            MyHs.Add(strSql.ToString(), parameters);
+            return MyHs;
+        }
+
+
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public static bool Delete(int ID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
@@ -234,8 +294,8 @@ namespace yny_005.DAL
 					new SqlParameter("@ID", SqlDbType.Int,4)
 			};
 			parameters[0].Value = ID;
-
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+            
+            int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
 			{
 				return true;
@@ -245,10 +305,29 @@ namespace yny_005.DAL
 				return false;
 			}
 		}
-		/// <summary>
-		/// 批量删除数据
-		/// </summary>
-		public static bool DeleteList(string IDlist )
+
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public static Hashtable Delete(int ID, Hashtable MyHs)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("delete from ObjSubUser ");
+            strSql.Append(" where ID=@ID");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@ID", SqlDbType.Int,4)
+            };
+            parameters[0].Value = ID;
+            string guid = Guid.NewGuid().ToString();
+            strSql.AppendFormat(" ;select '{0}'", guid);
+            MyHs.Add(strSql.ToString(), parameters);
+            return MyHs;
+        }
+        /// <summary>
+        /// 批量删除数据
+        /// </summary>
+        public static bool DeleteList(string IDlist )
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from ObjSubUser ");

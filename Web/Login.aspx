@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/login/css/body.css">
 
 
-    <script type="text/javascript" src="/Admin/login/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/Admin/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="login/js/bootstrap.min.js"></script>
     <link href="plugin/layer/skin/layer.css" rel="stylesheet" type="text/css" />
     <script src="plugin/layer/layer.js" type="text/javascript"></script>

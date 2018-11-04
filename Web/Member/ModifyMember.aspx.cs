@@ -54,7 +54,7 @@ namespace yny_005.Web.Member
 				//model.City = Request.Form["ddlCity"];
 				//model.Zone = Request.Form["ddlZone"];
 				model.Tel = Request.Form["txtTel"].Trim();
-				model.FMID = Request.Form["ZWType"].Trim();
+				model.FMID = Request.Form["txtFMID"].Trim();
 				//model.Email = Request.Form["txtEmail"].Trim();
 				//model.MTJ = Request.Form["txtMTJ"].Trim();
 				//model.MBD = model.MTJ;
@@ -115,7 +115,7 @@ namespace yny_005.Web.Member
                     txtMName.Value = value.MName;
 					txtTel.Value = value.Tel;
 					txtMTJ.Value = value.MTJ;
-					ZWType.Value = value.FMID;
+                    txtFMID.Value = value.FMID;
 					//txtBank.Value = value.Bank;
 					//txtBranch.Value = value.Branch;
 					//txtBankCardName.Value = value.BankCardName;

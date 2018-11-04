@@ -20,6 +20,7 @@ using System.Text;
 using System.Data.SqlClient;
 using DBUtility;//Please add references
 using System.Collections;
+using System.Collections.Generic;
 
 namespace yny_005.DAL
 {
@@ -63,7 +64,7 @@ namespace yny_005.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into ObjSample(");
-			strSql.Append("ObjID,MID,YangPinCode,YangPinImgUrl,CreateDate,SState,Spare,SpInt,OID,ObjOID)");
+			strSql.Append("ObjID,MID,YangPinCode,YangPinImgUrl,CreateDate,SState,Spare,SpInt,OID,OjbOID)");
 			strSql.Append(" values (");
 			strSql.Append("@ObjID,@MID,@YangPinCode,@YangPinImgUrl,@CreateDate,@SState,@Spare,@SpInt,@OID,@OjbOID)");
 			strSql.Append(";select @@IDENTITY");
@@ -108,7 +109,7 @@ namespace yny_005.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into ObjSample(");
-            strSql.Append("ObjID,MID,YangPinCode,YangPinImgUrl,CreateDate,SState,Spare,SpInt,OID,ObjOID)");
+            strSql.Append("ObjID,MID,YangPinCode,YangPinImgUrl,CreateDate,SState,Spare,SpInt,OID,OjbOID)");
             strSql.Append(" values (");
             strSql.Append("@ObjID,@MID,@YangPinCode,@YangPinImgUrl,@CreateDate,@SState,@Spare,@SpInt,@OID,@OjbOID)");
             SqlParameter[] parameters = {
@@ -192,11 +193,58 @@ namespace yny_005.DAL
 				return false;
 			}
 		}
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public static Hashtable Update(yny_005.Model.ObjSample model, Hashtable MyHs)
+        {
+            string guid = Guid.NewGuid().ToString();
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update ObjSample set ");
+            strSql.Append("ObjID=@ObjID,");
+            strSql.Append("MID=@MID,");
+            strSql.Append("YangPinCode=@YangPinCode,");
+            strSql.Append("YangPinImgUrl=@YangPinImgUrl,");
+            strSql.Append("CreateDate=@CreateDate,");
+            strSql.Append("SState=@SState,");
+            strSql.Append("Spare=@Spare,");
+            strSql.Append("SpInt=@SpInt,");
+            strSql.Append("OID=@OID,");
+            strSql.Append("OjbOID=@OjbOID");
+            strSql.Append(" where ID=@ID");
+            strSql.AppendFormat(" ;select '{0}'", guid);
+            SqlParameter[] parameters = {
+                    new SqlParameter("@ObjID", SqlDbType.Int,4),
+                    new SqlParameter("@MID", SqlDbType.VarChar,50),
+                    new SqlParameter("@YangPinCode", SqlDbType.VarChar,50),
+                    new SqlParameter("@YangPinImgUrl", SqlDbType.VarChar,250),
+                    new SqlParameter("@CreateDate", SqlDbType.DateTime),
+                    new SqlParameter("@SState", SqlDbType.Int,4),
+                    new SqlParameter("@Spare", SqlDbType.VarChar,250),
+                    new SqlParameter("@SpInt", SqlDbType.Int,4),
+                    new SqlParameter("@OID", SqlDbType.VarChar,50),
+                    new SqlParameter("@OjbOID", SqlDbType.VarChar,50),
+                    new SqlParameter("@ID", SqlDbType.Int,4)};
+            parameters[0].Value = model.ObjID;
+            parameters[1].Value = model.MID;
+            parameters[2].Value = model.YangPinCode;
+            parameters[3].Value = model.YangPinImgUrl;
+            parameters[4].Value = model.CreateDate;
+            parameters[5].Value = model.SState;
+            parameters[6].Value = model.Spare;
+            parameters[7].Value = model.SpInt;
+            parameters[8].Value = model.OID;
+            parameters[9].Value = model.OjbOID;
+            parameters[10].Value = model.ID;
 
-		/// <summary>
-		/// 删除一条数据
-		/// </summary>
-		public static bool Delete(int ID)
+            MyHs.Add(strSql.ToString(), parameters);
+            return MyHs;
+        }
+
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public static bool Delete(int ID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
@@ -262,12 +310,30 @@ namespace yny_005.DAL
 				return null;
 			}
 		}
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public static DataTable GetTable(string strWhere, int pageIndex, int pageSize, out int count)
+        {
+            return DAL.CommonBase.GetTable("ObjSample", "ID", "ID desc", strWhere, pageIndex, pageSize, out count);
+        }
+        public static List<Model.ObjSample> GetList(string strWhere, int pageIndex, int pageSize, out int count)
+        {
+            List<Model.ObjSample> list = new List<Model.ObjSample>();
 
+            DataTable table = GetTable(strWhere, pageIndex, pageSize, out count);
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                list.Add(DataRowToModel(table.Rows[i]));
+            }
 
-		/// <summary>
-		/// 得到一个对象实体
-		/// </summary>
-		public static yny_005.Model.ObjSample DataRowToModel(DataRow row)
+            return list;
+        }
+
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public static yny_005.Model.ObjSample DataRowToModel(DataRow row)
 		{
 			yny_005.Model.ObjSample model=new yny_005.Model.ObjSample();
 			if (row != null)

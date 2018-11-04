@@ -730,7 +730,7 @@ namespace yny_005.Web
 
         public static string BMState(string MID,int OjbID)
         {
-            if ( Convert.ToInt32(BLL.CommonBase.GetSingle("select count(*) from ObjUserApply where sstate=1 and mid='" + MID + "' and ObjID='" + OjbID + "';")) > 0)
+            if (Convert.ToInt32(BLL.CommonBase.GetSingle("select count(*) from ObjUserApply where  mid='" + MID + "' and ObjID='" + OjbID + "';")) > 0)
             {
                 return "已报名";
             }

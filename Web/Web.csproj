@@ -450,6 +450,7 @@
     <Content Include="MQL\images\ulist.png" />
     <Content Include="MQL\images\user.png" />
     <Content Include="MQL\images\userbg.png" />
+    <Content Include="MQL\images\_20180922122730.png" />
     <Content Include="MQL\js\cloud.js" />
     <Content Include="MQL\js\jquery.js" />
     <Content Include="plugin\layer\extend\layer.ext.js" />
@@ -827,10 +828,16 @@
     <Content Include="ProjectManage\ManageProjectList.aspx" />
     <Content Include="ProjectManage\ManageSHSignProjectList.aspx" />
     <Content Include="ProjectManage\ManageSumSignProjectList.aspx" />
+    <Content Include="ProjectManage\MProjectList.aspx" />
+    <Content Include="ProjectManage\MSampleList.aspx" />
+    <Content Include="ProjectManage\ObjectView.aspx" />
     <Content Include="ProjectManage\ProjectList.aspx" />
     <Content Include="ProjectManage\SampleCom.aspx" />
+    <Content Include="ProjectManage\SampleJS.aspx" />
     <Content Include="ProjectManage\SampleList.aspx" />
     <Content Include="ProjectManage\SendSample.aspx" />
+    <Content Include="ProjectManage\SHSignProject.aspx" />
+    <Content Include="ProjectManage\SHValidationResult.aspx" />
     <Content Include="ProjectManage\SignProject.aspx" />
     <Content Include="ProjectManage\SignProjectList.aspx" />
     <Content Include="ProjectManage\ValidationResult.aspx" />
@@ -1320,6 +1327,30 @@
       <DependentUpon>ManageProjectList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="ProjectManage\Handler\ManageSHSignProjectList.ashx.cs">
+      <DependentUpon>ManageSHSignProjectList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\Handler\ManageSumSignProjectList.ashx.cs">
+      <DependentUpon>ManageSumSignProjectList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\Handler\MProjectList.ashx.cs">
+      <DependentUpon>MProjectList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\Handler\MSampleList.ashx.cs">
+      <DependentUpon>MSampleList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\Handler\ProjectList.ashx.cs">
+      <DependentUpon>ProjectList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\Handler\SampleList.ashx.cs">
+      <DependentUpon>SampleList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="ProjectManage\Handler\SignProjectList.ashx.cs">
       <DependentUpon>SignProjectList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1345,6 +1376,27 @@
     <Compile Include="ProjectManage\ManageSumSignProjectList.aspx.designer.cs">
       <DependentUpon>ManageSumSignProjectList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProjectManage\MProjectList.aspx.cs">
+      <DependentUpon>MProjectList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\MProjectList.aspx.designer.cs">
+      <DependentUpon>MProjectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\MSampleList.aspx.cs">
+      <DependentUpon>MSampleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\MSampleList.aspx.designer.cs">
+      <DependentUpon>MSampleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\ObjectView.aspx.cs">
+      <DependentUpon>ObjectView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\ObjectView.aspx.designer.cs">
+      <DependentUpon>ObjectView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProjectManage\ProjectList.aspx.cs">
       <DependentUpon>ProjectList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1359,6 +1411,13 @@
     <Compile Include="ProjectManage\SampleCom.aspx.designer.cs">
       <DependentUpon>SampleCom.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProjectManage\SampleJS.aspx.cs">
+      <DependentUpon>SampleJS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\SampleJS.aspx.designer.cs">
+      <DependentUpon>SampleJS.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProjectManage\SampleList.aspx.cs">
       <DependentUpon>SampleList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1372,6 +1431,20 @@
     </Compile>
     <Compile Include="ProjectManage\SendSample.aspx.designer.cs">
       <DependentUpon>SendSample.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\SHSignProject.aspx.cs">
+      <DependentUpon>SHSignProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\SHSignProject.aspx.designer.cs">
+      <DependentUpon>SHSignProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\SHValidationResult.aspx.cs">
+      <DependentUpon>SHValidationResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\SHValidationResult.aspx.designer.cs">
+      <DependentUpon>SHValidationResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProjectManage\SignProject.aspx.cs">
       <DependentUpon>SignProject.aspx</DependentUpon>
@@ -1917,6 +1990,12 @@
     <Content Include="SysManage\Language\Handler\LanguageTypeList.ashx" />
     <Content Include="ProjectManage\Handler\ManageProjectList.ashx" />
     <Content Include="ProjectManage\Handler\SignProjectList.ashx" />
+    <Content Include="ProjectManage\Handler\ProjectList.ashx" />
+    <Content Include="ProjectManage\Handler\MProjectList.ashx" />
+    <Content Include="ProjectManage\Handler\ManageSHSignProjectList.ashx" />
+    <Content Include="ProjectManage\Handler\SampleList.ashx" />
+    <Content Include="ProjectManage\Handler\MSampleList.ashx" />
+    <Content Include="ProjectManage\Handler\ManageSumSignProjectList.ashx" />
     <None Include="Properties\PublishProfiles\zx326.pubxml" />
     <Content Include="Shop\Handler\Ajax.ashx" />
     <Content Include="Shop\Handler\CarList.ashx" />

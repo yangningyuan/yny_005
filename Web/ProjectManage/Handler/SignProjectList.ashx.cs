@@ -23,8 +23,6 @@ namespace yny_005.Web.ProjectManage.Handler
                 strWhere += " and ObjName like '%" + HttpUtility.UrlDecode(context.Request["nTitle"]) + "%'";
             }
 
-            
-
             int count;
             List<Model.OObject> ListO = BLL.OObject.GetList(strWhere, pageIndex, pageSize, out count);
 

@@ -1217,6 +1217,11 @@ namespace yny_005.BLL
             return DAL.MemberConfig.UpdateConfigTran(mid, fieldName, fieldValue, shmodel, isEqual, dataType, MyHs);
         }
 
+        public static Hashtable UpdateMemberTran(string mid, string fieldName, string fieldValue, Model.Member shmodel, bool isEqual, SqlDbType dataType, Hashtable MyHs)
+        {
+            return DAL.MemberConfig.UpdateMemberTran(mid, fieldName, fieldValue, shmodel, isEqual, dataType, MyHs);
+        }
+
         public static bool ChangeMemberRole(Model.Member model)
         {
             Hashtable MyHs = new Hashtable();

@@ -31,7 +31,7 @@ namespace yny_005.Model
 
         public string OID { get; set; }
         /// <summary>
-        /// 项目OID
+        /// 用户项目OID
         /// </summary>
         public string OjbOID { get; set; }
 		private string _mid;
@@ -90,7 +90,7 @@ namespace yny_005.Model
 			get{return _createdate;}
 		}
 		/// <summary>
-		/// 
+		///  0 为寄送，1已寄送，2损坏 3.确认样品
 		/// </summary>
 		public int SState
 		{
@@ -98,7 +98,7 @@ namespace yny_005.Model
 			get{return _sstate;}
 		}
 		/// <summary>
-		/// 
+		///  报名用户样品邮寄地址
 		/// </summary>
 		public string Spare
 		{
@@ -106,7 +106,7 @@ namespace yny_005.Model
 			get{return _spare;}
 		}
 		/// <summary>
-		/// 
+		/// 用户项目ID
 		/// </summary>
 		public int SpInt
 		{

@@ -22,13 +22,13 @@ namespace yny_005.Web.ProjectManage {
         protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
-        /// fid 控件。
+        /// uid 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden fid;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden uid;
         
         /// <summary>
         /// oid 控件。
@@ -40,31 +40,31 @@ namespace yny_005.Web.ProjectManage {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden oid;
         
         /// <summary>
-        /// Textarea2 控件。
+        /// FangFa 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea Textarea2;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea FangFa;
         
         /// <summary>
-        /// Textarea1 控件。
+        /// YiQi 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea Textarea1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea YiQi;
         
         /// <summary>
-        /// Text2 控件。
+        /// YiChang 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea Text2;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea YiChang;
         
         /// <summary>
         /// uploadurl 控件。
@@ -74,5 +74,14 @@ namespace yny_005.Web.ProjectManage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden uploadurl;
+        
+        /// <summary>
+        /// roam 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText roam;
     }
 }

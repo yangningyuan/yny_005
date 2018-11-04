@@ -67,7 +67,7 @@ namespace yny_005.Web.ProjectManage
                 Model.ObjExcel excel = new Model.ObjExcel();
                 excel.OID = Guid.NewGuid().ToString("N");
                 excel.ObjOID = obj.ObjOID;
-                excel.ExcelName = item.Substring(16, item.Length-16);
+                excel.ExcelName = item.Substring(33, item.Length-33);
                 excel.ExcelUrl = item;
                 BLL.ObjExcel.Add(excel,HS);
             }

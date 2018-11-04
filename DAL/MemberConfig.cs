@@ -46,6 +46,42 @@ namespace yny_005.DAL
                 MyHs.Add(strSql, null);
             return MyHs;
         }
+
+        /// <summary>
+        /// 更新员工参数值
+        /// </summary>
+        /// <param name="mid">员工账号</param>
+        /// <param name="ConfigValue">参数值</param>
+        /// <param name="ConfigName">参数名称</param>
+        /// <param name="MyHs"></param>
+        /// <returns></returns>
+        public static Hashtable UpdateMemberTran(string mid, string fieldName, string fieldValue, Model.Member shmodel, bool isEqual, SqlDbType dataType, Hashtable MyHs)
+        {
+            StringBuilder strSql = new StringBuilder();
+            string guid = Guid.NewGuid().ToString();
+            strSql.Append("update Member set ");
+            if (isEqual)
+            {
+                if (dataType == SqlDbType.Int || dataType == SqlDbType.Decimal)
+                    strSql.Append(string.Format("{0} = {1} ", fieldName, fieldValue));
+                else
+                    strSql.Append(string.Format("{0} = '{1}' ", fieldName, fieldValue));
+            }
+            else
+            {
+                if (dataType == SqlDbType.Int || dataType == SqlDbType.Decimal)
+                    strSql.Append(string.Format("{0} = {0} + {1} ", fieldName, fieldValue));
+                else
+                    strSql.Append(string.Format("{0} = '{0}' + '{1}' ", fieldName, fieldValue));
+            }
+            strSql.Append(string.Format(" where MID='{0}' and '{1}'='{1}'", mid, guid));
+
+            if (isEqual)
+                MyHs.Add(strSql, "1");
+            else
+                MyHs.Add(strSql, null);
+            return MyHs;
+        }
         /// <summary>
         /// 得到配置信息
         /// </summary>

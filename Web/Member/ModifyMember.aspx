@@ -39,19 +39,18 @@
                     </tr>
                     <tr>
 
-                        <td align="right">身份证号码:
+                        <td align="right">检验检测机构登记证件及号码:
                         </td>
                         <td>
                             <input id="txtNumID" runat="server" class="normal_input" type="text" maxlength="18" />
                         </td>
-                        <td align="right">司机类型:
+                        <td align="right">证书类型:
                         </td>
                         <td>
-                            <select id="ZWType" name="ZWType" runat="server">
-                                <option value="" selected="selected">未知职位</option>
-                                <option value="1">主司机</option>
-                                <option value="2">副司机</option>
-                                <option value="3">押运员</option>
+                            <select id="txtFMID" name="txtFMID" runat="server">
+                                  <option value="0">检测机构登记证书</option>
+                              <option value="1">个人身份证</option>
+                                <option value="2">其他</option>
                             </select>
                         </td>
                     </tr>
@@ -80,7 +79,7 @@
 
                     </tr>
 
-                    <tr>
+                    <tr style="display:none;">
                         <td align="right">密保问题:
                         </td>
                         <td>

@@ -83,6 +83,7 @@
     <Compile Include="LotteryDraw.cs" />
     <Compile Include="Member_OperationRecord.cs" />
     <Compile Include="ObjChild.cs" />
+    <Compile Include="ObjSub.cs" />
     <Compile Include="OObject.cs" />
     <Compile Include="ObjExcel.cs" />
     <Compile Include="ObjSample.cs" />

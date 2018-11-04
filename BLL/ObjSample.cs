@@ -25,7 +25,7 @@ namespace yny_005.BLL
 	/// <summary>
 	/// ObjSample
 	/// </summary>
-	public partial class ObjSample
+	public  partial class ObjSample
 	{
 		
 		#region  BasicMethod
@@ -33,7 +33,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 得到最大ID
 		/// </summary>
-		public int GetMaxId()
+		public static int GetMaxId()
 		{
 			return DAL.ObjSample.GetMaxId();
 		}
@@ -41,7 +41,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
-		public bool Exists(int ID)
+		public static bool Exists(int ID)
 		{
 			return DAL.ObjSample.Exists(ID);
 		}
@@ -49,29 +49,40 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int  Add(yny_005.Model.ObjSample model)
+		public static int  Add(yny_005.Model.ObjSample model)
 		{
 			return DAL.ObjSample.Add(model);
 		}
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public static Hashtable Add(yny_005.Model.ObjSample model, Hashtable MyHs)
+        public static  Hashtable Add(yny_005.Model.ObjSample model, Hashtable MyHs)
         {
             return DAL.ObjSample.Add(model, MyHs);
         }
         /// <summary>
         /// 更新一条数据
         /// </summary>
-        public bool Update(yny_005.Model.ObjSample model)
+        public static bool Update(yny_005.Model.ObjSample model)
 		{
 			return DAL.ObjSample.Update(model);
 		}
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public static Hashtable Update(yny_005.Model.ObjSample model, Hashtable MyHs)
+        {
+            return DAL.ObjSample.Update(model, MyHs);
+        }
 
-		/// <summary>
-		/// 删除一条数据
-		/// </summary>
-		public bool Delete(int ID)
+        public static List<Model.ObjSample> GetList(string strWhere, int pageIndex, int pageSize, out int count)
+        {
+            return DAL.ObjSample.GetList(strWhere, pageIndex, pageSize, out count);
+        }
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public static bool Delete(int ID)
 		{
 			
 			return DAL.ObjSample.Delete(ID);
@@ -79,7 +90,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool DeleteList(string IDlist )
+		public static bool DeleteList(string IDlist )
 		{
 			return DAL.ObjSample.DeleteList(IDlist );
 		}
@@ -87,7 +98,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public yny_005.Model.ObjSample GetModel(int ID)
+		public static yny_005.Model.ObjSample GetModel(int ID)
 		{
 			
 			return DAL.ObjSample.GetModel(ID);
@@ -97,21 +108,21 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public DataSet GetList(string strWhere)
+		public static DataSet GetList(string strWhere)
 		{
 			return DAL.ObjSample.GetList(strWhere);
 		}
 		/// <summary>
 		/// 获得前几行数据
 		/// </summary>
-		public DataSet GetList(int Top,string strWhere,string filedOrder)
+		public static DataSet GetList(int Top,string strWhere,string filedOrder)
 		{
 			return DAL.ObjSample.GetList(Top,strWhere,filedOrder);
 		}
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<yny_005.Model.ObjSample> GetModelList(string strWhere)
+		public static List<yny_005.Model.ObjSample> GetModelList(string strWhere)
 		{
 			DataSet ds = DAL.ObjSample.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
@@ -119,7 +130,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<yny_005.Model.ObjSample> DataTableToList(DataTable dt)
+		public static List<yny_005.Model.ObjSample> DataTableToList(DataTable dt)
 		{
 			List<yny_005.Model.ObjSample> modelList = new List<yny_005.Model.ObjSample>();
 			int rowsCount = dt.Rows.Count;
@@ -141,7 +152,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public DataSet GetAllList()
+		public static DataSet GetAllList()
 		{
 			return GetList("");
 		}
@@ -149,21 +160,21 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		public int GetRecordCount(string strWhere)
+		public static int GetRecordCount(string strWhere)
 		{
 			return DAL.ObjSample.GetRecordCount(strWhere);
 		}
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
+		public static DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
 		{
 			return DAL.ObjSample.GetListByPage( strWhere,  orderby,  startIndex,  endIndex);
 		}
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		//public DataSet GetList(int PageSize,int PageIndex,string strWhere)
+		//public static DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		//{
 			//return DAL.ObjSample.GetList(PageSize,PageIndex,strWhere);
 		//}

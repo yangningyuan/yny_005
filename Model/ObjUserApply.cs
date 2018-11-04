@@ -136,7 +136,7 @@ namespace yny_005.Model
 			get{return _feiyongimgurl;}
 		}
 		/// <summary>
-		/// 状态
+		/// 状态  0未审核 1 审核不通过，3 审核通过
 		/// </summary>
 		public int SState
 		{

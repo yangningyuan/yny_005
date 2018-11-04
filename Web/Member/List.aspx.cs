@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,23 +31,18 @@ namespace yny_005.Web.Member
         }
 		protected override string btnAdd_Click()
 		{
-			try
-			{
-				string req = Request.Form["id"];
-				Model.C_Supplier cc= BLL.C_Supplier.GetModel(int.Parse(req));
-				if (cc != null)
-				{
-					return cc.Address + "^" + cc.TelName + "^" + cc.Tel;
-				}
-				else {
-					return "-1";
-				}
-			}
-			catch (Exception e)
-			{
-				return "-1";
-			}
-			
+            Hashtable MyHs = new Hashtable();
+            string mid= Request.Form["MID"];
+            Model.Member member = BLL.Member.GetModelByMID(mid);
+            
+            BLL.Member.UpdateMemberTran(mid, "MState", "1", member, true, System.Data.SqlDbType.Bit, MyHs);
+            if (BLL.CommonBase.RunHashtable(MyHs))
+            {
+                return "审核完成";
+            }
+            else {
+                return "审核失败";
+            }
 		}
 
         protected override string btnModify_Click()

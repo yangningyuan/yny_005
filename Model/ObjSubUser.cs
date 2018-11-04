@@ -138,7 +138,7 @@ namespace yny_005.Model
 			get{return _resultimgurl;}
 		}
 		/// <summary>
-		/// 状态
+		/// 0 未审核 2.审核不通过，3审核通过
 		/// </summary>
 		public int SState
 		{
@@ -146,7 +146,7 @@ namespace yny_005.Model
 			get{return _sstate;}
 		}
 		/// <summary>
-		/// 
+		///  子项结果OID，多项
 		/// </summary>
 		public string Spare
 		{
@@ -154,7 +154,7 @@ namespace yny_005.Model
 			get{return _spare;}
 		}
 		/// <summary>
-		/// 
+		///  用户项目ID
 		/// </summary>
 		public int SpInt
 		{

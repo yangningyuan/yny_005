@@ -31,8 +31,8 @@ namespace yny_005.Model
 		private string _objname;
 		private string _mid;
 		private string _zhengshucode;
-		private int _yangpinid;
-		private int _baomingid=0;
+		private string _yangpinoid;
+		private string _baomingoid;
 		private int _usstate=0;
 		private DateTime _createdate;
 		private string _danweiname;
@@ -46,10 +46,12 @@ namespace yny_005.Model
 		private string _spare2;
 		private int _spint=0;
 		private int _spint2;
-		/// <summary>
-		/// 
-		/// </summary>
-		public int ID
+
+        public string OID { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public int ID
 		{
 			set{ _id=value;}
 			get{return _id;}
@@ -87,23 +89,23 @@ namespace yny_005.Model
 			get{return _zhengshucode;}
 		}
 		/// <summary>
-		/// 样品ID
+		/// 样品OID
 		/// </summary>
-		public int YangPinID
+		public string YangPinOID
 		{
-			set{ _yangpinid=value;}
-			get{return _yangpinid;}
+			set{ _yangpinoid=value;}
+			get{return _yangpinoid;}
 		}
 		/// <summary>
-		/// 报名ID
+		/// 报名OID
 		/// </summary>
-		public int BaoMingID
+		public string BaoMingOID
 		{
-			set{ _baomingid=value;}
-			get{return _baomingid;}
+			set{ _baomingoid=value;}
+			get{return _baomingoid;}
 		}
 		/// <summary>
-		/// 项目状态
+		/// 项目状态  0待审核，2，审核不通过，3审核通过
 		/// </summary>
 		public int USState
 		{
@@ -142,18 +144,18 @@ namespace yny_005.Model
 			set{ _rstate=value;}
 			get{return _rstate;}
 		}
-		/// <summary>
-		/// 报名状态
-		/// </summary>
-		public int BState
+        /// <summary> 
+        /// 报名状态 0未审核 1 审核不通过，3 审核通过
+        /// </summary>
+        public int BState
 		{
 			set{ _bstate=value;}
 			get{return _bstate;}
 		}
-		/// <summary>
-		/// 样品状态
-		/// </summary>
-		public int YState
+        /// <summary>
+        /// 0 为寄送，1已寄送，2损坏 3.确认样品
+        /// </summary>
+        public int YState
 		{
 			set{ _ystate=value;}
 			get{return _ystate;}

@@ -130,7 +130,7 @@ namespace yny_005.Web.Handler
                 sb.Append(ListMember[i].MDate.ToString("yyyy-MM-dd HH:mm") + "~");
                 if (!ListMember[i].MState)
                 {
-                    sb.Append("<a class='btn' href='javascript:SHAuto('" + ListMember[i].MID+"')'>审核通过</a>");
+                    sb.Append("<a class='btn' href=\"javascript:SHAuto('" + ListMember[i].MID+"')\">审核通过</a>");
                 }
                 else
                 {

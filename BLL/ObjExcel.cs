@@ -25,7 +25,7 @@ namespace yny_005.BLL
 	/// <summary>
 	/// ObjExcel
 	/// </summary>
-	public partial class ObjExcel
+	public  partial class ObjExcel
 	{
 		
 		#region  BasicMethod
@@ -33,7 +33,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 得到最大ID
 		/// </summary>
-		public int GetMaxId()
+		public static int GetMaxId()
 		{
 			return DAL.ObjExcel.GetMaxId();
 		}
@@ -41,7 +41,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
-		public bool Exists(int ID)
+		public static bool Exists(int ID)
 		{
 			return DAL.ObjExcel.Exists(ID);
 		}
@@ -49,21 +49,21 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int  Add(yny_005.Model.ObjExcel model)
+		public static int  Add(yny_005.Model.ObjExcel model)
 		{
 			return DAL.ObjExcel.Add(model);
 		}
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public static Hashtable Add(yny_005.Model.ObjExcel model, Hashtable MyHs)
+        public  static Hashtable Add(yny_005.Model.ObjExcel model, Hashtable MyHs)
         {
             return DAL.ObjExcel.Add(model, MyHs);
         }
         /// <summary>
         /// 更新一条数据
         /// </summary>
-        public bool Update(yny_005.Model.ObjExcel model)
+        public static bool Update(yny_005.Model.ObjExcel model)
 		{
 			return DAL.ObjExcel.Update(model);
 		}
@@ -71,7 +71,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int ID)
+		public static bool Delete(int ID)
 		{
 			
 			return DAL.ObjExcel.Delete(ID);
@@ -79,7 +79,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool DeleteList(string IDlist )
+		public static bool DeleteList(string IDlist )
 		{
 			return DAL.ObjExcel.DeleteList(IDlist );
 		}
@@ -87,7 +87,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public yny_005.Model.ObjExcel GetModel(int ID)
+		public static yny_005.Model.ObjExcel GetModel(int ID)
 		{
 			
 			return DAL.ObjExcel.GetModel(ID);
@@ -97,21 +97,21 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public DataSet GetList(string strWhere)
+		public static DataSet GetList(string strWhere)
 		{
 			return DAL.ObjExcel.GetList(strWhere);
 		}
 		/// <summary>
 		/// 获得前几行数据
 		/// </summary>
-		public DataSet GetList(int Top,string strWhere,string filedOrder)
+		public static DataSet GetList(int Top,string strWhere,string filedOrder)
 		{
 			return DAL.ObjExcel.GetList(Top,strWhere,filedOrder);
 		}
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<yny_005.Model.ObjExcel> GetModelList(string strWhere)
+		public static List<yny_005.Model.ObjExcel> GetModelList(string strWhere)
 		{
 			DataSet ds = DAL.ObjExcel.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
@@ -119,7 +119,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<yny_005.Model.ObjExcel> DataTableToList(DataTable dt)
+		public static List<yny_005.Model.ObjExcel> DataTableToList(DataTable dt)
 		{
 			List<yny_005.Model.ObjExcel> modelList = new List<yny_005.Model.ObjExcel>();
 			int rowsCount = dt.Rows.Count;
@@ -141,7 +141,7 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public DataSet GetAllList()
+		public static DataSet GetAllList()
 		{
 			return GetList("");
 		}
@@ -149,21 +149,21 @@ namespace yny_005.BLL
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		public int GetRecordCount(string strWhere)
+		public static int GetRecordCount(string strWhere)
 		{
 			return DAL.ObjExcel.GetRecordCount(strWhere);
 		}
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
+		public static DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
 		{
 			return DAL.ObjExcel.GetListByPage( strWhere,  orderby,  startIndex,  endIndex);
 		}
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		//public DataSet GetList(int PageSize,int PageIndex,string strWhere)
+		//public static DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		//{
 			//return DAL.ObjExcel.GetList(PageSize,PageIndex,strWhere);
 		//}
