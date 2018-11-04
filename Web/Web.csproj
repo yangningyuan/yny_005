@@ -1988,7 +1988,6 @@
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodesForBigData.php" />
     <Content Include="SysManage\Language\Handler\LanguageTypeList.ashx" />
-    <Content Include="ProjectManage\Handler\ManageProjectList.ashx" />
     <Content Include="ProjectManage\Handler\SignProjectList.ashx" />
     <Content Include="ProjectManage\Handler\ProjectList.ashx" />
     <Content Include="ProjectManage\Handler\MProjectList.ashx" />
@@ -1996,6 +1995,7 @@
     <Content Include="ProjectManage\Handler\SampleList.ashx" />
     <Content Include="ProjectManage\Handler\MSampleList.ashx" />
     <Content Include="ProjectManage\Handler\ManageSumSignProjectList.ashx" />
+    <Content Include="ProjectManage\Handler\ManageProjectList.ashx" />
     <None Include="Properties\PublishProfiles\zx326.pubxml" />
     <Content Include="Shop\Handler\Ajax.ashx" />
     <Content Include="Shop\Handler\CarList.ashx" />
