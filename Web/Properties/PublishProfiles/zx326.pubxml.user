@@ -472,7 +472,7 @@
       <publishTime>09/12/2018 21:53:49</publishTime>
     </File>
     <File Include="Admin/frame/static/css/style.css">
-      <publishTime>09/12/2018 21:53:49</publishTime>
+      <publishTime>10/18/2018 21:39:51</publishTime>
     </File>
     <File Include="Admin/frame/static/image/bg.png">
       <publishTime>09/12/2018 21:53:49</publishTime>
@@ -490,7 +490,7 @@
       <publishTime>09/12/2018 21:53:49</publishTime>
     </File>
     <File Include="Admin/frame/static/js/vip_comm.js">
-      <publishTime>09/26/2018 21:52:03</publishTime>
+      <publishTime>10/31/2018 00:00:47</publishTime>
     </File>
     <File Include="Admin/frame/static/js/vip_nav.js">
       <publishTime>09/12/2018 21:53:49</publishTime>
@@ -628,7 +628,7 @@
       <publishTime>06/14/2017 17:29:33</publishTime>
     </File>
     <File Include="Admin/Index.aspx">
-      <publishTime>09/27/2018 00:48:12</publishTime>
+      <publishTime>11/05/2018 00:25:58</publishTime>
     </File>
     <File Include="Admin/index.html">
       <publishTime>09/12/2018 22:30:14</publishTime>
@@ -664,7 +664,7 @@
       <publishTime>09/12/2018 21:53:49</publishTime>
     </File>
     <File Include="Admin/js/jquery-1.11.1.min.js">
-      <publishTime>08/08/2017 09:28:28</publishTime>
+      <publishTime>10/30/2018 23:42:00</publishTime>
     </File>
     <File Include="Admin/js/jquery-1.8.3.min.js">
       <publishTime>06/02/2017 11:20:25</publishTime>
@@ -903,6 +903,9 @@
     <File Include="Admin/regedit/regedit.htm">
       <publishTime>04/27/2018 20:55:34</publishTime>
     </File>
+    <File Include="Admin/UpLoadPic/FileUpload.ashx">
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
     <File Include="Admin/UpLoadPic/IbeaconHandler.ashx">
       <publishTime>09/12/2018 21:10:58</publishTime>
     </File>
@@ -1024,16 +1027,16 @@
       <publishTime>09/12/2018 20:56:52</publishTime>
     </File>
     <File Include="bin/yny_005.BLL.dll">
-      <publishTime>09/27/2018 00:55:01</publishTime>
+      <publishTime>11/05/2018 00:29:37</publishTime>
     </File>
     <File Include="bin/yny_005.DAL.dll">
-      <publishTime>09/27/2018 00:55:01</publishTime>
+      <publishTime>11/05/2018 00:29:37</publishTime>
     </File>
     <File Include="bin/yny_005.Model.dll">
-      <publishTime>09/27/2018 00:55:00</publishTime>
+      <publishTime>11/05/2018 00:29:36</publishTime>
     </File>
     <File Include="bin/yny_005.Web.dll">
-      <publishTime>09/27/2018 01:10:11</publishTime>
+      <publishTime>11/05/2018 00:29:38</publishTime>
     </File>
     <File Include="bin/zx326.BLL.dll">
       <publishTime>07/29/2017 11:18:17</publishTime>
@@ -1255,7 +1258,7 @@
       <publishTime>09/12/2018 21:11:01</publishTime>
     </File>
     <File Include="Login.aspx">
-      <publishTime>09/16/2018 16:58:13</publishTime>
+      <publishTime>11/03/2018 21:33:49</publishTime>
     </File>
     <File Include="login/css/body.css">
       <publishTime>09/12/2018 21:34:16</publishTime>
@@ -1309,7 +1312,7 @@
       <publishTime>03/01/2017 22:41:22</publishTime>
     </File>
     <File Include="Member/Add.aspx">
-      <publishTime>09/26/2018 21:13:56</publishTime>
+      <publishTime>11/04/2018 23:38:29</publishTime>
     </File>
     <File Include="Member/Handler/MemberList.ashx">
       <publishTime>09/12/2018 21:11:02</publishTime>
@@ -1330,16 +1333,16 @@
       <publishTime>09/12/2018 21:11:02</publishTime>
     </File>
     <File Include="Member/List.aspx">
-      <publishTime>09/26/2018 22:23:36</publishTime>
+      <publishTime>11/03/2018 21:21:38</publishTime>
     </File>
     <File Include="Member/MemberYJList.aspx">
       <publishTime>09/12/2018 21:11:02</publishTime>
     </File>
     <File Include="Member/Modify.aspx">
-      <publishTime>09/12/2018 21:11:02</publishTime>
+      <publishTime>11/04/2018 23:50:57</publishTime>
     </File>
     <File Include="Member/ModifyMember.aspx">
-      <publishTime>09/12/2018 21:11:02</publishTime>
+      <publishTime>11/03/2018 21:42:13</publishTime>
     </File>
     <File Include="Member/MyLink.aspx">
       <publishTime>09/12/2018 21:11:02</publishTime>
@@ -2619,6 +2622,9 @@
     <File Include="MQL/images/userbg.png">
       <publishTime>02/09/2018 00:17:59</publishTime>
     </File>
+    <File Include="MQL/images/_20180922122730.png">
+      <publishTime>11/03/2018 10:44:43</publishTime>
+    </File>
     <File Include="MQL/js/cloud.js">
       <publishTime>02/09/2018 00:17:20</publishTime>
     </File>
@@ -3745,10 +3751,16 @@
       <publishTime>03/01/2017 22:41:23</publishTime>
     </File>
     <File Include="plugin/layui/css/layui.css">
-      <publishTime>09/26/2018 22:19:14</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/layui/css/layui.mobile.css">
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/css/modules/code.css">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/layui/css/modules/laydate/default/laydate.css">
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/css/modules/laydate/icon.png">
       <publishTime>01/22/2018 22:09:41</publishTime>
@@ -3763,7 +3775,7 @@
       <publishTime>01/22/2018 22:09:41</publishTime>
     </File>
     <File Include="plugin/layui/css/modules/layer/default/layer.css">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/css/modules/layer/default/loading-0.gif">
       <publishTime>01/22/2018 22:09:41</publishTime>
@@ -3775,16 +3787,16 @@
       <publishTime>01/22/2018 22:09:41</publishTime>
     </File>
     <File Include="plugin/layui/font/iconfont.eot">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/font/iconfont.svg">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/font/iconfont.ttf">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/font/iconfont.woff">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/images/09ae5a349b49c222.png">
       <publishTime>01/22/2018 22:09:41</publishTime>
@@ -4038,44 +4050,68 @@
     <File Include="plugin/layui/lay/lib/jquery.js">
       <publishTime>01/22/2018 22:09:41</publishTime>
     </File>
+    <File Include="plugin/layui/lay/modules/carousel.js">
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
     <File Include="plugin/layui/lay/modules/code.js">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/layui/lay/modules/colorpicker.js">
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/lay/modules/element.js">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/lay/modules/flow.js">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/lay/modules/form.js">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/layui/lay/modules/jquery.js">
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/lay/modules/laydate.js">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/lay/modules/layedit.js">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/lay/modules/layer.js">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/lay/modules/laypage.js">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/lay/modules/laytpl.js">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/layui/lay/modules/mobile.js">
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/layui/lay/modules/rate.js">
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/layui/lay/modules/slider.js">
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/layui/lay/modules/table.js">
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/lay/modules/tree.js">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/lay/modules/upload.js">
-      <publishTime>04/30/2018 22:25:53</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/lay/modules/util.js">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/layui/layui.all.js">
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/layui/layui.js">
-      <publishTime>01/22/2018 22:09:41</publishTime>
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/qrcode/index.html">
       <publishTime>03/01/2017 22:41:23</publishTime>
@@ -4466,6 +4502,42 @@
     </File>
     <File Include="plugin/UEditor/uparse.js">
       <publishTime>03/01/2017 22:41:23</publishTime>
+    </File>
+    <File Include="plugin/uploadify/check-exists.php">
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/uploadify/index.php">
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/uploadify/jquery.uploadify.js">
+      <publishTime>10/18/2018 21:59:24</publishTime>
+    </File>
+    <File Include="plugin/uploadify/jquery.uploadify.min.js">
+      <publishTime>10/18/2018 21:56:38</publishTime>
+    </File>
+    <File Include="plugin/uploadify/jquery插件库.url">
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/uploadify/uploadify-cancel.png">
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/uploadify/uploadify.css">
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/uploadify/uploadify.php">
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/uploadify/uploadify.swf">
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/uploadify/www.jq22.com.txt">
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/uploadify/__MACOSX/._Change Log.txt">
+      <publishTime>10/18/2018 21:15:11</publishTime>
+    </File>
+    <File Include="plugin/uploadify/__MACOSX/._uploadify.swf">
+      <publishTime>10/18/2018 21:15:11</publishTime>
     </File>
     <File Include="plugin/ZeroClipboard/ZeroClipboard.js">
       <publishTime>03/01/2017 22:41:23</publishTime>
@@ -4900,34 +4972,79 @@
       <publishTime>09/12/2018 21:11:11</publishTime>
     </File>
     <File Include="ProjectManage/AddProject.aspx">
-      <publishTime>09/26/2018 22:47:25</publishTime>
+      <publishTime>10/31/2018 00:05:18</publishTime>
+    </File>
+    <File Include="ProjectManage/Handler/ManageProjectList.ashx">
+      <publishTime>11/05/2018 00:27:40</publishTime>
+    </File>
+    <File Include="ProjectManage/Handler/ManageSHSignProjectList.ashx">
+      <publishTime>11/04/2018 10:43:31</publishTime>
+    </File>
+    <File Include="ProjectManage/Handler/ManageSumSignProjectList.ashx">
+      <publishTime>11/04/2018 17:41:38</publishTime>
+    </File>
+    <File Include="ProjectManage/Handler/MProjectList.ashx">
+      <publishTime>11/04/2018 10:30:30</publishTime>
+    </File>
+    <File Include="ProjectManage/Handler/MSampleList.ashx">
+      <publishTime>11/04/2018 15:52:07</publishTime>
+    </File>
+    <File Include="ProjectManage/Handler/ProjectList.ashx">
+      <publishTime>11/03/2018 21:51:51</publishTime>
+    </File>
+    <File Include="ProjectManage/Handler/SampleList.ashx">
+      <publishTime>11/04/2018 15:04:06</publishTime>
+    </File>
+    <File Include="ProjectManage/Handler/SignProjectList.ashx">
+      <publishTime>10/30/2018 22:30:25</publishTime>
+    </File>
+    <File Include="ProjectManage/ManageProjectList.aspx">
+      <publishTime>10/30/2018 22:28:02</publishTime>
     </File>
     <File Include="ProjectManage/ManageSHSignProjectList.aspx">
-      <publishTime>09/27/2018 00:15:52</publishTime>
+      <publishTime>11/04/2018 11:00:30</publishTime>
     </File>
     <File Include="ProjectManage/ManageSumSignProjectList.aspx">
-      <publishTime>09/27/2018 00:09:49</publishTime>
+      <publishTime>11/04/2018 18:18:20</publishTime>
+    </File>
+    <File Include="ProjectManage/MProjectList.aspx">
+      <publishTime>11/04/2018 18:38:07</publishTime>
+    </File>
+    <File Include="ProjectManage/MSampleList.aspx">
+      <publishTime>11/04/2018 17:33:19</publishTime>
+    </File>
+    <File Include="ProjectManage/ObjectView.aspx">
+      <publishTime>11/04/2018 23:28:52</publishTime>
     </File>
     <File Include="ProjectManage/ProjectList.aspx">
-      <publishTime>09/27/2018 00:46:41</publishTime>
+      <publishTime>11/04/2018 18:38:00</publishTime>
     </File>
     <File Include="ProjectManage/SampleCom.aspx">
-      <publishTime>09/27/2018 00:18:32</publishTime>
+      <publishTime>11/04/2018 17:29:56</publishTime>
+    </File>
+    <File Include="ProjectManage/SampleJS.aspx">
+      <publishTime>11/05/2018 00:28:20</publishTime>
     </File>
     <File Include="ProjectManage/SampleList.aspx">
-      <publishTime>09/27/2018 00:38:52</publishTime>
+      <publishTime>11/04/2018 17:33:07</publishTime>
     </File>
     <File Include="ProjectManage/SendSample.aspx">
-      <publishTime>09/27/2018 00:43:25</publishTime>
+      <publishTime>10/30/2018 23:47:15</publishTime>
+    </File>
+    <File Include="ProjectManage/SHSignProject.aspx">
+      <publishTime>11/05/2018 00:28:51</publishTime>
+    </File>
+    <File Include="ProjectManage/SHValidationResult.aspx">
+      <publishTime>11/04/2018 21:28:30</publishTime>
     </File>
     <File Include="ProjectManage/SignProject.aspx">
-      <publishTime>09/26/2018 23:22:12</publishTime>
+      <publishTime>11/04/2018 22:19:52</publishTime>
     </File>
     <File Include="ProjectManage/SignProjectList.aspx">
-      <publishTime>09/26/2018 23:13:20</publishTime>
+      <publishTime>10/30/2018 22:33:48</publishTime>
     </File>
     <File Include="ProjectManage/ValidationResult.aspx">
-      <publishTime>09/26/2018 23:48:37</publishTime>
+      <publishTime>11/04/2018 21:14:01</publishTime>
     </File>
     <File Include="ProjectManage/ViewCertificate.aspx">
       <publishTime>09/26/2018 23:44:55</publishTime>
@@ -5131,7 +5248,7 @@
       <publishTime>01/14/2018 11:09:33</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/27/2018 00:55:03</publishTime>
+      <publishTime>11/05/2018 00:29:38</publishTime>
     </File>
   </ItemGroup>
 </Project>

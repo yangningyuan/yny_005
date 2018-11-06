@@ -14,6 +14,19 @@
         function exportExcel() {
             ExportExcel("Car/Handler/ExportExcel.ashx", "DPLBExcel");
         }
+
+        function SHAuto(mid)
+        {
+            $.ajax({
+                type: 'post',
+                url: 'Member/List.aspx?Action=Add',
+                data: {MID:mid},
+                success: function (info) {
+                    v5.error(info, '1', 'ture');
+                    callhtml('/Member/List.aspx', '人员列表'); onclickMenu()
+                }
+            });
+        }
         //setup();
     </script>
 </head>
@@ -102,15 +115,15 @@
                     </th>
                     <th>锁定状态
                     </th>
-                   <%-- <th>冻结状态
-                    </th>--%>
-                    <%--<th>身份证图片
-                    </th>--%>
+                    
                    
                     <th>注册日期
                     </th>
-                  <%--  <th>操作
-                    </th>--%>
+                    <th>审核时间
+                    </th>
+                    <th>状态
+                    </th>
+                  
                 </tr>
             </table>
             <div class="ui_table_control">

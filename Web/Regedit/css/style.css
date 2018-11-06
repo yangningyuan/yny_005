@@ -1,12 +1,7 @@
 /*重置部分*/
 
 body {
-	line-height: 162%;
-	color: #434a54;
-	font-family: Microsoft YaHei, Arial, Verdana, sans-serif, Segoe UI, Tahoma;
-	-webkit-text-size-adjust: none;
-	background: url(../images/bg.jpg) no-repeat left top #90d9f3;
-	background-size: cover;
+	    background: url(../images/bg.png) repeat fixed;
 }
 
 small {
@@ -16,7 +11,6 @@ small {
 .text-white {
 	color: #fff;
 }
-
 a.text-white,
 a.text-white:hover,
 a.text-white:active,

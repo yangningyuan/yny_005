@@ -14,36 +14,10 @@ namespace yny_005.Web.Regedit
         protected Model.WebSetInfo WebModel = BLL.WebSetInfo.Model;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                if (!string.IsNullOrEmpty(Request.QueryString["mid"]))
-                {
-                    Model.Member tjmodel = BLL.Member.ManageMember.GetModel(Request.QueryString["mid"]);
-                    if (tjmodel != null)
-                    {
-                        txtMTJ.Value = Request.QueryString["mid"];
-                        txtMTJ.Attributes["readonly"] = "readonly";
-                    }
-                }
-            }
-            Sys_BankInfoBLL sbiBLL = new Sys_BankInfoBLL();
-            txtBank.DataSource = sbiBLL.GetList(" 1=1 and IsDeleted=0 order by Code");
-            txtBank.DataTextField = "Name";
-            txtBank.DataValueField = "Name";
-            txtBank.DataBind();
-            BindDdlPwdQuestion();
+         
         }
 
-        protected void BindDdlPwdQuestion()
-        {
-            BLL.Sys_SecurityQuestion BLL = new BLL.Sys_SecurityQuestion();
-            string whereStr = " IsDeleted=0 and Status=1";
-            IList<Model.Sys_SecurityQuestion> list = BLL.GetList(whereStr);
-            ddlQuestion.DataSource = list;
-            ddlQuestion.DataTextField = "Question";
-            ddlQuestion.DataValueField = "ID";
-            ddlQuestion.DataBind();
-        }
+     
 
         public Model.Member MemberMode
         {

@@ -389,7 +389,7 @@ namespace yny_005.Web
             {
                 if (NoPower())
                 {
-                    Response.Write("<script>window.top.location.href='/Login.aspx'</script>");
+                    Response.Write("<script>window.top.location.href='/Home/index.aspx'</script>");
                     Response.End();
                 }
             }

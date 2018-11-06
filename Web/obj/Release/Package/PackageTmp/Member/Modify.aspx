@@ -4,66 +4,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <script type="text/Javascript" src="/plugin/uploadify/jquery.uploadify.js"></script>
+    <link type="text/css" href="/plugin/uploadify/uploadify.css" rel="stylesheet" />
     <title></title>
-    <script type="text/javascript">
-        //var K = window.KKKK;
-        //var uploadbutton = K.uploadbutton({
-        //    button: K('#GatheringPic')[0],
-        //    fieldName: 'imgFile',
-        //    url: 'plugin/kindeditor/asp.net/upload_json.ashx?dir=image',
-        //    afterUpload: function (data) {
-        //        if (data.error === 0) {
-        //            var url = K.formatUrl(data.url, 'absolute');
-        //            K('#hduploadPic1').val(url);
-        //            K('#uploadLog').html("上传成功");
-        //            uploadSuccess("上传成功|" + url);
-        //        } else {
-        //            $('#uploadLog').html(data.message);
-        //        }
-        //    },
-        //    afterError: function (str) {
-        //        alert('自定义错误信息: ' + str);
-        //    }
-        //});
-        //uploadbutton.fileBox.change(function (e) {
-        //    uploadbutton.submit();
-        //});
-
-        //function deletePic(obj) {
-        //    if (confirm("确定要删除吗？")) {
-        //        var fileName = $(obj).parent().find(".hidPicurl").val();
-        //        var hidId = $(obj).parent().find(".hidId").val();
-        //        var hidDelIds = $("#hidDelIds").val();
-        //        if (typeof (fileName) != "undefined" && fileName != "") {
-        //            if (typeof (hidId) != "undefined" && hidId != "") {
-        //                hidDelIds += hidId + ",";
-        //                $("#hidDelIds").val(hidDelIds);
-        //            }
-        //            //如果是把首页图片删除了，就要重新设定首页图片
-        //            if ($(obj).parent().hasClass("mainDiv")) {
-        //                $(obj).parent().remove();
-        //                $(".appDiv").first().addClass("mainDiv");
-        //                //给首页图片的隐藏控件重新赋值
-        //                $("#hidMainPic").val($(".appDiv").first().find(".hidPicurl").val());
-        //            }
-        //            else {
-        //                $(obj).parent().remove();
-        //            }
-        //        }
-        //    }
-        //}
-
-        //function uploadSuccess(msg) {
-        //    if (msg.split('|').length > 1) {//成功
-        //        $("#uploadLog").html("上传成功...");
-        //        $('#hduploadPic1').val(msg.split('|')[1]);
-        //        var appendHtml = "<div class='appDiv'><img class='appImg' src='" + msg.split('|')[1] + "'/><img class='xClose' onclick='deletePic(this)'  title='删除' src='/Admin/pop/images/uploadify-cancel.png'/><input type='hidden' name='uploadPic' class='hidPicurl' value='" + msg.split('|')[1] + "'/></div>";
-        //        $("#tablePic").append(appendHtml);
-        //    } else {
-        //        $('#uploadLog').html(msg);
-        //    }
-        //}
-    </script>
+   
 </head>
 <body>
     <div id="mempay">
@@ -72,128 +16,97 @@
                 <input id="hdBankCode" type="hidden" runat="server" />
                 <table cellpadding="0" cellspacing="0">
                     <tr>
-                        <td width="15%" align="right">员工账号:
+                        <td width="15%" align="right">用户名:
                         </td>
                         <td width="35%">
                             <input id="txtMID" runat="server" class="normal_input" type="text" readonly="readonly" />
                         </td>
                     </tr>
                     <tr>
-                        <td width="15%" align="right">员工姓名:
+                        <td width="15%" align="right">实验室单位名称:
                         </td>
                         <td width="35%">
                             <input id="txtMName" maxlength="30" runat="server" class="normal_input" type="text" />
                         </td>
                     </tr>
-                    <%--<tr>
-                        <td align="right">手机号码:
+                     <tr>
+                        <td align="right">检验检测机构登记证件及号码:
                         </td>
                         <td>
-                            <input id="txtTel" runat="server" class="normal_input" type="text" />
+                            <input id="txtNumID" name="txtNumID" runat="server" class="normal_input" type="text" maxlength="50" /> 
+                            <select id="txtFMID" name="txtFMID"  runat="server">
+                                <option value="0">检测机构登记证书</option>
+                              <option value="1">个人身份证</option>
+                                <option value="2">其他</option>
+                            </select>
                         </td>
-                    </tr>--%>
+                    </tr>
+                     <tr>
+                        <td align="right">地址邮编:
+                        </td>
+                        <td>
+                            <input id="txtAddress" runat="server" name="txtAddress" class="normal_input" type="text" maxlength="50" />
+                        </td>
+                    </tr>
+                        <tr>
+                        <td align="right">联系人:
+                        </td>
+                        <td>
+                            <input id="txtBankCardName"  runat="server" name="txtBankCardName" class="normal_input" type="text" maxlength="20" />
+                            
+                        </td>
+                    </tr>
+                     <tr>
+                        <td align="right">电话:
+                        </td>
+                        <td>
+                            <input id="txtTel" name="txtTel" runat="server" class="normal_input" type="text" maxlength="11" />
+                            
+                        </td>
+                    </tr>
+                  <tr>
+                        <td align="right">传真:
+                        </td>
+                        <td>
+                            <input id="txtQQ" name="txtQQ" runat="server" class="normal_input" type="text" maxlength="50" />
+                            
+                        </td>
+                    </tr>
+                  <tr>
+                        <td align="right">电子邮件:
+                        </td>
+                        <td>
+                            <input id="txtEmail" name="txtEmail" runat="server" class="normal_input" type="text" maxlength="50" />
+                            
+                        </td>
+                    </tr>
                     <%
-                        if (TModel.Role.IsAdmin)
+                        if(TModel.MID=="admin")
                         {
-                    %>
-                    <tr>
-                        <td width="15%" align="right">
-                            <span>支付宝开户名：</span>
+                            %>
+                       <tr>
+                        <td align="right">上传结果凭证:
                         </td>
                         <td>
-                            <input id="txtQRCode" name="txtQRCode" runat="server" class="pay_input"
-                                type="text" value="11" require-msg="支付宝开户名" /><span>*</span>
+                           <input id="fileOne<%=rdstr %>" type="file" capture="camera" class="">
+                            <input id="btnOne" value="上传到服务器" type="button" style="display: none;" />
+                            <canvas id="canvasOne" width="1200" height="1200" style="display: none;"></canvas>
+                            <input id="DataUrl" type="text" style="display: none;" />
+                            <img id="DataImg" src="<%=string.IsNullOrEmpty(TModel.QRCode)?"/MQL/images/_20180922122730.png":TModel.QRCode %>" style="width: 100px; height: 100px;" />
+                            <input type="hidden" id="uploadurl" name="uploadurl" runat="server" />
+                            <input runat="server" id="roam" style="display: none;" />
                         </td>
                     </tr>
-                    <tr>
-                        <td width="15%" align="right">
-                            <span>支付宝：</span>
-                        </td>
-                        <td>
-                            <input id="txtAlipay" name="txtAlipay" runat="server" class="pay_input"
-                                type="text" value="11" require-msg="支付宝" /><span>*</span>
-                        </td>
-                    </tr>
-                    
+
+
+
+
                     <%
                         }
-                    %>
-                    <tr>
-                        <td align="right">开户地区:
-                        </td>
-                        <td>
-                            <select id="ddlProvince" runat="server">
-                            </select>
-                            <select id="ddlCity" runat="server">
-                            </select>
-                            <select id="ddlZone" runat="server" style="display: none;">
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="15%" align="right">
-                            <span>开户银行：</span>
-                        </td>
-                        <td>
-                            <select id="txtBank" runat="server">
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="15%" align="right">
-                            <span>开户支行：</span>
-                        </td>
-                        <td>
-                            <input id="txtBranch" name="txtBranch" runat="server" maxlength="25" class="pay_input" type="text"
-                                require-msg="开户支行" value="11" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="15%" align="right">
-                            <span>开户姓名：</span>
-                        </td>
-                        <td>
-                            <input id="txtBankCardName" name="txtBankCardName" runat="server" maxlength="20" class="pay_input"
-                                type="text" value="11" require-msg="开户姓名" /><span>*</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="15%" align="right">
-                            <span>卡号：</span>
-                        </td>
-                        <td>
-                            <input id="txtBankNumber" name="txtBankNumber" runat="server" maxlength="19" class="pay_input" type="text"
-                                value="11" require-msg="卡号" /><span>*</span>
-                        </td>
-                    </tr>
-                    <%--<tr>
-                    <td align="right">
-                        身份证号:
-                    </td>
-                    <td>
-                        <input id="txtNumID" runat="server" class="normal_input" type="text" />
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right">
-                        身份证图片:
-                    </td>
-                    <td>
-                        <input type="button" id="GatheringPic" value="上传凭证" />
-                        <div id='uploadLog'>
-                        </div>
-                        <input type="hidden" id="hduploadPic1" name="hduploadPic1" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right">
-                    </td>
-                    <td>
-                        <div style="float: left" id="tablePic">
-                            <%=pic%>
-                        </div>
-                    </td>
-                </tr>--%>
+                         %>
+                    
+                   
+                  
                     <tr style="height: 50px;">
                         <td align="right">
                             <input name="重置" type="reset" class="normal_btnok" value="重置" style="display: none;" />
@@ -207,27 +120,154 @@
         </div>
     </div>
     <script type="text/javascript">
-        setup();
-        $(function () {
-            $("#ddlProvince").val('<%=provice%>');
-            change(1);
-            $("#ddlCity").val('<%=City%>');
-        });
+       
         function checkChange() {
             if ($('#txtMName').val() == '') {
                 v5.error('员工姓名不能为空', '1', 'true');
-            } else if ($('#txtBranch').val() == '') {
-                v5.error('请输入开户支行', '1', 'true');
-            } else if ($('#txtBankCardName').val() == '') {
-                v5.error('请输入开户姓名', '1', 'true');
-            } else if ($('#ddlCity').val() == '地市') {
-                v5.error('请选择开户地区', '1', 'true');
-            } else if (!$('#txtBankNumber').val().TryBankCard()) {
-                v5.error('银行卡号只能是16或19位数字', '1', 'true');
+           
             } else {
                 ActionModel("Member/Modify.aspx?Action=modify", $('#form1').serialize());
             }
         }
     </script>
+
+
+    <%
+        if (TModel.MID == "admin")
+        {
+            %>
+      <script>
+        $(function () {
+            var guid = '<%=Request["guid"] %>';
+             var type = '<%=Request["type"] %>';
+             if (guid == null || guid == "") {
+                 guid = newGuid();
+             }
+             if (type != null) {
+                 type = type + '/';
+             }
+             var returnImgUrl = "";
+             $('#file_upload').uploadify({
+                 'swf': '/plugin/uploadify/uploadify.swf',              //FLash文件路径
+                 'buttonText': '浏  览',                        //按钮文本
+                 'uploader': '/Admin/UpLoadPic/FileUpload.ashx?guid=' + guid, //处理ASHX页面
+                 'formData': { 'folder': 'picture', 'isCover': 1 },         //传参数
+                 'queueID': 'fileQueue',                        //队列的ID
+                 'queueSizeLimit': 1,                          //队列最多可上传文件数量，默认为999
+                 'auto': true,                                 //选择文件后是否自动上传，默认为true
+                 'multi': true,                                 //是否为多选，默认为true
+                 'removeCompleted': false,                       //是否完成后移除序列，默认为true
+                 'fileSizeLimit': '0',                          //单个文件大小，0为无限制，可接受KB,MB,GB等单位的字符串值
+                 'fileTypeDesc': 'All Files',                   //文件描述
+                 'fileTypeExts': '*.jpg;*.png;*.gif;*.bmp;*.txt;*.docx;*.xlsx',                         //上传的文件后缀过滤器
+                 'onQueueComplete': function (queueData) {      //所有队列完成后事件
+                     if (queueData.filesQueued > 0) {
+                         //alert("上传完毕！");
+                         $("#excelValue").val(returnImgUrl);
+                         //alert(returnImgUrl);
+                     }
+                 },
+                 'onError': function (event, queueId, fileObj, errorObj) {
+                     alert(errorObj.type + "：" + errorObj.info);
+                 },
+                 'onUploadStart': function (file) {
+                 },
+                 'onUploadSuccess': function (file, data, response) {   //一个文件上传成功后的响应事件处理
+                     // var data = $.parseJSON(data);//如果data是json格式
+                     //var errMsg = "";
+                     //	alert(file);
+                     returnImgUrl += data;
+                     // 	alert(returnImgUrl);
+                     if ($.parseJSON(data) == 2) {
+                         alert("目录UpLoadImg/Test不存在或名称不对！"); return false;
+                     }
+                 }
+
+             });
+         });
+
+         function newGuid() {
+             var guid = "";
+             for (var i = 1; i <= 32; i++) {
+                 var n = Math.floor(Math.random() * 16.0).toString(16);
+                 guid += n;
+                 if ((i == 8) || (i == 12) || (i == 16) || (i == 20))
+                     guid += "-";
+             }
+             return guid;
+         }
+
+         //执行上传
+         function doUpload() {
+             $('#file_upload').uploadify('upload', '*');
+         }
+    </script>
+    <script>
+        //读取本地文件
+        var inputOne = document.getElementById('fileOne<%=rdstr%>');
+        inputOne.onchange = function () {
+            //1.获取选中的文件列表
+            var fileList = inputOne.files;
+            var file = fileList[0];
+            //读取文件内容
+            var reader = new FileReader();
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+            reader.onload = function (e) {
+                //将结果显示到canvas
+                showCanvas(reader.result);
+            }
+        }
+
+        var canvas = document.getElementById('canvasOne');
+        var ctx = canvas.getContext('2d');
+        //指定图片内容显示
+        function showCanvas(dataUrl) {
+            //$("#DataUrl").val(dataUrl);
+
+            var c = document.getElementById("canvasOne");
+            var cxt = c.getContext("2d");
+            c.height = c.height;
+
+            //加载图片
+            var img = new Image();
+            img.onload = function () {
+                var imgwidth = img.width * 0.4;
+                var imgheight = img.height * 0.4;
+                c.height = imgheight;
+                c.width = imgwidth;
+
+                //缩小图片
+                ctx.scale(0.4, 0.4);
+                ctx.drawImage(img, 0, 0, img.width, img.height);
+            }
+            img.src = dataUrl;
+            setTimeout(function () {
+                upLoad();
+            }, 300);
+        }
+
+        function upLoad() {
+            var data = canvas.toDataURL('image/jpeg', 1);
+            $("#DataUrl").val(data);
+            document.getElementById("DataImg").src = data;
+            $.ajax({
+                type: "POST", //提交方式 
+                url: "/Admin/UpLoadPic/upload.ashx",//路径 
+                data: {
+                    "address": data
+                },//数据，这里使用的是Json格式进行传输 
+                success: function (result) {//返回数据根据结果进行相应的处理 
+                    $("#uploadurl").val(result);
+                }
+            });
+        }
+    </script>
+    <%
+        }
+         %>
+
+    
 </body>
 </html>

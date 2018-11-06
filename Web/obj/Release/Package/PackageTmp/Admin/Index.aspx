@@ -54,8 +54,8 @@
                     <a class="name" href="javascript:;"><i class="layui-icon">&#xe629;</i>主题</a>
                     <dl class="layui-nav-child">
                         <dd data-skin="0"><a href="javascript:;">默认</a></dd>
-                        <dd data-skin="1"><a href="javascript:;">纯白</a></dd>
-                        <dd data-skin="2"><a href="javascript:;">蓝白</a></dd>
+                       <%-- <dd data-skin="1"><a href="javascript:;">纯白</a></dd>
+                        <dd data-skin="2"><a href="javascript:;">蓝白</a></dd>--%>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
@@ -130,19 +130,22 @@
                                         <button class="layui-btn layui-btn-big layui-btn-danger layui-icon">&#xe756;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text">40</p>
-                                        <p class="my-nav-text layui-elip">按钮</p>
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/Member/Modify.aspx','基本信息');onclickMenu()">修改实验室基本信息</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
+
+                            <%
+                                if (TModel.RoleCode == "Manage")
+                                {
+                                    %>
+                                   <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
                                 <div class="my-nav-btn layui-clear" data-href="./demo/form.html">
                                     <div class="layui-col-md5">
                                         <button class="layui-btn layui-btn-big layui-btn-warm layui-icon">&#xe735;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text">40</p>
-                                        <p class="my-nav-text layui-elip">表单</p>
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/ProjectManage/MProjectList.aspx','M项目列表');onclickMenu()">正在进行的能力验证</p>
                                     </div>
                                 </div>
                             </div>
@@ -152,8 +155,7 @@
                                         <button class="layui-btn layui-btn-big layui-icon">&#xe715;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text">40</p>
-                                        <p class="my-nav-text layui-elip">表格</p>
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/ProjectManage/ManageSHSignProjectList.aspx','M项目报名列表');onclickMenu()">能力验证报名</p>
                                     </div>
                                 </div>
                             </div>
@@ -163,19 +165,60 @@
                                         <button class="layui-btn layui-btn-big layui-btn-normal layui-icon">&#xe705;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text">40</p>
-                                        <p class="my-nav-text layui-elip">选项卡</p>
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/ProjectManage/MProjectList.aspx','项目列表');onclickMenu()">已完成的能力验证</p>
                                     </div>
                                 </div>
                             </div>
+                            <%
+                                }
+                                else {
+                                    %>
+                             <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
+                                <div class="my-nav-btn layui-clear" data-href="./demo/form.html">
+                                    <div class="layui-col-md5">
+                                        <button class="layui-btn layui-btn-big layui-btn-warm layui-icon">&#xe735;</button>
+                                    </div>
+                                    <div class="layui-col-md7 tc">
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/ProjectManage/ProjectList.aspx','项目列表');onclickMenu()">正在进行的能力验证</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
+                                <div class="my-nav-btn layui-clear" data-href="./demo/table.html">
+                                    <div class="layui-col-md5">
+                                        <button class="layui-btn layui-btn-big layui-icon">&#xe715;</button>
+                                    </div>
+                                    <div class="layui-col-md7 tc">
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/ProjectManage/SignProjectList.aspx','报名列表');onclickMenu()">能力验证报名</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
+                                <div class="my-nav-btn layui-clear" data-href="./demo/tab-card.html">
+                                    <div class="layui-col-md5">
+                                        <button class="layui-btn layui-btn-big layui-btn-normal layui-icon">&#xe705;</button>
+                                    </div>
+                                    <div class="layui-col-md7 tc">
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/ProjectManage/ProjectList.aspx','项目列表');onclickMenu()">已完成的能力验证</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                              
+                            <%
+                                }
+                                 %>
+
+                         
                             <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
                                 <div class="my-nav-btn layui-clear" data-href="./demo/progress-bar.html">
                                     <div class="layui-col-md5">
                                         <button class="layui-btn layui-btn-big layui-bg-cyan layui-icon">&#xe6b2;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text">40</p>
-                                        <p class="my-nav-text layui-elip">进度条</p>
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/Message/NoticeViewList.aspx','公告列表');onclickMenu()">新闻公告</p>
                                     </div>
                                 </div>
                             </div>
@@ -185,8 +228,7 @@
                                         <button class="layui-btn layui-btn-big layui-bg-black layui-icon">&#xe698;</button>
                                     </div>
                                     <div class="layui-col-md7 tc">
-                                        <p class="my-nav-text">40</p>
-                                        <p class="my-nav-text layui-elip">折叠面板</p>
+                                        <p class="my-nav-text layui-elip" onclick="callhtml('/SecurityCenter/ModifyPwd.aspx','登录密码修改');onclickMenu()">修改密码</p>
                                     </div>
                                 </div>
                             </div>
@@ -194,34 +236,36 @@
                             <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
                                  <div class="layui-collapse">
                                     <div class="layui-colla-item">
-                                        <h2 class="layui-colla-title">表格</h2>
+                                        <h2 class="layui-colla-title">基本统计</h2>
                                         <div class="layui-colla-content layui-show">
-
-                                            <table class="layui-table">
+                                            <style>
+                                            #showjiben span{
+                                            color:#009688;
+                                            font-size:14px;
+                                            font-weight:bold;
+                                            }
+                                            </style>
+                                            <table class="layui-table" id="showjiben">
                                                 <colgroup>
-                                                    <col width="150">
                                                     <col width="200">
-                                                    <col>
+                                                    <col width="200">
                                                 </colgroup>
                                                 <thead>
                                                     <tr>
-                                                        <th>昵称</th>
-                                                        <th>加入时间</th>
-                                                        <th>签名</th>
+                                                        <th>已完成验证：<span><%=已完成验证 %></span>个</th>
+                                                        <th> 正在进行中：<span style="color:#000000;"><%=正在进行中 %></span>个</th>
                                                     </tr>
+                                                    <tr>
+                                                        <th>我的状态：<span><%=TModel.MState?"已审核":"未审核" %></span></th>
+                                                        <th>样品已寄出：<span><%=样品已寄出 %></span>个</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>报名资格未通过：<span style="color:red;"><%=报名资格未通过 %></span>个</th>   
+                                                        <th>报名资格审核通过：<span><%=报名资格审核通过 %></span>个</th>
+                                                    </tr>
+                                                  
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>贤心</td>
-                                                        <td>2016-11-29</td>
-                                                        <td>人生就像是一场修行</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>许闲心</td>
-                                                        <td>2016-11-28</td>
-                                                        <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-                                                    </tr>
-                                                </tbody>
+                                               
                                             </table>
 
                                         </div>
@@ -231,7 +275,7 @@
                             <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
                                 <div class="layui-collapse">
                                     <div class="layui-colla-item">
-                                        <h2 class="layui-colla-title">表格</h2>
+                                        <h2 class="layui-colla-title">项目概览</h2>
                                         <div class="layui-colla-content layui-show">
 
                                             <table class="layui-table">
@@ -242,22 +286,34 @@
                                                 </colgroup>
                                                 <thead>
                                                     <tr>
-                                                        <th>昵称</th>
-                                                        <th>加入时间</th>
-                                                        <th>签名</th>
+                                                        <th>部门</th>
+                                                        <th>项目名称</th>
+                                                        <th>报名截止日期</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+
+                                                    <%
+                                                        if (listObj != null)
+                                                        {
+                                                            foreach (var item in listObj)
+                                                            {
+                                                                %>
+                                                    
                                                     <tr>
-                                                        <td>贤心</td>
-                                                        <td>2016-11-29</td>
-                                                        <td>人生就像是一场修行</td>
+                                                        <td><%=item.ObjName %></td>
+                                                        <td><%=item.ReObjNiName %></td>
+                                                        <td><%=item.BMDate %></td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>许闲心</td>
-                                                        <td>2016-11-28</td>
-                                                        <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-                                                    </tr>
+                                                    <%
+                                                            }
+                                                            %>
+                                                        
+                                                    <%
+                                                        }
+                                                         %>
+                                                    
+                                                 
                                                 </tbody>
                                             </table>
 
@@ -266,7 +322,7 @@
                                 </div>
                             </div>
 
-                            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4">
+                            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4" style="display:none;">
                                 <div class="layui-collapse">
                                     <div class="layui-colla-item">
                                         <h2 class="layui-colla-title">版本</h2>
@@ -439,7 +495,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4">
+                            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4"  style="display:none;">
                                 <div class="layui-collapse">
                                     <div class="layui-colla-item">
                                         <h2 class="layui-colla-title">图表</h2>
@@ -493,11 +549,16 @@
     <link rel="stylesheet" type="text/css" href="plugin/layer/skin/layer.css" />
     <link rel="stylesheet" type="text/css" href="plugin/kindeditor/themes/default/default.css" />
     <%--<script type="text/javascript" src="plugin/layer/layer.js"></script>--%>
+
+
     <script type="text/javascript" src="Admin/pop/js/MyValide.js"></script>
     <script type="text/javascript" src="Admin/pop/js/TableToExcel.js"></script>
     <script type="text/javascript" src="Admin/pop/js/linkage.js"></script>
 
     <script src="/plugin/layui/layui.js"></script>
+    
+    <script type="text/javascript" src="/admin/frame/static/js/vip_comm.js"></script>
+
 
     <script type="text/javascript" src="Admin/pop/js/javascript_main.js"></script>
     <script type="text/javascript" src="Admin/pop/js/ajax.js"></script>
@@ -523,7 +584,6 @@
     </script>
     <%--<iframe id='frameFile' name='frameFile' style='display: none;'></iframe>--%>
     <%--<script type="text/javascript" src="/admin/frame/layui/layui.js"></script>--%>
-    <script type="text/javascript" src="/admin/frame/static/js/vip_comm.js"></script>
    <%-- <script type="text/javascript">
         layui.use(['layer', 'vip_nav'], function () {
 

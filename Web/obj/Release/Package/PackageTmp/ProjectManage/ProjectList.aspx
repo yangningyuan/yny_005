@@ -5,7 +5,7 @@
 <head id="Head1" runat="server">
     <title></title>
     <script type="text/javascript">
-        //tUrl = "Member/Handler/MemberList.ashx";
+        tUrl = "ProjectManage/Handler/ProjectList.ashx";
         tState = "";
         SearchByCondition();
         //        setup();
@@ -31,36 +31,46 @@
                             </select>
                         </td>
                         <td>
-                            <select id="IsClose" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
+                            <select id="IsBMState" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
                                 <option value="">报名状态</option>
-                                <option value="true">报名已通过</option>
-                                <option value="false">报名未通过</option>
+                                <option value="3">报名已通过</option>
+                                <option value="0,1,2">报名未通过</option>
                             </select>
                         </td>
                         <td>
-                            <select id="IsClose" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
+                            <select id="IsYangPin" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
                                 <option value="">样品状态</option>
-                                <option value="true">报名已通过</option>
-                                <option value="false">报名未通过</option>
+                                <option value="3">已确认</option>
+                                <option value="0,1,2">未确认</option>
                             </select>
                         </td>
                         <td>
-                            <select id="IsClose" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
+                            <select id="IsRState" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
                                 <option value="">验证结果状态</option>
-                                <option value="true">报名已通过</option>
-                                <option value="false">报名未通过</option>
+                                <option value="3">已通过</option>
+                                <option value="0,1,2">未通过</option>
                             </select>
                         </td>
 
                     </tr>
                 </table>
+
+            </div>
+             <div class="search" id="DivSearch" runat="server">
+                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" /><input
+                    id="nTitle" name="txtKey" data-name="txtKey"  type="text" class="sinput" />
             </div>
 
-            <div id="Div1" runat="server" class="pay" onclick="callhtml('/ProjectManage/AddProject.aspx','新增项目');onclickMenu()">
-                新增项目
+            <%
+                if (TModel.RoleCode == "DW")
+                {
+                    %>
+            <div id="Div1" runat="server" class="pay" onclick="callhtml('/ProjectManage/AddProject.aspx','单位新增项目');onclickMenu()">
+                单位新增项目
             </div>
-
-
+            <%
+                }
+                 %>
         </div>
         <div class="ui_table">
             <table cellpadding="0" cellspacing="0" id="Result" class="tabcolor">
@@ -75,12 +85,12 @@
                     </th>
                     <th>项目截止日期
                     </th>
-                    <th>结果1
+                   <%-- <th>结果1
                     </th>
                     <th>结果2
                     </th>
                     <th>平均值
-                    </th>
+                    </th>--%>
                     <th>报名状态
                     </th>
                     <th>样品寄送
@@ -88,8 +98,6 @@
                     <th>样品确认
                     </th>
                     <th>验证结果提交
-                    </th>
-                    <th>数据统计
                     </th>
                     <th>结果报告下载
                     </th>
@@ -101,46 +109,7 @@
                     </th>
 
                 </tr>
-                <tr onclick="trClick(this)">
-                    <td><em>
-                        <input type="checkbox" id="chk_000" checked="checked" name="chkGroup" onclick="SelectChk(this);"></em></td>
-                    <td>1&nbsp;</td>
-                    <td>部门1</td>
-                    <td>测试验证项目1</td>
-                    <td>2017-08-09</td>
-                    <td>10</td>
-                    <td>20</td>
-                    <td>15</td>
-                    <td>未通过</td>
-                    <td>未寄送</td>
-                    <td><a href="javascript:void(0)" class="btn" onclick="callhtml('ProjectManage/SampleCom.aspx?Id=000','样品确认')">未确认</a></td>
-                    <td>未提交</td>
-                    <td>数据统计中</td>
-                    <td>报告下载</td>
-                    <td><a href="javascript:void(0)" class="btn" onclick="callhtml('ProjectManage/ValidationResult.aspx?Id=000','验证结果审核')">未通过</a></td>
-                    <td><a href="javascript:void(0)" class="btn" onclick="callhtml('ProjectManage/ViewCertificate.aspx?Id=000','查看证书')">查看</a></td>
-                    <td><span style="color: red;">修改</span>&nbsp;</td>
-                </tr>
-                <tr onclick="trClick(this)">
-                    <td><em>
-                        <input type="checkbox" id="chk_000" checked="checked" name="chkGroup" onclick="SelectChk(this);"></em></td>
-                    <td>1&nbsp;</td>
-                    <td>部门1</td>
-                    <td>测试验证项目1</td>
-                    <td>2017-08-09</td>
-                      <td>10</td>
-                    <td>20</td>
-                    <td>15</td>
-                    <td>未通过</td>
-                    <td>未寄送</td>
-                    <td>未确认</td>
-                    <td>未提交</td>
-                    <td>数据统计中</td>
-                    <td>报告下载</td>
-                    <td>未通过</td>
-                    <td><span style="color: Blue;">未通过</span>&nbsp;</td>
-                    <td><span style="color: red;">修改</span>&nbsp;</td>
-                </tr>
+               
             </table>
             <div class="ui_table_control">
                 <em style="vertical-align: middle;">

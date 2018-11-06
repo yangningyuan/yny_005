@@ -91,11 +91,11 @@
                         <td align="right">检验检测机构登记证件及号码:
                         </td>
                         <td>
-                            <input id="txtNumID" name="txtNumID" class="normal_input" type="text" maxlength="18" /> 
-                            <select id="" name=""  onchange="">
-                                <option value="">检测机构登记证书</option>
-                              <option value="">个人身份证</option>
-                                <option value="">其他</option>
+                            <input id="txtNumID" name="txtNumID" class="normal_input" type="text" maxlength="50" /> 
+                            <select id="txtFMID" name="txtFMID"  >
+                                <option value="0">检测机构登记证书</option>
+                              <option value="1">个人身份证</option>
+                                <option value="2">其他</option>
                             </select>
                         </td>
                     </tr>
@@ -103,14 +103,14 @@
                         <td align="right">地址邮编:
                         </td>
                         <td>
-                            <input id="txtAddress" name="txtAddress" class="normal_input" type="text" maxlength="18" />
+                            <input id="txtAddress" name="txtAddress" class="normal_input" type="text" maxlength="50" />
                         </td>
                     </tr>
                         <tr>
                         <td align="right">联系人:
                         </td>
                         <td>
-                            <input id="txtTelName" name="txtTelName" class="normal_input" type="text" maxlength="11" />
+                            <input id="txtBankCardName" name="txtBankCardName" class="normal_input" type="text" maxlength="20" />
                             
                         </td>
                     </tr>
@@ -126,7 +126,7 @@
                         <td align="right">传真:
                         </td>
                         <td>
-                            <input id="txtCHUANZHEN" name="txtCHUANZHEN" class="normal_input" type="text" maxlength="11" />
+                            <input id="txtQQ" name="txtQQ" class="normal_input" type="text" maxlength="50" />
                             
                         </td>
                     </tr>
@@ -134,7 +134,7 @@
                         <td align="right">电子邮件:
                         </td>
                         <td>
-                            <input id="txtEmail" name="txtEmail" class="normal_input" type="text" maxlength="11" />
+                            <input id="txtEmail" name="txtEmail" class="normal_input" type="text" maxlength="50" />
                             
                         </td>
                     </tr>
@@ -225,8 +225,8 @@
             //    v5.error('员工姓名只能输入两位以上的中文字符', '1', 'true');
             } else if (!$('#txtTel').val().TryTel()) {
                 v5.error('手机号码格式不正确', '1', 'true');
-            } else if ($('#txtRole').val() == "") {
-                v5.error('职务不能为空', '1', 'true');
+            //} else if ($('#txtRole').val() == "") {
+            //    v5.error('职务不能为空', '1', 'true');
                 //} else if ($('#txtMTJ').val() == '') {
                 //    v5.error('推荐员工帐号不能为空', '1', 'true');
                 //} else if ($('#txtMBD').val() == '') {

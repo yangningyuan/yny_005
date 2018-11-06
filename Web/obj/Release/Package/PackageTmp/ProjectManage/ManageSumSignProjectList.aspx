@@ -5,10 +5,9 @@
 <head id="Head1" runat="server">
     <title></title>
     <script type="text/javascript">
-        //tUrl = "Member/Handler/MemberList.ashx";
+        tUrl = "ProjectManage/Handler/ManageSumSignProjectList.ashx";
         tState = "";
         SearchByCondition();
-        //        setup();
 
         // 导出Excel
         function exportExcel() {
@@ -27,8 +26,7 @@
            <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
                 <%--<input type="button" value="从业人员信息管理报表" class="btn btn-success" onclick="exportExcel()" />--%>
-                <input name="txtKey" data-name="txtKey" id="mKey" placeholder="项目名称或编号" value="项目名称或编号"
-                    onfocus="if (value =='账号'){value =''}" onblur="if (value ==''){value='账号'}"
+                <input name="nTitle" data-name="txtKey" id="nTitle" placeholder="项目名称或编号"
                     type="text" class="sinput" style="width: 120px;" />
               
             </div>
@@ -59,30 +57,7 @@
                     
 
                 </tr>
-                <tr onclick="trClick(this)">
-                    <td><em>
-                        <input type="checkbox" id="chk_000" checked="checked" name="chkGroup" onclick="SelectChk(this);"></em></td>
-                    <td>1&nbsp;</td>
-                    <td>hnnj-2018-06</td>
-                    <td>测试检测</td>
-                    <td>2017-08-09</td>
-                    <td>2018-06-30</td>
-                    <td>2018-06-30</td>
-                    <td>256</td>
-                    <td>256</td>
-                </tr>
-                <tr onclick="trClick(this)">
-                    <td><em>
-                        <input type="checkbox" id="chk_000" checked="checked" name="chkGroup" onclick="SelectChk(this);"></em></td>
-                    <td>1&nbsp;</td>
-                    <td>hnnj-2018-06</td>
-                    <td>测试检测</td>
-                    <td>2017-08-09</td>
-                    <td>2018-06-30</td>
-                    <td>2018-06-30</td>
-                    <td>256</td>
-                    <td>256</td>
-                </tr>
+                
             </table>
             <div class="ui_table_control">
                 <em style="vertical-align: middle;">

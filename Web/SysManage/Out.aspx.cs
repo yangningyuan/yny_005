@@ -11,11 +11,11 @@ namespace yny_005.Web.SysManage
             {
                 if (BllModel == null || !TModel.Role.Super)
                 {
-                    Response.Write(RetUrlStr("/Login.aspx", "/Error.aspx"));
+                    Response.Write(RetUrlStr("/Home/index.aspx", "/Error.aspx"));
                 }
                 else
                 {
-                    Response.Write(RetUrlStr("/Login.aspx", "/Login.aspx"));
+                    Response.Write(RetUrlStr("/Home/index.aspx", "/Login.aspx"));
                 }
                 Response.Buffer = true;
                 Response.ExpiresAbsolute = DateTime.Now.AddDays(-1);

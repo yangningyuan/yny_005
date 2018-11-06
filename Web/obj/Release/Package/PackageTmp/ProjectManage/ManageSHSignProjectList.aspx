@@ -5,7 +5,7 @@
 <head id="Head1" runat="server">
     <title></title>
     <script type="text/javascript">
-        //tUrl = "Member/Handler/MemberList.ashx";
+        tUrl = "ProjectManage/Handler/ManageSHSignProjectList.ashx";
         tState = "";
         SearchByCondition();
         //        setup();
@@ -59,11 +59,15 @@
                     </th>
                     <th>项目名称
                     </th>
+                    <th>报名账号
+                    </th>
                     <th>报名单位名称
                     </th>
                     <th>报名日期
                     </th>
                     <th>报名费凭证
+                    </th>
+                     <th>报名表凭证
                     </th>
                     <th>状态
                     </th>
@@ -72,37 +76,14 @@
                     
 
                 </tr>
-                <tr onclick="trClick(this)">
-                    <td><em>
-                        <input type="checkbox" id="chk_000" checked="checked" name="chkGroup" onclick="SelectChk(this);"></em></td>
-                    <td>1&nbsp;</td>
-                    <td>hnnj-2018-06</td>
-                    <td>测试检测</td>
-                    <td>xx实验</td>
-                    <td>2018-06-30</td>
-                    <td><img src="" style="width:100px; height:100px;" /></td>
-                    <td>成功</td>
-                    <td><a href=" javascript:callhtml('/ProjectManage/AddProject.aspx','新增项目');onclickMenu();">详情</a></td>
-                </tr>
-                   <tr onclick="trClick(this)">
-                    <td><em>
-                        <input type="checkbox" id="chk_000" checked="checked" name="chkGroup" onclick="SelectChk(this);"></em></td>
-                    <td>1&nbsp;</td>
-                    <td>hnnj-2018-06</td>
-                    <td>测试检测</td>
-                    <td>xx实验</td>
-                    <td>2018-06-30</td>
-                    <td><img src="" style="width:100px; height:100px;" /></td>
-                    <td>成功</td>
-                    <td><a href=" javascript:callhtml('/ProjectManage/AddProject.aspx','新增项目');onclickMenu();">详情</a></td>
-                </tr>
+              
             </table>
             <div class="ui_table_control">
                 <em style="vertical-align: middle;">
                     <input type="checkbox" id="chkAll" onclick="SelectChk(this);" /></em>
                 <div class="pn">
-                      <span id="DivOperation" runat="server"><a href="javascript:void(0);" title="激活" onclick="RunAjaxByList('false','ShMember',',');">
-                        批量审核</a> </span>
+                     <%-- <span id="DivOperation" runat="server"><a href="javascript:void(0);" title="激活" onclick="RunAjaxByList('false','ShMember',',');">
+                        批量审核</a> </span>--%>
                 </div>
                 <div class="pagebar">
                     <div id="Pagination">
