@@ -41,7 +41,9 @@ namespace yny_005.Model
 		private int _bstate=0;
 		private int _ystate=0;
 		private DateTime? _ruploaddate;
-		private string _rimgurl;
+        public DateTime? RDate { get; set; }
+
+        private string _rimgurl;
 		private string _spare;
 		private string _spare2;
 		private int _spint=0;

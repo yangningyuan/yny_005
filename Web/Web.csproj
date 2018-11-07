@@ -921,6 +921,7 @@
     <Content Include="ProjectManage\MSampleList.aspx" />
     <Content Include="ProjectManage\ObjectView.aspx" />
     <Content Include="ProjectManage\ProjectList.aspx" />
+    <Content Include="ProjectManage\PutZhengShu.aspx" />
     <Content Include="ProjectManage\SampleCom.aspx" />
     <Content Include="ProjectManage\SampleJS.aspx" />
     <Content Include="ProjectManage\SampleList.aspx" />
@@ -1504,6 +1505,13 @@
     </Compile>
     <Compile Include="ProjectManage\ProjectList.aspx.designer.cs">
       <DependentUpon>ProjectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\PutZhengShu.aspx.cs">
+      <DependentUpon>PutZhengShu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\PutZhengShu.aspx.designer.cs">
+      <DependentUpon>PutZhengShu.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProjectManage\SampleCom.aspx.cs">
       <DependentUpon>SampleCom.aspx</DependentUpon>
