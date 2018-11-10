@@ -37,6 +37,13 @@ namespace yny_005.Web.ProjectManage.Handler
             {
                 strWhere += " and RState in(" + HttpUtility.UrlDecode(context.Request["IsRState"]) + ")";
             }
+
+            //如果是单位部门的话 能管理自己发布的项目
+            if (!TModel.Role.IsAdmin)
+            {
+                strWhere += " and  objID IN(SELECT ID FROM OObject WHERE ReObjMID='"+TModel.MID+"') ";
+            }
+
             int count;
             List<Model.ObjUser> ListO = BLL.ObjUser.GetList(strWhere, pageIndex, pageSize, out count);
 

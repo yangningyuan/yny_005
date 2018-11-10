@@ -22,6 +22,13 @@ namespace yny_005.Web.ProjectManage.Handler
             {
                 strWhere += " and ObjName like '%" + HttpUtility.UrlDecode(context.Request["nTitle"]) + "%'";
             }
+
+            //如果是单位部门的话 能管理自己发布的项目
+            if (!TModel.Role.IsAdmin)
+            {
+                strWhere += " and  ReObjMID='" + TModel.MID + "'  ";
+            }
+
             int count;
             List<Model.OObject> ListO = BLL.OObject.GetList(strWhere, pageIndex, pageSize, out count);
 
@@ -36,7 +43,7 @@ namespace yny_005.Web.ProjectManage.Handler
                 sb.Append(ListO[i].ReObjNiName + "~");
                 sb.Append(ListO[i].BMDate + "~");
                 sb.Append(ListO[i].JGDate + "~");
-                sb.Append(ListO[i].Remark + "~");
+                sb.Append((ListO[i].Remark.Length>20? ListO[i].Remark.ToString().Substring(0,20)+"...": ListO[i].Remark) + "~");
                 sb.Append(ListO[i].CreateDate.ToString("yyyy-MM-dd HH:mm") + "~");
                 sb.Append( "");
                

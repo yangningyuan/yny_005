@@ -23,6 +23,12 @@ namespace yny_005.Web.ProjectManage.Handler
                 strWhere += " and ObjName like '%" + HttpUtility.UrlDecode(context.Request["nTitle"]) + "%'";
             }
 
+            //如果是单位部门的话 能管理自己发布的项目
+            if (!TModel.Role.IsAdmin)
+            {
+                strWhere += " and  objID IN(SELECT ID FROM OObject WHERE ReObjMID='" + TModel.MID + "') ";
+            }
+
             int count;
             List<Model.ObjUserApply> ListO = BLL.ObjUserApply.GetList(strWhere, pageIndex, pageSize, out count);
 

@@ -30,7 +30,10 @@ namespace yny_005.Web.ProjectManage
 
         protected override string btnAdd_Click()
         {
-           
+
+            if (!TModel.MState)
+                return "您的账号未审核，不能报名";
+
             Model.OObject obj = BLL.OObject.GetModel(Convert.ToInt32( Request.Form["oid"]));
 
             if (obj.BMDate < DateTime.Now)
