@@ -12,6 +12,7 @@ namespace yny_005.Web.ProjectManage
     {
         public string HardUrl = "";
         public Model.ObjUser obj = null;
+        public Model.ObjUserApply userapply = null;
         public string JGDate = "";
         protected override void SetPowerZone()
         {
@@ -19,6 +20,9 @@ namespace yny_005.Web.ProjectManage
             int xxid = Convert.ToInt32(Request.QueryString["xxid"]);
             obj = BLL.ObjUser.GetModel(xxid);
             JGDate = Baodate2Chinese(Convert.ToDateTime(obj.RDate).ToString("yyyy-MM-dd"));
+            userapply = BLL.ObjUserApply.GetModelOID(obj.BaoMingOID);
+            
+
         }
 
 

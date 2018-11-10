@@ -154,7 +154,7 @@ namespace yny_005.Model
 			get{return _spare;}
 		}
 		/// <summary>
-		///  用户项目ID
+		///  项目ID
 		/// </summary>
 		public int SpInt
 		{

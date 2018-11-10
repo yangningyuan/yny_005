@@ -39,6 +39,7 @@ namespace yny_005.Model
 		private string _baomingimgurl;
 		private string _feiyongimgurl;
 		private int _sstate=0;
+        public int BMInt { get; set; }
 		/// <summary>
 		/// 
 		/// </summary>

@@ -35,17 +35,21 @@ namespace yny_005.Web.ProjectManage
             tmember = BLL.Member.GetModelByMID(oapply.MID);
 
 
-            objsubuser = BLL.ObjSubUser.GetModeluser(objuser.ID);
-            string[] sublist = objsubuser.Spare.Split(',');
-            string substr = "";
-            foreach (var item in sublist)
+            objsubuser = BLL.ObjSubUser.GetModelList(" SpInt="+obj.ID+" AND MID='"+tmember.MID+"'").FirstOrDefault();
+            if (objsubuser != null)
             {
-                if (string.IsNullOrEmpty(item))
-                    continue;
-                substr += "'" + item + "',";
-            }
+                string[] sublist = objsubuser.Spare.Split(',');
+                string substr = "";
+                foreach (var item in sublist)
+                {
+                    if (string.IsNullOrEmpty(item))
+                        continue;
+                    substr += "'" + item + "',";
+                }
 
-            objsublist = BLL.ObjSub.GetModelList(" OID in(" + substr.Substring(0, substr.Length - 1) + ") ");
+                objsublist = BLL.ObjSub.GetModelList(" OID in(" + substr.Substring(0, substr.Length - 1) + ") ");
+            }
+            
         }
     }
 }

@@ -19,13 +19,13 @@
                             <b style="margin-left: 5%;">报名信息</b><span>(<%=oapply.SState.ToString().Replace("0","未审核").Replace("1","审核不通过").Replace("3","<span style='color:green;'>审核通过</span>") %>)</span>
                         </td>
                     </tr>
-                    <%--   <tr>
-                        <td width="15%" align="right">报名编号
+                       <tr>
+                        <td width="15%" align="right">报名顺序号(未审核为0)
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <input id="Text6" class="normal_input" readonly="readonly" value="2018855677777777777" runat="server" style="width: 20%;" /><span style="color:red;"> *证书编号生成规则：项目编号+报名成功顺序号</span>
+                          <span style="color:red;"> <%=oapply.BMInt %></span>
                         </td>
-                    </tr>--%>
+                    </tr>
                     <tr>
                         <td width="15%" align="right">单位名称
                         </td>

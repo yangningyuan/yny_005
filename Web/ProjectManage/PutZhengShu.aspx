@@ -18,7 +18,7 @@
                 </div>
                 <div style="border: 0px solid #808080; text-align: center; padding: 5px;">
                     <h2 style="font-weight: bold;">能力验证满意实验室证书</h2>
-                    <span style="color: red; margin-top: 7px; font-weight: bold; line-height: 2; margin-left: 20px;">编号：<%=obj.ZhengShuCode %></span>
+                    <span style="color: red; margin-top: 7px; font-weight: bold; line-height: 2; margin-left: 20px;">编号：<%=obj.ZhengShuCode %>-<%=userapply.BMInt %></span>
 
                 </div>
                 <div style="width: 500px; margin-left: 50px;">
