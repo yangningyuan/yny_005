@@ -272,6 +272,62 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <%
+                                if (TModel.RoleCode == "DW")
+                                {
+                                    %>
+                            <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
+                                <div class="layui-collapse">
+                                    <div class="layui-colla-item">
+                                        <h2 class="layui-colla-title">项目概览</h2>
+                                        <div class="layui-colla-content layui-show">
+
+                                            <table class="layui-table">
+                                                <colgroup>
+                                                    <col width="150">
+                                                    <col width="200">
+                                                    <col>
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th>部门</th>
+                                                        <th>项目名称</th>
+                                                        <th>报名截止日期</th>
+                                                        <th>查看报名列表</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <%
+                                                        if (listObj != null)
+                                                        {
+                                                            foreach (var item in listObj)
+                                                            {
+                                                                %>
+                                                    <tr>
+                                                        <td><%=item.ObjName %></td>
+                                                        <td><%=item.ReObjNiName %></td>
+                                                        <td><%=item.BMDate %></td>
+                                                        <td><a class="normal_btnok btn btn-success" href="javascript:void(0)" onclick="callhtml('/ProjectManage/ManageSHSignProjectList.aspx?bmoid=<%=item.ID %>', 'MD项目报名列表'); onclickMenu()">查看</a></td>
+                                                    </tr>
+                                                    <%
+                                                            }
+                                                            %>
+                                                        
+                                                    <%
+                                                        }
+                                                         %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%
+                                }
+                                else
+                                {
+                                    %>
                             <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
                                 <div class="layui-collapse">
                                     <div class="layui-colla-item">
@@ -292,7 +348,6 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
                                                     <%
                                                         if (listObj != null)
                                                         {
@@ -312,15 +367,17 @@
                                                     <%
                                                         }
                                                          %>
-                                                    
-                                                 
                                                 </tbody>
                                             </table>
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <%
+                                }
+                                 %>
+
+                            
 
                             <div class="layui-col-xs12 layui-col-sm6 layui-col-md4" style="display:none;">
                                 <div class="layui-collapse">

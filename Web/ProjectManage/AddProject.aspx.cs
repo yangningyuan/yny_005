@@ -20,14 +20,12 @@ namespace yny_005.Web.ProjectManage
 
         protected override string btnAdd_Click()
         {
-
-            
-
             Hashtable HS = new Hashtable();
             Model.OObject obj = new Model.OObject();
             obj.ObjName = Request.Form["ObjName"];
             obj.ObjOID = Request.Form["ObjCode"];
             obj.ReObjMID = TModel.MID;
+            obj.SState = 0;
             obj.ObjChild = "";
             obj.ObjExcel = "";
             obj.CreateDate = DateTime.Now;

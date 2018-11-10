@@ -36,6 +36,8 @@ namespace yny_005.Model
 		private DateTime _bmdate;
 		private DateTime _jgdate;
 		private string _remark;
+
+        public int SState { get; set; }
         public DateTime CreateDate { get; set; }
 		/// <summary>
 		/// 

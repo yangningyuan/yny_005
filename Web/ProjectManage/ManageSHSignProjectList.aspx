@@ -40,9 +40,8 @@
            <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
                 <%--<input type="button" value="从业人员信息管理报表" class="btn btn-success" onclick="exportExcel()" />--%>
-                <input name="txtKey" data-name="txtKey" id="mKey" placeholder="单位名称" value="单位名称"
-                    onfocus="if (value =='账号'){value =''}" onblur="if (value ==''){value='账号'}"
-                    type="text" class="sinput" style="width: 120px;" />
+                <input name="txtKey" data-name="txtKey" id="nTitle" placeholder="项目名称" type="text" class="sinput" style="width: 120px;" />
+               <input name="txtKey" data-name="txtKey"  id="bmoid"  value="<%=Request.QueryString["bmoid"] %>" type="text" class="sinput" style="width: 120px; display:none;" />
               
             </div>
 

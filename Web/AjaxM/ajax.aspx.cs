@@ -38,6 +38,10 @@ namespace yny_005.Web.AjaxM
         {
             switch (ope)
             {
+
+                case "ShJSProject":
+                    ShJSProject();
+                    break;
                 case "enterMember":
                     enterMember();
                     break;
@@ -258,6 +262,8 @@ namespace yny_005.Web.AjaxM
                     break;
             }
         }
+
+
 
         private void VerifyBase()
         {
@@ -2051,6 +2057,26 @@ namespace yny_005.Web.AjaxM
                 return;
             }
             Response.Write("");
+            return;
+        }
+
+        private void ShJSProject()
+        {
+            if (!string.IsNullOrEmpty(Request["pram"]))
+            {
+                try
+                {
+                    Response.Write(BLL.OObject.DeleteList(Request["pram"]));
+                    Response.Write("结束成功");
+                    return;
+                }
+                catch
+                {
+                    Response.Write("结束失败");
+                    return;
+                }
+            }
+            Response.Write("结束失败");
             return;
         }
     }

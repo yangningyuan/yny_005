@@ -20,7 +20,12 @@ namespace yny_005.Web.ProjectManage.Handler
 
             if (!string.IsNullOrEmpty(context.Request["nTitle"]))
             {
-                strWhere += " and ObjName like '%" + HttpUtility.UrlDecode(context.Request["nTitle"]) + "%'";
+                strWhere += " and  objID IN(SELECT ID FROM OObject WHERE OBJNAME='" + context.Request["nTitle"] + "') ";
+            }
+
+            if (!string.IsNullOrEmpty(context.Request["bmoid"]))
+            {
+                strWhere += " and OBJID="+ context.Request["bmoid"] + "";
             }
 
             //如果是单位部门的话 能管理自己发布的项目
@@ -43,10 +48,10 @@ namespace yny_005.Web.ProjectManage.Handler
                 sb.Append(ListO[i].MID + "~");
                 sb.Append(ListO[i].DanWeiName + "~");
                 sb.Append(ListO[i].CreateDate.ToString("yyyy-MM-dd HH:mm") + "~");
-                sb.Append("<a href='"+ ListO[i].FeiYongImgUrl + "' target='_blank'><img width='80' height='80' src='" + ListO[i].FeiYongImgUrl + "' /></a>"+"~");
+                sb.Append("<a href='" + ListO[i].FeiYongImgUrl + "' target='_blank'><img width='80' height='80' src='" + ListO[i].FeiYongImgUrl + "' /></a>" + "~");
                 sb.Append("<a href='" + ListO[i].BaoMingImgUrl + "' target='_blank'><img width='80' height='80' src='" + ListO[i].BaoMingImgUrl + "' /></a>" + "~");
-                sb.Append(ListO[i].SState.ToString().Replace("0","未审核").Replace("1","审核不通过").Replace("3","审核通过") + "~");
-                sb.Append((ListO[i].SState == 0? "<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/SHSignProject.aspx?xxid=" + ListO[i].ID + "','审核报名信息')\">审核报名</ div > " : ""));
+                sb.Append(ListO[i].SState.ToString().Replace("0", "未审核").Replace("1", "审核不通过").Replace("3", "审核通过") + "~");
+                sb.Append((ListO[i].SState == 0 ? "<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/SHSignProject.aspx?xxid=" + ListO[i].ID + "','审核报名信息')\">审核报名</ div > " : ""));
                 sb.Append("≌");
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };

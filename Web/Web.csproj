@@ -919,6 +919,7 @@
     <Content Include="ProjectManage\ManageSumSignProjectList.aspx" />
     <Content Include="ProjectManage\MProjectList.aspx" />
     <Content Include="ProjectManage\MSampleList.aspx" />
+    <Content Include="ProjectManage\ObjectModify.aspx" />
     <Content Include="ProjectManage\ObjectView.aspx" />
     <Content Include="ProjectManage\ProjectList.aspx" />
     <Content Include="ProjectManage\PutZhengShu.aspx" />
@@ -1491,6 +1492,13 @@
     </Compile>
     <Compile Include="ProjectManage\MSampleList.aspx.designer.cs">
       <DependentUpon>MSampleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\ObjectModify.aspx.cs">
+      <DependentUpon>ObjectModify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\ObjectModify.aspx.designer.cs">
+      <DependentUpon>ObjectModify.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProjectManage\ObjectView.aspx.cs">
       <DependentUpon>ObjectView.aspx</DependentUpon>

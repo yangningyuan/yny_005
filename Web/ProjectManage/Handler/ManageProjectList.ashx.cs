@@ -45,7 +45,8 @@ namespace yny_005.Web.ProjectManage.Handler
                 sb.Append(ListO[i].JGDate + "~");
                 sb.Append((ListO[i].Remark.Length>20? ListO[i].Remark.ToString().Substring(0,20)+"...": ListO[i].Remark) + "~");
                 sb.Append(ListO[i].CreateDate.ToString("yyyy-MM-dd HH:mm") + "~");
-                sb.Append( "");
+                sb.Append((ListO[i].SState==0? "<span style='color:green;'>未结束</span>" : "<span style='color:red;'>已结束</span>") + "~");
+                sb.Append("<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/ObjectModify.aspx?xxid=" + ListO[i].ID + "','修改')\">修改</div>");
                
                 sb.Append("≌");
             }

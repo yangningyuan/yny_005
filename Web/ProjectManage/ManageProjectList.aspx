@@ -6,7 +6,7 @@
 <head id="Head1" runat="server">
     <title></title>
     <script type="text/javascript">
-        tState = '';
+        tState = 'false';
         tUrl = "ProjectManage/Handler/ManageProjectList.ashx";
         SearchByCondition();
     </script>
@@ -63,6 +63,9 @@
                         发布时间
                     </th>
                     <th>
+                        是否结束
+                    </th>
+                    <th>
                         操作
                     </th>
                 </tr>
@@ -70,12 +73,12 @@
             <div class="ui_table_control">
                 <em style="vertical-align: middle;">
                     <input type="checkbox" id="chkAll" onclick="SelectChk(this);" /></em>
-               <%-- <div class="pn">
-                    <a href="javascript:void(0);" title="" onclick="RunAjaxByList('0','ShowNotice',',');">
-                        恢复</a> <a href="javascript:void(0);" title="" onclick="RunAjaxByList('1','HideNotice',',');">
-                            作废</a> <a href="javascript:void(0);" title="" onclick="RunAjaxByList('','Del_Notice',',');">
-                                删除</a>
-                </div>--%>
+
+                <div class="pn">
+                     <a href="javascript:void(0);" title="结束项目" onclick="RunAjaxByList('false','ShJSProject',',');">
+                        结束项目</a> 
+                </div>
+
                 <div class="pagebar">
                     <div id="Pagination">
                     </div>

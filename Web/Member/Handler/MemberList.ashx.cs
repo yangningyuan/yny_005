@@ -121,7 +121,7 @@ namespace yny_005.Web.Handler
                 sb.Append(ListMember[i].MName + "~");
                 sb.Append((ListMember[i].Role.RName+"~"));
 				sb.Append(ListMember[i].Tel+ "~");
-                sb.Append(ListMember[i].NumID + "["+rostr+"]"+"~");
+                sb.Append( (ListMember[i].RoleCode=="DW"?"":ListMember[i].NumID) + "["+rostr+"]"+"~");
                 sb.Append((ListMember[i].IsClose ? "已锁定" : "未锁定") + "~");
                 //sb.Append((ListMember[i].IsClock ? "已冻结" : "未冻结") + "~");
                 

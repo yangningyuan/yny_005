@@ -102,14 +102,14 @@
                         </td>
                         <td width="75%" style="height: 40px;">
                             
-                            <input type="text" class="layui-input" id="BMstateDate" name="BMstateDate"  style="width: 20%;"  placeholder="yyyy-MM-dd HH:mm:ss">
+                            <input type="text" class="layui-input" id="BMstateDate" name="BMstateDate"  style="width: 20%;"  placeholder="">
                         </td>
                     </tr>
                     <tr>
                         <td width="15%" align="right">项目结束日期
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <input type="text" class="layui-input" id="ComDate"  name="ComDate" style="width: 20%;"  placeholder="yyyy-MM-dd HH:mm:ss">
+                            <input type="text" class="layui-input" id="ComDate"  name="ComDate" style="width: 20%;"  placeholder="">
                         </td>
                     </tr>
                     <tr>

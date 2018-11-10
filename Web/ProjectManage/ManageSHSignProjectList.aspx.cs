@@ -9,6 +9,9 @@ namespace yny_005.Web.ProjectManage
 {
     public partial class ManageSHSignProjectList : BasePage
     {
-        
+        protected override void SetPowerZone()
+        {
+            //objid.Value= Request.QueryString["bmoid"];
+        }
     }
 }
