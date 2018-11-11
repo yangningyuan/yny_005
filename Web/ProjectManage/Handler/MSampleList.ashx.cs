@@ -23,6 +23,11 @@ namespace yny_005.Web.ProjectManage.Handler
                 strWhere += " and SState in(" + HttpUtility.UrlDecode(context.Request["IsState"]) + ")";
             }
 
+            if (!string.IsNullOrEmpty(context.Request["bmoid"]))
+            {
+                strWhere += " and OBJID=" + context.Request["bmoid"] + "";
+            }
+
             //如果是单位部门的话 能管理自己发布的项目
             if (!TModel.Role.IsAdmin)
             {

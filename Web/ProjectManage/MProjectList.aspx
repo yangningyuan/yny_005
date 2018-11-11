@@ -23,13 +23,13 @@
             <div class="cheeckbox" style="float: left;">
                 <table cellpadding="0" cellspacing="0">
                     <tr>
-                        <td>
+                       <%-- <td>
                             <select id="IsClose" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
                                 <option value="">项目状态</option>
                                 <option value="true">已截止的验证项目</option>
                                 <option value="false">未截止的验证项目</option>
                             </select>
-                        </td>
+                        </td>--%>
                         <td>
                             <select id="IsBMState" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
                                 <option value="">报名状态</option>
@@ -59,6 +59,7 @@
              <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
                  <input id="nTitle" name="txtKey" data-name="txtKey"  type="text" class="sinput" />
+                 <input name="txtKey" data-name="txtKey"  id="bmoid"  value="<%=Request.QueryString["bmoid"] %>" type="text" class="sinput" style="width: 120px; display:none;" />
             </div>
 
         </div>

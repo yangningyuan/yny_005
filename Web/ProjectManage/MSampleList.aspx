@@ -31,6 +31,7 @@
                                 <option value="2">重新寄送</option>
                                 <option value="3">已确认</option>
                             </select>
+                            <input name="txtKey" data-name="txtKey"  id="bmoid"  value="<%=Request.QueryString["bmoid"] %>" type="text" class="sinput" style="width: 120px; display:none;" />
                         </td>
                     </tr>
                 </table>

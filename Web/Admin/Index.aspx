@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!--	<link rel="Shortcut Icon" href="images/fac.ico" />-->
     <title><%=WebModel.WebTitle %></title>
-     <link href="/Admin/pop/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Admin/pop/css/bootstrap.min.css" rel="stylesheet" />
 
     <%--<link rel="stylesheet" href="/admin/frame/layui/css/layui.css">--%>
 
@@ -17,7 +17,7 @@
 
     <link rel="stylesheet" href="/admin/frame/static/css/style.css">
     <link rel="icon" href="/admin/frame/static/image/code.png">
-    
+
     <script type="text/javascript" src="/Admin/pop/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/Admin/pop/js/MyValide.js"></script>
 
@@ -54,7 +54,7 @@
                     <a class="name" href="javascript:;"><i class="layui-icon">&#xe629;</i>主题</a>
                     <dl class="layui-nav-child">
                         <dd data-skin="0"><a href="javascript:;">默认</a></dd>
-                       <%-- <dd data-skin="1"><a href="javascript:;">纯白</a></dd>
+                        <%-- <dd data-skin="1"><a href="javascript:;">纯白</a></dd>
                         <dd data-skin="2"><a href="javascript:;">蓝白</a></dd>--%>
                     </dl>
                 </li>
@@ -74,7 +74,7 @@
             <div class="layui-side-scroll">
                 <!-- 左侧主菜单添加选项卡监听 -->
                 <ul class="layui-nav layui-nav-tree" lay-filter="side-main">
-                  <%--  <li class="layui-nav-item  layui-nav-itemed">
+                    <%--  <li class="layui-nav-item  layui-nav-itemed">
                         <a href="javascript:;"><i class="layui-icon">&#xe620;</i>基础</a>
                         <dl class="layui-nav-child">
                             <dd><a href="javascript:;" href-url="demo/btn1.html"><i class="layui-icon">&#xe621;</i>按钮</a></dd>
@@ -107,7 +107,7 @@
                         <dl class="layui-nav-child">
                             <%foreach (yny_005.Model.RolePowers item2 in GetPowers(item.CID))
                                 { %>
-                            <dd><a href="javascript:;" href="javascript:void(0)"  onclick="callhtml('<%=item2.Content.CAddress %>','<%=item2.Content.CTitle %>');onclickMenu()"><i class="layui-icon">&#xe626;</i><%=item2.Content.CTitle %></a></dd>
+                            <dd><a href="javascript:;" href="javascript:void(0)" onclick="callhtml('<%=item2.Content.CAddress %>','<%=item2.Content.CTitle %>');onclickMenu()"><i class="layui-icon">&#xe626;</i><%=item2.Content.CTitle %></a></dd>
                             <%} %>
                         </dl>
                     </li>
@@ -118,12 +118,20 @@
         <!-- body -->
         <div class="layui-body my-body">
             <div class="layui-tab layui-tab-card my-tab" lay-filter="card" lay-allowclose="true">
+                <%
+                    if (TModel.RoleCode == "Nomal")
+                    {
+                %>
                 <ul class="layui-tab-title">
                     <li class="layui-this" lay-id="1"><span><i class="layui-icon">&#xe638;</i>欢迎页</span></li>
                 </ul>
+                <%
+                    }
+                %>
+
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
-                        <div class="layui-row layui-col-space10 my-index-main" style="padding: 10px; overflow:scroll; height:780px;" id="main-content">
+                        <div class="layui-row layui-col-space10 my-index-main" style="padding: 10px; overflow: scroll; height: 780px;" id="main-content">
                             <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
                                 <div class="my-nav-btn layui-clear" data-href="./demo/btn.html">
                                     <div class="layui-col-md5">
@@ -138,8 +146,8 @@
                             <%
                                 if (TModel.RoleCode == "Manage")
                                 {
-                                    %>
-                                   <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
+                            %>
+                            <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
                                 <div class="my-nav-btn layui-clear" data-href="./demo/form.html">
                                     <div class="layui-col-md5">
                                         <button class="layui-btn layui-btn-big layui-btn-warm layui-icon">&#xe735;</button>
@@ -172,8 +180,8 @@
                             <%
                                 }
                                 else {
-                                    %>
-                             <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
+                            %>
+                            <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
                                 <div class="my-nav-btn layui-clear" data-href="./demo/form.html">
                                     <div class="layui-col-md5">
                                         <button class="layui-btn layui-btn-big layui-btn-warm layui-icon">&#xe735;</button>
@@ -206,12 +214,12 @@
 
 
 
-                              
+
                             <%
                                 }
-                                 %>
+                            %>
 
-                         
+
                             <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
                                 <div class="my-nav-btn layui-clear" data-href="./demo/progress-bar.html">
                                     <div class="layui-col-md5">
@@ -234,16 +242,16 @@
                             </div>
 
                             <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
-                                 <div class="layui-collapse">
+                                <div class="layui-collapse">
                                     <div class="layui-colla-item">
                                         <h2 class="layui-colla-title">基本统计</h2>
                                         <div class="layui-colla-content layui-show">
                                             <style>
-                                            #showjiben span{
-                                            color:#009688;
-                                            font-size:14px;
-                                            font-weight:bold;
-                                            }
+                                                #showjiben span {
+                                                    color: #009688;
+                                                    font-size: 14px;
+                                                    font-weight: bold;
+                                                }
                                             </style>
                                             <table class="layui-table" id="showjiben">
                                                 <colgroup>
@@ -253,19 +261,19 @@
                                                 <thead>
                                                     <tr>
                                                         <th>已完成验证：<span><%=已完成验证 %></span>个</th>
-                                                        <th> 正在进行中：<span style="color:#000000;"><%=正在进行中 %></span>个</th>
+                                                        <th>正在进行中：<span style="color: #000000;"><%=正在进行中 %></span>个</th>
                                                     </tr>
                                                     <tr>
                                                         <th>我的状态：<span><%=TModel.MState?"已审核":"未审核" %></span></th>
                                                         <th>样品已寄出：<span><%=样品已寄出 %></span>个</th>
                                                     </tr>
                                                     <tr>
-                                                        <th>报名资格未通过：<span style="color:red;"><%=报名资格未通过 %></span>个</th>   
+                                                        <th>报名资格未通过：<span style="color: red;"><%=报名资格未通过 %></span>个</th>
                                                         <th>报名资格审核通过：<span><%=报名资格审核通过 %></span>个</th>
                                                     </tr>
-                                                  
+
                                                 </thead>
-                                               
+
                                             </table>
 
                                         </div>
@@ -274,9 +282,9 @@
                             </div>
 
                             <%
-                                if (TModel.RoleCode == "DW")
+                                if (TModel.RoleCode != "Nomal")
                                 {
-                                    %>
+                            %>
                             <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
                                 <div class="layui-collapse">
                                     <div class="layui-colla-item">
@@ -294,7 +302,8 @@
                                                         <th>部门</th>
                                                         <th>项目名称</th>
                                                         <th>报名截止日期</th>
-                                                        <th>查看报名列表</th>
+                                                        <th>项目结束日期</th>
+                                                        <th>查看</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -303,20 +312,25 @@
                                                         {
                                                             foreach (var item in listObj)
                                                             {
-                                                                %>
+                                                    %>
                                                     <tr>
                                                         <td><%=item.ObjName %></td>
                                                         <td><%=item.ReObjNiName %></td>
                                                         <td><%=item.BMDate %></td>
-                                                        <td><a class="normal_btnok btn btn-success" href="javascript:void(0)" onclick="callhtml('/ProjectManage/ManageSHSignProjectList.aspx?bmoid=<%=item.ID %>', 'MD项目报名列表'); onclickMenu()">查看</a></td>
+                                                        <td><%=item.JGDate %></td>
+                                                        <td><a class="normal_btnok" href="javascript:void(0)" onclick="callhtml('/ProjectManage/ManageSHSignProjectList.aspx?bmoid=<%=item.ID %>', '报名列表'); onclickMenu()">报名列表</a><br />
+                                                            <a class="normal_btnok" href="javascript:void(0)" onclick="callhtml('/ProjectManage/MSampleList.aspx?bmoid=<%=item.ID %>', '样品列表'); onclickMenu()">样品列表</a><br />
+                                                            <a class="normal_btnok" href="javascript:void(0)" onclick="callhtml('/ProjectManage/MProjectList.aspx?bmoid=<%=item.ID %>', '结果验证列表'); onclickMenu()">结果验证列表</a>
+                                                        </td>
+
                                                     </tr>
                                                     <%
-                                                            }
-                                                            %>
-                                                        
+                                                        }
+                                                    %>
+
                                                     <%
                                                         }
-                                                         %>
+                                                    %>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -327,7 +341,7 @@
                                 }
                                 else
                                 {
-                                    %>
+                            %>
                             <div class="layui-col-xs12 layui-col-sm6 layui-col-md6">
                                 <div class="layui-collapse">
                                     <div class="layui-colla-item">
@@ -353,20 +367,20 @@
                                                         {
                                                             foreach (var item in listObj)
                                                             {
-                                                                %>
-                                                    
+                                                    %>
+
                                                     <tr>
                                                         <td><%=item.ObjName %></td>
                                                         <td><%=item.ReObjNiName %></td>
                                                         <td><%=item.BMDate %></td>
                                                     </tr>
                                                     <%
-                                                            }
-                                                            %>
-                                                        
+                                                        }
+                                                    %>
+
                                                     <%
                                                         }
-                                                         %>
+                                                    %>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -375,11 +389,11 @@
                             </div>
                             <%
                                 }
-                                 %>
+                            %>
 
-                            
 
-                            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4" style="display:none;">
+
+                            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4" style="display: none;">
                                 <div class="layui-collapse">
                                     <div class="layui-colla-item">
                                         <h2 class="layui-colla-title">版本</h2>
@@ -552,7 +566,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4"  style="display:none;">
+                            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4" style="display: none;">
                                 <div class="layui-collapse">
                                     <div class="layui-colla-item">
                                         <h2 class="layui-colla-title">图表</h2>
@@ -564,7 +578,7 @@
                                     </div>
                                 </div>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -613,7 +627,7 @@
     <script type="text/javascript" src="Admin/pop/js/linkage.js"></script>
 
     <script src="/plugin/layui/layui.js"></script>
-    
+
     <script type="text/javascript" src="/admin/frame/static/js/vip_comm.js"></script>
 
 
@@ -641,7 +655,7 @@
     </script>
     <%--<iframe id='frameFile' name='frameFile' style='display: none;'></iframe>--%>
     <%--<script type="text/javascript" src="/admin/frame/layui/layui.js"></script>--%>
-   <%-- <script type="text/javascript">
+    <%-- <script type="text/javascript">
         layui.use(['layer', 'vip_nav'], function () {
 
             // 操作对象
@@ -659,6 +673,5 @@
 
         });
     </script>--%>
-
 </body>
 </html>
