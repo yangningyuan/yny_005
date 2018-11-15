@@ -9,6 +9,11 @@
         tState = 'false';
         tUrl = "ProjectManage/Handler/ManageProjectList.ashx";
         SearchByCondition();
+
+        // 导出Excel
+        function exportExcel() {
+            ExportExcel("Car/Handler/ExportExcel.ashx", "项目统计列表");
+        }
     </script>
 </head>
 <body>
@@ -25,7 +30,9 @@
             <div class="pay" onclick="v5.show('ProjectManage/AddProject.aspx','发布项目','url',900,470)">
                 发布项目</div>
             <div class="search" id="DivSearch" runat="server">
-                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" /><input
+                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
+                <input type="button" value="导出Excel" class="btn btn-success" onclick="exportExcel()" />
+                <input
                     id="nTitle" name="txtKey" data-name="txtKey"  type="text" class="sinput" />
             </div>
         </div>

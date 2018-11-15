@@ -928,7 +928,6 @@
     <Content Include="ProjectManage\SampleList.aspx" />
     <Content Include="ProjectManage\SendSample.aspx" />
     <Content Include="ProjectManage\SHSignProject.aspx" />
-    <Content Include="ProjectManage\SHValidationResult.aspx" />
     <Content Include="ProjectManage\SignProject.aspx" />
     <Content Include="ProjectManage\SignProjectList.aspx" />
     <Content Include="ProjectManage\ValidationResult.aspx" />
@@ -1426,6 +1425,10 @@
     <Compile Include="ProjectManage\AddProject.aspx.designer.cs">
       <DependentUpon>AddProject.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProjectManage\Handler\ExportExcel.ashx.cs">
+      <DependentUpon>ExportExcel.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="ProjectManage\Handler\ManageProjectList.ashx.cs">
       <DependentUpon>ManageProjectList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1555,13 +1558,6 @@
     </Compile>
     <Compile Include="ProjectManage\SHSignProject.aspx.designer.cs">
       <DependentUpon>SHSignProject.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProjectManage\SHValidationResult.aspx.cs">
-      <DependentUpon>SHValidationResult.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProjectManage\SHValidationResult.aspx.designer.cs">
-      <DependentUpon>SHValidationResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProjectManage\SignProject.aspx.cs">
       <DependentUpon>SignProject.aspx</DependentUpon>
@@ -2118,6 +2114,7 @@
     <Content Include="ProjectManage\Handler\MSampleList.ashx" />
     <Content Include="ProjectManage\Handler\ManageSumSignProjectList.ashx" />
     <Content Include="ProjectManage\Handler\ManageProjectList.ashx" />
+    <Content Include="ProjectManage\Handler\ExportExcel.ashx" />
     <None Include="Properties\PublishProfiles\zx326.pubxml" />
     <Content Include="Shop\Handler\Ajax.ashx" />
     <Content Include="Shop\Handler\CarList.ashx" />
