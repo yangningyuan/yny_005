@@ -928,6 +928,7 @@
     <Content Include="ProjectManage\SampleList.aspx" />
     <Content Include="ProjectManage\SendSample.aspx" />
     <Content Include="ProjectManage\SHSignProject.aspx" />
+    <Content Include="ProjectManage\SHValidationResult.aspx" />
     <Content Include="ProjectManage\SignProject.aspx" />
     <Content Include="ProjectManage\SignProjectList.aspx" />
     <Content Include="ProjectManage\ValidationResult.aspx" />
@@ -1558,6 +1559,13 @@
     </Compile>
     <Compile Include="ProjectManage\SHSignProject.aspx.designer.cs">
       <DependentUpon>SHSignProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\SHValidationResult.aspx.cs">
+      <DependentUpon>SHValidationResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\SHValidationResult.aspx.designer.cs">
+      <DependentUpon>SHValidationResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProjectManage\SignProject.aspx.cs">
       <DependentUpon>SignProject.aspx</DependentUpon>
