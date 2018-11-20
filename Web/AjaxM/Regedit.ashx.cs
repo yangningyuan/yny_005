@@ -20,7 +20,7 @@ namespace yny_005.Web.AjaxM
                 model.Password = _context.Request.Form["txtPassword"].Trim();
                 model.SecPsd = "222222";
                 model.Tel = _context.Request.Form["txtTel"].Trim();
-                model.RoleCode = "Nomal";
+                model.RoleCode = _context.Request.Form["txtRole"].Trim();
                 model.AgencyCode = "002";
                 model.MAgencyType = BLL.Configuration.Model.SHMoneyList[model.AgencyCode];
                 model.IsClock = false;

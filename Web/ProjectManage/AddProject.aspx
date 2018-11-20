@@ -168,7 +168,9 @@
                     </tr>
 
                     <tr>
-                        <td width="15%" align="right"></td>
+                        <td width="15%" align="right">
+                            <div class="pay btn btn-warning" onclick="callhtml('/ProjectManage/ManageProjectList.aspx','MD能力验证项目发布管理');onclickMenu()">返回</div>
+                        </td>
                         <td width="75%" align="left">
 
                             <input type="button" class="normal_btnok" value="提交处理" onclick="checkChange();" />

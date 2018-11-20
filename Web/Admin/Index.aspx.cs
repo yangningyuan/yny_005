@@ -20,9 +20,15 @@ namespace yny_005.Web.Admin
         public int 报名资格未通过 = 0;
         public int 报名资格审核通过 = 0;
         public int 样品已寄出 = 0;
+        public string Homebtn = "";
 
         protected override void SetPowerZone()
         {
+            if (TModel.RoleCode != "Nomal")
+            {
+                Homebtn = "callhtml('/ProjectManage/MProjectList.aspx','MD用户项目列表');onclickMenu()";
+            }
+
             listPowers = TModel.Role.PowersList.Where(emp => emp.Content.VState).ToList();
             listObj= BLL.OObject.GetModelList("  BMDate>'"+DateTime.Now+"' and sstate=0 ");
 

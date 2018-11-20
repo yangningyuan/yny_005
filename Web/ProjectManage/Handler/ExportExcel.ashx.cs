@@ -161,11 +161,11 @@ namespace yny_005.Web.ProjectManage.Handler
                     a1 = (emp.ObjName),
                     a2 = (BLL.OObject.GetModel(emp.ObjID)).JGDate,
                     a3 = ((emp.BState == 0 ? "待审核" : "<span style='color:green;'>已通过</span>")),
-                    a4 = (emp.YState.ToString().Replace("0", "未寄送").Replace("1", "已寄送").Replace("2", "样品损坏").Replace("3", "<span style='color:green;'>样品确认</span>"),
+                    a4 = (emp.YState.ToString().Replace("0", "未寄送").Replace("1", "已寄送").Replace("2", "样品损坏").Replace("3", "<span style='color:green;'>样品确认</span>")),
                     a5 = ((emp.YState.ToString() == "3" ? "<span style='color:green;'>样品已确认</span>" : "未确认")),
                     a6 = ((emp.RState.ToString().Replace("0", "等待提交").Replace("1", "等待审核").Replace("2", "审核失败").Replace("3", "<span style='color:green;'>审核通过</span>"))),
                     a8 = ((emp.USState == 0 ? "待审核" : "<span style='color:green;'>已通过</span>")),
-                    a9 = ((emp.USState == 3 ? "<span style='color:green;'><a href='javascript:void(0)' style='color:green;' onclick=\"callhtml('/ProjectManage/PutZhengShu.aspx?xxid=" + ListO[i].ID + "','打印证书')\" >打印证书</a></span>" : "未通过")),
+                    a9 = ((emp.USState == 3 ? "<span style='color:green;'><a href='javascript:void(0)' style='color:green;' onclick=\"callhtml('/ProjectManage/PutZhengShu.aspx?xxid=" + emp.ID + "','打印证书')\" >打印证书</a></span>" : "未通过")),
                 }
                 ));
 

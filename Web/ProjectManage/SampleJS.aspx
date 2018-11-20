@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>报名审核</title>
+    <title>样品寄送</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <script type="text/Javascript" src="/plugin/uploadify/jquery.uploadify.js"></script>
     <link type="text/css" href="/plugin/uploadify/uploadify.css" rel="stylesheet" />
@@ -73,7 +73,7 @@
                         <td width="15%" align="right">样品编号
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <input id="YangPinCode" class="normal_input" value="" runat="server" style="width: 20%;" />
+                            <input id="YangPinCode" class="normal_input" value="" runat="server" style="width: 30%;" />
                         </td>
                     </tr>
 

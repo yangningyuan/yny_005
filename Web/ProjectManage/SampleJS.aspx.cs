@@ -42,9 +42,15 @@ namespace yny_005.Web.ProjectManage
             int oid = Convert.ToInt32(Request.QueryString["xxid"]);
             oaid.Value = oid.ToString();
             objS = BLL.ObjSample.GetModel(oid);
-            YangPinCode.Value = objS.YangPinCode;
+
+            Model.OObject oobject = BLL.OObject.GetModel(objS.ObjID);
+
+            
             objU = BLL.ObjUser.GetModelOID(objS.OjbOID);
             objA = BLL.ObjUserApply.GetModelOID(objU.BaoMingOID);
+
+            YangPinCode.Value = oobject.ObjOID+"_"+objA.BMInt;
+
             listChild = BLL.ObjChild.GetModelList(" ID IN(" + objA.SubID + ") ");
             BMMember = BLL.Member.GetModelByMID(objA.MID);
         }

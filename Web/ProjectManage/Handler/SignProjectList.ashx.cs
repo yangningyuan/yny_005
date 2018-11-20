@@ -33,7 +33,8 @@ namespace yny_005.Web.ProjectManage.Handler
                 sb.Append((i + 1) + (pageIndex - 1) * pageSize + "~");
                 sb.Append(ListO[i].ReObjMID + "~");
                 sb.Append(ListO[i].ObjName + "~");
-                sb.Append(ListO[i].CreateDate.ToString("yyyy-MM-dd HH:mm") + "~");
+                //sb.Append(ListO[i].CreateDate.ToString("yyyy-MM-dd HH:mm") + "~");
+                sb.Append(ListO[i].BMDate.ToString("yyyy-MM-dd HH:mm") + "~");
                 sb.Append(BMState(TModel.MID,ListO[i].ID) + "~");
                 sb.Append((BMState(TModel.MID, ListO[i].ID) == "可报名" ? "<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/SignProject.aspx?xxid=" + ListO[i].ID+"','报名')\">报名</ div > " : ""));
                 sb.Append("≌");

@@ -70,8 +70,8 @@
         <div id="finance">
             <form id="form1">
                 <table cellpadding="0" cellspacing="0">
-                   
-                     <tr>
+
+                    <tr>
                         <td width="30%" align="right">用户名:
                         </td>
                         <td>
@@ -79,66 +79,77 @@
                                 class="dotted">*</span>
                         </td>
                     </tr>
-                         <tr>
+                    <tr>
                         <td align="right">实验室单位名称:
                         </td>
                         <td>
                             <input id="txtMName" name="txtMName" class="normal_input" type="text" maxlength="30" />
                         </td>
                     </tr>
-                   
-                   <tr>
+
+                    <tr>
+                        <td align="right">人员角色:
+                        </td>
+                        <td>
+                            <select id="txtRole" name="txtRole">
+                                <option value="DW">单位</option>
+                                <option value="Nomal">会员</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
                         <td align="right">检验检测机构登记证件及号码:
                         </td>
                         <td>
-                            <input id="txtNumID" name="txtNumID" class="normal_input" type="text" maxlength="50" /> 
-                            <select id="txtFMID" name="txtFMID"  >
+                            <input id="txtNumID" name="txtNumID" class="normal_input" type="text" maxlength="50" />
+                            <select id="txtFMID" name="txtFMID">
                                 <option value="0">检测机构登记证书</option>
-                              <option value="1">个人身份证</option>
+                                <option value="1">个人身份证</option>
                                 <option value="2">其他</option>
                             </select>
                         </td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td align="right">地址邮编:
                         </td>
                         <td>
                             <input id="txtAddress" name="txtAddress" class="normal_input" type="text" maxlength="50" />
                         </td>
                     </tr>
-                        <tr>
+                    <tr>
                         <td align="right">联系人:
                         </td>
                         <td>
                             <input id="txtBankCardName" name="txtBankCardName" class="normal_input" type="text" maxlength="20" />
-                            
+
                         </td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td align="right">电话:
                         </td>
                         <td>
                             <input id="txtTel" name="txtTel" class="normal_input" type="text" maxlength="11" />
-                            
+
                         </td>
                     </tr>
-                  <tr>
+                    <tr>
                         <td align="right">传真:
                         </td>
                         <td>
                             <input id="txtQQ" name="txtQQ" class="normal_input" type="text" maxlength="50" />
-                            
+
                         </td>
                     </tr>
-                  <tr>
+                    <tr>
                         <td align="right">电子邮件:
                         </td>
                         <td>
                             <input id="txtEmail" name="txtEmail" class="normal_input" type="text" maxlength="50" />
-                            
+
                         </td>
                     </tr>
-                 
+
                     <tr>
                         <td align="right">登录密码:
                         </td>
@@ -154,9 +165,9 @@
                                 maxlength="20" /><span class="dotted">*</span>
                         </td>
                     </tr>
-              
-               
-                    <tr style="display:none;">
+
+
+                    <tr style="display: none;">
                         <td align="right">密保问题:
                         </td>
                         <td>
@@ -164,7 +175,7 @@
                             </select>
                         </td>
                     </tr>
-                    <tr style="display:none;">
+                    <tr style="display: none;">
                         <td align="right">密保答案:
                         </td>
                         <td>
@@ -174,6 +185,7 @@
                     <tr style="height: 50px;">
                         <td align="right">
                             <input name="重置" type="reset" class="normal_btnok" value="重置" style="display: none;" />
+                            <div class="pay btn btn-warning" onclick="callhtml('/Member/List.aspx','人员列表');onclickMenu()">返回</div>
                         </td>
                         <td align="left">
                             <input class="normal_btnok" id="btnOK" type="button" runat="server" value="提交" onclick="checkChange();" />
@@ -197,14 +209,14 @@
             var index = objS.selectedIndex;
 
             if (objS.options[index].value == "SiJi") {
-                document.getElementById("strzwtype").style.display = ""; 
+                document.getElementById("strzwtype").style.display = "";
                 document.getElementById("strzwadd").style.display = "";
             } else {
                 document.getElementById("strzwtype").style.display = "none";
                 document.getElementById("strzwadd").style.display = "none";
             }
         }
-        
+
         function sendTelCode() {
             var tel = $.trim($("#txtTel").val());
             if (tel == "") {
@@ -219,30 +231,30 @@
             v5.error(relVal, '1', 'true');
         }
         function checkChange() {
-            if ($('#txtMID').val()=="") {
+            if ($('#txtMID').val() == "") {
                 v5.error('员工账号不能为空', '1', 'true');
-            //} else if (!$('#txtMName').val().TryEN()) {
-            //    v5.error('员工姓名只能输入两位以上的中文字符', '1', 'true');
+                //} else if (!$('#txtMName').val().TryEN()) {
+                //    v5.error('员工姓名只能输入两位以上的中文字符', '1', 'true');
             } else if (!$('#txtTel').val().TryTel()) {
                 v5.error('手机号码格式不正确', '1', 'true');
-            //} else if ($('#txtRole').val() == "") {
-            //    v5.error('职务不能为空', '1', 'true');
+                //} else if ($('#txtRole').val() == "") {
+                //    v5.error('职务不能为空', '1', 'true');
                 //} else if ($('#txtMTJ').val() == '') {
                 //    v5.error('推荐员工帐号不能为空', '1', 'true');
                 //} else if ($('#txtMBD').val() == '') {
                 //    v5.error('接点员工不能为空', '1', 'true');
             } else if (!$('#txtPassword').val().TryPassword()) {
                 v5.error('登录密码不能为空，且必须为6-20位字母或数字组合', '1', 'true');
-          
-            //} else if ($('#txtAnswer').val() == "") {
-            //    v5.error('密保答案用于找回密码，不能为空', '1', 'true');
-            //} else if ($('#txtSecPsd').val() != $('#txtSecPsd2').val()) {
-            //    v5.error('资金密码与确认资金密码不一样', '1', 'true');
-            //} else if ($('#txtPassword').val() == $('#txtSecPsd').val()) {
-            //    v5.error('资金密码与登录密码不能相同', '1', 'true');
-           
-            //} else if ($('#txtTelCode').val() == "") {
-            //    v5.error("手机验证码不能为空", '1', 'true');
+
+                //} else if ($('#txtAnswer').val() == "") {
+                //    v5.error('密保答案用于找回密码，不能为空', '1', 'true');
+                //} else if ($('#txtSecPsd').val() != $('#txtSecPsd2').val()) {
+                //    v5.error('资金密码与确认资金密码不一样', '1', 'true');
+                //} else if ($('#txtPassword').val() == $('#txtSecPsd').val()) {
+                //    v5.error('资金密码与登录密码不能相同', '1', 'true');
+
+                //} else if ($('#txtTelCode').val() == "") {
+                //    v5.error("手机验证码不能为空", '1', 'true');
                 //} else if ($('#ddlCity').val() == '地市') {
                 //    v5.error('请选择开户地区', '1', 'true');
                 //} else if ($('#txtBranch').val() == '') {

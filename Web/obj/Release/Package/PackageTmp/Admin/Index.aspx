@@ -74,32 +74,9 @@
             <div class="layui-side-scroll">
                 <!-- 左侧主菜单添加选项卡监听 -->
                 <ul class="layui-nav layui-nav-tree" lay-filter="side-main">
-                    <%--  <li class="layui-nav-item  layui-nav-itemed">
-                        <a href="javascript:;"><i class="layui-icon">&#xe620;</i>基础</a>
-                        <dl class="layui-nav-child">
-                            <dd><a href="javascript:;" href-url="demo/btn1.html"><i class="layui-icon">&#xe621;</i>按钮</a></dd>
-                            <dd><a href="javascript:;" href-url="demo/form.html"><i class="layui-icon">&#xe621;</i>表单</a></dd>
-                            <dd><a href="javascript:;" href-url="demo/table.html"><i class="layui-icon">&#xe621;</i>表格</a></dd>
-                            <dd><a href="javascript:;" href-url="demo/tab-card.html"><i class="layui-icon">&#xe621;</i>选项卡</a></dd>
-                            <dd><a href="javascript:;" href-url="demo/progress-bar.html"><i class="layui-icon">&#xe621;</i>进度条</a></dd>
-                            <dd><a href="javascript:;" href-url="demo/folding-panel.html"><i class="layui-icon">&#xe621;</i>折叠面板</a></dd>
-                            <dd><a href="javascript:;" href-url="demo/auxiliar.html"><i class="layui-icon">&#xe621;</i>辅助元素</a></dd>
-                        </dl>
+                    <li class="layui-nav-item  layui-nav-itemed">
+                        <a href="javascript:window.location.reload()"><i class="layui-icon">&#xe620;</i>首页</a>
                     </li>
-                    <li class="layui-nav-item">
-                        <a href="javascript:;"><i class="layui-icon">&#xe628;</i>扩展</a>
-                        <dl class="layui-nav-child">
-                            <dd><a href="javascript:;" href-url="demo/login.html"><i class="layui-icon">&#xe621;</i>登录页</a></dd>
-                            <dd><a href="javascript:;" href-url="demo/register.html"><i class="layui-icon">&#xe621;</i>注册页</a></dd>
-                            <dd><a href="javascript:;" href-url="demo/login2.html"><i class="layui-icon">&#xe621;</i>登录页2</a></dd>
-                            <dd><a href="javascript:;" href-url="demo/map.html"><i class="layui-icon">&#xe621;</i>图表</a></dd>
-                            <dd><a href="javascript:;" href-url="demo/add-edit.html"><i class="layui-icon">&#xe621;</i>添加-修改</a></dd>
-                            <dd><a href="javascript:;" href-url="demo/data-table.html"><i class="layui-icon">&#xe621;</i>data-table 表格页</a></dd>
-                            <dd><a href="javascript:;" href-url="demo/tree-table.html"><i class="layui-icon">&#xe621;</i>Tree table树表格页</a></dd>
-                            <dd><a href="javascript:;" href-url="demo/404.html"><i class="layui-icon">&#xe621;</i>404页</a></dd>
-                            <dd><a href="javascript:;" href-url="demo/tips.html"><i class="layui-icon">&#xe621;</i>提示页</a></dd>
-                        </dl>
-                    </li>--%>
                     <%foreach (yny_005.Model.RolePowers item in GetPowers("0"))
                         { %>
                     <li class="layui-nav-item">
@@ -117,6 +94,13 @@
         </div>
         <!-- body -->
         <div class="layui-body my-body">
+            <input type="hidden" onclick="<%=Homebtn%>" id="Homebtn" />
+            <%
+                if (TModel.RoleCode == "Nomal")
+                {
+
+                }
+            %>
             <div class="layui-tab layui-tab-card my-tab" lay-filter="card" lay-allowclose="true">
                 <%
                     if (TModel.RoleCode == "Nomal")
@@ -130,8 +114,17 @@
                 %>
 
                 <div class="layui-tab-content">
+
+
                     <div class="layui-tab-item layui-show">
                         <div class="layui-row layui-col-space10 my-index-main" style="padding: 10px; overflow: scroll; height: 780px;" id="main-content">
+
+                            <%
+
+                                if (TModel.RoleCode == "Nomal")
+                                {
+                            %>
+
                             <div class="layui-col-xs4 layui-col-sm2 layui-col-md2">
                                 <div class="my-nav-btn layui-clear" data-href="./demo/btn.html">
                                     <div class="layui-col-md5">
@@ -211,9 +204,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
 
                             <%
                                 }
@@ -391,194 +381,10 @@
                                 }
                             %>
 
+                            <%
+                                }
 
-
-                            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4" style="display: none;">
-                                <div class="layui-collapse">
-                                    <div class="layui-colla-item">
-                                        <h2 class="layui-colla-title">版本</h2>
-                                        <div class="layui-colla-content layui-show">
-
-                                            <ul class="layui-timeline max-auto">
-                                                <li class="layui-timeline-item">
-                                                    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                                    <div class="layui-timeline-content layui-text">
-                                                        <h3 class="layui-timeline-title">v1.8.0</h3>
-                                                        <p>
-                                                            更新日期:2017-08-26
-                                                        </p>
-                                                        <ul>
-                                                            <li>更新layui-v1.0.9为layui-v2.0.2版本</li>
-                                                            <li>右键增加关闭全部标签按钮</li>
-                                                            <li>更新欢迎页面</li>
-                                                            <li>更新data-table页面和tree-table页面为layui自带table组件</li>
-                                                            <li>
-                                                                <h4>新增js功能</h4>
-                                                                <ul>
-                                                                    <li>
-                                                                        <p>vip_table.js</p>
-                                                                        <ul>
-                                                                            <li>getFullHeight方法  getFullHeight();    // 返回子页面整体高度,用于table组件设置全屏高度</li>
-                                                                        </ul>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                            <li>修改已知BUG</li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                                <li class="layui-timeline-item">
-                                                    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                                    <div class="layui-timeline-content layui-text">
-                                                        <h3 class="layui-timeline-title">v1.7.0</h3>
-                                                        <p>更新时间:2017-05-21</p>
-                                                        <ul>
-                                                            <li>优化主题样式细节</li>
-                                                            <li>标签新增双击关闭当前标签功能</li>
-                                                            <li>标签新增右键功能</li>
-                                                            <li>
-                                                                <h5>新增js功能。   详细可查看【frame/static/js】文件夹内的js</h5>
-                                                                <ul>
-                                                                    <li>
-                                                                        <h4>vip_nav.js 【主页菜单js】</h4>
-                                                                        <ul>
-                                                                            <li>main方法       main(请求地址,过滤ID,是否展开,携带参数);</li>
-                                                                            <li>top_left方法   top_left(请求地址,过滤ID,是否展开,携带参数);</li>
-                                                                        </ul>
-                                                                    </li>
-                                                                    <li>
-                                                                        <h4>vip_tab.js 【子页面操作父页面选项卡js】</h4>
-                                                                        <ul>
-                                                                            <li>add方法            add(操作对象，标签标题，url地址);</li>
-                                                                            <li>getThisTabId方法   getThisTabId();     // 返回当前展示页面父级窗口标签的lay-id</li>
-                                                                            <li>del方法            del(标签lay-id);</li>
-                                                                        </ul>
-                                                                    </li>
-                                                                    <li>
-                                                                        <h4>vip_table.js 【表格js,该js属于整合】</h4>
-                                                                        <ul>
-                                                                            <li>deleteAll方法      deleteAll(ids,请求的url,操作成功跳转url,操作失败跳转url);</li>
-                                                                            <li>unixToDate方法     unixToDate(时间戳,是否只显示年月日时分,8);        // 返回正常时间</li>
-                                                                            <li>getIds方法         getIds(表格对象,每条数据的属性id);      // 返回需要的 ids</li>
-                                                                        </ul>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                            <li>修改已知BUG。</li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                                <li class="layui-timeline-item">
-                                                    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                                    <div class="layui-timeline-content layui-text">
-                                                        <h3 class="layui-timeline-title">v1.6.0</h3>
-                                                        <p>更新时间:2017-04-25</p>
-                                                        <ul>
-                                                            <li>优化CSS、JS</li>
-                                                            <li>新增新的登录、注册页面</li>
-                                                            <li>新增主题功能，提供默认、纯白、蓝白三种主题配置</li>
-                                                            <li>导航栏添加图标</li>
-                                                            <li>修改已知BUG</li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                                <li class="layui-timeline-item">
-                                                    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                                    <div class="layui-timeline-content layui-text">
-                                                        <h3 class="layui-timeline-title">v1.5.1</h3>
-                                                        <p>更新时间:2017-03-21</p>
-                                                        <ul>
-                                                            <li>修改浏览器窗口resize时不断闪烁BUG。  感谢：Clannad-</li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                                <li class="layui-timeline-item">
-                                                    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                                    <div class="layui-timeline-content layui-text">
-                                                        <h3 class="layui-timeline-title">v1.5.0</h3>
-                                                        <p>更新时间:2017-03-20</p>
-                                                        <ul>
-                                                            <li>更新layui框架为最新版1.0.9_rts版本</li>
-                                                            <li>优化css,样式更加接近vip-admin管理系统v1.0.5</li>
-                                                            <li>新增效果：导航栏点击栏目右侧添加相应tab选项卡,点击已经生成过的选项卡直接跳转到该选选项卡</li>
-                                                            <li>新增导航栏收缩按钮</li>
-                                                            <li>修改已知BUG</li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                                <li class="layui-timeline-item">
-                                                    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                                    <div class="layui-timeline-content layui-text">
-                                                        <h3 class="layui-timeline-title">1.1.0</h3>
-                                                        <p>更新时间:2017-02-27</p>
-                                                        <ul>
-                                                            <li>登录页面添加头部标题</li>
-                                                            <li>新增tree table 页面</li>
-                                                            <li>新增404页面</li>
-                                                            <li>新增tips提示页面</li>
-                                                            <li>
-                                                                <h4>js功能: 具体操作请查看 js/table-tool.js</h4>
-                                                                <ul>
-                                                                    <li>getIds(table对象,获取input为id的属性);</li>
-                                                                    <li>deleteAll(ids,请求url,操作成功跳转url,操作失败跳转url);</li>
-                                                                    <li>UnixToDate(时间戳,显示年月日时分,加8小时显示正常时间区);</li>
-                                                                </ul>
-                                                            </li>
-                                                            <li>该版本已兼容手机浏览</li>
-                                                            <li>修改已知BUG</li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                                <li class="layui-timeline-item">
-                                                    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                                    <div class="layui-timeline-content layui-text">
-                                                        <h3 class="layui-timeline-title">v1.0.1</h3>
-                                                        <p>更新时间:2017-02-16</p>
-                                                        <ul>
-                                                            <li>优化datatables表格，添加排序图标，点击升序降序更加美观；表格全选优化，全选后所有选中项添加背景颜色，使之选中更加明显</li>
-                                                            <li>添加echearts图表插件，展示了基本的柱状图和饼图示例</li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                                <li class="layui-timeline-item">
-                                                    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                                    <div class="layui-timeline-content layui-text">
-                                                        <h3 class="layui-timeline-title">v1.0.0</h3>
-                                                        <p>更新时间:2017-01-06</p>
-                                                        <ul>
-                                                            <li>该模板最大化保留了原生layui的基础样式，整合行成的一套后台模板</li>
-                                                            <li>该模板集合了layui插件、datatables插件</li>
-                                                            <li>该模板使用layui基础样式中的按钮、表单、表格、和选项卡</li>
-                                                            <li>datatables表格和layui表格深度整合，使用更加方便、美观、人性化</li>
-                                                            <li>扩展了欢迎页面、登录页面</li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                                <li class="layui-timeline-item">
-                                                    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                                    <div class="layui-timeline-content layui-text">
-                                                        <div class="layui-timeline-title">开始于2017年01月06日</div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4" style="display: none;">
-                                <div class="layui-collapse">
-                                    <div class="layui-colla-item">
-                                        <h2 class="layui-colla-title">图表</h2>
-                                        <div class="layui-colla-content layui-show">
-
-                                            <div id="main-line" style="height: 450px;"></div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                            %>
                         </div>
                     </div>
                 </div>
@@ -640,6 +446,8 @@
     <script src="/Admin/pop/js/jquery.qrcode.min.js"></script>
 
     <script type="text/javascript">
+        
+
         KindEditor.ready(function (K) {
             window.KKKK = K;
         });
@@ -652,6 +460,13 @@
                 }
             }
         }
+    </script>
+    <script>
+        $(function () {
+            setTimeout(function () {
+                $("#Homebtn").click();
+            }, 100);
+        });
     </script>
     <%--<iframe id='frameFile' name='frameFile' style='display: none;'></iframe>--%>
     <%--<script type="text/javascript" src="/admin/frame/layui/layui.js"></script>--%>
@@ -669,8 +484,6 @@
             vipNav.main('/admin/json/nav_main.json', 'side-main', true);
 
             // you code ...
-
-
         });
     </script>--%>
 </body>

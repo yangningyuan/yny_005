@@ -35,7 +35,7 @@ namespace yny_005.DAL
             SqlParameter[] para = new SqlParameter[]
             {
                 new SqlParameter("@CID",SqlDbType.VarChar,10),
-                new SqlParameter("@CTitle",SqlDbType.VarChar,20),
+                new SqlParameter("@CTitle",SqlDbType.VarChar,50),
                 new SqlParameter("@CLevel",SqlDbType.Int,4),
                 new SqlParameter("@CAddress",SqlDbType.VarChar,100),
                 new SqlParameter("@CFID",SqlDbType.VarChar,10),
@@ -85,7 +85,7 @@ namespace yny_005.DAL
             SqlParameter[] para = new SqlParameter[]
             {
                 new SqlParameter("@CID",SqlDbType.VarChar,10),
-                new SqlParameter("@CTitle",SqlDbType.VarChar,20),
+                new SqlParameter("@CTitle",SqlDbType.VarChar,50),
                 new SqlParameter("@CLevel",SqlDbType.Int,4),
                 new SqlParameter("@CAddress",SqlDbType.VarChar,100),
                 new SqlParameter("@CFID",SqlDbType.VarChar,10),

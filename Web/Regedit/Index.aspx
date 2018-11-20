@@ -63,6 +63,8 @@
                               <option value="1">个人身份证</option>
                                 <option value="2">其他</option>
                             </select>
+          
+            <input type="text" id="txtRole"  name="txtRole" style="display:none;" value="Nomal" />
             <input type="text" id="txtAddress"  name="txtAddress"placeholder="地址邮编" />
             <input type="text" id="txtBankCardName"  name="txtBankCardName"placeholder="联系人" />
             <input type="text" name="txtTel" id="txtTel" placeholder="电话" />
