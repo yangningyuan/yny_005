@@ -204,7 +204,8 @@ namespace yny_005.Web.Member
                 //objAnswer.CreatedBy = model.MID;
                 //if (new BLL.Sys_SQ_Answer().Insert(objAnswer))
                 //{
-                    return "注册成功";
+                BLL.OperationRecordBLL.Add(TModel.MID, "注册会员", "会员名称为：" + model.MID);
+                return "注册成功";
                 //}
             }
             else

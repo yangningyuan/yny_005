@@ -72,6 +72,7 @@ namespace yny_005.Web.ProjectManage
 
             if (BLL.CommonBase.RunHashtable(HS))
             {
+                BLL.OperationRecordBLL.Add(TModel.MID, "添加项目", "OID为：" + obj.ObjOID);
                 return "添加项目成功";
             }
             else {

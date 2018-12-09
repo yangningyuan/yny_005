@@ -62,9 +62,9 @@ namespace yny_005.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into ObjUserApply(");
-            strSql.Append("ObjID,MID,BaoMingCode,DanWeiName,ZiGeZhengShu,ZhengShuCode,CreateDate,ComDate,SubID,BaoMingImgUrl,FeiYongImgUrl,SState,BMInt)");
+            strSql.Append("ObjID,MID,BaoMingCode,DanWeiName,ZiGeZhengShu,ZhengShuCode,CreateDate,ComDate,SubID,BaoMingImgUrl,FeiYongImgUrl,SState,BMInt,ReSpare)");
             strSql.Append(" values (");
-            strSql.Append("@ObjID,@MID,@BaoMingCode,@DanWeiName,@ZiGeZhengShu,@ZhengShuCode,@CreateDate,@ComDate,@SubID,@BaoMingImgUrl,@FeiYongImgUrl,@SState,@BMInt)");
+            strSql.Append("@ObjID,@MID,@BaoMingCode,@DanWeiName,@ZiGeZhengShu,@ZhengShuCode,@CreateDate,@ComDate,@SubID,@BaoMingImgUrl,@FeiYongImgUrl,@SState,@BMInt,@ReSpare)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
                     new SqlParameter("@ObjID", SqlDbType.Int,4),
@@ -78,7 +78,7 @@ namespace yny_005.DAL
                     new SqlParameter("@SubID", SqlDbType.VarChar,50),
                     new SqlParameter("@BaoMingImgUrl", SqlDbType.VarChar,250),
                     new SqlParameter("@FeiYongImgUrl", SqlDbType.VarChar,250),
-                    new SqlParameter("@SState", SqlDbType.Int,4),new SqlParameter("@BMInt", SqlDbType.Int,4)};
+                    new SqlParameter("@SState", SqlDbType.Int,4),new SqlParameter("@BMInt", SqlDbType.Int,4),new SqlParameter("@ReSpare", SqlDbType.VarChar,250)};
             parameters[0].Value = model.ObjID;
             parameters[1].Value = model.MID;
             parameters[2].Value = model.BaoMingCode;
@@ -92,6 +92,7 @@ namespace yny_005.DAL
             parameters[10].Value = model.FeiYongImgUrl;
             parameters[11].Value = model.SState;
             parameters[12].Value = model.BMInt;
+            parameters[13].Value = model.ReSpare;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
             if (obj == null)
@@ -111,9 +112,9 @@ namespace yny_005.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into ObjUserApply(");
-			strSql.Append("ObjID,MID,BaoMingCode,DanWeiName,ZiGeZhengShu,ZhengShuCode,CreateDate,ComDate,SubID,BaoMingImgUrl,FeiYongImgUrl,SState,BMInt)");
+			strSql.Append("ObjID,MID,BaoMingCode,DanWeiName,ZiGeZhengShu,ZhengShuCode,CreateDate,ComDate,SubID,BaoMingImgUrl,FeiYongImgUrl,SState,BMInt,ReSpare)");
 			strSql.Append(" values (");
-			strSql.Append("@ObjID,@MID,@BaoMingCode,@DanWeiName,@ZiGeZhengShu,@ZhengShuCode,@CreateDate,@ComDate,@SubID,@BaoMingImgUrl,@FeiYongImgUrl,@SState,@BMInt)");
+			strSql.Append("@ObjID,@MID,@BaoMingCode,@DanWeiName,@ZiGeZhengShu,@ZhengShuCode,@CreateDate,@ComDate,@SubID,@BaoMingImgUrl,@FeiYongImgUrl,@SState,@BMInt,@ReSpare)");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ObjID", SqlDbType.Int,4),
 					new SqlParameter("@MID", SqlDbType.VarChar,50),
@@ -126,7 +127,7 @@ namespace yny_005.DAL
 					new SqlParameter("@SubID", SqlDbType.VarChar,50),
 					new SqlParameter("@BaoMingImgUrl", SqlDbType.VarChar,250),
 					new SqlParameter("@FeiYongImgUrl", SqlDbType.VarChar,250),
-					new SqlParameter("@SState", SqlDbType.Int,4),new SqlParameter("@BMInt", SqlDbType.Int,4)};
+					new SqlParameter("@SState", SqlDbType.Int,4),new SqlParameter("@BMInt", SqlDbType.Int,4),new SqlParameter("@ReSpare", SqlDbType.VarChar,250)};
 			parameters[0].Value = model.ObjID;
 			parameters[1].Value = model.MID;
 			parameters[2].Value = model.BaoMingCode;
@@ -140,6 +141,7 @@ namespace yny_005.DAL
 			parameters[10].Value = model.FeiYongImgUrl;
 			parameters[11].Value = model.SState;
             parameters[12].Value = model.BMInt;
+            parameters[13].Value = model.ReSpare;
 
             string guid = Guid.NewGuid().ToString();
             strSql.AppendFormat("; select '{0}'", guid);
@@ -167,7 +169,8 @@ namespace yny_005.DAL
 			strSql.Append("BaoMingImgUrl=@BaoMingImgUrl,");
 			strSql.Append("FeiYongImgUrl=@FeiYongImgUrl,");
 			strSql.Append("SState=@SState,");
-            strSql.Append("BMInt=@BMInt");
+            strSql.Append("BMInt=@BMInt,");
+            strSql.Append("ReSpare=@ReSpare");
             strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ObjID", SqlDbType.Int,4),
@@ -183,6 +186,7 @@ namespace yny_005.DAL
 					new SqlParameter("@FeiYongImgUrl", SqlDbType.VarChar,250),
 					new SqlParameter("@SState", SqlDbType.Int,4),
                     new SqlParameter("@BMInt", SqlDbType.Int,4),
+                    new SqlParameter("@ReSpare", SqlDbType.VarChar,250),
                     new SqlParameter("@ID", SqlDbType.Int,4)};
 			parameters[0].Value = model.ObjID;
 			parameters[1].Value = model.MID;
@@ -197,7 +201,8 @@ namespace yny_005.DAL
 			parameters[10].Value = model.FeiYongImgUrl;
 			parameters[11].Value = model.SState;
             parameters[12].Value = model.BMInt;
-            parameters[13].Value = model.ID;
+            parameters[13].Value = model.ReSpare;
+            parameters[14].Value = model.ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -230,7 +235,8 @@ namespace yny_005.DAL
             strSql.Append("BaoMingImgUrl=@BaoMingImgUrl,");
             strSql.Append("FeiYongImgUrl=@FeiYongImgUrl,");
             strSql.Append("SState=@SState,");
-            strSql.Append("BMInt=@BMInt");
+            strSql.Append("BMInt=@BMInt,");
+            strSql.Append("ReSpare=@ReSpare");
             strSql.Append(" where ID=@ID");
             strSql.AppendFormat(" ;select '{0}'", guid);
             SqlParameter[] parameters = {
@@ -247,6 +253,7 @@ namespace yny_005.DAL
                     new SqlParameter("@FeiYongImgUrl", SqlDbType.VarChar,250),
                     new SqlParameter("@SState", SqlDbType.Int,4),
                     new SqlParameter("@BMInt", SqlDbType.Int,4),
+                    new SqlParameter("@ReSpare", SqlDbType.VarChar,250),
                     new SqlParameter("@ID", SqlDbType.Int,4)};
             parameters[0].Value = model.ObjID;
             parameters[1].Value = model.MID;
@@ -261,7 +268,8 @@ namespace yny_005.DAL
             parameters[10].Value = model.FeiYongImgUrl;
             parameters[11].Value = model.SState;
             parameters[12].Value = model.BMInt;
-            parameters[13].Value = model.ID;
+            parameters[13].Value = model.ReSpare;
+            parameters[14].Value = model.ID;
 
             MyHs.Add(strSql.ToString(), parameters);
             return MyHs;
@@ -318,7 +326,7 @@ namespace yny_005.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,ObjID,MID,BaoMingCode,DanWeiName,ZiGeZhengShu,ZhengShuCode,CreateDate,ComDate,SubID,BaoMingImgUrl,FeiYongImgUrl,SState,BMInt from ObjUserApply ");
+			strSql.Append("select  top 1 ID,ObjID,MID,BaoMingCode,DanWeiName,ZiGeZhengShu,ZhengShuCode,CreateDate,ComDate,SubID,BaoMingImgUrl,FeiYongImgUrl,SState,BMInt,ReSpare from ObjUserApply ");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
@@ -344,7 +352,7 @@ namespace yny_005.DAL
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 ID,ObjID,MID,BaoMingCode,DanWeiName,ZiGeZhengShu,ZhengShuCode,CreateDate,ComDate,SubID,BaoMingImgUrl,FeiYongImgUrl,SState,BMInt from ObjUserApply ");
+            strSql.Append("select  top 1 ID,ObjID,MID,BaoMingCode,DanWeiName,ZiGeZhengShu,ZhengShuCode,CreateDate,ComDate,SubID,BaoMingImgUrl,FeiYongImgUrl,SState,BMInt,ReSpare from ObjUserApply ");
             strSql.Append(" where BaoMingCode=@BaoMingCode");
             SqlParameter[] parameters = {
                     new SqlParameter("@BaoMingCode", SqlDbType.VarChar,50)
@@ -446,6 +454,10 @@ namespace yny_005.DAL
                 {
                     model.BMInt = int.Parse(row["BMInt"].ToString());
                 }
+                if (row["ReSpare"] != null)
+                {
+                    model.ReSpare = row["ReSpare"].ToString();
+                }
             }
 			return model;
 		}
@@ -456,7 +468,7 @@ namespace yny_005.DAL
 		public static DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,ObjID,MID,BaoMingCode,DanWeiName,ZiGeZhengShu,ZhengShuCode,CreateDate,ComDate,SubID,BaoMingImgUrl,FeiYongImgUrl,SState,BMInt ");
+			strSql.Append("select ID,ObjID,MID,BaoMingCode,DanWeiName,ZiGeZhengShu,ZhengShuCode,CreateDate,ComDate,SubID,BaoMingImgUrl,FeiYongImgUrl,SState,BMInt,ReSpare ");
 			strSql.Append(" FROM ObjUserApply ");
 			if(strWhere.Trim()!="")
 			{
@@ -476,7 +488,7 @@ namespace yny_005.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ID,ObjID,MID,BaoMingCode,DanWeiName,ZiGeZhengShu,ZhengShuCode,CreateDate,ComDate,SubID,BaoMingImgUrl,FeiYongImgUrl,SState,BMInt ");
+			strSql.Append(" ID,ObjID,MID,BaoMingCode,DanWeiName,ZiGeZhengShu,ZhengShuCode,CreateDate,ComDate,SubID,BaoMingImgUrl,FeiYongImgUrl,SState,BMInt,ReSpare ");
 			strSql.Append(" FROM ObjUserApply ");
 			if(strWhere.Trim()!="")
 			{

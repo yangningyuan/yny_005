@@ -355,7 +355,7 @@ namespace yny_005.Web.SysManage
         {
             if (BllModel.UpdateConfiguration(ConfigurationModel))
             {
-                BLL.OperationRecordBLL.Add(TModel.MID, ChangeType.O_XGJJCS, "修改奖金参数");
+                BLL.OperationRecordBLL.Add(TModel.MID, "O_XGJJCS", "修改奖金参数");
                 return "操作成功";
             }
             else

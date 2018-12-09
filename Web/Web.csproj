@@ -317,7 +317,9 @@
     <Content Include="Home\css\style.css" />
     <Content Include="Home\css\superfish.css" />
     <Content Include="Home\css\ui.css" />
+    <Content Include="Home\HomeProjectDetails.aspx" />
     <Content Include="Home\images\arrows-ffffff.png" />
+    <Content Include="Home\images\lc.png" />
     <Content Include="Home\images\shadow.png" />
     <Content Include="Home\img\avatar.png" />
     <Content Include="Home\img\banner\1.png" />
@@ -917,6 +919,7 @@
     <Content Include="ProjectManage\ManageProjectList.aspx" />
     <Content Include="ProjectManage\ManageSHSignProjectList.aspx" />
     <Content Include="ProjectManage\ManageSumSignProjectList.aspx" />
+    <Content Include="ProjectManage\ModifySignProject.aspx" />
     <Content Include="ProjectManage\MProjectList.aspx" />
     <Content Include="ProjectManage\MSampleList.aspx" />
     <Content Include="ProjectManage\ObjectModify.aspx" />
@@ -1301,6 +1304,7 @@
     <Content Include="SysManage\Language\TypeEdit.aspx" />
     <Content Include="SysManage\Language\TypeList.aspx" />
     <Content Include="SysManage\MenuEdit.aspx" />
+    <Content Include="SysManage\OperationRecord.aspx" />
     <Content Include="SysManage\Out.aspx" />
     <Content Include="SysManage\RolePowers.aspx" />
     <Content Include="SysManage\WebSet.aspx" />
@@ -1378,6 +1382,13 @@
     </Compile>
     <Compile Include="autoaspx\minute.aspx.designer.cs">
       <DependentUpon>minute.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home\HomeProjectDetails.aspx.cs">
+      <DependentUpon>HomeProjectDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\HomeProjectDetails.aspx.designer.cs">
+      <DependentUpon>HomeProjectDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -1482,6 +1493,13 @@
     </Compile>
     <Compile Include="ProjectManage\ManageSumSignProjectList.aspx.designer.cs">
       <DependentUpon>ManageSumSignProjectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\ModifySignProject.aspx.cs">
+      <DependentUpon>ModifySignProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\ModifySignProject.aspx.designer.cs">
+      <DependentUpon>ModifySignProject.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProjectManage\MProjectList.aspx.cs">
       <DependentUpon>MProjectList.aspx</DependentUpon>
@@ -1737,6 +1755,10 @@
     </Compile>
     <Compile Include="SysManage\BankInfo.aspx.designer.cs">
       <DependentUpon>BankInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysManage\Handler\OperationRecord.ashx.cs">
+      <DependentUpon>OperationRecord.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SysManage\Language\Handler\LanguageList.ashx.cs">
       <DependentUpon>LanguageList.ashx</DependentUpon>
@@ -2017,6 +2039,13 @@
     <Compile Include="SysManage\MenuEdit.aspx.designer.cs">
       <DependentUpon>MenuEdit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SysManage\OperationRecord.aspx.cs">
+      <DependentUpon>OperationRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysManage\OperationRecord.aspx.designer.cs">
+      <DependentUpon>OperationRecord.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SysManage\Out.aspx.cs">
       <DependentUpon>Out.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2130,6 +2159,7 @@
     <Content Include="Shop\Handler\GoodsList.ashx" />
     <Content Include="Shop\Handler\OrderList2.ashx" />
     <Content Include="Shop\Handler\ReceiveList.ashx" />
+    <Content Include="SysManage\Handler\OperationRecord.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

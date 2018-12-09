@@ -64,9 +64,9 @@ namespace yny_005.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into OObject(");
-			strSql.Append("ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,CreateDate,SState)");
+			strSql.Append("ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,CreateDate,SState,OState,ReSpare)");
 			strSql.Append(" values (");
-			strSql.Append("@ObjOID,@ObjName,@ReObjMID,@ReObjNiName,@ObjChild,@ObjExcel,@BMDate,@JGDate,@Remark,@CreateDate,@SState)");
+			strSql.Append("@ObjOID,@ObjName,@ReObjMID,@ReObjNiName,@ObjChild,@ObjExcel,@BMDate,@JGDate,@Remark,@CreateDate,@SState,@OState,@ReSpare)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ObjOID", SqlDbType.VarChar,50),
@@ -77,7 +77,7 @@ namespace yny_005.DAL
 					new SqlParameter("@ObjExcel", SqlDbType.VarChar,500),
 					new SqlParameter("@BMDate", SqlDbType.DateTime),
 					new SqlParameter("@JGDate", SqlDbType.DateTime),
-					new SqlParameter("@Remark", SqlDbType.VarChar,50),new SqlParameter("@CreateDate", SqlDbType.DateTime),new SqlParameter("@SState", SqlDbType.Int,4)};
+					new SqlParameter("@Remark", SqlDbType.VarChar,50),new SqlParameter("@CreateDate", SqlDbType.DateTime),new SqlParameter("@SState", SqlDbType.Int,4),new SqlParameter("@OState", SqlDbType.Int,4),new SqlParameter("@ReSpare", SqlDbType.VarChar,500)};
 			parameters[0].Value = model.ObjOID;
 			parameters[1].Value = model.ObjName;
 			parameters[2].Value = model.ReObjMID;
@@ -89,6 +89,8 @@ namespace yny_005.DAL
 			parameters[8].Value = model.Remark;
             parameters[9].Value = model.CreateDate;
             parameters[10].Value = model.SState;
+            parameters[11].Value = model.OState;
+            parameters[12].Value = model.ReSpare;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -108,9 +110,9 @@ namespace yny_005.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into OObject(");
-            strSql.Append("ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,CreateDate,SState)");
+            strSql.Append("ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,CreateDate,SState,OState,ReSpare)");
             strSql.Append(" values (");
-            strSql.Append("@ObjOID,@ObjName,@ReObjMID,@ReObjNiName,@ObjChild,@ObjExcel,@BMDate,@JGDate,@Remark,@CreateDate,@SState)");
+            strSql.Append("@ObjOID,@ObjName,@ReObjMID,@ReObjNiName,@ObjChild,@ObjExcel,@BMDate,@JGDate,@Remark,@CreateDate,@SState,@OState,@ReSpare)");
             SqlParameter[] parameters = {
                     new SqlParameter("@ObjOID", SqlDbType.VarChar,50),
                     new SqlParameter("@ObjName", SqlDbType.VarChar,150),
@@ -120,7 +122,7 @@ namespace yny_005.DAL
                     new SqlParameter("@ObjExcel", SqlDbType.VarChar,500),
                     new SqlParameter("@BMDate", SqlDbType.DateTime),
                     new SqlParameter("@JGDate", SqlDbType.DateTime),
-                    new SqlParameter("@Remark", SqlDbType.VarChar,50),new SqlParameter("@CreateDate", SqlDbType.DateTime),new SqlParameter("@SState", SqlDbType.Int,4)};
+                    new SqlParameter("@Remark", SqlDbType.VarChar,50),new SqlParameter("@CreateDate", SqlDbType.DateTime),new SqlParameter("@SState", SqlDbType.Int,4),new SqlParameter("@OState", SqlDbType.Int,4),new SqlParameter("@ReSpare", SqlDbType.VarChar,500)};
             parameters[0].Value = model.ObjOID;
             parameters[1].Value = model.ObjName;
             parameters[2].Value = model.ReObjMID;
@@ -132,7 +134,8 @@ namespace yny_005.DAL
             parameters[8].Value = model.Remark;
             parameters[9].Value = model.CreateDate;
             parameters[10].Value = model.SState;
-
+            parameters[11].Value = model.OState;
+            parameters[12].Value = model.ReSpare;
             string guid = Guid.NewGuid().ToString();
             strSql.AppendFormat("; select '{0}'", guid);
 
@@ -158,7 +161,9 @@ namespace yny_005.DAL
 			strSql.Append("JGDate=@JGDate,");
 			strSql.Append("Remark=@Remark,");
             strSql.Append("CreateDate=@CreateDate,");
-            strSql.Append("SState=@SState");
+            strSql.Append("SState=@SState,");
+            strSql.Append("OState=@OState,");
+            strSql.Append("ReSpare=@ReSpare");
             strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ObjOID", SqlDbType.VarChar,50),
@@ -172,6 +177,8 @@ namespace yny_005.DAL
 					new SqlParameter("@Remark", SqlDbType.VarChar,50),
                     new SqlParameter("@CreateDate", SqlDbType.DateTime),
                     new SqlParameter("@SState", SqlDbType.Int,4),
+                    new SqlParameter("@OState", SqlDbType.Int,4),
+                    new SqlParameter("@ReSpare", SqlDbType.VarChar,500),
                     new SqlParameter("@ID", SqlDbType.Int,4)};
 			parameters[0].Value = model.ObjOID;
 			parameters[1].Value = model.ObjName;
@@ -184,7 +191,9 @@ namespace yny_005.DAL
 			parameters[8].Value = model.Remark;
             parameters[9].Value = model.CreateDate;
             parameters[10].Value = model.SState;
-            parameters[11].Value = model.ID;
+            parameters[11].Value = model.OState;
+            parameters[12].Value = model.ReSpare;
+            parameters[13].Value = model.ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -248,7 +257,7 @@ namespace yny_005.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,CreateDate,SState from OObject ");
+			strSql.Append("select  top 1 ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,CreateDate,SState,OState,ReSpare from OObject ");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
@@ -342,6 +351,15 @@ namespace yny_005.DAL
                 {
                     model.SState =int.Parse(row["SState"].ToString());
                 }
+
+                if (row["OState"] != null && row["OState"].ToString() != "")
+                {
+                    model.OState = int.Parse(row["OState"].ToString());
+                }
+                if (row["ReSpare"] != null)
+                {
+                    model.ReSpare = row["ReSpare"].ToString();
+                }
             }
 			return model;
 		}
@@ -352,7 +370,7 @@ namespace yny_005.DAL
 		public static DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,CreateDate,SState ");
+			strSql.Append("select ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,CreateDate,SState,OState,ReSpare ");
 			strSql.Append(" FROM OObject ");
 			if(strWhere.Trim()!="")
 			{
@@ -372,7 +390,7 @@ namespace yny_005.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,CreateDate,SState ");
+			strSql.Append(" ID,ObjOID,ObjName,ReObjMID,ReObjNiName,ObjChild,ObjExcel,BMDate,JGDate,Remark,CreateDate,SState,OState,ReSpare ");
 			strSql.Append(" FROM OObject ");
 			if(strWhere.Trim()!="")
 			{

@@ -95,7 +95,7 @@ namespace yny_005.Web.Member
             {
                 if (BllModel.Update(MemberModel))
                 {
-                    BLL.OperationRecordBLL.Add(TModel.MID, ChangeType.O_XGZL, "修改资料");
+                    BLL.OperationRecordBLL.Add(TModel.MID, "自助修改资料", "修改资料");
                     return "操作成功";
                 }
                 return "操作失败";

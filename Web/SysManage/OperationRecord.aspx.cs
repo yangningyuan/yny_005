@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace zx270.Web.SysManage
+namespace yny_005.Web.SysManage
 {
 	public partial class OperationRecord : BasePage
 	{
@@ -44,7 +44,7 @@ namespace zx270.Web.SysManage
 				Level = Config.SHMoneyList[item.LevelCode]._MAgencyName,
 				Role = BLL.Roles.RolsList[item.RoleCode].RName,
 				Time = item.Time.ToString("yyyy-MM-dd HH:mm:ss"),
-				OperationType = item.Type.Name(),
+				OperationType = item.Type,
 				Operation = item.Operation
 			});
 			return jss.Serialize(new { PageData = list, TotalPage = TotalPage(PageSize) });

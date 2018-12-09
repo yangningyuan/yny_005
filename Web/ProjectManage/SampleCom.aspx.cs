@@ -16,17 +16,20 @@ namespace yny_005.Web.ProjectManage
             Model.ObjSample os = BLL.ObjSample.GetModel(Convert.ToInt32(Request.Form["oaid"]));
 
             Model.ObjUser ou = BLL.ObjUser.GetModel(os.SpInt);
-            if (os.SState != 1 )
+            if (os.SState != 1)
                 return "状态已改变，请刷新页面";
 
             os.YangPinImgUrl = Request.Form["uploadurl"];
             os.SState = 3;
             BLL.ObjSample.Update(os, MyHs);
-            ou.YState =3;
+            ou.YState = 3;
             ou.YangPinOID = os.OID;
             BLL.ObjUser.Update(ou, MyHs);
             if (BLL.CommonBase.RunHashtable(MyHs))
+            {
+                BLL.OperationRecordBLL.Add(TModel.MID, "确认样品成功", "样品编号为：" + os.YangPinCode);
                 return "确认样品成功";
+            }
             else
             {
                 return "确认失败";
@@ -48,7 +51,10 @@ namespace yny_005.Web.ProjectManage
             ou.YangPinOID = os.OID;
             BLL.ObjUser.Update(ou, MyHs);
             if (BLL.CommonBase.RunHashtable(MyHs))
+            {
+                BLL.OperationRecordBLL.Add(TModel.MID, "返回重新寄送", "样品编号为：" + os.YangPinCode);
                 return "已返回重新寄送";
+            }
             else
             {
                 return "返回失败";

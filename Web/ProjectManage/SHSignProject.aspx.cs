@@ -29,12 +29,11 @@ namespace yny_005.Web.ProjectManage
         {
             lock (lockobj)
             {
-                
-
                 Hashtable MyHs = new Hashtable();
                 Model.ObjUserApply oamodel = BLL.ObjUserApply.GetModel(Convert.ToInt32(Request.Form["oaid"]));
+                if (oamodel.SState != 0)
+                    return "此状态不能审核";
                 oamodel.SState = 3;
-
                 int AddInt= Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from ObjUserApply where SState=3 and objID="+oamodel.ObjID+";"));
                 oamodel.BMInt = 1000 + AddInt+1;
                 BLL.ObjUserApply.Update(oamodel, MyHs);
@@ -59,6 +58,7 @@ namespace yny_005.Web.ProjectManage
 
                 if (BLL.CommonBase.RunHashtable(MyHs))
                 {
+                    BLL.OperationRecordBLL.Add(TModel.MID, "报名信息审核成功", "报名编号为：" + oamodel.BaoMingCode);
                     return "审核成功";
                 }
                 else {
@@ -66,6 +66,34 @@ namespace yny_005.Web.ProjectManage
                 }
             }
             
+        }
+
+        protected override string btnModify_Click()
+        {
+            string xx=  Request.Form["remsg"];
+            lock (lockobj)
+            {
+                Hashtable MyHs = new Hashtable();
+                Model.ObjUserApply oamodel = BLL.ObjUserApply.GetModel(Convert.ToInt32(Request.Form["oaid"]));
+                if (oamodel.SState != 0)
+                    return "此状态不能打回";
+
+                oamodel.SState = 1;
+                oamodel.ReSpare = xx;
+                BLL.ObjUserApply.Update(oamodel, MyHs);
+
+                Model.ObjUser oumodel = BLL.ObjUser.GetModelBaoMingOID(oamodel.BaoMingCode);
+                oumodel.BState = 1;
+                BLL.ObjUser.Update(oumodel, MyHs);
+                if (BLL.CommonBase.RunHashtable(MyHs))
+                {
+                    BLL.OperationRecordBLL.Add(TModel.MID, "报名信息打回", "报名编号为：" + oamodel.BaoMingCode);
+                    return "打回成功";
+                }
+                else {
+                    return "报名审核打回失败";
+                }
+            }
         }
     }
 }

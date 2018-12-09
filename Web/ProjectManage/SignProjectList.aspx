@@ -30,13 +30,13 @@
                                 <option value="false">未报名</option>
                             </select>
                         </td>
-                      
+
 
                     </tr>
                 </table>
             </div>
 
-           
+
 
 
         </div>
@@ -53,11 +53,15 @@
                     </th>
                     <th>报名截止日期
                     </th>
+                     <th>项目状态
+                    </th>
                     <th>报名状态
+                    </th>
+                    <th>打回原因
                     </th>
                     <th>操作
                     </th>
-                    
+
 
                 </tr>
             </table>

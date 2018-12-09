@@ -36,7 +36,18 @@ namespace yny_005.Model
 		private DateTime _bmdate;
 		private DateTime _jgdate;
 		private string _remark;
+        /// <summary>
+        /// 审核状态  0未审核 ,2打回， 3已审核
+        /// </summary>
+        public int OState { get; set; }
 
+        /// <summary>
+        /// 不通过原因
+        /// </summary>
+        public string ReSpare { get; set; }
+        /// <summary>
+        /// 0 未结束  1已结束
+        /// </summary>
         public int SState { get; set; }
         public DateTime CreateDate { get; set; }
 		/// <summary>

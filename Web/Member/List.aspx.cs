@@ -36,6 +36,7 @@ namespace yny_005.Web.Member
             Model.Member member = BLL.Member.GetModelByMID(mid);
             
             BLL.Member.UpdateMemberTran(mid, "MState", "1", member, true, System.Data.SqlDbType.Bit, MyHs);
+            BLL.Member.UpdateMemberTran(mid, "MDate",DateTime.Now.ToString(), member, true, System.Data.SqlDbType.DateTime, MyHs);
             if (BLL.CommonBase.RunHashtable(MyHs))
             {
                 return "审核完成";

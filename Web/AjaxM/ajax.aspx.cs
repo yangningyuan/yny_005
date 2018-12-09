@@ -830,7 +830,7 @@ namespace yny_005.Web.AjaxM
                 try
                 {
                     var result = BllModel.SHHKModel((Request["pram"]));
-                    BLL.OperationRecordBLL.Add(TModel.MID, ChangeType.O_SHXXHK, "审核线下汇款");
+                    BLL.OperationRecordBLL.Add(TModel.MID, "O_SHXXHK", "审核线下汇款");
                     Response.Write(result);
                     return;
                 }
@@ -1854,7 +1854,7 @@ namespace yny_005.Web.AjaxM
                     if (TModel.Role.IsAdmin)
                     {
                         string result = BllModel.ShTx(Request["pram"]);
-                        BLL.OperationRecordBLL.Add(TModel.MID, ChangeType.O_SHTX, "审核提现");
+                        BLL.OperationRecordBLL.Add(TModel.MID, "O_SHTX", "审核提现");
                         Response.Write(result);
                     }
                     else
@@ -1883,7 +1883,7 @@ namespace yny_005.Web.AjaxM
                 if (TModel.Role.IsAdmin)
                 {
                     string result = BllModel.SHAllTX();
-                    BLL.OperationRecordBLL.Add(TModel.MID, ChangeType.O_SHTX, "审核提现");
+                    BLL.OperationRecordBLL.Add(TModel.MID, "O_SHTX", "审核提现");
                     Response.Write(result);
                 }
                 else

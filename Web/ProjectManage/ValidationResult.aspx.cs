@@ -82,6 +82,7 @@ namespace yny_005.Web.ProjectManage
             BLL.ObjSubUser.Add(objapply, MyHs);
             if (BLL.CommonBase.RunHashtable(MyHs))
             {
+                BLL.OperationRecordBLL.Add(TModel.MID, "结果提交", "项目名称为：" + obj.ObjName);
                 return "结果提交成功，请等待审核";
             }
             else {

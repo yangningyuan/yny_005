@@ -14,7 +14,7 @@ namespace yny_005.Web.Home
         protected void Page_Load(object sender, EventArgs e)
         {
             listNote= BLL.Notice.GetNoticeLists(15, false);
-            listObj = BLL.OObject.GetModelList("  BMDate>'" + DateTime.Now + "' ");
+            listObj = BLL.OObject.GetModelList("  BMDate>'" + DateTime.Now + "' and SState=0 and OState=3  ");
         }
     }
 }

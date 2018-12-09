@@ -57,9 +57,9 @@
             <h3 class="fs-subtitle"></h3>
             <input type="text" name="txtMID" id="txtMID" placeholder="用户名" />
             <input type="text" name="txtMName" id="txtMName" placeholder="实验室单位名称" />
-            <input type="text" name="txtNumID" id="txtNumID" placeholder="检验检测机构登记证件及号码" style="width:345px;" />
+            <input type="text" name="txtNumID" id="txtNumID" placeholder="检验检测机构计量认证证书编号" style="width:345px;" />
              <select id="txtFMID" name="txtFMID"  >
-                                <option value="0">检测机构登记证书</option>
+                                <option value="0">检验检测机构计量认证证书编号</option>
                               <option value="1">个人身份证</option>
                                 <option value="2">其他</option>
                             </select>

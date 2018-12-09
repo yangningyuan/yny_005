@@ -17,7 +17,7 @@ namespace yny_005.Web.ProjectManage.Handler
         {
             base.ProcessRequest(context);
             string strWhere = "'1'='1'";
-          
+
             if (!string.IsNullOrEmpty(context.Request["nTitle"]))
             {
                 strWhere += " and ObjName like '%" + HttpUtility.UrlDecode(context.Request["nTitle"]) + "%'";
@@ -45,15 +45,36 @@ namespace yny_005.Web.ProjectManage.Handler
                 sb.Append(ListO[i].JGDate + "~");
                 //sb.Append((ListO[i].Remark.Length>20? ListO[i].Remark.ToString().Substring(0,20)+"...": ListO[i].Remark) + "~");
                 sb.Append(ListO[i].CreateDate.ToString("yyyy-MM-dd HH:mm") + "~");
-                sb.Append((ListO[i].SState==0? "<span style='color:green;'>未结束</span>" : "<span style='color:red;'>已结束</span>") + "~");
 
-                sb.Append("<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/ManageSHSignProjectList.aspx?bmoid=" + ListO[i].ID + "','报名列表')\">报名列表</div>"+"~");
+                if (ListO[i].OState == 0)
+                {
+                    if (TModel.Role.IsAdmin)
+                    {
+                        sb.Append(("<div  class=\"pay btn btn-success\" onclick=\"TocheckProject(" + ListO[i].ID + ")\">通过</div><div  class=\"pay btn btn-warning\" onclick=\"RecheckProject(" + ListO[i].ID + ")\">打回</div>") + "~");
+                    }
+                    else {
+                        sb.Append(("<span style='color:red;'>未审核</span>") + "~");
+                    }
+                    
+                }
+                else if (ListO[i].OState == 2)
+                {
+                    sb.Append(("<span style='color:red;'>已打回，打回原因:" + ListO[i].ReSpare + "，请修改后提交</span>") + "~");
+                }
+                else {
+                    sb.Append(("<span style='color:green;'>已通过审核</span>") + "~");
+                }
+
+
+                sb.Append((ListO[i].SState == 0 ? "<span style='color:green;'>未结束</span>" : "<span style='color:red;'>已结束</span>") + "~");
+
+                sb.Append("<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/ManageSHSignProjectList.aspx?bmoid=" + ListO[i].ID + "','报名列表')\">报名列表</div>" + "~");
                 sb.Append("<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/MSampleList.aspx?bmoid=" + ListO[i].ID + "','样品列表')\">样品列表</div>" + "~");
                 sb.Append("<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/MProjectList.aspx?bmoid=" + ListO[i].ID + "','结果验证列表')\">结果验证列表</div>" + "~");
 
 
                 sb.Append("<div  class=\"pay btn btn-warning\" onclick=\"callhtml('/ProjectManage/ObjectModify.aspx?xxid=" + ListO[i].ID + "','修改')\">修改</div>");
-               
+
                 sb.Append("≌");
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };

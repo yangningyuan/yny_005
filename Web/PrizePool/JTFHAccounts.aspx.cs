@@ -51,7 +51,7 @@ namespace yny_005.Web.PrizePool
         {
             if (BLL.ChangeMoney.R_DFH())
             {
-                BLL.OperationRecordBLL.Add(TModel.MID, ChangeType.O_JTFH, "静态分红");
+                BLL.OperationRecordBLL.Add(TModel.MID, "O_JTFH", "静态分红");
                 return "操作成功";
             }
             else

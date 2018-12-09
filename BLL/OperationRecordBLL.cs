@@ -7,7 +7,7 @@ namespace yny_005.BLL
 {
 	public class OperationRecordBLL
 	{
-		public static void Add(string mid, ChangeType opeartionType, string opeartion, params object[] args)
+		public static void Add(string mid, string opeartionType, string opeartion, params object[] args)
 		{
 			Model.OperationRecord entity = new Model.OperationRecord();
             var member = BLL.Member.GetModelByMID(mid);
@@ -32,5 +32,10 @@ namespace yny_005.BLL
 		{
 			return DAL.OperationRecordDAL.QueryByPage(query, pageIndex, pageSize, out totalCount);
 		}
-	}
+
+        public static List<Model.Member_OperationRecord> GetList(string strWhere, int pageIndex, int pageSize, out int count)
+        {
+            return DAL.Member_OperationRecord.GetList(strWhere, pageIndex, pageSize, out count);
+        }
+    }
 }

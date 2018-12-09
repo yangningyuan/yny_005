@@ -37,10 +37,19 @@ namespace yny_005.Web.ProjectManage
             obj.Remark = Request.Form["Remark"];
             obj.ObjExcel = "";
             obj.ObjChild = "";
+
+            //如果是被打回的项目
+            if (obj.OState == 2)
+            {
+                obj.ReSpare = "";
+                obj.OState = 0;
+            }
+
             obj.BMDate = Convert.ToDateTime(Request.Form["BMstateDate"]);
             obj.JGDate = Convert.ToDateTime(Request.Form["ComDate"]);
             if (BLL.OObject.Update(obj))
             {
+                BLL.OperationRecordBLL.Add(TModel.MID, "修改项目", "OID为：" + obj.ObjOID);
                 return "修改项目成功";
             }
             else {

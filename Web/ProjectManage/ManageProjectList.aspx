@@ -19,7 +19,7 @@
 <body>
     <div id="mempay">
         <div class="control">
-           <%-- <div class="select">
+            <%-- <div class="select">
                 <a href="javascript:void(0)" onclick="SearchByState('',this);" class="btn btn-danger">
                     所有</a> <a href="javascript:void(0);" onclick="SearchByState('1',this);" class="btn btn-success">
                         正常</a> <a href="javascript:void(0)" onclick="SearchByState('0',this);" class="btn btn-success">
@@ -28,61 +28,51 @@
             <%--<div class="pay" onclick="UpDateByID('Message/NoticeModify.aspx?','修改公告',900,470);">
                 修改项目</div>--%>
             <div class="pay" onclick="v5.show('ProjectManage/AddProject.aspx','发布项目','url',900,470)">
-                发布项目</div>
+                发布项目
+            </div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
                 <input type="button" value="导出Excel" class="btn btn-success" onclick="exportExcel()" />
                 <input
-                    id="nTitle" name="txtKey" data-name="txtKey"  type="text" class="sinput" />
+                    id="nTitle" name="txtKey" data-name="txtKey" type="text" class="sinput" />
             </div>
         </div>
         <div class="ui_table">
             <table cellpadding="0" cellspacing="0" class="tabcolor" id="Result">
                 <tr>
-                    <th width="50px">
-                        全选
+                    <th width="50px">全选
                     </th>
-                    <th>
-                        编号
+                    <th>编号
                     </th>
-                   <%--  <th>
+                    <%--  <th>
                         项目编号
                     </th>--%>
-                    <th>
-                        项目名称
+                    <th>项目名称
                     </th>
-                    <th>
-                        发布人
+                    <th>发布人
                     </th>
-                    <th>
-                        部门全称
+                    <th>部门全称
                     </th>
-                    <th>
-                        报名截止时间
+                    <th>报名截止时间
                     </th>
-                    <th>
-                        项目结束时间
+                    <th>项目结束时间
                     </th>
                     <%--<th>
                         备注
                     </th>--%>
-                    <th>
-                        发布时间
+                    <th>发布时间
                     </th>
-                    <th>
-                        是否结束
+                    <th>是否审核
                     </th>
-                       <th>
-                        报名情况
+                    <th>是否结束
                     </th>
-                       <th>
-                        样品情况
+                    <th>报名情况
                     </th>
-                       <th>
-                        结果验证情况
+                    <th>样品情况
                     </th>
-                    <th>
-                        操作
+                    <th>结果验证情况
+                    </th>
+                    <th>操作
                     </th>
                 </tr>
             </table>
@@ -91,8 +81,7 @@
                     <input type="checkbox" id="chkAll" onclick="SelectChk(this);" /></em>
 
                 <div class="pn">
-                     <a href="javascript:void(0);" title="结束项目" onclick="RunAjaxByList('false','ShJSProject',',');">
-                        结束项目</a> 
+                    <a href="javascript:void(0);" title="结束项目" onclick="RunAjaxByList('false','ShJSProject',',');">结束项目</a>
                 </div>
 
                 <div class="pagebar">
@@ -102,5 +91,18 @@
             </div>
         </div>
     </div>
+    <script>
+        function RecheckProject(oid) {
+            //prompt层
+            layer.prompt({ title: '请输入打回原因，并确认', formType: 2 }, function (pass, index) {
+                layer.close(index);
+                ActionModel("ProjectManage/ManageProjectList.aspx?Action=Modify", { remsg: pass, oid: oid});
+            });
+        }
+
+        function TocheckProject(oid) {
+            ActionModel("ProjectManage/ManageProjectList.aspx?Action=Add", { oid: oid });
+        }
+    </script>
 </body>
 </html>

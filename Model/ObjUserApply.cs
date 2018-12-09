@@ -39,6 +39,10 @@ namespace yny_005.Model
 		private string _baomingimgurl;
 		private string _feiyongimgurl;
 		private int _sstate=0;
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string ReSpare { get; set; }
         public int BMInt { get; set; }
 		/// <summary>
 		/// 

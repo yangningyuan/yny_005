@@ -20,7 +20,7 @@ namespace yny_005.Web.ProjectManage
             oid.Value = pid.ToString();
             obj = BLL.OObject.GetModel(pid);
             listExcel = BLL.ObjExcel.GetModelList(" ObjOID='" + obj.ObjOID + "' ");
-            listChild = BLL.ObjChild.GetModelList(" ObjOID='"+obj.ObjOID+"' ");
+            listChild = BLL.ObjChild.GetModelList(" ObjOID='" + obj.ObjOID + "' ");
             Random rd = new Random();
             int cc = rd.Next(1000, 9999);
             roam.Value = cc.ToString();
@@ -33,8 +33,12 @@ namespace yny_005.Web.ProjectManage
 
             if (!TModel.MState)
                 return "您的账号未审核，不能报名";
+            Model.OObject obj = BLL.OObject.GetModel(Convert.ToInt32(Request.Form["oid"]));
 
-            Model.OObject obj = BLL.OObject.GetModel(Convert.ToInt32( Request.Form["oid"]));
+            if (Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from ObjUserApply where MID='" + TModel.MID + "' and [OBJID]=" + obj.ID + ";"))>0)
+                return "您已报名该项目，请自行查看进度";
+            if (obj.SState == 1)
+                return "该项目已结束，不能报名";
 
             if (obj.BMDate < DateTime.Now)
                 return "已超出报名时间，不能报名";
@@ -53,7 +57,7 @@ namespace yny_005.Web.ProjectManage
             oua.BaoMingImgUrl = Request.Form["uploadurl"];
             oua.FeiYongImgUrl = Request.Form["uploadurl2"];
             oua.SState = 0;
-            BLL.ObjUserApply.Add(oua,MyHs);
+            BLL.ObjUserApply.Add(oua, MyHs);
 
 
             Model.ObjUser user = new Model.ObjUser();
@@ -69,9 +73,12 @@ namespace yny_005.Web.ProjectManage
             user.YState = 0;
             user.YangPinOID = "";
             user.MID = TModel.MID;
-            BLL.ObjUser.Add(user,MyHs);
+            BLL.ObjUser.Add(user, MyHs);
             if (BLL.CommonBase.RunHashtable(MyHs))
+            {
+                BLL.OperationRecordBLL.Add(TModel.MID, "报名成功", "项目名称为：" + obj.ObjName + "，报名编号为：" + oua.BaoMingCode);
                 return "报名成功";
+            } 
             else
                 return "报名失败";
         }

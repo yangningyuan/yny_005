@@ -738,5 +738,7 @@ namespace yny_005.Web
                 return "可报名";
             }
         }
+
+        
     }
 }

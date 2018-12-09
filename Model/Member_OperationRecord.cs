@@ -40,7 +40,7 @@ namespace yny_005.Model
 		/// </summary>
 		[Column("TypeCode")]
 		[ColumnConfig(DBType = DBType.String)]
-		public ChangeType Type { get; set; }
+		public string Type { get; set; }
 
 		/// <summary>
 		/// 具体的操作

@@ -75,6 +75,7 @@
     <Compile Include="ImpType.cs" />
     <Compile Include="JoggleLogin.cs" />
     <Compile Include="LotteryDraw.cs" />
+    <Compile Include="Member_OperationRecord.cs" />
     <Compile Include="ObjChild.cs" />
     <Compile Include="ObjSub.cs" />
     <Compile Include="OObject.cs" />

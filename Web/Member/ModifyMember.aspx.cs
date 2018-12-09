@@ -230,7 +230,7 @@ namespace yny_005.Web.Member
             }
             if (BLL.CommonBase.RunHashtable(MyHs))
             {
-                BLL.OperationRecordBLL.Add(TModel.MID, ChangeType.O_XGHYZL, string.Format("修改{0}的资料", MemberModel.MID));
+                BLL.OperationRecordBLL.Add(TModel.MID, "修改会员资料", string.Format("修改{0}的资料", MemberModel.MID));
 
                 return "操作成功";
             }

@@ -66,7 +66,10 @@ namespace yny_005.Web.ProjectManage
             BLL.ObjSubUser.Update(Osubuser,MyHs);
 
             if (BLL.CommonBase.RunHashtable(MyHs))
+            {
+                BLL.OperationRecordBLL.Add(TModel.MID, "验证结果审核成功", "项目名称为：" + ouser.ObjName+"，结果提交人为："+ouser.MID);
                 return "审核成功";
+            }
             else
                 return "审核失败";
         }
@@ -96,7 +99,10 @@ namespace yny_005.Web.ProjectManage
             }
             MyHs.Add("DELETE OBJSUB WHERE OID IN("+ substr.Substring(0,substr.Length-1) + ");select " + Guid.NewGuid().ToString("N"),null);
             if (BLL.CommonBase.RunHashtable(MyHs))
+            {
+                BLL.OperationRecordBLL.Add(TModel.MID, "验证结果审核打回", "项目名称为：" + ouser.ObjName + "，结果提交人为：" + ouser.MID);
                 return "返回成功，可重新上传结果";
+            }
             else
                 return "审核失败";
         }
