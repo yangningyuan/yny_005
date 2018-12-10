@@ -126,6 +126,7 @@
                             <img id="DataImg" src="/MQL/images/_20180922122730.png" style="width: 100px; height: 100px;" />
                             <input type="hidden" id="uploadurl" name="uploadurl" runat="server" />
                             <input runat="server" id="roam" style="display: none;" />
+                            文件类型约束为：jpg，jpeg，png，gif，bmp 大小不超过多少600K
                         </td>
                     </tr>
                     <tr>
@@ -139,6 +140,7 @@
                             <img id="DataImg2" src="/MQL/images/_20180922122730.png" style="width: 100px; height: 100px;" />
                             <input type="hidden" id="uploadurl2" name="uploadurl2" runat="server" />
                             <input runat="server" id="roam2" style="display: none;" />
+                            文件类型约束为：jpg，jpeg，png，gif，bmp 大小不超过多少600K
                         </td>
                     </tr>
 
@@ -191,6 +193,8 @@
         </div>
     </div>
     <script>
+       
+
         $(function () {
             var guid = '<%=Request["guid"] %>';
              var type = '<%=Request["type"] %>';
@@ -211,9 +215,9 @@
                  'auto': true,                                 //选择文件后是否自动上传，默认为true
                  'multi': true,                                 //是否为多选，默认为true
                  'removeCompleted': false,                       //是否完成后移除序列，默认为true
-                 'fileSizeLimit': '0',                          //单个文件大小，0为无限制，可接受KB,MB,GB等单位的字符串值
+                 'fileSizeLimit': '1KB',                          //单个文件大小，0为无限制，可接受KB,MB,GB等单位的字符串值
                  'fileTypeDesc': 'All Files',                   //文件描述
-                 'fileTypeExts': '*.jpg;*.png;*.gif;*.bmp;*.txt;*.docx;*.xlsx',                         //上传的文件后缀过滤器
+                 'fileTypeExts': '*.jpg;*.png;*.gif;*.bmp',                         //上传的文件后缀过滤器
                  'onQueueComplete': function (queueData) {      //所有队列完成后事件
                      if (queueData.filesQueued > 0) {
                          //alert("上传完毕！");
@@ -262,9 +266,25 @@
         //读取本地文件
         var inputOne = document.getElementById('fileOne<%=rdstr%>');
         inputOne.onchange = function () {
+           
             //1.获取选中的文件列表
             var fileList = inputOne.files;
             var file = fileList[0];
+           
+            if (file.name == null || file.name == "") {
+                v5.error('请选择文件', '1', 'ture');
+                return;
+            } else if (!/.(gif|jpeg|jpg|png|bmp)$/.test(file.name)) {
+                v5.error('图片类型必须是.gif,jpeg,jpg,png,bmp中的一种', '1', 'ture');
+                return ;
+            }
+            //设置限制图像的大小为10MB，这里你可以自己设置
+            var fSize = 1024 * 1024 * 0.6;
+            if (file.size > fSize) {
+                v5.error('上传图片限制为600KB', '1', 'ture');
+                return ;
+            }
+
             //读取文件内容
             var reader = new FileReader();
             if (file) {
@@ -281,7 +301,7 @@
         //指定图片内容显示
         function showCanvas(dataUrl) {
             //$("#DataUrl").val(dataUrl);
-
+          
             var c = document.getElementById("canvasOne");
             var cxt = c.getContext("2d");
             c.height = c.height;
@@ -299,6 +319,7 @@
                 ctx.drawImage(img, 0, 0, img.width, img.height);
             }
             img.src = dataUrl;
+           
             setTimeout(function () {
                 upLoad();
             }, 300);
@@ -349,7 +370,7 @@
                  'removeCompleted': false,                       //是否完成后移除序列，默认为true
                  'fileSizeLimit': '0',                          //单个文件大小，0为无限制，可接受KB,MB,GB等单位的字符串值
                  'fileTypeDesc': 'All Files',                   //文件描述
-                 'fileTypeExts': '*.jpg;*.png;*.gif;*.bmp;*.txt;*.docx;*.xlsx',                         //上传的文件后缀过滤器
+                 'fileTypeExts': '*.jpg;*.png;*.gif;*.bmp',                         //上传的文件后缀过滤器
                  'onQueueComplete': function (queueData) {      //所有队列完成后事件
                      if (queueData.filesQueued > 0) {
                          //alert("上传完毕！");
@@ -392,6 +413,21 @@
             //1.获取选中的文件列表
             var fileList = inputOne2.files;
             var file = fileList[0];
+
+            if (file.name == null || file.name == "") {
+                v5.error('请选择文件', '1', 'ture');
+                return;
+            } else if (!/.(gif|jpeg|jpg|png|bmp)$/.test(file.name)) {
+                v5.error('图片类型必须是.gif,jpeg,jpg,png,bmp中的一种', '1', 'ture');
+                return;
+            }
+            //设置限制图像的大小为10MB，这里你可以自己设置
+            var fSize = 1024 * 1024 * 0.6;
+            if (file.size > fSize) {
+                v5.error('上传图片限制为600KB', '1', 'ture');
+                return;
+            }
+
             //读取文件内容
             var reader = new FileReader();
             if (file) {

@@ -99,12 +99,12 @@
                     </tr>
 
                     <tr>
-                        <td align="right">检验检测机构登记证件及号码:
+                        <td align="right">检验检测机构计量认证证书编号:
                         </td>
                         <td>
                             <input id="txtNumID" name="txtNumID" class="normal_input" type="text" maxlength="50" />
                             <select id="txtFMID" name="txtFMID">
-                                <option value="0">检测机构登记证书</option>
+                                <option value="0">检验检测机构计量认证证书编号</option>
                                 <option value="1">个人身份证</option>
                                 <option value="2">其他</option>
                             </select>

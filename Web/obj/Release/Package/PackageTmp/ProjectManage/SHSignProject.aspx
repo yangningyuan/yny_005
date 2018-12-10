@@ -125,7 +125,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="right">上传报名表图片:
+                        <td align="right">上传费用4表图片:
                         </td>
                         <td>
                             <img src="<%=oapply.FeiYongImgUrl %>" />
@@ -151,7 +151,11 @@
             ActionModel("ProjectManage/SHSignProject.aspx?Action=Add", $('#form1').serialize());
         }
         function RecheckChange() {
-            ActionModel("ProjectManage/SHSignProject.aspx?Action=Modify", $('#form1').serialize());
+            //prompt层
+            layer.prompt({ title: '请输入打回原因，并确认', formType: 2 }, function (pass, index) {
+                layer.close(index);
+                ActionModel("ProjectManage/SHSignProject.aspx?Action=Modify", { remsg: pass, oaid: $("#oaid").val() });
+            });
         }
     </script>
 </body>
