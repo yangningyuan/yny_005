@@ -116,25 +116,40 @@ namespace yny_005.Web.Handler
                     sb.Append(ListMember[i].MID + "[" + (BLL.Member.IfOnLine(ListMember[i].MID) ? "<b style='color:#A8FF24;cursor:help;' onclick='OpenTask(\"" + ListMember[i].MID + "\");'>在线</b>" : "离线") + "]" + "~");
                 }
                 string rostr = "";
-                if(!string.IsNullOrEmpty(ListMember[i].FMID))
+                if (!string.IsNullOrEmpty(ListMember[i].FMID))
                     rostr = ListMember[i].FMID.ToString().Replace("0", "检测机构登记证书").Replace("1", "个人身份证").Replace("1", "其他");
                 sb.Append(ListMember[i].MName + "~");
-                sb.Append((ListMember[i].Role.RName+"~"));
-				sb.Append(ListMember[i].Tel+ "~");
-                sb.Append( (ListMember[i].RoleCode=="DW"?"":ListMember[i].NumID) + "["+rostr+"]"+"~");
+                sb.Append((ListMember[i].Role.RName + "~"));
+                sb.Append(ListMember[i].Tel + "~");
+                sb.Append((ListMember[i].RoleCode == "DW" ? "" : ListMember[i].NumID) + "[" + rostr + "]" + "~");
                 sb.Append((ListMember[i].IsClose ? "已锁定" : "未锁定") + "~");
                 //sb.Append((ListMember[i].IsClock ? "已冻结" : "未冻结") + "~");
-                
-                
+
+
                 sb.Append(ListMember[i].MCreateDate.ToString("yyyy-MM-dd HH:mm") + "~");
                 sb.Append(ListMember[i].MDate.ToString("yyyy-MM-dd HH:mm") + "~");
                 if (!ListMember[i].MState)
                 {
-                    sb.Append("<a class='btn' href=\"javascript:SHAuto('" + ListMember[i].MID+"')\">审核通过</a>");
+                    if (!ListMember[i].FHState)
+                    {
+                        sb.Append("<a class='btn' href=\"javascript:SHAuto('" + ListMember[i].MID + "')\">审核</a>");
+                        sb.Append("<a class='pay btn btn-warning' href=\"javascript:ReAuto('" + ListMember[i].MID + "')\">不通过</a>");
+                    }
+                    else {
+                        sb.Append("<span style='color:red;'>审核不通过，原因：" + ListMember[i].Country + "</span>");
+                    }
+                    
                 }
                 else
                 {
-                    sb.Append("<span style='color:green;'>正常</span>");
+                    if (ListMember[i].FHState)
+                    {
+                        sb.Append("<span style='color:green;'>审核不通过，原因：" + ListMember[i].Country + "</span>");
+                    }
+                    else {
+                        sb.Append("<span style='color:green;'>正常</span>");
+                    }
+
                 }
                 sb.Append("≌");
             }

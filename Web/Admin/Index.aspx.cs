@@ -22,8 +22,16 @@ namespace yny_005.Web.Admin
         public int 样品已寄出 = 0;
         public string Homebtn = "";
 
+        public int 是否修改 = 0;
+
         protected override void SetPowerZone()
         {
+
+            if (TModel.FHState && !TModel.MState)
+            {
+                是否修改 = 1;
+            }
+
             if (TModel.RoleCode != "Nomal")
             {
                 Homebtn = "callhtml('/ProjectManage/MProjectList.aspx','MD用户项目列表');onclickMenu()";

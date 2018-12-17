@@ -61,7 +61,10 @@ namespace yny_005.Web.Member
                 {
                     model.QRCode = Request.Form["uploadurl"];
                 }
-                
+                if (model.FHState)
+                {
+                    model.FHState = false;
+                }
                 return model;
             }
             set

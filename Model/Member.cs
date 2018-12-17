@@ -195,7 +195,7 @@ namespace yny_005.Model
         public string NAgencyCode { get; set; }
         public Model.NewSHMoney NewSHMoney = new NewSHMoney();
         /// <summary>
-        /// 分红状态
+        ///  为true为不通过审核，
         /// </summary>
         public bool FHState { get; set; }
         /// <summary>

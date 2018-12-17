@@ -94,7 +94,7 @@
                         <td width="15%" align="right">说明
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <input id="Remark" class="normal_input" value="" runat="server" style="width: 20%;" />
+                            <textarea id="Remark" class="normal_input" value="" runat="server" style="width: 70%; height:200px;" />
                         </td>
                     </tr>
                     <tr>

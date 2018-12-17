@@ -46,6 +46,24 @@ namespace yny_005.Web.Member
             }
 		}
 
+
+        protected override string btnOther_Click()
+        {
+            Hashtable MyHs = new Hashtable();
+            string mid = Request.Form["MID"];
+            string remsg = Request.Form["remsg"];
+            Model.Member member = BLL.Member.GetModelByMID(mid);
+            //设为已审核
+            BLL.Member.UpdateMemberTran(mid, "FHState", "1", member, true, System.Data.SqlDbType.Bit, MyHs);
+            BLL.Member.UpdateMemberTran(mid, "Country", remsg, member, true, System.Data.SqlDbType.VarChar, MyHs);
+            if (BLL.CommonBase.RunHashtable(MyHs))
+            {
+                return "设置不通过成功";
+            }
+            else {
+                return "设置失败";
+            }
+        }
         protected override string btnModify_Click()
         {
             try

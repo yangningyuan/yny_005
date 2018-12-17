@@ -249,6 +249,17 @@
                                                     <col width="200">
                                                 </colgroup>
                                                 <thead>
+                                                    <%
+                                                        if (是否修改 == 1)
+                                                        {
+                                                            %>
+                                                            <tr>
+                                                                <th colspan="2"><span style="color:red;">审核不通过：<%=TModel.Country %>，请<a style="color:green;" href="javascript:void()" onclick="callhtml('/Member/Modify.aspx','基本信息');onclickMenu()">修改</a>后提交审核</span></th>
+                                                            </tr>
+                                                            <%
+                                                        }
+                                                         %>
+                                                     
                                                     <tr>
                                                         <th>已完成验证：<span><%=已完成验证 %></span>个</th>
                                                         <th>正在进行中：<span style="color: #000000;"><%=正在进行中 %></span>个</th>

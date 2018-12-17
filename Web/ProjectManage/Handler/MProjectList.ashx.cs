@@ -18,6 +18,11 @@ namespace yny_005.Web.ProjectManage.Handler
             string strWhere = "'1'='1' ";
 
 
+            if (!string.IsNullOrEmpty(context.Request["nBMTitle"]))
+            {
+                strWhere += " and DanWeiName like '%" + HttpUtility.UrlDecode(context.Request["nBMTitle"]) + "%'";
+            }
+
             if (!string.IsNullOrEmpty(context.Request["nTitle"]))
             {
                 strWhere += " and ObjName like '%" + HttpUtility.UrlDecode(context.Request["nTitle"]) + "%'";
@@ -48,6 +53,11 @@ namespace yny_005.Web.ProjectManage.Handler
             if (!TModel.Role.IsAdmin)
             {
                 strWhere += " and  objID IN(SELECT ID FROM OObject WHERE ReObjMID='"+TModel.MID+"') ";
+            }
+
+            if (!string.IsNullOrEmpty(context.Request["IsSState"]))
+            {
+                strWhere += " and  objID IN(SELECT ID FROM OObject WHERE SState='" + context.Request["IsSState"] + "') ";
             }
 
             int count;

@@ -27,6 +27,14 @@
                 }
             });
         }
+
+        function ReAuto(mid){
+            //prompt层
+            layer.prompt({ title: '请输入不通过原因，并确认', formType: 2 }, function (pass, index) {
+                layer.close(index);
+                ActionModel("Member/List.aspx?Action=Other", { remsg: pass, MID: mid });
+            });
+        }
         //setup();
     </script>
 </head>

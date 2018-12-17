@@ -130,7 +130,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="right">上传报名表图片:
+                        <td align="right">上传缴费凭证:
                         </td>
                         <td>
                             <input id="fileOne2<%=rdstr %>" type="file" capture="camera" class="">

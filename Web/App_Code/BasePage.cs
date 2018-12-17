@@ -308,7 +308,20 @@ namespace yny_005.Web
                 {
                     if ((TModel == null || !TModel.Role.Super) && !Context.Request.Url.AbsolutePath.ToUpper().Contains("MQL/LOGIN.ASPX"))
                     {
+                    if (Request.QueryString["type"] == "pc")
+                    {
                         Response.Write("<script>window.top.location.href='SysManage/Out.aspx'</script>");
+                    }
+                    else {
+                        if (System.Web.HttpContext.Current.Request.Url.ToString().Contains("Default"))
+                        {
+                            Response.Write("<script>window.top.location.href='MQL/Login.aspx'</script>");
+                        }
+                        else {
+                            Response.Write("<script>window.top.location.href='/Home/index.aspx'</script>");
+                        }
+                    }
+                    
                         Response.End();
                     }
                     else
@@ -389,7 +402,21 @@ namespace yny_005.Web
             {
                 if (NoPower())
                 {
-                    Response.Write("<script>window.top.location.href='/Home/index.aspx'</script>");
+                    if (Request.QueryString["type"] == "pc")
+                    {
+                        Response.Write("<script>window.top.location.href='/Home/index.aspx'</script>");
+                    }
+                    else {
+                        if (System.Web.HttpContext.Current.Request.Url.ToString().Contains("Default"))
+                        {
+                            Response.Write("<script>window.top.location.href='MQL/Login.aspx'</script>");
+                        }
+                        else {
+                            Response.Write("<script>window.top.location.href='/Home/index.aspx'</script>");
+                        }
+                        
+                    }
+                    
                     Response.End();
                 }
             }
