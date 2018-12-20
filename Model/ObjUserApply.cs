@@ -39,6 +39,11 @@ namespace yny_005.Model
 		private string _baomingimgurl;
 		private string _feiyongimgurl;
 		private int _sstate=0;
+
+        /// <summary>
+        /// 是否验证完成
+        /// </summary>
+        public int YZState { get; set; }
         /// <summary>
         /// 备注
         /// </summary>

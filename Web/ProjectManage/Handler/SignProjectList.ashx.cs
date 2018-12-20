@@ -29,7 +29,7 @@ namespace yny_005.Web.ProjectManage.Handler
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < ListO.Count; i++)
             {
-                Model.ObjUserApply oba = BLL.ObjUserApply.GetModelList(" MID='" + TModel.MID + "' and [OBJID]=" + ListO[i].ID + "; ").FirstOrDefault();
+                Model.ObjUserApply oba = BLL.ObjUserApply.GetModelList(" MID='" + TModel.MID + "' and [OBJID]=" + ListO[i].ID + " and YZState=0; ").FirstOrDefault();
                 sb.Append(ListO[i].ID + "~");
                 sb.Append((i + 1) + (pageIndex - 1) * pageSize + "~");
                 sb.Append(ListO[i].ReObjMID + "~");

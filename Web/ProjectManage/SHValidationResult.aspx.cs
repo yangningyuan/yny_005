@@ -27,7 +27,7 @@ namespace yny_005.Web.ProjectManage
             Model.ObjUserApply oA = BLL.ObjUserApply.GetModelOID(OUSER.BaoMingOID);
             listExcel = BLL.ObjExcel.GetModelList(" ObjOID='" + obj.ObjOID + "' ");
 
-            OSU = BLL.ObjSubUser.GetModelList(" MID='" + OUSER.MID + "' AND SpInt=" + obj.ID + " ").FirstOrDefault();
+            OSU = BLL.ObjSubUser.GetModelList(" MID='" + OUSER.MID + "' AND SpInt=" + obj.ID + " and SState!=3 ").FirstOrDefault();
             osuid.Value = OSU.ID.ToString();
             FangFa.Value = OSU.RFangFa;
             YiQi.Value = OSU.RSheBei;
@@ -64,6 +64,11 @@ namespace yny_005.Web.ProjectManage
 
             Osubuser.SState = 3;
             BLL.ObjSubUser.Update(Osubuser,MyHs);
+
+            Model.ObjUserApply oua= BLL.ObjUserApply.GetModelOID(ouser.BaoMingOID);
+            oua.YZState = 1;
+            BLL.ObjUserApply.Update(oua,MyHs);
+
 
             if (BLL.CommonBase.RunHashtable(MyHs))
             {

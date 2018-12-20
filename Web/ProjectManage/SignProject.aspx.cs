@@ -35,7 +35,7 @@ namespace yny_005.Web.ProjectManage
                 return "您的账号未审核，不能报名";
             Model.OObject obj = BLL.OObject.GetModel(Convert.ToInt32(Request.Form["oid"]));
 
-            if (Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from ObjUserApply where MID='" + TModel.MID + "' and [OBJID]=" + obj.ID + ";"))>0)
+            if (Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from ObjUserApply where MID='" + TModel.MID + "' and [OBJID]=" + obj.ID + " and YZState=0;"))>0)
                 return "您已报名该项目，请自行查看进度";
             if (obj.SState == 1)
                 return "该项目已结束，不能报名";
