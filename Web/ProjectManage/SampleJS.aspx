@@ -116,6 +116,7 @@
 
                     <tr>
                         <td width="15%" align="right">
+                             <div class="pay btn btn-warning" onclick="callhtml('/ProjectManage/MSampleList.aspx','MD样品列表');onclickMenu()">返回</div>
                         </td>
                         <td width="75%" align="left">
 

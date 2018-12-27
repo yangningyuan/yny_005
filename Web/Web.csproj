@@ -922,6 +922,7 @@
     <Content Include="ProjectManage\ModifySignProject.aspx" />
     <Content Include="ProjectManage\MProjectList.aspx" />
     <Content Include="ProjectManage\MSampleList.aspx" />
+    <Content Include="ProjectManage\MValidaList.aspx" />
     <Content Include="ProjectManage\ObjectModify.aspx" />
     <Content Include="ProjectManage\ObjectView.aspx" />
     <Content Include="ProjectManage\ProjectList.aspx" />
@@ -1461,6 +1462,10 @@
       <DependentUpon>MSampleList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="ProjectManage\Handler\MValidaList.ashx.cs">
+      <DependentUpon>MValidaList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="ProjectManage\Handler\ProjectList.ashx.cs">
       <DependentUpon>ProjectList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1514,6 +1519,13 @@
     </Compile>
     <Compile Include="ProjectManage\MSampleList.aspx.designer.cs">
       <DependentUpon>MSampleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\MValidaList.aspx.cs">
+      <DependentUpon>MValidaList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\MValidaList.aspx.designer.cs">
+      <DependentUpon>MValidaList.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProjectManage\ObjectModify.aspx.cs">
       <DependentUpon>ObjectModify.aspx</DependentUpon>
@@ -2152,6 +2164,7 @@
     <Content Include="ProjectManage\Handler\ManageSumSignProjectList.ashx" />
     <Content Include="ProjectManage\Handler\ManageProjectList.ashx" />
     <Content Include="ProjectManage\Handler\ExportExcel.ashx" />
+    <Content Include="ProjectManage\Handler\MValidaList.ashx" />
     <None Include="Properties\PublishProfiles\zx326.pubxml" />
     <Content Include="Shop\Handler\Ajax.ashx" />
     <Content Include="Shop\Handler\CarList.ashx" />

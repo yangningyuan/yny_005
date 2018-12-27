@@ -850,18 +850,27 @@ namespace yny_005.DAL
                 strSql.Append("delete from [EPJX];");
                 strSql.Append("delete from [Agents];");
 
-				//strSql.Append("delete from [C_Car];");
-				//strSql.Append("delete from [C_CarTast];");
-				//strSql.Append("delete from [C_CostDetalis];");
-				//strSql.Append("delete from [C_CostType];");
-				//strSql.Append("delete from [C_Error];");
-				//strSql.Append("delete from [C_LoanApply];");
-				//strSql.Append("delete from [C_Mileage];");
-				//strSql.Append("delete from [C_Security];");
-				//strSql.Append("delete from [C_Supplier];");
-				//strSql.Append("delete from [C_Violation];");
+                strSql.Append("delete from [ObjChild];");
+                strSql.Append("delete from [ObjExcel];");
+                strSql.Append("delete from [ObjSample];");
+                strSql.Append("delete from [ObjSub];");
+                strSql.Append("delete from [ObjSubUser];");
+                strSql.Append("delete from [ObjUser];");
+                strSql.Append("delete from [ObjUserApply];");
+                strSql.Append("delete from [OObject];");
 
-				DAL.Configuration.TModel = null;
+                //strSql.Append("delete from [C_Car];");
+                //strSql.Append("delete from [C_CarTast];");
+                //strSql.Append("delete from [C_CostDetalis];");
+                //strSql.Append("delete from [C_CostType];");
+                //strSql.Append("delete from [C_Error];");
+                //strSql.Append("delete from [C_LoanApply];");
+                //strSql.Append("delete from [C_Mileage];");
+                //strSql.Append("delete from [C_Security];");
+                //strSql.Append("delete from [C_Supplier];");
+                //strSql.Append("delete from [C_Violation];");
+
+                DAL.Configuration.TModel = null;
                 return DbHelperSQL.ExecuteSql(strSql.ToString()) > 0;
             }
             return false;

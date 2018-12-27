@@ -68,6 +68,10 @@ namespace yny_005.Web.ProjectManage
                 OSub.ResultTwo = childtwo;
                 OSub.ResultAvg = childavg;
                 OSub.Spare = item.ChildName;
+                OSub.CID = item.ID;
+                OSub.ObjID = objxx.ID;
+                OSub.URID = OU.ID;
+                OSub.SpInt = oA.ID;
                 BLL.ObjSub.Add(OSub, MyHs);
                 suboid += OSub.OID + ",";
             }

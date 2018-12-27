@@ -106,10 +106,14 @@ namespace yny_005.BLL
 		{
 			return DAL.ObjSub.GetList(strWhere);
 		}
-		/// <summary>
-		/// 获得前几行数据
-		/// </summary>
-		public static DataSet GetList(int Top,string strWhere,string filedOrder)
+        public static List<Model.ObjSub> GetList(string strWhere, int pageIndex, int pageSize, out int count)
+        {
+            return DAL.ObjSub.GetList(strWhere, pageIndex, pageSize, out count);
+        }
+        /// <summary>
+        /// 获得前几行数据
+        /// </summary>
+        public static DataSet GetList(int Top,string strWhere,string filedOrder)
 		{
 			return DAL.ObjSub.GetList(Top,strWhere,filedOrder);
 		}

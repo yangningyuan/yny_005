@@ -54,7 +54,7 @@ namespace yny_005.Model
 			get{return _oid;}
 		}
 		/// <summary>
-		/// 结果表ID
+		/// 用户项目表ID
 		/// </summary>
 		public int URID
 		{
@@ -118,15 +118,19 @@ namespace yny_005.Model
 			get{return _spare;}
 		}
 		/// <summary>
-		/// 
+		///  报名ID
 		/// </summary>
 		public int SpInt
 		{
 			set{ _spint=value;}
 			get{return _spint;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 审核状态0：未审核  1：审核合格2：不合格
+        /// </summary>
+        public int SHInt { get; set; }
+        #endregion Model
 
-	}
+    }
 }
 

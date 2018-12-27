@@ -20,6 +20,7 @@ using System.Text;
 using System.Data.SqlClient;
 using DBUtility;//Please add references
 using System.Collections;
+using System.Collections.Generic;
 
 namespace yny_005.DAL
 {
@@ -63,9 +64,9 @@ namespace yny_005.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into ObjSub(");
-			strSql.Append("OID,URID,MID,ObjID,CID,ResultOne,ResultTwo,ResultAvg,Spare,SpInt)");
+			strSql.Append("OID,URID,MID,ObjID,CID,ResultOne,ResultTwo,ResultAvg,Spare,SpInt,SHInt)");
 			strSql.Append(" values (");
-			strSql.Append("@OID,@URID,@MID,@ObjID,@CID,@ResultOne,@ResultTwo,@ResultAvg,@Spare,@SpInt)");
+			strSql.Append("@OID,@URID,@MID,@ObjID,@CID,@ResultOne,@ResultTwo,@ResultAvg,@Spare,@SpInt,@SHInt)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@OID", SqlDbType.VarChar,50),
@@ -77,7 +78,7 @@ namespace yny_005.DAL
 					new SqlParameter("@ResultTwo", SqlDbType.VarChar,50),
 					new SqlParameter("@ResultAvg", SqlDbType.VarChar,50),
 					new SqlParameter("@Spare", SqlDbType.VarChar,250),
-					new SqlParameter("@SpInt", SqlDbType.Int,4)};
+					new SqlParameter("@SpInt", SqlDbType.Int,4),new SqlParameter("@SHInt", SqlDbType.Int,4)};
 			parameters[0].Value = model.OID;
 			parameters[1].Value = model.URID;
 			parameters[2].Value = model.MID;
@@ -88,8 +89,9 @@ namespace yny_005.DAL
 			parameters[7].Value = model.ResultAvg;
 			parameters[8].Value = model.Spare;
 			parameters[9].Value = model.SpInt;
+            parameters[10].Value = model.SHInt;
 
-			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
+            object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
 			{
 				return 0;
@@ -106,9 +108,9 @@ namespace yny_005.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into ObjSub(");
-            strSql.Append("OID,URID,MID,ObjID,CID,ResultOne,ResultTwo,ResultAvg,Spare,SpInt)");
+            strSql.Append("OID,URID,MID,ObjID,CID,ResultOne,ResultTwo,ResultAvg,Spare,SpInt,SHInt)");
             strSql.Append(" values (");
-            strSql.Append("@OID,@URID,@MID,@ObjID,@CID,@ResultOne,@ResultTwo,@ResultAvg,@Spare,@SpInt)");
+            strSql.Append("@OID,@URID,@MID,@ObjID,@CID,@ResultOne,@ResultTwo,@ResultAvg,@Spare,@SpInt,@SHInt)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
                     new SqlParameter("@OID", SqlDbType.VarChar,50),
@@ -120,7 +122,7 @@ namespace yny_005.DAL
                     new SqlParameter("@ResultTwo", SqlDbType.VarChar,50),
                     new SqlParameter("@ResultAvg", SqlDbType.VarChar,50),
                     new SqlParameter("@Spare", SqlDbType.VarChar,250),
-                    new SqlParameter("@SpInt", SqlDbType.Int,4)};
+                    new SqlParameter("@SpInt", SqlDbType.Int,4),new SqlParameter("@SHInt", SqlDbType.Int,4)};
             parameters[0].Value = model.OID;
             parameters[1].Value = model.URID;
             parameters[2].Value = model.MID;
@@ -131,6 +133,7 @@ namespace yny_005.DAL
             parameters[7].Value = model.ResultAvg;
             parameters[8].Value = model.Spare;
             parameters[9].Value = model.SpInt;
+            parameters[10].Value = model.SHInt;
 
             string guid = Guid.NewGuid().ToString();
             strSql.AppendFormat("; select '{0}'", guid);
@@ -155,8 +158,9 @@ namespace yny_005.DAL
 			strSql.Append("ResultTwo=@ResultTwo,");
 			strSql.Append("ResultAvg=@ResultAvg,");
 			strSql.Append("Spare=@Spare,");
-			strSql.Append("SpInt=@SpInt");
-			strSql.Append(" where ID=@ID");
+			strSql.Append("SpInt=@SpInt,");
+            strSql.Append("SHInt=@SHInt");
+            strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@OID", SqlDbType.VarChar,50),
 					new SqlParameter("@URID", SqlDbType.Int,4),
@@ -168,7 +172,8 @@ namespace yny_005.DAL
 					new SqlParameter("@ResultAvg", SqlDbType.VarChar,50),
 					new SqlParameter("@Spare", SqlDbType.VarChar,250),
 					new SqlParameter("@SpInt", SqlDbType.Int,4),
-					new SqlParameter("@ID", SqlDbType.Int,4)};
+                    new SqlParameter("@SHInt", SqlDbType.Int,4),
+                    new SqlParameter("@ID", SqlDbType.Int,4)};
 			parameters[0].Value = model.OID;
 			parameters[1].Value = model.URID;
 			parameters[2].Value = model.MID;
@@ -179,7 +184,8 @@ namespace yny_005.DAL
 			parameters[7].Value = model.ResultAvg;
 			parameters[8].Value = model.Spare;
 			parameters[9].Value = model.SpInt;
-			parameters[10].Value = model.ID;
+            parameters[10].Value = model.SHInt;
+            parameters[11].Value = model.ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -209,7 +215,8 @@ namespace yny_005.DAL
             strSql.Append("ResultTwo=@ResultTwo,");
             strSql.Append("ResultAvg=@ResultAvg,");
             strSql.Append("Spare=@Spare,");
-            strSql.Append("SpInt=@SpInt");
+            strSql.Append("SpInt=@SpInt,");
+            strSql.Append("SHInt=@SHInt");
             strSql.Append(" where ID=@ID");
             strSql.AppendFormat(" ;select '{0}'", guid);
             SqlParameter[] parameters = {
@@ -223,6 +230,7 @@ namespace yny_005.DAL
                     new SqlParameter("@ResultAvg", SqlDbType.VarChar,50),
                     new SqlParameter("@Spare", SqlDbType.VarChar,250),
                     new SqlParameter("@SpInt", SqlDbType.Int,4),
+                    new SqlParameter("@SHInt", SqlDbType.Int,4),
                     new SqlParameter("@ID", SqlDbType.Int,4)};
             parameters[0].Value = model.OID;
             parameters[1].Value = model.URID;
@@ -234,7 +242,8 @@ namespace yny_005.DAL
             parameters[7].Value = model.ResultAvg;
             parameters[8].Value = model.Spare;
             parameters[9].Value = model.SpInt;
-            parameters[10].Value = model.ID;
+            parameters[10].Value = model.SHInt;
+            parameters[11].Value = model.ID;
 
             MyHs.Add(strSql.ToString(), parameters);
             return MyHs;
@@ -291,7 +300,7 @@ namespace yny_005.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,OID,URID,MID,ObjID,CID,ResultOne,ResultTwo,ResultAvg,Spare,SpInt from ObjSub ");
+			strSql.Append("select  top 1 ID,OID,URID,MID,ObjID,CID,ResultOne,ResultTwo,ResultAvg,Spare,SpInt,SHInt from ObjSub ");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
@@ -309,12 +318,30 @@ namespace yny_005.DAL
 				return null;
 			}
 		}
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public static DataTable GetTable(string strWhere, int pageIndex, int pageSize, out int count)
+        {
+            return DAL.CommonBase.GetTable("ObjSub", "ID", "ID desc", strWhere, pageIndex, pageSize, out count);
+        }
+        public static List<Model.ObjSub> GetList(string strWhere, int pageIndex, int pageSize, out int count)
+        {
+            List<Model.ObjSub> list = new List<Model.ObjSub>();
 
+            DataTable table = GetTable(strWhere, pageIndex, pageSize, out count);
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                list.Add(DataRowToModel(table.Rows[i]));
+            }
 
-		/// <summary>
-		/// 得到一个对象实体
-		/// </summary>
-		public static yny_005.Model.ObjSub DataRowToModel(DataRow row)
+            return list;
+        }
+
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public static yny_005.Model.ObjSub DataRowToModel(DataRow row)
 		{
 			yny_005.Model.ObjSub model=new yny_005.Model.ObjSub();
 			if (row != null)
@@ -363,7 +390,11 @@ namespace yny_005.DAL
 				{
 					model.SpInt=int.Parse(row["SpInt"].ToString());
 				}
-			}
+                if (row["SHInt"] != null && row["SHInt"].ToString() != "")
+                {
+                    model.SHInt = int.Parse(row["SHInt"].ToString());
+                }
+            }
 			return model;
 		}
 
@@ -373,7 +404,7 @@ namespace yny_005.DAL
 		public static DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,OID,URID,MID,ObjID,CID,ResultOne,ResultTwo,ResultAvg,Spare,SpInt ");
+			strSql.Append("select ID,OID,URID,MID,ObjID,CID,ResultOne,ResultTwo,ResultAvg,Spare,SpInt,SHInt ");
 			strSql.Append(" FROM ObjSub ");
 			if(strWhere.Trim()!="")
 			{
@@ -393,7 +424,7 @@ namespace yny_005.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ID,OID,URID,MID,ObjID,CID,ResultOne,ResultTwo,ResultAvg,Spare,SpInt ");
+			strSql.Append(" ID,OID,URID,MID,ObjID,CID,ResultOne,ResultTwo,ResultAvg,Spare,SpInt,SHInt ");
 			strSql.Append(" FROM ObjSub ");
 			if(strWhere.Trim()!="")
 			{

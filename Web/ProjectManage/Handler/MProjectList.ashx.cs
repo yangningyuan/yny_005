@@ -87,7 +87,17 @@ namespace yny_005.Web.ProjectManage.Handler
                 sb.Append((ListO[i].RState.ToString().Replace("0", "等待提交").Replace("1", "等待审核").Replace("2", "审核失败").Replace("3", "<span style='color:green;'>审核通过</span>")+ isSubResult) + "~");
                 sb.Append("报告下载" + "~");
                 sb.Append((ListO[i].USState.ToString().Replace("0","待审核").Replace("2","打回").Replace("3","审核通过")) + "~");
-                sb.Append((ListO[i].USState == 3? "<span style='color:green;'><a href='javascript:void(0)' style='color:green;' onclick=\"callhtml('/ProjectManage/PutZhengShu.aspx?xxid=" + ListO[i].ID + "','打印证书')\" >打印证书</a></span>" : "未通过") + "~");
+
+                int shcount= Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from ObjSub where MID='"+ListO[i].MID+"' and [objid]="+ ListO[i].ObjID + " and URID="+ ListO[i].ID+ " and (SHInt=0 or SHInt=2)"));
+                if (shcount <= 0)
+                {
+                    sb.Append((ListO[i].USState == 3 ? "<span style='color:green;'><a href='javascript:void(0)' style='color:green;' onclick=\"callhtml('/ProjectManage/PutZhengShu.aspx?xxid=" + ListO[i].ID + "','打印证书')\" >打印证书</a></span>" : "未通过") + "~");
+                }
+                else {
+                    sb.Append("未通过~");
+                }
+                
+                
                 sb.Append("<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/ObjectView.aspx?xxid=" + ListO[i].ID + "','流程')\">流程</div>");
                 sb.Append("≌");
             }
