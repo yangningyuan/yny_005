@@ -122,7 +122,9 @@
                  
                   
                     <tr>
-                        <td width="15%" align="right"></td>
+                        <td width="15%" align="right">
+                             <div class="pay btn btn-warning" onclick="callhtml('/ProjectManage/SampleList.aspx','样品列表');onclickMenu()">返回</div>
+                        </td>
                         <td width="75%" align="left">
 
                             <input type="button" class="btn-danger" value="样品损坏，重新寄送" onclick="RecheckChange();" />

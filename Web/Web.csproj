@@ -320,6 +320,8 @@
     <Content Include="Home\HomeProjectDetails.aspx" />
     <Content Include="Home\images\arrows-ffffff.png" />
     <Content Include="Home\images\lc.png" />
+    <Content Include="Home\images\liucheng.jpg" />
+    <Content Include="Home\images\logo.jpg" />
     <Content Include="Home\images\shadow.png" />
     <Content Include="Home\img\avatar.png" />
     <Content Include="Home\img\banner\1.png" />

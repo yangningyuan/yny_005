@@ -295,7 +295,7 @@ layui.use(['layer', 'element', 'util'], function () {
         // 工具
         _util();
         // skin
-        skin();
+        //skin();
         // 选项卡高度
         cardTitleHeight = $(document).find(".layui-tab[lay-filter='card'] ul.layui-tab-title").height();
         // 需要减去的高度

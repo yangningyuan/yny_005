@@ -253,7 +253,7 @@ div.left-sidebar{
 	margin-bottom:20px;
 }
 h5.line{
-	border-bottom:1px solid #ea4748;
+	border-bottom:1px solid #1779c0;
 	padding-bottom:8px;
 	position:relative;
 	margin-bottom:10px;
@@ -261,7 +261,7 @@ h5.line{
 }
 h5.line>span{
 	width:auto;
-	border-bottom:4px solid #ea4748;
+	border-bottom:4px solid #1779c0;
 	padding-bottom:7px;
 }
 .alignright{ float:right;  margin:0 0 10px 20px}

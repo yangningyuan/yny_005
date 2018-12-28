@@ -115,7 +115,7 @@
 
 
                     <tr>
-                        <td width="15%" align="right"> <input type="button" class="btn btn-danger" style="" value="审核，不通过" onclick="RecheckChange();" /></td>
+                        <td width="15%" align="right"> <div class="pay btn btn-warning" onclick="callhtml('/ProjectManage/MProjectList.aspx','项目报名情况及状态查询');onclickMenu()">返回</div><input type="button" class="btn btn-danger" style="" value="审核，不通过" onclick="RecheckChange();" /></td>
                         <td width="75%" align="left">
 
                             <input type="button" class="normal_btnok" value="通过验证结果" onclick="checkChange();" />

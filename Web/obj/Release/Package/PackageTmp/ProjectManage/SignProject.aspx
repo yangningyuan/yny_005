@@ -145,7 +145,9 @@
                     </tr>
 
                     <tr>
-                        <td width="15%" align="right"></td>
+                        <td width="15%" align="right">
+                             <div class="pay btn btn-warning" onclick="callhtml('/ProjectManage/SignProjectList.aspx','能力验证项目报名');onclickMenu()">返回</div>
+                        </td>
                         <td width="75%" align="left">
 
                             <input type="button" class="normal_btnok" value="提交报名表" onclick="checkChange();" />
