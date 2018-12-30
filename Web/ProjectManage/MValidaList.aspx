@@ -59,7 +59,9 @@
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
                 <input id="HYmid" name="txtKey" placeholder="会员名称" data-name="txtKey" type="text" class="sinput" />
-                <%--<input id="nTitle" name="txtKey" placeholder="项目名称" data-name="txtKey" type="text" class="sinput" />--%>
+                <input id="ObjName" name="txtKey" placeholder="项目名称" data-name="txtKey" type="text" class="sinput" />
+                <input id="ObjCode" name="txtKey" placeholder="项目编号" data-name="txtKey" type="text" class="sinput" />
+                <input id="ObjReMID" name="txtKey" placeholder="发布项目单位账号" data-name="txtKey" type="text" class="sinput" />
                 <input name="txtKey" data-name="txtKey" id="bmoid" value="<%=Request.QueryString["bmoid"] %>" type="text" class="sinput" style="width: 120px; display: none;" />
             </div>
 

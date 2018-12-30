@@ -43,9 +43,19 @@ namespace yny_005.Web.ProjectManage.Handler
                 strWhere += " and SHInt ="+context.Request["SHState"] +" ";
             }
 
-            if (!string.IsNullOrEmpty(context.Request["bmoid"]))
+            if (!string.IsNullOrEmpty(context.Request["ObjCode"]))
             {
-                strWhere += " and OBJID=" + context.Request["bmoid"] + "";
+                strWhere += " and  objID IN(SELECT ID FROM OObject WHERE ObjOID like  '%" + context.Request["ObjCode"].Trim() + "%') ";
+            }
+
+            if (!string.IsNullOrEmpty(context.Request["ObjName"]))
+            {
+                strWhere += " and  objID IN(SELECT ID FROM OObject WHERE ObjName like  '%" + context.Request["ObjName"].Trim() + "%') ";
+            }
+
+            if (!string.IsNullOrEmpty(context.Request["ObjReMID"]))
+            {
+                strWhere += " and  objID IN(SELECT ID FROM OObject WHERE ReObjMID =  '" + context.Request["ObjReMID"].Trim() + "') ";
             }
 
 

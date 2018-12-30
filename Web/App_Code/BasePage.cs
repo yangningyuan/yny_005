@@ -313,13 +313,13 @@ namespace yny_005.Web
                         Response.Write("<script>window.top.location.href='SysManage/Out.aspx'</script>");
                     }
                     else {
-                        if (System.Web.HttpContext.Current.Request.Url.ToString().Contains("Default"))
-                        {
+                        //if (System.Web.HttpContext.Current.Request.Url.ToString().Contains("Default"))
+                        //{
                             Response.Write("<script>window.top.location.href='MQL/Login.aspx'</script>");
-                        }
-                        else {
-                            Response.Write("<script>window.top.location.href='/Home/index.aspx'</script>");
-                        }
+                        //}
+                        //else {
+                        //    Response.Write("<script>window.top.location.href='/Home/index.aspx'</script>");
+                        //}
                     }
                     
                         Response.End();
