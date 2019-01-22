@@ -67,6 +67,7 @@
                  <input id="nBMTitle" name="txtKey" placeholder="部门名称" data-name="txtKey"  type="text" class="sinput" />
                  <input id="nTitle" name="txtKey" placeholder="项目名称" data-name="txtKey"  type="text" class="sinput" />
                  <input name="txtKey" data-name="txtKey"  id="bmoid"  value="<%=Request.QueryString["bmoid"] %>" type="text" class="sinput" style="width: 120px; display:none;" />
+                 <input name="txtKey" data-name="txtKey"  id="mid"  value="<%=Request.QueryString["bmmid"] %>" type="text" class="sinput" style="width: 120px; display:none;" />
             </div>
 
         </div>
@@ -78,6 +79,8 @@
                     <th>序号
                     </th>
                     <th>部门
+                    </th>
+                    <th>报名单位
                     </th>
                     <th>验证项目名称
                     </th>

@@ -33,6 +33,7 @@ namespace yny_005.Web.AjaxM
                 model.NumID = _context.Request.Form["txtNumID"].Trim();
                 model.QQ = _context.Request.Form["txtQQ"].Trim();
                 model.Email = _context.Request.Form["txtEmail"].Trim();
+                model.Alipay = _context.Request.Form["txtYouBian"].Trim();
                 model.MCreateDate = DateTime.Now;
                 model.MDate = DateTime.MaxValue;
                 model.Salt = new Random().Next(10000, 99999).ToString();

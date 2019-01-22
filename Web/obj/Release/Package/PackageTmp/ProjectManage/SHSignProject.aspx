@@ -125,7 +125,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="right">上传费用4表图片:
+                        <td align="right">上传费用表图片:
                         </td>
                         <td>
                             <img src="<%=oapply.FeiYongImgUrl %>" />
@@ -134,6 +134,7 @@
 
                     <tr>
                         <td width="15%" align="right">
+                             <div class="pay btn btn-warning" onclick="callhtml('/ProjectManage/ManageSHSignProjectList.aspx','MD项目报名列表');onclickMenu()">返回</div>
                             <input type="button" class="btn btn-danger" style="" value="不符合，打回" onclick="RecheckChange();" />
                         </td>
                         <td width="75%" align="left">

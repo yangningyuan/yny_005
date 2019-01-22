@@ -70,23 +70,20 @@
         <div id="finance">
             <form id="form1">
                 <table cellpadding="0" cellspacing="0">
-
                     <tr>
                         <td width="30%" align="right">用户名:
                         </td>
                         <td>
-                            <input id="txtMID" name="txtMID" runat="server" class="normal_input" type="text" maxlength="20" /><span
-                                class="dotted">*</span>
+                            <input id="txtMID" name="txtMID" runat="server" class="normal_input" type="text" maxlength="20" /><span class="dotted" style="color: red;">*</span>
                         </td>
                     </tr>
                     <tr>
                         <td align="right">实验室单位名称:
                         </td>
                         <td>
-                            <input id="txtMName" name="txtMName" class="normal_input" type="text" maxlength="30" />
+                            <input id="txtMName" name="txtMName" class="normal_input" type="text" maxlength="30" /><span class="dotted" style="color: red;">*</span>
                         </td>
                     </tr>
-
                     <tr>
                         <td align="right">人员角色:
                         </td>
@@ -94,7 +91,7 @@
                             <select id="txtRole" name="txtRole">
                                 <option value="DW">单位</option>
                                 <option value="Nomal">会员</option>
-                            </select>
+                            </select><span class="dotted" style="color: red;">*</span>
                         </td>
                     </tr>
 
@@ -107,21 +104,28 @@
                                 <option value="0">检验检测机构计量认证证书编号</option>
                                 <option value="1">个人身份证</option>
                                 <option value="2">其他</option>
-                            </select>
+                            </select><span class="dotted" style="color: red;">*</span>
                         </td>
                     </tr>
                     <tr>
-                        <td align="right">地址邮编:
+                        <td align="right">地址:
                         </td>
                         <td>
-                            <input id="txtAddress" name="txtAddress" class="normal_input" type="text" maxlength="50" />
+                            <input id="txtAddress" name="txtAddress" class="normal_input" type="text" maxlength="50" /><span class="dotted" style="color: red;">*</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">邮编:
+                        </td>
+                        <td>
+                            <input id="txtYouBian" name="txtYouBian" class="normal_input" type="text" maxlength="50" /><span class="dotted" style="color: red;">*</span>
                         </td>
                     </tr>
                     <tr>
                         <td align="right">联系人:
                         </td>
                         <td>
-                            <input id="txtBankCardName" name="txtBankCardName" class="normal_input" type="text" maxlength="20" />
+                            <input id="txtBankCardName" name="txtBankCardName" class="normal_input" type="text" maxlength="20" /><span class="dotted" style="color: red;">*</span>
 
                         </td>
                     </tr>
@@ -129,7 +133,7 @@
                         <td align="right">电话:
                         </td>
                         <td>
-                            <input id="txtTel" name="txtTel" class="normal_input" type="text" maxlength="11" />
+                            <input id="txtTel" name="txtTel" class="normal_input" type="text" maxlength="11" /><span class="dotted" style="color: red;">*</span>
 
                         </td>
                     </tr>
@@ -137,7 +141,7 @@
                         <td align="right">传真:
                         </td>
                         <td>
-                            <input id="txtQQ" name="txtQQ" class="normal_input" type="text" maxlength="50" />
+                            <input id="txtQQ" name="txtQQ" class="normal_input" type="text" maxlength="50" /><span class="dotted" style="color: red;">*</span>
 
                         </td>
                     </tr>
@@ -145,7 +149,7 @@
                         <td align="right">电子邮件:
                         </td>
                         <td>
-                            <input id="txtEmail" name="txtEmail" class="normal_input" type="text" maxlength="50" />
+                            <input id="txtEmail" name="txtEmail" class="normal_input" type="text" maxlength="50" /><span class="dotted" style="color: red;">*</span>
 
                         </td>
                     </tr>
@@ -154,7 +158,7 @@
                         <td align="right">登录密码:
                         </td>
                         <td>
-                            <input id="txtPassword" name="txtPassword" class="normal_input" type="password" maxlength="20" /><span class="redWord dotted">*(6-20个字母或数字组合)</span>
+                            <input id="txtPassword" name="txtPassword" class="normal_input" type="password" maxlength="20" /><span class="redWord dotted" style="color: red;">*(6-20个字母或数字组合)</span>
                         </td>
                     </tr>
                     <tr>
@@ -162,7 +166,7 @@
                         </td>
                         <td>
                             <input id="txtPassword2" name="txtPassword2" class="normal_input" type="password"
-                                maxlength="20" /><span class="dotted">*</span>
+                                maxlength="20" /><span class="dotted" style="color: red;">*</span>
                         </td>
                     </tr>
 

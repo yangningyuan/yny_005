@@ -45,10 +45,9 @@ namespace yny_005.Web.Member
                 if (TModel.Role.IsAdmin)
                 {
                     model.MName = Request.Form["txtMName"].Trim();
-
-                    model.Alipay = Request.Form["txtAlipay"];
                     model.QRCode = Request.Form["txtQRCode"];
                 }
+                model.Alipay = Request.Form["txtYouBian"];
 
                 model.BankCardName = Request.Form["txtBankCardName"];
                 model.Address = Request.Form["txtAddress"].Trim();
@@ -79,6 +78,7 @@ namespace yny_005.Web.Member
                     txtBankCardName.Value = value.BankCardName;
                     txtTel.Value = value.Tel;
                     txtQQ.Value = value.QQ;
+                    txtYouBian.Value = value.Alipay;
                     txtEmail.Value = value.Email;
                    
                 }

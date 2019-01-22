@@ -47,7 +47,10 @@ namespace yny_005.Web.ProjectManage.Handler
             {
                 strWhere += " and OBJID=" + context.Request["bmoid"] + "";
             }
-
+            if (!string.IsNullOrEmpty(context.Request["mid"]))
+            {
+                strWhere += " and MID='" + context.Request["mid"] + "'";
+            }
 
             //如果是单位部门的话 能管理自己发布的项目
             if (!TModel.Role.IsAdmin)
@@ -71,6 +74,7 @@ namespace yny_005.Web.ProjectManage.Handler
                 sb.Append(ListO[i].ID + "~");
                 sb.Append((i + 1) + (pageIndex - 1) * pageSize + "~");
                 sb.Append(ListO[i].DanWeiName + "~");
+                sb.Append(ListO[i].MID + "~");
                 sb.Append(ListO[i].ObjName + "~");
                 sb.Append(obj.JGDate + "~");
                 //sb.Append((objsub != null ? objsub.ResultOne : "") + "~");

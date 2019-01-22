@@ -42,10 +42,17 @@
                         </td>
                     </tr>
                      <tr>
-                        <td align="right">地址邮编:
+                        <td align="right">地址:
                         </td>
                         <td>
                             <input id="txtAddress" runat="server" name="txtAddress" class="normal_input" type="text" maxlength="50" />
+                        </td>
+                    </tr>
+                      <tr>
+                        <td align="right">邮编:
+                        </td>
+                        <td>
+                            <input id="txtYouBian" runat="server" name="txtYouBian" class="normal_input" type="text" maxlength="50" />
                         </td>
                     </tr>
                         <tr>

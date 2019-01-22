@@ -58,6 +58,23 @@
             </div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
+
+                <select id="JGWhere" name="txtKey" data-name="txtKey">
+                    <option value="">查询结果</option>
+                    <option value="ResultOne">结果1</option>
+                    <option value="ResultTwo">结果2</option>
+                    <option value="ResultAvg">平均值</option>
+                </select>
+                <select id="JGType" name="txtKey" data-name="txtKey" >
+                    <option value="">查询类型</option>
+                    <option value=">">></option>
+                    <option value="<"><</option>
+                    <option value=">=">>=</option>
+                    <option value="<="><=</option>
+                </select>
+                <input id="JGValue" name="txtKey" placeholder="值" data-name="txtKey" type="text" class="sinput" />
+
+
                 <input id="HYmid" name="txtKey" placeholder="会员名称" data-name="txtKey" type="text" class="sinput" />
                 <input id="ObjName" name="txtKey" placeholder="项目名称" data-name="txtKey" type="text" class="sinput" />
                 <input id="ObjCode" name="txtKey" placeholder="项目编号" data-name="txtKey" type="text" class="sinput" />

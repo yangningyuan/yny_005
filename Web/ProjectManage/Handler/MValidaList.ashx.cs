@@ -58,6 +58,10 @@ namespace yny_005.Web.ProjectManage.Handler
                 strWhere += " and  objID IN(SELECT ID FROM OObject WHERE ReObjMID =  '" + context.Request["ObjReMID"].Trim() + "') ";
             }
 
+            if (!string.IsNullOrEmpty(context.Request["JGWhere"])&& !string.IsNullOrEmpty(context.Request["JGType"])&& !string.IsNullOrEmpty(context.Request["JGValue"]))
+            {
+                strWhere += " and "+ context.Request["JGWhere"] + context.Request["JGType"] + context.Request["JGValue"] + " ";
+            }
 
             //如果是单位部门的话 能管理自己发布的项目
             if (!TModel.Role.IsAdmin)

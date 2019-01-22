@@ -109,7 +109,7 @@ namespace yny_005.Web.Handler
                 sb.Append((i + 1) + (pageIndex - 1) * pageSize + "~");
                 if (ListMember[i].Role.CanSH)
                 {
-                    sb.Append("<span style='color:red;'>" + ListMember[i].MID + "[" + (BLL.Member.IfOnLine(ListMember[i].MID) ? "<b style='color:#A8FF24;cursor:help;' onclick='OpenTask(\"" + ListMember[i].MID + "\");'>在线</b>" : "离线") + "]" + "</span>" + "~");
+                    sb.Append("<a href='javascript:void(0)' onclick=\"callhtml('/ProjectManage/MProjectList.aspx?bmmid=" + ListMember[i].MID+"','项目进度查询');onclickMenu()\"><span style='color:red;'>" + ListMember[i].MID + "[" + (BLL.Member.IfOnLine(ListMember[i].MID) ? "<b style='color:#A8FF24;cursor:help;' onclick='OpenTask(\"" + ListMember[i].MID + "\");'>在线</b>" : "离线") + "]" + "</span></a>" + "~");
                 }
                 else
                 {
