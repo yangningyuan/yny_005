@@ -121,10 +121,8 @@ namespace yny_005.Web.Car.Handler
                 sb.Append("10");
                 sb.Append("≠");
                 //内容(买家信息
-
                 Model.Member mc1= BLL.Member.GetModelByMID(ListNotice[i].CarSJ1);
                 Model.Member mc2 = BLL.Member.GetModelByMID(ListNotice[i].CarSJ2);
-
 
                 sb.Append("供应商地址:" + ListNotice[i].SupplierAddress);
                 sb.Append("<br/>主司机:" +(mc1!=null?mc1.MName:"") );

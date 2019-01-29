@@ -138,7 +138,6 @@ namespace yny_005.Web.Handler
                     else {
                         sb.Append("<span style='color:red;'>审核不通过，原因：" + ListMember[i].Country + "</span>");
                     }
-                    
                 }
                 else
                 {
@@ -149,9 +148,22 @@ namespace yny_005.Web.Handler
                     else {
                         sb.Append("<span style='color:green;'>正常</span>");
                     }
-
                 }
                 sb.Append("≌");
+                sb.Append("≠");
+                ////数量
+                sb.Append("10");
+                sb.Append("≠");
+
+                sb.Append("地址:" + ListMember[i].Address);
+                sb.Append("<br>邮编:" + ListMember[i].Alipay);
+                sb.Append("<br>联系人:" + ListMember[i].BankCardName);
+                sb.Append("<br>电话:" + ListMember[i].Tel);
+                sb.Append("<br>传真:" + ListMember[i].QQ);
+                sb.Append("<br>电子邮件:" + ListMember[i].Email);
+
+                sb.Append("≌");
+
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };
 
