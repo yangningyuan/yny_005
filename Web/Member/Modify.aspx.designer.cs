@@ -58,6 +58,33 @@ namespace yny_005.Web.Member {
         protected global::System.Web.UI.HtmlControls.HtmlSelect txtFMID;
         
         /// <summary>
+        /// ddlProvince 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ddlProvince;
+        
+        /// <summary>
+        /// ddlCity 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ddlCity;
+        
+        /// <summary>
+        /// ddlZone 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ddlZone;
+        
+        /// <summary>
         /// txtAddress 控件。
         /// </summary>
         /// <remarks>

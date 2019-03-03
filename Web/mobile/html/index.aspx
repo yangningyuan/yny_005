@@ -18,8 +18,9 @@
     <link href="/plugin/layui/css/layui.css" rel="stylesheet" />
     <link href="/mobile/conn/iconfont/iconfont.css" rel="stylesheet" />
     <script src="/mobile/js/jquery-1.11.3.js"></script>
-    <script src="/mobile/js/stack.js" type="text/javascript"></script>
     <script src="/mobile/conn/laydate/laydate.js"></script>
+	<script src="/Admin/pop/js/stack.js"></script>
+
 
 </head>
 

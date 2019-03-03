@@ -44,10 +44,11 @@ namespace yny_005.Web.ProjectManage.Handler
                 sb.Append(ListO[i].ID + "~");
                 sb.Append((i + 1) + (pageIndex - 1) * pageSize + "~");
                 sb.Append(obj.ObjOID + "~");
-                sb.Append(ListO[i].BaoMingCode + "~");
                 sb.Append(obj.ObjName + "~");
-                sb.Append(ListO[i].MID + "~");
+                sb.Append(ListO[i].BaoMingCode + "~");
                 sb.Append(ListO[i].DanWeiName + "~");
+                sb.Append(ListO[i].MID + "~");
+                
                 sb.Append(ListO[i].CreateDate.ToString("yyyy-MM-dd HH:mm") + "~");
                 sb.Append("<a href='" + ListO[i].FeiYongImgUrl + "' target='_blank'><img width='80' height='80' src='" + ListO[i].FeiYongImgUrl + "' /></a>" + "~");
                 sb.Append("<a href='" + ListO[i].BaoMingImgUrl + "' target='_blank'><img width='80' height='80' src='" + ListO[i].BaoMingImgUrl + "' /></a>" + "~");

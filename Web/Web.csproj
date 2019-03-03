@@ -286,6 +286,7 @@
     <Content Include="Admin\pop\js\jquery-1.11.1.min.js" />
     <Content Include="Admin\pop\js\jquery.qrcode.min.js" />
     <Content Include="Admin\pop\js\linkage.js" />
+    <Content Include="Admin\pop\js\stack.js" />
     <Content Include="Admin\pop\js\TableToExcel.js" />
     <Content Include="Admin\pop\css\pop.css" />
     <Content Include="Admin\pop\css\V5-UI.css" />
@@ -918,6 +919,7 @@
     <Content Include="plugin\uploadify\__MACOSX\._Change Log.txt" />
     <Content Include="plugin\uploadify\__MACOSX\._uploadify.swf" />
     <Content Include="ProjectManage\AddProject.aspx" />
+    <Content Include="ProjectManage\AddResultDown.aspx" />
     <Content Include="ProjectManage\ManageProjectList.aspx" />
     <Content Include="ProjectManage\ManageSHSignProjectList.aspx" />
     <Content Include="ProjectManage\ManageSumSignProjectList.aspx" />
@@ -1439,6 +1441,13 @@
     </Compile>
     <Compile Include="ProjectManage\AddProject.aspx.designer.cs">
       <DependentUpon>AddProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\AddResultDown.aspx.cs">
+      <DependentUpon>AddResultDown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\AddResultDown.aspx.designer.cs">
+      <DependentUpon>AddResultDown.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProjectManage\Handler\ExportExcel.ashx.cs">
       <DependentUpon>ExportExcel.ashx</DependentUpon>

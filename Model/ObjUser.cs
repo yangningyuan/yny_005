@@ -179,7 +179,7 @@ namespace yny_005.Model
 			get{return _rimgurl;}
 		}
 		/// <summary>
-		/// 
+		/// 结果报告上传地址
 		/// </summary>
 		public string Spare
 		{

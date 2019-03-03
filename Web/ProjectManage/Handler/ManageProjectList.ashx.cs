@@ -23,6 +23,22 @@ namespace yny_005.Web.ProjectManage.Handler
                 strWhere += " and ObjName like '%" + HttpUtility.UrlDecode(context.Request["nTitle"]) + "%'";
             }
 
+            if (!string.IsNullOrEmpty(context.Request["IsJieShu"]))
+            {
+                strWhere += " and SState in(" + HttpUtility.UrlDecode(context.Request["IsJieShu"]) + ")";
+            }
+            if (!string.IsNullOrEmpty(context.Request["IsShenHe"]))
+            {
+                strWhere += " and OState in(" + HttpUtility.UrlDecode(context.Request["IsShenHe"]) + ")";
+            }
+            if (!string.IsNullOrEmpty(context.Request["IsGuoQi"]))
+            {
+                if(context.Request["IsGuoQi"]=="0")
+                    strWhere += " and BMDate>getdate() ";
+                else
+                    strWhere += " and BMDate<getdate() ";
+            }
+
             //如果是单位部门的话 能管理自己发布的项目
             if (!TModel.Role.IsAdmin)
             {
@@ -72,8 +88,21 @@ namespace yny_005.Web.ProjectManage.Handler
                 sb.Append("<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/MSampleList.aspx?bmoid=" + ListO[i].ID + "','样品列表')\">样品列表</div>" + "~");
                 sb.Append("<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/MProjectList.aspx?bmoid=" + ListO[i].ID + "','结果验证列表')\">结果验证列表</div>" + "~");
 
-
-                sb.Append("<div  class=\"pay btn btn-warning\" onclick=\"callhtml('/ProjectManage/ObjectModify.aspx?xxid=" + ListO[i].ID + "','修改')\">修改</div>");
+                if (ListO[i].SState == 0)
+                {
+                    sb.Append("<div  class=\"pay btn btn-warning\" onclick=\"callhtml('/ProjectManage/ObjectModify.aspx?xxid=" + ListO[i].ID + "','修改')\">修改</div>");
+                }
+                else {
+                    if (TModel.Role.IsAdmin)
+                    {
+                        sb.Append("<div  class=\"pay btn btn-warning\" onclick=\"callhtml('/ProjectManage/ObjectModify.aspx?xxid=" + ListO[i].ID + "','修改')\">修改</div>");
+                    }
+                    else {
+                        sb.Append("<div  class=\"pay btn btn-warning\"  style=\"background-color: darkgray;\">修改</div>");
+                    }
+                    
+                }
+                
 
                 sb.Append("≌");
             }

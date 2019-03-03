@@ -41,7 +41,15 @@ namespace yny_005.Web.ProjectManage.Handler
                 sb.Append((oba != null ? oba.ReSpare : "") + "~");
                 if (ListO[i].SState == 0)
                 {
-                    sb.Append((BMState(TModel.MID, ListO[i].ID) == "可报名" ? "<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/SignProject.aspx?xxid=" + ListO[i].ID + "','报名')\">报名</div > " : ""));
+                    if (ListO[i].BMDate < DateTime.Now)
+                    {
+                        sb.Append((BMState(TModel.MID, ListO[i].ID) == "可报名" ? "<div  class=\"pay btn btn-success\" style=\"background-color: darkgray;\" >报名</div > " : ""));
+                    }
+                    else
+                    {
+                        sb.Append((BMState(TModel.MID, ListO[i].ID) == "可报名" ? "<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/SignProject.aspx?xxid=" + ListO[i].ID + "','报名')\">报名</div > " : ""));
+                    }
+                    
                     if (oba != null && oba.SState == 1)
                     {
                         sb.Append("<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/ModifySignProject.aspx?xxid=" + ListO[i].ID + "&bmid=" + oba.ID + "','修改')\">修改</div>");

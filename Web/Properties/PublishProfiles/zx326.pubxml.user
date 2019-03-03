@@ -1036,7 +1036,7 @@
       <publishTime>12/27/2018 23:49:49</publishTime>
     </File>
     <File Include="bin/yny_005.Web.dll">
-      <publishTime>01/22/2019 23:04:08</publishTime>
+      <publishTime>01/29/2019 22:37:10</publishTime>
     </File>
     <File Include="bin/zx326.BLL.dll">
       <publishTime>07/29/2017 11:18:17</publishTime>
@@ -1627,7 +1627,7 @@
       <publishTime>09/12/2018 21:11:02</publishTime>
     </File>
     <File Include="Member/List.aspx">
-      <publishTime>12/16/2018 19:42:40</publishTime>
+      <publishTime>01/29/2019 21:58:21</publishTime>
     </File>
     <File Include="Member/MemberYJList.aspx">
       <publishTime>09/12/2018 21:11:02</publishTime>

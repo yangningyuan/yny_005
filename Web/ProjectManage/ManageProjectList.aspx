@@ -27,6 +27,34 @@
             </div>--%>
             <%--<div class="pay" onclick="UpDateByID('Message/NoticeModify.aspx?','修改公告',900,470);">
                 修改项目</div>--%>
+            <div class="cheeckbox" style="float: left;">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            <select id="IsJieShu" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
+                                <option value="">是否结束</option>
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="IsShenHe" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
+                                <option value="">是否审核</option>
+                                <option value="3">是</option>
+                                <option value="0,1,2">否</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="IsGuoQi" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
+                                <option value="">是否过期</option>
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
             <div class="pay" onclick="v5.show('ProjectManage/AddProject.aspx','发布项目','url',900,470)">
                 发布项目
             </div>
@@ -96,7 +124,7 @@
             //prompt层
             layer.prompt({ title: '请输入打回原因，并确认', formType: 2 }, function (pass, index) {
                 layer.close(index);
-                ActionModel("ProjectManage/ManageProjectList.aspx?Action=Modify", { remsg: pass, oid: oid});
+                ActionModel("ProjectManage/ManageProjectList.aspx?Action=Modify", { remsg: pass, oid: oid });
             });
         }
 

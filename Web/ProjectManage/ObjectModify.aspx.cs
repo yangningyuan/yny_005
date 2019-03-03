@@ -27,6 +27,7 @@ namespace yny_005.Web.ProjectManage
             ComDate.Value = objModel.JGDate.ToString();
             ObjName.Value = objModel.ObjName;
             ObjCode.Value = objModel.ObjOID;
+            txtJSStatus.Value = objModel.SState.ToString();
         }
 
         protected override string btnAdd_Click()
@@ -43,6 +44,10 @@ namespace yny_005.Web.ProjectManage
             {
                 obj.ReSpare = "";
                 obj.OState = 0;
+            }
+            if (TModel.Role.IsAdmin)
+            {
+                obj.SState = Convert.ToInt32(Request.Form["txtJSStatus"]);
             }
 
             obj.BMDate = Convert.ToDateTime(Request.Form["BMstateDate"]);

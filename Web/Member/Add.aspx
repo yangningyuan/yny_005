@@ -107,8 +107,29 @@
                             </select><span class="dotted" style="color: red;">*</span>
                         </td>
                     </tr>
+                      <tr>
+                        <td align="right">省份:
+                        </td>
+                        <td>
+                            <input id="ddlProvince" name="ddlProvince" class="normal_input" type="text" maxlength="50" /><span class="dotted" style="color: red;">*</span>
+                        </td>
+                    </tr>
+                      <tr>
+                        <td align="right">市:
+                        </td>
+                        <td>
+                            <input id="ddlCity" name="ddlCity" class="normal_input" type="text" maxlength="50" /><span class="dotted" style="color: red;">*</span>
+                        </td>
+                    </tr>
+                      <tr>
+                        <td align="right">县区:
+                        </td>
+                        <td>
+                            <input id="ddlZone" name="ddlZone" class="normal_input" type="text" maxlength="50" /><span class="dotted" style="color: red;">*</span>
+                        </td>
+                    </tr>
                     <tr>
-                        <td align="right">地址:
+                        <td align="right">详细地址:
                         </td>
                         <td>
                             <input id="txtAddress" name="txtAddress" class="normal_input" type="text" maxlength="50" /><span class="dotted" style="color: red;">*</span>

@@ -77,48 +77,65 @@
                                     </tr>
                                 </thead>
                                 <tbody id="SubDemo">
-                                   
-                                        <%
-                                            foreach (var item in listChild)
-                                            {
-                                                %>
-                                     <tr>
-                                         <td><%=item.ChildName %></td>
+
+                                    <%
+                                        foreach (var item in listChild)
+                                        {
+                                    %>
+                                    <tr>
+                                        <td><%=item.ChildName %></td>
                                         <td><%=item.ChildValue %></td>
                                     </tr>
                                     <%
-                                            }
-                                             %>
-
-                                        
+                                        }
+                                    %>
                                 </tbody>
                             </table>
-                            
+
                         </td>
                     </tr>
                     <tr>
                         <td width="15%" align="right">说明
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <textarea id="Remark" class="normal_input" value="" runat="server" style="width: 70%; height:200px;" />
+                            <textarea id="Remark" class="normal_input" value="" runat="server" style="width: 70%; height: 200px;" />
                         </td>
                     </tr>
                     <tr>
                         <td width="15%" align="right">报名截止日期
                         </td>
                         <td width="75%" style="height: 40px;">
-                            
-                            <input type="text" class="layui-input" id="BMstateDate" name="BMstateDate" runat="server"  style="width: 20%;"  placeholder="">
+
+                            <input type="text" class="layui-input" id="BMstateDate" name="BMstateDate" runat="server" style="width: 20%;" placeholder="">
                         </td>
                     </tr>
                     <tr>
                         <td width="15%" align="right">项目结束日期
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <input type="text" class="layui-input" id="ComDate"  name="ComDate" style="width: 20%;" runat="server"  placeholder="">
+                            <input type="text" class="layui-input" id="ComDate" name="ComDate" style="width: 20%;" runat="server" placeholder="">
                         </td>
                     </tr>
-                  <tr>
+                    <%
+                        if (TModel.Role.IsAdmin)
+                        {
+                    %>
+                    <tr>
+                        <td width="15%" align="right">是否结束此项目
+                        </td>
+                        <td width="75%" style="height: 40px;">
+                            <select id="txtJSStatus" name="txtJSStatus" runat="server">
+                                <option value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <%
+                        }
+
+                    %>
+
+                    <tr>
                         <td width="15%" align="right">文档
                         </td>
                         <td width="75%" style="height: 40px;">
@@ -156,7 +173,9 @@
                     </tr>
 
                     <tr>
-                        <td width="15%" align="right"></td>
+                        <td width="15%" align="right">
+                            <div class="pay btn btn-warning" onclick="javascript:StackPop()">返回</div>
+                        </td>
                         <td width="75%" align="left">
 
                             <input type="button" class="normal_btnok" value="修改项目" onclick="checkChange();" />
@@ -181,7 +200,7 @@
              , type: 'datetime'
             });
         });
-       
+
 
         function checkChange() {
             if ($('#ObjName').val() == "") {

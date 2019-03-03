@@ -109,7 +109,7 @@ namespace yny_005.Web.Handler
                 sb.Append((i + 1) + (pageIndex - 1) * pageSize + "~");
                 if (ListMember[i].Role.CanSH)
                 {
-                    sb.Append("<a href='javascript:void(0)' onclick=\"callhtml('/ProjectManage/MProjectList.aspx?bmmid=" + ListMember[i].MID+"','项目进度查询');onclickMenu()\"><span style='color:red;'>" + ListMember[i].MID + "[" + (BLL.Member.IfOnLine(ListMember[i].MID) ? "<b style='color:#A8FF24;cursor:help;' onclick='OpenTask(\"" + ListMember[i].MID + "\");'>在线</b>" : "离线") + "]" + "</span></a>" + "~");
+                    sb.Append("<a href='javascript:void(0)' onclick=\"callhtml('/ProjectManage/MProjectList.aspx?bmmid=" + ListMember[i].MID + "','项目进度查询');onclickMenu()\"><span style='color:red;'>" + ListMember[i].MID + "[" + (BLL.Member.IfOnLine(ListMember[i].MID) ? "<b style='color:#A8FF24;cursor:help;' onclick='OpenTask(\"" + ListMember[i].MID + "\");'>在线</b>" : "离线") + "]" + "</span></a>" + "~");
                 }
                 else
                 {
@@ -155,7 +155,7 @@ namespace yny_005.Web.Handler
                 sb.Append("10");
                 sb.Append("≠");
 
-                sb.Append("地址:" + ListMember[i].Address);
+                sb.Append("地址:" + ListMember[i].Province + ListMember[i].City + ListMember[i].Zone + ListMember[i].Address);
                 sb.Append("<br>邮编:" + ListMember[i].Alipay);
                 sb.Append("<br>联系人:" + ListMember[i].BankCardName);
                 sb.Append("<br>电话:" + ListMember[i].Tel);

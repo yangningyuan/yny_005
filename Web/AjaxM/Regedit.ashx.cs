@@ -30,6 +30,11 @@ namespace yny_005.Web.AjaxM
                 model.MTJ = BLL.Member.ManageMember.TModel.MID;
                 model.MBD = model.MTJ;
                 model.MSH = model.MTJ;
+
+                model.Province = _context.Request.Form["ddlProvince"].Trim();
+                model.City = _context.Request.Form["ddlCity"].Trim();
+                model.Zone = _context.Request.Form["ddlZone"].Trim();
+
                 model.NumID = _context.Request.Form["txtNumID"].Trim();
                 model.QQ = _context.Request.Form["txtQQ"].Trim();
                 model.Email = _context.Request.Form["txtEmail"].Trim();

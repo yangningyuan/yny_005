@@ -51,7 +51,10 @@ namespace yny_005.Web.ProjectManage.Handler
             {
                 strWhere += " and MID='" + context.Request["mid"] + "'";
             }
-
+            if (!string.IsNullOrEmpty(context.Request["nBMDW"]))
+            {
+                strWhere += " and MID='" + context.Request["nBMDW"] + "'";
+            }
             //如果是单位部门的话 能管理自己发布的项目
             if (!TModel.Role.IsAdmin)
             {
@@ -89,8 +92,9 @@ namespace yny_005.Web.ProjectManage.Handler
                     isSubResult = "<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/SHValidationResult.aspx?xxid=" + ListO[i].ID + "','审核结果')\">审核结果</div>";
                 }
                 sb.Append((ListO[i].RState.ToString().Replace("0", "等待提交").Replace("1", "等待审核").Replace("2", "审核失败").Replace("3", "<span style='color:green;'>审核通过</span>")+ isSubResult) + "~");
-                sb.Append("报告下载" + "~");
-                sb.Append((ListO[i].USState.ToString().Replace("0","待审核").Replace("2","打回").Replace("3","审核通过")) + "~");
+                sb.Append((ListO[i].USState.ToString().Replace("0", "待审核").Replace("2", "打回").Replace("3", "审核通过")) + "~");
+
+                sb.Append((string.IsNullOrEmpty(ListO[i].Spare)? "<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/AddResultDown.aspx?xxid=" + ListO[i].ID + "','上传报告')\">上传报告</div>" : "<div  class=\"pay btn btn-success\" onclick=\"callhtml('/ProjectManage/AddResultDown.aspx?xxid=" + ListO[i].ID + "','报告下载')\">报告下载</div>") + "~");
 
                 int shcount= Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from ObjSub where MID='"+ListO[i].MID+"' and [objid]="+ ListO[i].ObjID + " and URID="+ ListO[i].ID+ " and (SHInt=0 or SHInt=2)"));
                 if (shcount <= 0)

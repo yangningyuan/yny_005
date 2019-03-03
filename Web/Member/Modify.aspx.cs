@@ -56,6 +56,11 @@ namespace yny_005.Web.Member
                 model.Tel = Request.Form["txtTel"];
                 model.QQ = Request.Form["txtQQ"];
                 model.Email = Request.Form["txtEmail"];
+
+                model.Province =Request.Form["ddlProvince"].Trim();
+                model.City = Request.Form["ddlCity"].Trim();
+                model.Zone = Request.Form["ddlZone"].Trim();
+
                 if (TModel.MID == "admin")
                 {
                     model.QRCode = Request.Form["uploadurl"];
@@ -78,6 +83,11 @@ namespace yny_005.Web.Member
                     txtBankCardName.Value = value.BankCardName;
                     txtTel.Value = value.Tel;
                     txtQQ.Value = value.QQ;
+
+                    ddlProvince.Value = value.Province;
+                    ddlCity.Value = value.City;
+                    ddlZone.Value = value.Zone;
+
                     txtYouBian.Value = value.Alipay;
                     txtEmail.Value = value.Email;
                    
