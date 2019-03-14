@@ -923,6 +923,7 @@
     <Content Include="ProjectManage\ManageProjectList.aspx" />
     <Content Include="ProjectManage\ManageSHSignProjectList.aspx" />
     <Content Include="ProjectManage\ManageSumSignProjectList.aspx" />
+    <Content Include="ProjectManage\ModifyResult.aspx" />
     <Content Include="ProjectManage\ModifySignProject.aspx" />
     <Content Include="ProjectManage\MProjectList.aspx" />
     <Content Include="ProjectManage\MSampleList.aspx" />
@@ -1509,6 +1510,13 @@
     </Compile>
     <Compile Include="ProjectManage\ManageSumSignProjectList.aspx.designer.cs">
       <DependentUpon>ManageSumSignProjectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectManage\ModifyResult.aspx.cs">
+      <DependentUpon>ModifyResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectManage\ModifyResult.aspx.designer.cs">
+      <DependentUpon>ModifyResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProjectManage\ModifySignProject.aspx.cs">
       <DependentUpon>ModifySignProject.aspx</DependentUpon>

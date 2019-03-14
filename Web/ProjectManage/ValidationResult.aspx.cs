@@ -70,6 +70,7 @@ namespace yny_005.Web.ProjectManage
                 OSub.Spare = item.ChildName;
                 OSub.CID = item.ID;
                 OSub.ObjID = objxx.ID;
+                OSub.ObjOID = objxx.ObjOID;
                 OSub.URID = OU.ID;
                 OSub.SpInt = oA.ID;
                 BLL.ObjSub.Add(OSub, MyHs);

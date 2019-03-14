@@ -20,7 +20,7 @@
 
     <script type="text/javascript" src="/Admin/pop/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/Admin/pop/js/MyValide.js"></script>
-
+    <script src="/Admin/pop/js/stack.js"></script>
 </head>
 <body>
     <div class="layui-layout layui-layout-admin">
@@ -33,6 +33,7 @@
             </a>
             <div class="my-header-btn">
                 <button class="layui-btn layui-btn-small btn-nav"><i class="layui-icon">&#xe65f;</i></button>
+                <button class="layui-btn layui-btn-small" onclick="javascript:StackPop()"><i class="layui-icon"><<</i></button>
             </div>
 
             <!-- 顶部左侧添加选项卡监听 -->

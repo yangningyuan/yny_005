@@ -57,6 +57,7 @@
 
             </div>
             <div class="search" id="DivSearch" runat="server">
+                <input type="button" value="排序" class="ssubmit btn-success" onclick="SubSort($('#ObjCode').val(), $('#Grouping').val())" />
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
 
                 <select id="JGWhere" name="txtKey" data-name="txtKey">
@@ -65,7 +66,7 @@
                     <option value="ResultTwo">结果2</option>
                     <option value="ResultAvg">平均值</option>
                 </select>
-                <select id="JGType" name="txtKey" data-name="txtKey" >
+                <select id="JGType" name="txtKey" data-name="txtKey">
                     <option value="">查询类型</option>
                     <option value=">">></option>
                     <option value="<"><</option>
@@ -77,8 +78,11 @@
 
                 <input id="HYmid" name="txtKey" placeholder="会员名称" data-name="txtKey" type="text" class="sinput" />
                 <input id="ObjName" name="txtKey" placeholder="项目名称" data-name="txtKey" type="text" class="sinput" />
-                <input id="ObjCode" name="txtKey" placeholder="项目编号" data-name="txtKey" type="text" class="sinput" />
                 <input id="ObjReMID" name="txtKey" placeholder="发布项目单位账号" data-name="txtKey" type="text" class="sinput" />
+                <input id="ObjCode" name="txtKey" placeholder="项目编号" data-name="txtKey" type="text" class="sinput" />
+                <input id="Grouping" name="txtKey" placeholder="分组" data-name="txtKey" type="text" class="sinput" />
+
+
                 <input name="txtKey" data-name="txtKey" id="bmoid" value="<%=Request.QueryString["bmoid"] %>" type="text" class="sinput" style="width: 120px; display: none;" />
             </div>
 
@@ -108,6 +112,27 @@
                     </th>
                     <th>平均值
                     </th>
+
+                    <th>排序
+                    </th>
+                    <th>分组
+                    </th>
+                    <th>ZB
+                    </th>
+                    <th>Q1
+                    </th>
+                    <th>Q2
+                    </th>
+                    <th>IRQ
+                    </th>
+                    <th>M
+                    </th>
+                    <th>NIRQ
+                    </th>
+                     <th>状态
+                    </th>
+
+
                     <th>合格状态
                     </th>
                     <th>操作
@@ -136,6 +161,24 @@
         function DHChange(id) {
             layer.confirm("是否审核不合格此数据？", function () {
                 ActionModel("ProjectManage/MValidaList.aspx?Action=Modify&sid=" + id, $('#form1').serialize());
+            });
+        }
+
+        function SubSort(objoid, grouping) {
+            layer.confirm("确认排序吗？", function () {
+                ActionModel("ProjectManage/MValidaList.aspx?Action=Other&objoid=" + objoid + "&grouping=" + grouping, $('#form1').serialize());
+            });
+        }
+
+
+        function subModify(rid) {
+            layer.open({
+                type: 2,
+                title: '修改结果单',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['30%', '55%'],
+                content: '/ProjectManage/ModifyResult.aspx?rid=' + rid //iframe的url
             });
         }
     </script>

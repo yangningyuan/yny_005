@@ -129,6 +129,34 @@ namespace yny_005.Model
         /// 审核状态0：未审核  1：审核合格2：不合格
         /// </summary>
         public int SHInt { get; set; }
+
+        /// <summary>
+        /// 序号
+        /// </summary>
+        public string Serial { get; set; }
+        /// <summary>
+        /// 分组号
+        /// </summary>
+        public string Grouping { get; set; }
+        /// <summary>
+        /// ZB值
+        /// </summary>
+        public string ZB { get; set; }
+
+        public string Q1 { get; set; }
+
+        public string Q2 { get; set; }
+        public string IRQ { get; set; }
+
+        public string M { get; set; }
+
+        public string NIRQ { get; set; }
+
+        public string ResultStatus { get; set; }
+        /// <summary>
+        /// 项目OID
+        /// </summary>
+        public string ObjOID { get; set; }
         #endregion Model
 
     }

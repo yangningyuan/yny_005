@@ -39,7 +39,8 @@ function placeholderSupport() {
 }
 
 function callhtml(url, title) {
-    cur_pageIndex = 0;
+	cur_pageIndex = 0;
+	StackPush(url,title);
     if (url.indexOf("?") > -1)
         url += "&r=" + Math.random();
     else
@@ -52,6 +53,22 @@ function callhtml(url, title) {
     //else {
         setTimeout(function () { $("#main-content").load(url, function () { changetabcolor(title); }); }, 10);
     //}
+}
+
+function pcallhtml(url, title) {
+	cur_pageIndex = 0;
+	if (url.indexOf("?") > -1)
+		url += "&r=" + Math.random();
+	else
+		url += "?r=" + Math.random();
+	//if (RunAjaxGetKey('VerifyUrl', url) == 'TRUE') {
+	//    verifypsd(function () {
+	//        setTimeout(function () { $("#main-content").load(url, function () { changetabcolor(title); }); }, 10);
+	//    });
+	//}
+	//else {
+	setTimeout(function () { $("#main-content").load(url, function () { changetabcolor(title); }); }, 10);
+	//}
 }
 
 function checkForm() {

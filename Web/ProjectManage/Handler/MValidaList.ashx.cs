@@ -45,7 +45,12 @@ namespace yny_005.Web.ProjectManage.Handler
 
             if (!string.IsNullOrEmpty(context.Request["ObjCode"]))
             {
-                strWhere += " and  objID IN(SELECT ID FROM OObject WHERE ObjOID like  '%" + context.Request["ObjCode"].Trim() + "%') ";
+                strWhere += " and  objOID =  '" + context.Request["ObjCode"].Trim() + "' ";
+            }
+
+            if (!string.IsNullOrEmpty(context.Request["Grouping"]))
+            {
+                strWhere += " and  Grouping =  '" + context.Request["Grouping"].Trim() + "' ";
             }
 
             if (!string.IsNullOrEmpty(context.Request["ObjName"]))
@@ -96,12 +101,24 @@ namespace yny_005.Web.ProjectManage.Handler
                 sb.Append((ListO[i].ResultOne) + "~");
                 sb.Append((ListO[i].ResultTwo) + "~");
                 sb.Append((ListO[i].ResultAvg) + "~");
+                sb.Append((ListO[i].Serial) + "~");
+                sb.Append((ListO[i].Grouping) + "~");
+                sb.Append((ListO[i].ZB) + "~");
+                sb.Append((ListO[i].Q1) + "~");
+                sb.Append((ListO[i].Q2) + "~");
+                sb.Append((ListO[i].IRQ) + "~");
+                sb.Append((ListO[i].M) + "~");
+                sb.Append((ListO[i].NIRQ) + "~");
+                sb.Append((ListO[i].ResultStatus) + "~");
+
                 sb.Append((ListO[i].SHInt.ToString().Replace("0", "待审核").Replace("2", "不合格").Replace("1", "合格")) + "~");
                 if (ListO[i].SHInt == 0)
                 {
                     sb.Append("<div  class=\"pay btn btn-success\" onclick=\"SHChange('" + ListO[i].ID + "')\">合格</div>");
                     sb.Append("<div  class=\"pay btn btn-warning\" onclick=\"DHChange('" + ListO[i].ID + "')\">不合格</div>");
                 }
+
+                sb.Append("<div  class=\"pay btn btn-warning\" onclick=\"subModify('" + ListO[i].ID + "')\">修改</div>");
                 sb.Append("≌");
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };
